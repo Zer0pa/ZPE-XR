@@ -1,0 +1,23 @@
+{
+  "F-G1_close_XR-C002_XR-C007_or_pause_external": true,
+  "F-G2_license_risk_register_mapped": true,
+  "claim_statuses": {
+    "XR-C001": "PASS",
+    "XR-C002": "PASS",
+    "XR-C003": "PASS",
+    "XR-C004": "PASS",
+    "XR-C005": "PASS",
+    "XR-C006": "PASS",
+    "XR-C007": "PAUSED_EXTERNAL"
+  },
+  "evidence": [
+    "artifacts/2026-02-20_zpe_xr_wave1/claim_final_status.json",
+    "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+    "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md",
+    "artifacts/2026-02-20_zpe_xr_wave1/net_new_gap_closure_matrix.json"
+  ],
+  "gate": "F",
+  "generated_at_utc": "2026-02-21T11:11:53.987060+00:00",
+  "overall_pass": true,
+  "runtime_blocked": true
+}

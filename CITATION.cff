@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: >-
+  If you use ZPE-XR, cite this repository record.
+type: software
+title: "ZPE-XR: Deterministic XR Hand-Stream Codec and Evaluation Harness"
+authors:
+  - given-names: Zer0pa
+    family-names: Architect-Prime
+repository-code: https://github.com/Zer0pa/ZPE-XR
+url: https://github.com/Zer0pa/ZPE-XR
+license: LicenseRef-Zer0pa-SAL-6.0
+abstract: >-
+  ZPE-XR is a deterministic dual-hand pose codec and evaluation harness for XR
+  compression, latency, packet-loss recovery, gesture evaluation, and
+  Unity-envelope roundtrip checks. The current staged repo preserves a
+  historical Wave-1 proof bundle and an honest audit boundary.
+keywords:
+  - xr
+  - mixed reality
+  - codec
+  - pose compression
+  - deterministic replay
+  - network resilience

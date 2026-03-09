@@ -1,0 +1,11 @@
+{
+  "claim_id": "XR-C003",
+  "combined_avg_ms": 0.08331610888888889,
+  "combined_p95_ms": 0.1045,
+  "combined_p99_ms": 0.148208,
+  "decode_avg_ms": 0.011525784444444444,
+  "encode_avg_ms": 0.07179032444444446,
+  "num_frames": 1800,
+  "pass": true,
+  "pass_threshold_ms": 1.0
+}

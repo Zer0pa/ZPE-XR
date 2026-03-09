@@ -1,0 +1,67 @@
+{
+  "generated_at_utc": "2026-02-21T11:12:49.141977Z",
+  "before": {
+    "blocker_count": 3,
+    "blockers": [
+      {
+        "id": "B-M2",
+        "severity": "P0",
+        "gate": "M2",
+        "status": "OPEN",
+        "reason_code": "IMP-ACCESS/IMP-LICENSE",
+        "description": "Unity runtime + Meta SDK path unavailable and MANO commercial licensing unresolved.",
+        "evidence": "/Users/prinivenpillay/ZPE Multimodality/ZPE XR/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json"
+      },
+      {
+        "id": "B-M3",
+        "severity": "P0",
+        "gate": "M3",
+        "status": "OPEN",
+        "reason_code": "PERF-ROBUSTNESS",
+        "description": "Gesture under impairment below threshold in >30% stress profile.",
+        "evidence": "/Users/prinivenpillay/ZPE Multimodality/ZPE XR/artifacts/2026-02-20_zpe_xr_wave1/gate_m3_result.json"
+      },
+      {
+        "id": "B-E-NN",
+        "severity": "P0",
+        "gate": "E-max",
+        "status": "OPEN",
+        "reason_code": "NON_NEGOTIABLE_FAIL",
+        "description": "appendix_d_e_gates_pass=false causing NO_GO.",
+        "evidence": "/Users/prinivenpillay/ZPE Multimodality/ZPE XR/artifacts/2026-02-20_zpe_xr_wave1/quality_gate_scorecard.json"
+      }
+    ]
+  },
+  "after": {
+    "blocker_count": 2,
+    "blockers": [
+      {
+        "id": "B-M2",
+        "severity": "P0",
+        "gate": "M2",
+        "status": "OPEN",
+        "reason_code": "IMP-ACCESS|IMP-LICENSE",
+        "description": "Unity runtime still not executable from CLI after local install, containerized runtime inaccessible (docker daemon socket), and MANO commercial license unresolved.",
+        "evidence": "/Users/prinivenpillay/ZPE Multimodality/ZPE XR/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json"
+      },
+      {
+        "id": "B-E-NN",
+        "severity": "P0",
+        "gate": "E-max",
+        "status": "OPEN",
+        "reason_code": "NON_NEGOTIABLE_FAIL",
+        "description": "appendix_d_e_gates_pass=false due M2 fail, keeping max-wave adjudication NO_GO.",
+        "evidence": "/Users/prinivenpillay/ZPE Multimodality/ZPE XR/artifacts/2026-02-20_zpe_xr_wave1/quality_gate_scorecard.json"
+      }
+    ]
+  },
+  "delta": {
+    "closed_count": 1,
+    "closed_ids": [
+      "B-M3"
+    ],
+    "new_blockers_count": 0,
+    "new_blocker_ids": [],
+    "net_change": -1
+  }
+}

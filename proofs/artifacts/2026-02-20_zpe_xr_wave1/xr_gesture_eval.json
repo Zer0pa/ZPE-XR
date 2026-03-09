@@ -1,0 +1,29 @@
+{
+  "accuracy": 1.0,
+  "claim_id": "XR-C005",
+  "confusion_matrix": {
+    "fist": {
+      "fist": 40
+    },
+    "grip": {
+      "grip": 40
+    },
+    "pinch": {
+      "pinch": 40
+    },
+    "point": {
+      "point": 40
+    },
+    "spread": {
+      "spread": 40
+    },
+    "wave": {
+      "wave": 40
+    }
+  },
+  "correct_samples": 240,
+  "mean_confidence": 0.9131324650991002,
+  "pass": true,
+  "pass_threshold_accuracy": 0.95,
+  "total_samples": 240
+}

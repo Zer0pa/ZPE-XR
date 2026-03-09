@@ -1,0 +1,10 @@
+{
+  "E-G1_attempt_all_resources": true,
+  "E-G2_external_interaction_corpus_for_claim_closure": true,
+  "E-G3_license_paths_not_silent_pass": true,
+  "E-G4_all_skips_have_imp_code": true,
+  "E-G5_runpod_readiness_for_imp_compute": true,
+  "gate": "Appendix-E",
+  "generated_at_utc": "2026-02-21T11:11:53.845961+00:00",
+  "overall_pass": true
+}

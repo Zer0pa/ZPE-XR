@@ -1,0 +1,86 @@
+{
+  "dimensions": [
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/handoff_manifest.json"
+      ],
+      "name": "engineering_completeness",
+      "score": 5
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json"
+      ],
+      "name": "problem_solving_autonomy",
+      "score": 5
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/innovation_delta_report.md"
+      ],
+      "name": "exceed_brief_innovation",
+      "score": 3
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/interaction_stress_report.json"
+      ],
+      "name": "anti_toy_depth",
+      "score": 4
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/falsification_results.md"
+      ],
+      "name": "robustness_failure_transparency",
+      "score": 5
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/determinism_replay_results.json"
+      ],
+      "name": "deterministic_reproducibility",
+      "score": 5
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/regression_results.txt"
+      ],
+      "name": "code_quality_cohesion",
+      "score": 4
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json"
+      ],
+      "name": "performance_efficiency",
+      "score": 5
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/integration_readiness_contract.json"
+      ],
+      "name": "interoperability_readiness",
+      "score": 3
+    },
+    {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/claim_status_delta.md"
+      ],
+      "name": "scientific_claim_hygiene",
+      "score": 5
+    }
+  ],
+  "non_negotiable": {
+    "appendix_d_e_gates_pass": false,
+    "claims_have_evidence_paths": true,
+    "determinism_5_of_5": true,
+    "end_to_end_completed": true,
+    "lane_boundary_respected": true,
+    "uncaught_crash_rate_zero": true
+  },
+  "pass": false,
+  "pass_threshold": 45,
+  "rubric_version_date": "2026-02-20",
+  "total_score": 44
+}

@@ -1,0 +1,26 @@
+# Command Log
+set -a; source .env; set +a
+PYTHONHASHSEED=0 python3 scripts/lock_resources.py
+PYTHONHASHSEED=0 python3 scripts/generate_fixtures.py
+PYTHONHASHSEED=0 python3 scripts/run_gate_b.py
+PYTHONHASHSEED=0 python3 scripts/run_gate_c.py
+PYTHONHASHSEED=0 python3 scripts/run_gate_d.py
+PYTHONHASHSEED=0 ZPE_XR_PHASE=base python3 scripts/run_gate_e.py
+PYTHONHASHSEED=0 python3 -m pytest -q > artifacts/2026-02-20_zpe_xr_wave1/regression_results.txt  # FAILED: No module named pytest
+PYTHONHASHSEED=0 PYTHONPATH=src python3 -m unittest discover -s tests -p 'test_*.py' > artifacts/2026-02-20_zpe_xr_wave1/regression_results.txt 2>&1
+python3 -m venv .venv && source .venv/bin/activate
+python -m pip install numpy datasets huggingface_hub requests pillow
+PYTHONHASHSEED=0 python3 scripts/run_gate_m1.py
+PYTHONHASHSEED=0 python scripts/run_gate_m1.py  # rerun in .venv
+PYTHONHASHSEED=0 python scripts/run_gate_m2.py  # includes local install + container + substitute attempts
+command -v brew && brew search unity-hub && HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask unity-hub --no-quarantine
+docker --version && docker run --rm unityci/editor:ubuntu-2022.3.62f1-base-3 /bin/bash -lc 'unity-editor -version'
+command -v godot || command -v godot4; git ls-remote https://github.com/GodotVR/godot_openxr
+PYTHONHASHSEED=0 python3 scripts/run_gate_m2.py
+PYTHONHASHSEED=0 python3 scripts/run_gate_m3.py
+PYTHONHASHSEED=0 python scripts/run_gate_m3.py  # semantic_fec_v1_with_pose_fallback stress rerun
+PYTHONHASHSEED=0 python scripts/run_gate_m3.py  # rerun after decoder patch
+PYTHONHASHSEED=0 python3 scripts/run_gate_m4.py
+PYTHONHASHSEED=0 python3 scripts/run_appendix_e.py
+PYTHONHASHSEED=0 python3 scripts/run_gate_f.py
+PYTHONHASHSEED=0 ZPE_XR_PHASE=max python3 scripts/run_gate_e.py

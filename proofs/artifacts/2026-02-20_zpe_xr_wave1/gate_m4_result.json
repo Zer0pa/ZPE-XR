@@ -1,0 +1,44 @@
+{
+  "gate": "M4",
+  "generated_at_utc": "2026-02-21T11:11:50.246150+00:00",
+  "high_severity_open_count": 0,
+  "pass": true,
+  "rows": [
+    {
+      "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m1_result.json",
+      "gap": "HOT3D-backed benchmark path",
+      "gap_id": "D2-1",
+      "impracticality_code": null,
+      "quantified_impact": "None",
+      "severity": "HIGH",
+      "status": "CLOSED"
+    },
+    {
+      "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+      "gap": "Meta/Unity runtime integration",
+      "gap_id": "D2-2",
+      "impracticality_code": "IMP-ACCESS",
+      "quantified_impact": "XR-C007 production-readiness remains limited to interface-level contract evidence.",
+      "severity": "HIGH",
+      "status": "ACCEPTED_WITH_IMPACT"
+    },
+    {
+      "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+      "gap": "MANO licensing + retarget validation",
+      "gap_id": "D2-3",
+      "impracticality_code": "IMP-LICENSE",
+      "quantified_impact": "Cross-hand-model retarget fidelity remains INCONCLUSIVE until license-approved corpus execution.",
+      "severity": "HIGH",
+      "status": "ACCEPTED_WITH_IMPACT"
+    },
+    {
+      "evidence": "artifacts/2026-02-20_zpe_xr_wave1/interaction_stress_report.json",
+      "gap": "Extended stress profile >30% packet loss",
+      "gap_id": "D4-3",
+      "impracticality_code": null,
+      "quantified_impact": "Stress profile executed; see interaction report.",
+      "severity": "MEDIUM",
+      "status": "CLOSED"
+    }
+  ]
+}

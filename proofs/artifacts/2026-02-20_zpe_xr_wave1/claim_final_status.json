@@ -1,0 +1,110 @@
+{
+  "claims": {
+    "XR-C001": {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md"
+      ],
+      "status": "PASS"
+    },
+    "XR-C002": {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md"
+      ],
+      "status": "PASS"
+    },
+    "XR-C003": {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md"
+      ],
+      "status": "PASS"
+    },
+    "XR-C004": {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md"
+      ],
+      "status": "PASS"
+    },
+    "XR-C005": {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md"
+      ],
+      "status": "PASS"
+    },
+    "XR-C006": {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md"
+      ],
+      "status": "PASS"
+    },
+    "XR-C007": {
+      "evidence": [
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+        "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md"
+      ],
+      "status": "PAUSED_EXTERNAL"
+    }
+  },
+  "generated_at_utc": "2026-02-21T11:11:53.986476+00:00"
+}

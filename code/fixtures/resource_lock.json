@@ -1,0 +1,81 @@
+{
+  "comparators": {
+    "incumbent": "raw_openxr_float_stream",
+    "modern": "float16_delta_plus_zlib"
+  },
+  "concept_anchor": {
+    "exists": true,
+    "path": "README.md"
+  },
+  "determinism": {
+    "global_seeds": [
+      1103,
+      2207,
+      3301,
+      4409,
+      5501
+    ],
+    "pythonhashseed": "0",
+    "quantization_mm": 1.0
+  },
+  "lane_root": "code",
+  "lock_generated_at_utc": "2026-02-21T10:17:10.329240+00:00",
+  "resources": [
+    {
+      "access_mode": "reference-only",
+      "available_locally": false,
+      "fallback": "openxr_interface_contract_fixture_v1",
+      "local_probe": null,
+      "resource_id": "openxr_sdk",
+      "source_reference": "https://github.com/KhronosGroup/OpenXR-SDK"
+    },
+    {
+      "access_mode": "license-gated external",
+      "available_locally": false,
+      "fallback": "unity_envelope_contract_harness_v1",
+      "local_probe": null,
+      "resource_id": "meta_xr_sdk",
+      "source_reference": "Meta XR SDK v72+ (Unity package)"
+    },
+    {
+      "access_mode": "dataset external",
+      "available_locally": false,
+      "fallback": "synthetic_hot3d_snapshot_v1",
+      "local_probe": "code/fixtures/hot3d",
+      "resource_id": "hot3d",
+      "source_reference": "https://facebookresearch.github.io/hot3d/"
+    },
+    {
+      "access_mode": "external package",
+      "available_locally": false,
+      "fallback": "xr_input_contract_fixture_v1",
+      "local_probe": null,
+      "resource_id": "xr_interaction_toolkit",
+      "source_reference": "Unity package com.unity.xr.interaction.toolkit"
+    },
+    {
+      "access_mode": "external package",
+      "available_locally": false,
+      "fallback": "transport_serializer_compat_matrix_v1",
+      "local_probe": null,
+      "resource_id": "unity_netcode_and_fishnet",
+      "source_reference": "Unity Netcode 1.8 + FishNet MIT"
+    },
+    {
+      "access_mode": "registration/licensed",
+      "available_locally": false,
+      "fallback": "kinematic_hand_shape_proxy_v1",
+      "local_probe": "code/fixtures/mano",
+      "resource_id": "mano",
+      "source_reference": "https://mano.is.tue.mpg.de"
+    },
+    {
+      "access_mode": "paper reference",
+      "available_locally": false,
+      "fallback": "sparse-body-extension_decision_record_v1",
+      "local_probe": null,
+      "resource_id": "avatarposer",
+      "source_reference": "https://arxiv.org/abs/2207.13784"
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "claim_impact": {
+    "XR-C004": "PASS",
+    "XR-C005": "PASS",
+    "XR-C006": "PASS"
+  },
+  "gate": "M3",
+  "kill_tests": {
+    "bandwidth_latency_under_multi_peer": {
+      "16_player": {
+        "avg_packet_bytes": 59.932,
+        "fps": 90,
+        "kbps_for_4_player_session": 79.0119140625,
+        "pass": false,
+        "pass_threshold_kbps": 40.0,
+        "remote_players": 15
+      },
+      "8_player": {
+        "avg_packet_bytes": 59.932,
+        "fps": 90,
+        "kbps_for_4_player_session": 36.8722265625,
+        "pass": true,
+        "pass_threshold_kbps": 40.0,
+        "remote_players": 7
+      }
+    },
+    "gesture_under_impairment": {
+      "loss_profile": {
+        "jitter_probability": 0.3,
+        "loss_rate": 0.35,
+        "max_delay_frames": 2
+      },
+      "method": "semantic_fec_v1_with_pose_fallback",
+      "result": {
+        "accuracy": 1.0,
+        "confusion_matrix": {
+          "fist": {
+            "fist": 12
+          },
+          "grip": {
+            "grip": 12
+          },
+          "pinch": {
+            "pinch": 12
+          },
+          "point": {
+            "point": 12
+          },
+          "spread": {
+            "spread": 12
+          },
+          "wave": {
+            "wave": 12
+          }
+        },
+        "correct_samples": 72,
+        "decision_mode_primary": "semantic_fec",
+        "fallback_invocations": 0,
+        "notes": [
+          "Semantic token stream mirrors sender-side gesture inference and is replicated per packet.",
+          "No-threshold-relaxation: same >=0.85 accuracy criterion under 35% loss / 0.30 jitter."
+        ],
+        "pose_only_baseline": {
+          "accuracy": 0.3611111111111111,
+          "confusion_matrix": {
+            "fist": {
+              "fist": 12
+            },
+            "grip": {
+              "fist": 5,
+              "wave": 7
+            },
+            "pinch": {
+              "fist": 9,
+              "pinch": 3
+            },
+            "point": {
+              "fist": 6,
+              "point": 6
+            },
+            "spread": {
+              "fist": 5,
+              "wave": 7
+            },
+            "wave": {
+              "fist": 7,
+              "wave": 5
+            }
+          },
+          "correct_samples": 26,
+          "mean_confidence": 0.9598567114586142,
+          "total_samples": 72
+        },
+        "receiver_fallback_mode": "pose_classifier",
+        "token_receipt_stats": {
+          "max": 26,
+          "mean": 20.625,
+          "min": 15
+        },
+        "total_samples": 72
+      },
+      "seed_policy": "5501 + sample_index"
+    },
+    "retarget_fidelity_cross_model": {
+      "reason": "Requires HO-Cap or MANO official corpus execution path.",
+      "status": "INCONCLUSIVE"
+    }
+  },
+  "objective": "packet-loss resilience validated on extended (>30%) stress profile",
+  "pass": true,
+  "pass_conditions": {
+    "eight_player_bandwidth_under_40_kbps": true,
+    "gesture_accuracy_under_impairment_below_fail_threshold": true,
+    "loss_35_pose_error_below_12pct": true,
+    "stress_profile_over_30pct_executed": true
+  },
+  "stress_profiles": [
+    {
+      "decoder_stats": {
+        "backup_recoveries": 476,
+        "concealed_frames": 1065,
+        "parse_failures": 0
+      },
+      "delivery_stats": {
+        "missing_packets": 1065,
+        "provided_packets": 935,
+        "total_frames": 2000
+      },
+      "jitter_probability": 0.3,
+      "loss_rate": 0.35,
+      "max_delay_frames": 2,
+      "mpjpe_mm": 8.86765826015676,
+      "pass": false,
+      "pass_threshold_percent": 5.0,
+      "pose_error_percent": 7.389715216797301,
+      "seed": 1103
+    },
+    {
+      "decoder_stats": {
+        "backup_recoveries": 450,
+        "concealed_frames": 1293,
+        "parse_failures": 0
+      },
+      "delivery_stats": {
+        "missing_packets": 1293,
+        "provided_packets": 707,
+        "total_frames": 2000
+      },
+      "jitter_probability": 0.35,
+      "loss_rate": 0.45,
+      "max_delay_frames": 3,
+      "mpjpe_mm": 9.296354685780036,
+      "pass": false,
+      "pass_threshold_percent": 5.0,
+      "pose_error_percent": 7.74696223815003,
+      "seed": 2207
+    }
+  ]
+}

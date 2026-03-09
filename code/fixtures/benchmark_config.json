@@ -1,0 +1,30 @@
+{
+  "benchmark_sequence": {
+    "digest": "8586e20a0451aaa6e75e9767e13932a755dbeca4574348c9d3babb78a44f9c4d",
+    "gesture": "mixed",
+    "num_frames": 1800,
+    "seed": 1103
+  },
+  "determinism_seeds": [
+    1103,
+    2207,
+    3301,
+    4409,
+    5501
+  ],
+  "gesture_corpus": {
+    "first_sample_digest": "f3c569c56e53710b58caa9de8b05f283e518b237f20785b8cc982b6127af072c",
+    "frames_per_sample": 60,
+    "labels": [
+      "pinch",
+      "grip",
+      "wave",
+      "point",
+      "spread",
+      "fist"
+    ],
+    "num_samples": 240,
+    "samples_per_gesture": 40,
+    "seed": 2207
+  }
+}

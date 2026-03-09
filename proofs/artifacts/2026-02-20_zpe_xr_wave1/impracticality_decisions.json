@@ -1,0 +1,53 @@
+[
+  {
+    "claim_impact": {
+      "XR-C001": "UNCHANGED",
+      "XR-C002": "UNCHANGED",
+      "XR-C004": "UNCHANGED",
+      "XR-C005": "UNCHANGED",
+      "XR-C006": "UNCHANGED",
+      "XR-C007": "UNCHANGED"
+    },
+    "code": "IMP-ACCESS",
+    "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+    "error_signature": "No resource-specific public dataset/code URL found on arXiv page",
+    "fallback": "Use deterministic synthetic or interface-level harness and keep dependent claims INCONCLUSIVE",
+    "resource": "HOI-M3"
+  },
+  {
+    "claim_impact": {
+      "XR-C001": "UNCHANGED",
+      "XR-C002": "UNCHANGED",
+      "XR-C004": "UNCHANGED",
+      "XR-C005": "UNCHANGED",
+      "XR-C006": "UNCHANGED",
+      "XR-C007": "UNCHANGED"
+    },
+    "code": "IMP-ACCESS",
+    "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+    "error_signature": "No resource-specific public dataset/code URL found on arXiv page",
+    "fallback": "Retain MANO-free retarget planning from concept, pending public dataset endpoint",
+    "resource": "HO-Cap"
+  },
+  {
+    "claim_impact": {
+      "XR-C007": "PAUSED_EXTERNAL"
+    },
+    "code": "IMP-ACCESS",
+    "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+    "error_signature": "UNITY_CLI_NOT_FOUND",
+    "fallback": "Retain Unity envelope contract harness and defer runtime execution.",
+    "resource": "Unity runtime (Meta XR path)"
+  },
+  {
+    "claim_impact": {
+      "XR-C002": "UNCHANGED",
+      "XR-C007": "PAUSED_EXTERNAL"
+    },
+    "code": "IMP-LICENSE",
+    "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+    "error_signature": "Commercial licensing unresolved from public portal probes",
+    "fallback": "Use HO-Cap/kinematic alternatives and move runtime-retarget commercialization to PAUSED_EXTERNAL when required.",
+    "resource": "MANO licensed retarget assets"
+  }
+]

@@ -33,7 +33,7 @@
 <a id="what-this-is"></a>
 <h2 align="center">What This Is</h2>
 
-ZPE-XR is a private-stage package candidate for an XR hand-stream codec and evaluation harness. The repo is buildable and inspectable, but it is not a public release and it does not claim device runtime closure.
+ZPE-XR is a private-stage package candidate for an XR hand-stream codec and evaluation harness. This repository (main branch) is the canonical ZPE-XR workstream; any other repos or forks are non-authoritative drift. The repo is buildable and inspectable, but it is not a public release and it does not claim device runtime closure.
 
 <p>
   <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="EVIDENCE AND CLAIMS" width="100%">

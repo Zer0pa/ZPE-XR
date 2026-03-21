@@ -50,6 +50,10 @@ This repo is governed by four simple rules:
       <td>2026-03-21</td>
     </tr>
     <tr>
+      <td>Canonical workstream</td>
+      <td>This repository on the `main` branch (other repos are drift)</td>
+    </tr>
+    <tr>
       <td>Blocking class</td>
       <td>Modern comparator gate failed `0/5`</td>
     </tr>

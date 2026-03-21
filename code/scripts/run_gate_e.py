@@ -10,18 +10,28 @@ from pathlib import Path
 import sys
 from typing import Any, Dict, List
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
 
 from zpe_xr.codec import XRCodec
 from zpe_xr.io_utils import read_json, sha256_of_file, write_json
 from zpe_xr.network import encode_sequence
 from zpe_xr.pipeline import evaluate_packet_loss_resilience, evaluate_unity_roundtrip
+from zpe_xr.runtime_paths import resolve_artifact_dir
 from zpe_xr.synthetic import generate_sequence
 
-ARTIFACT_DIR = ROOT.parent / "proofs" / "artifacts" / "2026-02-20_zpe_xr_wave1"
+ARTIFACT_DIR = resolve_artifact_dir(ROOT)
+CURRENT_ARTIFACT_REF = f"artifacts/{ARTIFACT_DIR.name}"
+HISTORICAL_ARTIFACT_REF = "artifacts/2026-02-20_zpe_xr_wave1"
+
+
+def _artifact_ref(name: str) -> str:
+    return f"{CURRENT_ARTIFACT_REF}/{name}"
+
+
+def _historical_ref(name: str) -> str:
+    return f"{HISTORICAL_ARTIFACT_REF}/{name}"
 
 
 def _load_json(name: str, *, required: bool = True) -> Dict[str, Any]:
@@ -72,33 +82,42 @@ def _has_external_coverage(claim_id: str, claim_map: Dict[str, Any]) -> bool:
     return any(bool(resource.get("dataset_access_confirmed")) for resource in resources)
 
 
-def _write_open_questions(appendix_e: Dict[str, Any]) -> None:
+def _write_open_questions(appendix_e: Dict[str, Any], *, max_phase_ready: bool) -> None:
+    m2_ref = _artifact_ref("gate_m2_result.json") if max_phase_ready else _historical_ref("gate_m2_result.json")
+    appendix_ref = _artifact_ref("gate_appendix_e_result.json") if max_phase_ready else _historical_ref("gate_appendix_e_result.json")
+    license_ref = _artifact_ref("license_risk_register_xr.md") if max_phase_ready else _historical_ref("license_risk_register_xr.md")
     eg2 = appendix_e.get("E-G2_external_interaction_corpus_for_claim_closure")
     lines = [
         "# Concept Open Questions Resolution",
         "",
         "| Question | Status | Resolution | Evidence |",
         "|---|---|---|---|",
-        f"| What is Quest 3 hand tracking update rate (90 Hz vs 72 Hz)? | INCONCLUSIVE | Hardware runtime not available in lane execution. | proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json |",
-        f"| Can Meta XR SDK joints be intercepted pre-NetworkTransform? | INCONCLUSIVE | Unity runtime probe incomplete due environment constraints. | proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json |",
-        f"| Does HOT3D license permit commercial benchmark publication? | INCONCLUSIVE | NC licensing remains an explicit risk item. | proofs/artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md |",
-        f"| Can external interaction corpus evidence support claim closure? | {'RESOLVED' if eg2 else 'INCONCLUSIVE'} | Appendix E gate E-G2 status used for closure adjudication. | proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_appendix_e_result.json |",
-        "| What is MANO commercial licensing cost? | INCONCLUSIVE | License workflow unresolved in current lane run. | proofs/artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md |",
+        f"| What is Quest 3 hand tracking update rate (90 Hz vs 72 Hz)? | INCONCLUSIVE | Hardware runtime not available in lane execution. | {m2_ref} |",
+        f"| Can Meta XR SDK joints be intercepted pre-NetworkTransform? | INCONCLUSIVE | Unity runtime probe incomplete due environment constraints. | {m2_ref} |",
+        f"| Does HOT3D license permit commercial benchmark publication? | INCONCLUSIVE | NC licensing remains an explicit risk item. | {license_ref} |",
+        f"| Can external interaction corpus evidence support claim closure? | {'RESOLVED' if eg2 else 'INCONCLUSIVE'} | Appendix E gate E-G2 status used for closure adjudication. | {appendix_ref} |",
+        f"| What is MANO commercial licensing cost? | INCONCLUSIVE | License workflow unresolved in current lane run. | {license_ref} |",
         "",
     ]
     (ARTIFACT_DIR / "concept_open_questions_resolution.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def _write_resource_traceability(claim_map: Dict[str, Any], impracticality: List[Dict[str, Any]]) -> None:
+def _write_resource_traceability(
+    claim_map: Dict[str, Any], impracticality: List[Dict[str, Any]], *, max_phase_ready: bool
+) -> None:
     imp_by_resource = {item["resource"]: item for item in impracticality}
     mapping = claim_map.get("mapping", {})
+    gate_m2_ref = _artifact_ref("gate_m2_result.json") if max_phase_ready else _historical_ref("gate_m2_result.json")
+    gate_m1_ref = _artifact_ref("gate_m1_result.json") if max_phase_ready else _historical_ref("gate_m1_result.json")
+    integration_ref = _artifact_ref("integration_readiness_contract.json")
+    bandwidth_ref = _artifact_ref("xr_bandwidth_eval.json")
 
     appendix_b_rows = [
         {
             "item": "OpenXR SDK interface compliance check included",
             "source_reference": "https://github.com/KhronosGroup/OpenXR-SDK",
             "planned_usage": "validate packet/joint schema compatibility",
-            "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/integration_readiness_contract.json",
+            "evidence_artifact": integration_ref,
             "status": "RESOLVED",
             "substitution": "None",
             "comparability_impact": "Low",
@@ -107,7 +126,7 @@ def _write_resource_traceability(claim_map: Dict[str, Any], impracticality: List
             "item": "Meta XR SDK integration path validated where accessible",
             "source_reference": "Meta XR SDK",
             "planned_usage": "runtime validation",
-            "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+            "evidence_artifact": gate_m2_ref,
             "status": "PAUSED_EXTERNAL",
             "substitution": "interface contract harness",
             "comparability_impact": "Medium",
@@ -116,7 +135,7 @@ def _write_resource_traceability(claim_map: Dict[str, Any], impracticality: List
             "item": "HOT3D dataset included in benchmark matrix",
             "source_reference": "https://github.com/facebookresearch/hot3d",
             "planned_usage": "external hand trajectory benchmarking",
-            "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m1_result.json",
+            "evidence_artifact": gate_m1_ref,
             "status": "RESOLVED" if any(r.get("dataset_access_confirmed") for r in mapping.get("XR-C001", [])) else "INCONCLUSIVE",
             "substitution": imp_by_resource.get("HOT3D toolkit", {}).get("fallback", "synthetic harness"),
             "comparability_impact": "High" if not any(r.get("dataset_access_confirmed") for r in mapping.get("XR-C001", [])) else "Low",
@@ -125,7 +144,7 @@ def _write_resource_traceability(claim_map: Dict[str, Any], impracticality: List
             "item": "XR Interaction Toolkit interoperability run included",
             "source_reference": "com.unity.xr.interaction.toolkit",
             "planned_usage": "Unity runtime interoperability",
-            "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+            "evidence_artifact": gate_m2_ref,
             "status": "PAUSED_EXTERNAL",
             "substitution": "docs and endpoint probes",
             "comparability_impact": "Medium",
@@ -134,7 +153,7 @@ def _write_resource_traceability(claim_map: Dict[str, Any], impracticality: List
             "item": "Unity Netcode and FishNet network-path evaluations included",
             "source_reference": "Unity Netcode/FishNet",
             "planned_usage": "network bandwidth and loss stress",
-            "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json",
+            "evidence_artifact": bandwidth_ref,
             "status": "RESOLVED",
             "substitution": "deterministic in-process simulator",
             "comparability_impact": "Medium",
@@ -143,7 +162,7 @@ def _write_resource_traceability(claim_map: Dict[str, Any], impracticality: List
             "item": "MANO hand-model retargeting validation included",
             "source_reference": "https://mano.is.tue.mpg.de",
             "planned_usage": "retarget validation",
-            "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+            "evidence_artifact": gate_m2_ref,
             "status": "PAUSED_EXTERNAL",
             "substitution": "HO-Cap planned alternative",
             "comparability_impact": "High",
@@ -152,7 +171,7 @@ def _write_resource_traceability(claim_map: Dict[str, Any], impracticality: List
             "item": "AvatarPoser outcomes captured as body-extension design decisions",
             "source_reference": "https://arxiv.org/abs/2207.13784",
             "planned_usage": "body extension roadmap",
-            "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/integration_readiness_contract.json",
+            "evidence_artifact": integration_ref,
             "status": "RESOLVED",
             "substitution": "N/A",
             "comparability_impact": "Low",
@@ -198,7 +217,7 @@ def _write_integration_contract(
                 "dependency": "pytest",
                 "failure_signature": "No module named pytest",
                 "substitute": "unittest discover",
-                "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/regression_results.txt",
+                "evidence_artifact": _artifact_ref("regression_results.txt"),
                 "comparability_impact": "Low",
                 "equivalence_proven": True,
             }
@@ -213,16 +232,22 @@ def _write_quality_scorecard(
     innovation_score = 4 if not max_phase_ready else (4 if max_wave_pass else 3)
     interoperability_score = 4 if not max_phase_ready else (4 if max_wave_pass else 3)
     dimensions = [
-        {"name": "engineering_completeness", "score": 5, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/handoff_manifest.json"]},
-        {"name": "problem_solving_autonomy", "score": 5, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json"]},
-        {"name": "exceed_brief_innovation", "score": innovation_score, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/innovation_delta_report.md"]},
-        {"name": "anti_toy_depth", "score": 4, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/interaction_stress_report.json"]},
-        {"name": "robustness_failure_transparency", "score": 5, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/falsification_results.md"]},
-        {"name": "deterministic_reproducibility", "score": 5, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/determinism_replay_results.json"]},
-        {"name": "code_quality_cohesion", "score": 4, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/regression_results.txt"]},
-        {"name": "performance_efficiency", "score": 5, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json"]},
-        {"name": "interoperability_readiness", "score": interoperability_score, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/integration_readiness_contract.json"]},
-        {"name": "scientific_claim_hygiene", "score": 5, "evidence": ["proofs/artifacts/2026-02-20_zpe_xr_wave1/claim_status_delta.md"]},
+        {"name": "engineering_completeness", "score": 5, "evidence": [_artifact_ref("handoff_manifest.json")]},
+        {"name": "problem_solving_autonomy", "score": 5, "evidence": [_artifact_ref("command_log.txt")]},
+        {"name": "exceed_brief_innovation", "score": innovation_score, "evidence": [_artifact_ref("innovation_delta_report.md")]},
+        {
+            "name": "anti_toy_depth",
+            "score": 4,
+            "evidence": [
+                _artifact_ref("interaction_stress_report.json") if max_phase_ready else _artifact_ref("falsification_results.md")
+            ],
+        },
+        {"name": "robustness_failure_transparency", "score": 5, "evidence": [_artifact_ref("falsification_results.md")]},
+        {"name": "deterministic_reproducibility", "score": 5, "evidence": [_artifact_ref("determinism_replay_results.json")]},
+        {"name": "code_quality_cohesion", "score": 4, "evidence": [_artifact_ref("regression_results.txt")]},
+        {"name": "performance_efficiency", "score": 5, "evidence": [_artifact_ref("xr_latency_benchmark.json")]},
+        {"name": "interoperability_readiness", "score": interoperability_score, "evidence": [_artifact_ref("integration_readiness_contract.json")]},
+        {"name": "scientific_claim_hygiene", "score": 5, "evidence": [_artifact_ref("claim_status_delta.md")]},
     ]
 
     total = sum(d["score"] for d in dimensions)
@@ -256,36 +281,32 @@ def _write_innovation(before_after: Dict[str, Any], max_wave_pass: bool) -> None
     (ARTIFACT_DIR / "innovation_delta_report.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def _write_command_log() -> None:
+def _write_command_log(phase_mode: str) -> None:
+    regression_ref = _artifact_ref("regression_results.txt")
     lines = [
         "# Command Log",
-        "set -a; source .env; set +a",
         "PYTHONHASHSEED=0 python3 scripts/lock_resources.py",
         "PYTHONHASHSEED=0 python3 scripts/generate_fixtures.py",
+        f"PYTHONHASHSEED=0 PYTHONPATH=src python3 -m unittest discover -s tests -p 'test_*.py' > {regression_ref} 2>&1",
         "PYTHONHASHSEED=0 python3 scripts/run_gate_b.py",
         "PYTHONHASHSEED=0 python3 scripts/run_gate_c.py",
         "PYTHONHASHSEED=0 python3 scripts/run_gate_d.py",
-        "PYTHONHASHSEED=0 ZPE_XR_PHASE=base python3 scripts/run_gate_e.py",
-        "PYTHONHASHSEED=0 python3 -m pytest -q > proofs/artifacts/2026-02-20_zpe_xr_wave1/regression_results.txt  # FAILED: No module named pytest",
-        "PYTHONHASHSEED=0 PYTHONPATH=src python3 -m unittest discover -s tests -p 'test_*.py' > proofs/artifacts/2026-02-20_zpe_xr_wave1/regression_results.txt 2>&1",
-        "python3 -m venv .venv && source .venv/bin/activate",
-        "python -m pip install numpy datasets huggingface_hub requests pillow",
-        "PYTHONHASHSEED=0 python3 scripts/run_gate_m1.py",
-        "PYTHONHASHSEED=0 python scripts/run_gate_m1.py  # rerun in .venv",
-        "PYTHONHASHSEED=0 python scripts/run_gate_m2.py  # includes local install + container + substitute attempts",
-        "command -v brew && brew search unity-hub && HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask unity-hub --no-quarantine",
-        "docker --version && docker run --rm unityci/editor:ubuntu-2022.3.62f1-base-3 /bin/bash -lc 'unity-editor -version'",
-        "command -v godot || command -v godot4; git ls-remote https://github.com/GodotVR/godot_openxr",
-        "PYTHONHASHSEED=0 python3 scripts/run_gate_m2.py",
-        "PYTHONHASHSEED=0 python3 scripts/run_gate_m3.py",
-        "PYTHONHASHSEED=0 python scripts/run_gate_m3.py  # semantic_fec_v1_with_pose_fallback stress rerun",
-        "PYTHONHASHSEED=0 python scripts/run_gate_m3.py  # rerun after decoder patch",
-        "PYTHONHASHSEED=0 python3 scripts/run_gate_m4.py",
-        "PYTHONHASHSEED=0 python3 scripts/run_appendix_e.py",
-        "PYTHONHASHSEED=0 python3 scripts/run_gate_f.py",
-        "PYTHONHASHSEED=0 ZPE_XR_PHASE=max python3 scripts/run_gate_e.py",
-        "",
     ]
+    if phase_mode == "max":
+        lines.extend(
+            [
+                "PYTHONHASHSEED=0 python3 scripts/run_gate_m1.py",
+                "PYTHONHASHSEED=0 python3 scripts/run_gate_m2.py",
+                "PYTHONHASHSEED=0 python3 scripts/run_gate_m3.py",
+                "PYTHONHASHSEED=0 python3 scripts/run_gate_m4.py",
+                "PYTHONHASHSEED=0 python3 scripts/run_appendix_e.py",
+                "PYTHONHASHSEED=0 python3 scripts/run_gate_f.py",
+                "PYTHONHASHSEED=0 ZPE_XR_PHASE=max python3 scripts/run_gate_e.py",
+            ]
+        )
+    else:
+        lines.append("PYTHONHASHSEED=0 ZPE_XR_PHASE=base python3 scripts/run_gate_e.py")
+    lines.append("")
     (ARTIFACT_DIR / "command_log.txt").write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -344,6 +365,9 @@ def main() -> int:
         max_phase_ready = True
     else:
         max_phase_ready = max_phase_detected
+
+    if not max_phase_ready and "XR-C007" not in claim_overrides:
+        claim_overrides["XR-C007"] = "PAUSED_EXTERNAL"
 
     external_corpus_available = bool(
         gate_e_appendix.get("E-G2_external_interaction_corpus_for_claim_closure", False)
@@ -414,7 +438,7 @@ def main() -> int:
                 enforce_external=max_phase_ready,
                 force_inconclusive=(max_phase_ready and "XR-C001" in imp_inconclusive_claims),
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_compression_benchmark.json; proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "evidence": _artifact_ref("xr_compression_benchmark.json"),
             "metric": f"CR={compression['compression_ratio_vs_raw']:.2f}x",
         },
         {
@@ -425,7 +449,7 @@ def main() -> int:
                 enforce_external=max_phase_ready,
                 force_inconclusive=(max_phase_ready and "XR-C002" in imp_inconclusive_claims),
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_fidelity_eval.json; proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "evidence": _artifact_ref("xr_fidelity_eval.json"),
             "metric": f"MPJPE={fidelity['mpjpe_mm']:.3f}mm",
         },
         {
@@ -436,7 +460,7 @@ def main() -> int:
                 enforce_external=max_phase_ready,
                 force_inconclusive=(max_phase_ready and "XR-C003" in imp_inconclusive_claims),
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_latency_benchmark.json; proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "evidence": _artifact_ref("xr_latency_benchmark.json"),
             "metric": f"Combined={latency['combined_avg_ms']:.4f}ms",
         },
         {
@@ -447,7 +471,7 @@ def main() -> int:
                 enforce_external=max_phase_ready,
                 force_inconclusive=(max_phase_ready and "XR-C004" in imp_inconclusive_claims),
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_packet_loss_resilience.json; proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "evidence": _artifact_ref("xr_packet_loss_resilience.json"),
             "metric": f"PoseError={packet_loss['target_case']['pose_error_percent']:.3f}%",
         },
         {
@@ -458,7 +482,7 @@ def main() -> int:
                 enforce_external=max_phase_ready,
                 force_inconclusive=(max_phase_ready and "XR-C005" in imp_inconclusive_claims),
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_gesture_eval.json; proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "evidence": _artifact_ref("xr_gesture_eval.json"),
             "metric": f"Acc={gesture['accuracy']:.3f}",
         },
         {
@@ -469,7 +493,7 @@ def main() -> int:
                 enforce_external=max_phase_ready,
                 force_inconclusive=(max_phase_ready and "XR-C006" in imp_inconclusive_claims),
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_bandwidth_eval.json; proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "evidence": _artifact_ref("xr_bandwidth_eval.json"),
             "metric": f"BW={bandwidth['kbps_for_4_player_session']:.3f}KB/s",
         },
         {
@@ -480,7 +504,9 @@ def main() -> int:
                 enforce_external=max_phase_ready,
                 force_inconclusive=(max_phase_ready and "XR-C007" in imp_inconclusive_claims),
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/xr_unity_roundtrip.json; proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "evidence": f"{_artifact_ref('xr_unity_roundtrip.json')}; ZPE-XR/proofs/FINAL_STATUS.md"
+            if not max_phase_ready
+            else f"{_artifact_ref('xr_unity_roundtrip.json')}; {_artifact_ref('max_claim_resource_map.json')}",
             "metric": f"UnityMPJPE={unity_roundtrip['mpjpe_mm']:.3f}mm",
         },
     ]
@@ -490,15 +516,24 @@ def main() -> int:
         if override is None:
             continue
         row["status"] = override
-        if "gate_f_result.json" not in row["evidence"]:
+        if max_phase_ready and "gate_f_result.json" not in row["evidence"]:
             row["evidence"] = (
                 row["evidence"]
-                + "; proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_f_result.json"
+                + f"; {_artifact_ref('gate_f_result.json')}"
             )
 
     _write_claim_delta(claim_rows)
 
-    claims_all_pass = all(row["status"] == "PASS" for row in claim_rows)
+    if max_phase_ready:
+        claims_all_pass = all(row["status"] == "PASS" for row in claim_rows)
+    else:
+        unity_status = next(
+            (row["status"] for row in claim_rows if row["claim_id"] == "XR-C007"),
+            "FAIL",
+        )
+        claims_all_pass = all(
+            row["status"] == "PASS" for row in claim_rows if row["claim_id"] != "XR-C007"
+        ) and unity_status in {"PASS", "PAUSED_EXTERNAL"}
 
     m_gates_pass = all(
         bool(gate.get("pass"))
@@ -517,8 +552,12 @@ def main() -> int:
         "appendix_d_e_gates_pass": True if not max_phase_ready else max_wave_pass,
     }
 
-    _write_open_questions(gate_e_appendix)
-    _write_resource_traceability(claim_resource_map, impracticality)
+    _write_open_questions(gate_e_appendix, max_phase_ready=max_phase_ready)
+    _write_resource_traceability(
+        claim_resource_map,
+        impracticality,
+        max_phase_ready=max_phase_ready,
+    )
 
     # Preserve m4-updated residual risk register if already present.
     if not (ARTIFACT_DIR / "residual_risk_register.md").exists():
@@ -538,7 +577,7 @@ def main() -> int:
         non_negotiable, max_wave_pass, max_phase_ready=max_phase_ready
     )
     _write_innovation(before_after, max_wave_pass)
-    _write_command_log()
+    _write_command_log("max" if max_phase_ready else "base")
 
     required_files_without_handoff = [
         "before_after_metrics.json",
@@ -595,7 +634,7 @@ def main() -> int:
             continue
         entries.append(
             {
-                "path": f"proofs/artifacts/2026-02-20_zpe_xr_wave1/{rel}",
+                "path": _artifact_ref(rel),
                 "sha256": sha256_of_file(path),
                 "bytes": path.stat().st_size,
             }

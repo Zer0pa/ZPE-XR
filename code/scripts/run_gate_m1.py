@@ -8,12 +8,17 @@ import shlex
 import sys
 from typing import Any, Dict, List
 
-ROOT = Path(__file__).resolve().parents[1]
-ARTIFACT_DIR = ROOT.parent / "proofs" / "artifacts" / "2026-02-20_zpe_xr_wave1"
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
+ARTIFACT_DIR = None
 if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
 
 from max_resource_probe import append_log, run_cmd, utc_now_iso, write_json
+from zpe_xr.runtime_paths import resolve_artifact_dir
+
+ARTIFACT_DIR = resolve_artifact_dir(ROOT)
 
 
 def _status_from_result(result) -> str:
@@ -119,7 +124,7 @@ def main() -> int:
             "XR-C005": "PASS" if m1_pass else "INCONCLUSIVE",
         },
         "evidence": [
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+            "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
         ],
     }
 

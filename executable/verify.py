@@ -12,16 +12,8 @@ PHASE1_RUN_ID = "2026-03-20_zpe_xr_wave1_live"
 PHASE2_RUN_ID = "2026-03-20_zpe_xr_phase2_pre_runpod"
 
 
-def _candidate_source_root(repo_root: Path) -> Path | None:
-    for candidate in (
-        repo_root / "source",
-        repo_root / "src",
-        repo_root / "code" / "source",
-        repo_root / "code" / "src",
-    ):
-        if candidate.exists():
-            return candidate
-    return None
+def _canonical_source_root(repo_root: Path) -> Path:
+    return repo_root / "code" / "source"
 
 
 def _candidate_site_packages(repo_root: Path) -> tuple[Path, ...]:
@@ -70,14 +62,13 @@ def _latest_phase3_dir(repo_root: Path) -> Path | None:
 
 def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
-    source_root = _candidate_source_root(repo_root)
-    if source_root is None:
-        raise RuntimeError("no source root found for verify.py")
-    sys.path.insert(0, str(source_root))
+    source_root = _canonical_source_root(repo_root)
+    if not source_root.exists():
+        raise RuntimeError(f"canonical source root not found for verify.py: {source_root}")
     for site_packages in _candidate_site_packages(repo_root):
         site_packages_str = str(site_packages)
         if site_packages_str not in sys.path:
-            sys.path.insert(1, site_packages_str)
+            sys.path.append(site_packages_str)
 
     phase3_dir = _latest_phase3_dir(repo_root)
     artifact_root = _artifact_root(repo_root)
@@ -86,7 +77,7 @@ def main() -> int:
     readme_path = _readme_path(repo_root)
     checks = {
         "repo_root": str(repo_root),
-        "source_root": str(source_root),
+        "canonical_source_root": str(source_root),
         "site_packages": [str(path) for path in _candidate_site_packages(repo_root)],
         "fresh_phase1_bundle_present": (artifact_root / PHASE1_RUN_ID).exists(),
         "fresh_phase2_bundle_present": (artifact_root / PHASE2_RUN_ID).exists(),

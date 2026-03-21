@@ -8,14 +8,14 @@ from pathlib import Path
 import sys
 from typing import Any, Dict, List, Tuple
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
 
 from zpe_xr.io_utils import utc_now_iso, write_json
+from zpe_xr.runtime_paths import resolve_artifact_dir
 
-ARTIFACT_DIR = ROOT.parent / "proofs" / "artifacts" / "2026-02-20_zpe_xr_wave1"
+ARTIFACT_DIR = resolve_artifact_dir(ROOT)
 
 
 def _load_json(name: str, *, required: bool = True) -> Any:
@@ -81,7 +81,7 @@ def _ensure_impracticality_records(
             {
                 "resource": "Unity runtime (Meta XR path)",
                 "code": "IMP-ACCESS",
-                "command_evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+                "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
                 "error_signature": "UNITY_RUNTIME_OR_DEVICE_UNAVAILABLE",
                 "fallback": "Retain interface-level Unity envelope tests; runtime closure paused until Unity runtime/device access is available.",
                 "claim_impact": {"XR-C007": "PAUSED_EXTERNAL"},
@@ -93,7 +93,7 @@ def _ensure_impracticality_records(
             {
                 "resource": "Meta XR SDK package endpoint",
                 "code": "IMP-ACCESS",
-                "command_evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+                "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
                 "error_signature": "META_XR_SDK_ENDPOINT_UNAVAILABLE",
                 "fallback": "Retain OpenXR-compatible interface harness while runtime SDK path is blocked.",
                 "claim_impact": {"XR-C007": "PAUSED_EXTERNAL"},
@@ -105,7 +105,7 @@ def _ensure_impracticality_records(
             {
                 "resource": "MANO licensed retarget assets",
                 "code": "IMP-LICENSE",
-                "command_evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+                "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
                 "error_signature": "MANO_COMMERCIAL_LICENSE_UNRESOLVED",
                 "fallback": "Use MANO-free paths for non-retarget claims; keep runtime retarget commercialization paused.",
                 "claim_impact": {"XR-C002": "UNCHANGED", "XR-C007": "PAUSED_EXTERNAL"},
@@ -121,11 +121,11 @@ def _write_license_register(claim_statuses: Dict[str, str], pass_conditions: Dic
         "",
         "| Resource | License/Gate | Risk | Decision | Claim impact | Evidence |",
         "|---|---|---|---|---|---|",
-        "| HOT3D toolkit | CC BY-NC 4.0 (+ MANO constraints) | Commercial publication constraints may apply. | Retained for benchmarking; commercialization risk explicitly tracked. | XR-C001/XR-C002/XR-C005 remain metric-valid with commercialization caveat. | proofs/artifacts/2026-02-20_zpe_xr_wave1/max_resource_lock.json |",
-        "| HOI-M3 | Public publication endpoint only | Public executable corpus endpoint not confirmed. | IMP-ACCESS logged; synthetic stress path retained. | No automatic claim downgrade from this resource alone. | proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
-        "| HO-Cap | Public publication endpoint only | Public executable corpus endpoint not confirmed. | IMP-ACCESS logged; runtime-retarget evidence not promoted. | XR-C007 remains runtime-blocked. | proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
-        "| MANO | Registration + non-commercial research terms | Commercial retarget usage unresolved. | IMP-LICENSE logged and tied to runtime commercialization pause. | XR-C007 -> PAUSED_EXTERNAL. | proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
-        f"| Unity runtime/Meta SDK | Runtime dependency gate | Unity CLI available={pass_conditions.get('unity_cli_available', False)}, Meta SDK endpoint available={pass_conditions.get('meta_sdk_accessible', False)}. | Hardware/runtime path paused externally. | XR-C007={claim_statuses['XR-C007']}. | proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json |",
+        "| HOT3D toolkit | CC BY-NC 4.0 (+ MANO constraints) | Commercial publication constraints may apply. | Retained for benchmarking; commercialization risk explicitly tracked. | XR-C001/XR-C002/XR-C005 remain metric-valid with commercialization caveat. | artifacts/2026-02-20_zpe_xr_wave1/max_resource_lock.json |",
+        "| HOI-M3 | Public publication endpoint only | Public executable corpus endpoint not confirmed. | IMP-ACCESS logged; synthetic stress path retained. | No automatic claim downgrade from this resource alone. | artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
+        "| HO-Cap | Public publication endpoint only | Public executable corpus endpoint not confirmed. | IMP-ACCESS logged; runtime-retarget evidence not promoted. | XR-C007 remains runtime-blocked. | artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
+        "| MANO | Registration + non-commercial research terms | Commercial retarget usage unresolved. | IMP-LICENSE logged and tied to runtime commercialization pause. | XR-C007 -> PAUSED_EXTERNAL. | artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
+        f"| Unity runtime/Meta SDK | Runtime dependency gate | Unity CLI available={pass_conditions.get('unity_cli_available', False)}, Meta SDK endpoint available={pass_conditions.get('meta_sdk_accessible', False)}. | Hardware/runtime path paused externally. | XR-C007={claim_statuses['XR-C007']}. | artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json |",
         "",
     ]
     (ARTIFACT_DIR / "license_risk_register_xr.md").write_text("\n".join(lines), encoding="utf-8")
@@ -162,7 +162,7 @@ def _update_gap_closure(
                 "quantified_impact": (
                     f"XR-C002={claim_statuses.get('XR-C002')}, XR-C007={claim_statuses.get('XR-C007')}"
                 ),
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_f_result.json",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_f_result.json",
             },
             {
                 "gap_id": "F-G2",
@@ -171,7 +171,7 @@ def _update_gap_closure(
                 "status": "CLOSED" if fg2_pass else "OPEN",
                 "impracticality_code": "IMP-LICENSE" if claim_statuses.get("XR-C007") == "PAUSED_EXTERNAL" else None,
                 "quantified_impact": "All non-PASS commercialization decisions are tied to explicit IMP and evidence rows.",
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md",
             },
         ]
     )
@@ -241,7 +241,7 @@ def main() -> int:
             claim_id: {
                 "status": status,
                 "evidence": [
-                    f"proofs/artifacts/2026-02-20_zpe_xr_wave1/{name}"
+                    f"artifacts/2026-02-20_zpe_xr_wave1/{name}"
                     for name in [
                         "xr_compression_benchmark.json",
                         "xr_fidelity_eval.json",
@@ -270,10 +270,10 @@ def main() -> int:
         "claim_statuses": claim_statuses,
         "runtime_blocked": runtime_blocked,
         "evidence": [
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/claim_final_status.json",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/net_new_gap_closure_matrix.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/claim_final_status.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/license_risk_register_xr.md",
+            "artifacts/2026-02-20_zpe_xr_wave1/net_new_gap_closure_matrix.json",
         ],
     }
     write_json(ARTIFACT_DIR / "gate_f_result.json", gate_f_result)

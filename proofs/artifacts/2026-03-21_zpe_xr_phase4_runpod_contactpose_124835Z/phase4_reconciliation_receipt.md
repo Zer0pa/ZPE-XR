@@ -4,7 +4,7 @@
 
 - outward-safe benchmark: `proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z/phase4_contactpose_benchmark.json`
 - outward-safe receipt: `proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z/phase4_runpod_receipt.md`
-- cold-start support: `proofs/artifacts/2026-03-20_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json`
+- cold-start support: `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json`
 
 ## Reconciled Truth Surface
 

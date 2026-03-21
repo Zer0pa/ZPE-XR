@@ -5,7 +5,7 @@
   "wheel": "zpe_xr-0.3.0-cp314-cp314-macosx_10_12_x86_64.whl",
   "twine_check": "PASSED",
   "backend": "rust",
-  "comet_phase4_cold_start": "44d7c45e2795474eb4624bdad4333dba",
+  "comet_phase4_cold_start": null,
   "comet_phase5_multi_sequence": "0e957cb027364d36880f6962fd70b78f",
   "closed_claims": [
     "56.144x mean compression vs raw on 5 ContactPose sequences",

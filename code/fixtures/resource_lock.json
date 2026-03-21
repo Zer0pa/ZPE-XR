@@ -5,7 +5,7 @@
   },
   "concept_anchor": {
     "exists": true,
-    "path": "README.md"
+    "path": "PRD_ZPE_XR.md"
   },
   "determinism": {
     "global_seeds": [
@@ -18,8 +18,8 @@
     "pythonhashseed": "0",
     "quantization_mm": 1.0
   },
-  "lane_root": "code",
-  "lock_generated_at_utc": "2026-02-21T10:17:10.329240+00:00",
+  "lane_root": ".",
+  "lock_generated_at_utc": "2026-03-21T12:56:13.077172+00:00",
   "resources": [
     {
       "access_mode": "reference-only",
@@ -41,7 +41,7 @@
       "access_mode": "dataset external",
       "available_locally": false,
       "fallback": "synthetic_hot3d_snapshot_v1",
-      "local_probe": "code/fixtures/hot3d",
+      "local_probe": "fixtures/hot3d",
       "resource_id": "hot3d",
       "source_reference": "https://facebookresearch.github.io/hot3d/"
     },
@@ -65,7 +65,7 @@
       "access_mode": "registration/licensed",
       "available_locally": false,
       "fallback": "kinematic_hand_shape_proxy_v1",
-      "local_probe": "code/fixtures/mano",
+      "local_probe": "fixtures/mano",
       "resource_id": "mano",
       "source_reference": "https://mano.is.tue.mpg.de"
     },

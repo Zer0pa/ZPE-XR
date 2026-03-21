@@ -43,6 +43,5 @@ module-name = "zpe_xr._kernel"
 python-source = "source"
 
 [tool.pytest.ini_options]
-pythonpath = ["source", "src"]
 testpaths = ["tests"]
 addopts = "-q"

@@ -8,10 +8,9 @@ from pathlib import Path
 import sys
 from typing import Any, Dict, List
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
 
 from zpe_xr.codec import XRCodec
 from zpe_xr.constants import FPS, RAW_BYTES_PER_FRAME

@@ -11,9 +11,9 @@ url: https://github.com/Zer0pa/ZPE-XR
 license: LicenseRef-Zer0pa-SAL-6.0
 abstract: >-
   ZPE-XR is a deterministic dual-hand pose codec and evaluation harness for XR
-  compression, latency, packet-loss recovery, gesture evaluation, and
-  Unity-envelope roundtrip checks. The current staged repo preserves a
-  historical Wave-1 proof bundle and an honest audit boundary.
+  compression, latency, packet-loss recovery, and ContactPose-based codec
+  validation. The current staged repo preserves the Phase 4/Phase 5 evidence
+  chain and an explicit audit boundary.
 keywords:
   - xr
   - mixed reality

@@ -15,10 +15,9 @@ import sys
 from typing import Any, Dict, Iterable
 from urllib.request import Request, urlopen
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
 
 from zpe_xr.io_utils import write_json
 from zpe_xr.runtime_paths import resolve_artifact_dir

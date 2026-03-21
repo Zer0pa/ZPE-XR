@@ -1,9 +1,0 @@
-{
-  "avg_packet_bytes": 59.973333333333336,
-  "claim_id": "XR-C006",
-  "fps": 90,
-  "kbps_for_4_player_session": 15.813281250000001,
-  "pass": true,
-  "pass_threshold_kbps": 40.0,
-  "remote_players": 3
-}

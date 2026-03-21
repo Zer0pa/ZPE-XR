@@ -12,12 +12,17 @@ import sys
 from typing import Any, Dict, List, Tuple
 from urllib.request import Request, urlopen
 
-ROOT = Path(__file__).resolve().parents[1]
-ARTIFACT_DIR = ROOT.parent / "proofs" / "artifacts" / "2026-02-20_zpe_xr_wave1"
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
+ARTIFACT_DIR = None
 if str(ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(ROOT / "scripts"))
 
 from max_resource_probe import append_log, classify_impracticality, run_cmd, utc_now_iso, write_json
+from zpe_xr.runtime_paths import resolve_artifact_dir
+
+ARTIFACT_DIR = resolve_artifact_dir(ROOT)
 
 
 def _sha256(path: Path) -> str:
@@ -152,12 +157,8 @@ def main() -> int:
         attempts = json.loads(attempts_path.read_text(encoding="utf-8"))
 
     # Track mandatory evidence inputs.
-    md_input = (
-        ROOT.parent / "proofs" / "artifacts" / "BROKEN_REF_ZPE_10_LANE_NET_NEW_RESOURCE_MAXIMIZATION_PACK.md"
-    )
-    pdf_input = (
-        ROOT.parent / "proofs" / "artifacts" / "BROKEN_REF_ZPE_10_LANE_NET_NEW_RESOURCE_MAXIMIZATION_PACK.pdf"
-    )
+    md_input = Path("/Users/prinivenpillay/ZPE Multimodality/ZPE 10-Lane NET-NEW Resource Maximization Pack.md")
+    pdf_input = Path("/Users/prinivenpillay/ZPE Multimodality/ZPE 10-Lane NET-NEW Resource Maximization Pack.pdf")
 
     # Ensure HOT3D attempts are present and add an explicit package index probe.
     hot3d_pip_probe = run_cmd(f"{py} -m pip index versions hot3d-toolkit", cwd=ROOT)
@@ -252,7 +253,7 @@ def main() -> int:
             {
                 "resource": row["resource"],
                 "code": row["impracticality_code"],
-                "command_evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+                "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
                 "error_signature": row["error_signature"] or "No public endpoint confirmed",
                 "fallback": fallback,
                 "claim_impact": {
@@ -276,7 +277,7 @@ def main() -> int:
                 {
                     "resource": "Unity runtime (Meta XR path)",
                     "code": "IMP-ACCESS",
-                    "command_evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+                    "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
                     "error_signature": "UNITY_CLI_NOT_FOUND",
                     "fallback": "Retain Unity envelope contract harness and defer runtime execution.",
                     "claim_impact": {"XR-C007": "INCONCLUSIVE"},
@@ -287,7 +288,7 @@ def main() -> int:
                 {
                     "resource": "Meta XR SDK package endpoint",
                     "code": "IMP-ACCESS",
-                    "command_evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+                    "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
                     "error_signature": "curl return code 56 during assetstore probe",
                     "fallback": "Use interface-level contract tests until SDK endpoint is stable.",
                     "claim_impact": {"XR-C007": "INCONCLUSIVE"},
@@ -298,7 +299,7 @@ def main() -> int:
                 {
                     "resource": "MANO licensed retarget assets",
                     "code": "IMP-LICENSE",
-                    "command_evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
+                    "command_evidence": "artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log",
                     "error_signature": "Commercial licensing unresolved from public portal probes",
                     "fallback": "Use HO-Cap/kinematic alternatives and move runtime-retarget commercialization to PAUSED_EXTERNAL when required.",
                     "claim_impact": {"XR-C002": "UNCHANGED", "XR-C007": "INCONCLUSIVE"},
@@ -365,10 +366,10 @@ def main() -> int:
         "",
         "| Resource | License/Gate | Risk | Decision | Evidence |",
         "|---|---|---|---|---|",
-        "| HOT3D toolkit | CC BY-NC 4.0 (+ MANO constraints) | Non-commercial restrictions may block commercial benchmark publication. | Explicitly tracked; claim impacts set INCONCLUSIVE when real corpus execution incomplete. | proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
-        "| HOI-M3 | Research/publication link only (public endpoint not confirmed) | License and access terms unresolved. | IMP-ACCESS recorded with fallback path. | proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
-        "| HO-Cap | Research/publication link only (public endpoint not confirmed) | License/access unresolved for direct corpus execution. | IMP-ACCESS recorded with fallback path. | proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
-        "| MANO | Registration + non-commercial research terms | Commercial use unresolved without explicit licensing. | IMP-LICENSE retained for retarget-dependent pathways. | proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json |",
+        "| HOT3D toolkit | CC BY-NC 4.0 (+ MANO constraints) | Non-commercial restrictions may block commercial benchmark publication. | Explicitly tracked; claim impacts set INCONCLUSIVE when real corpus execution incomplete. | artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
+        "| HOI-M3 | Research/publication link only (public endpoint not confirmed) | License and access terms unresolved. | IMP-ACCESS recorded with fallback path. | artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
+        "| HO-Cap | Research/publication link only (public endpoint not confirmed) | License/access unresolved for direct corpus execution. | IMP-ACCESS recorded with fallback path. | artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json |",
+        "| MANO | Registration + non-commercial research terms | Commercial use unresolved without explicit licensing. | IMP-LICENSE retained for retarget-dependent pathways. | artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json |",
         "",
     ]
     (ARTIFACT_DIR / "license_risk_register_xr.md").write_text("\n".join(license_lines), encoding="utf-8")
@@ -409,17 +410,17 @@ def main() -> int:
     expected_artifacts = {
         "generated_at_utc": utc_now_iso(),
         "artifacts": [
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/max_resource_lock.json",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/max_resource_validation_log.md",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/interaction_stress_report.json",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/runpod_readiness_manifest.json",
-            "proofs/artifacts/2026-02-20_zpe_xr_wave1/runpod_exec_plan.md",
+            "artifacts/2026-02-20_zpe_xr_wave1/max_resource_lock.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/max_resource_validation_log.md",
+            "artifacts/2026-02-20_zpe_xr_wave1/max_claim_resource_map.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/impracticality_decisions.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/interaction_stress_report.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/runpod_readiness_manifest.json",
+            "artifacts/2026-02-20_zpe_xr_wave1/runpod_exec_plan.md",
         ],
     }
     write_json(ARTIFACT_DIR / "runpod_expected_artifacts.json", expected_artifacts)
-    runpod_manifest["expected_artifact_manifest"] = "proofs/artifacts/2026-02-20_zpe_xr_wave1/runpod_expected_artifacts.json"
+    runpod_manifest["expected_artifact_manifest"] = "artifacts/2026-02-20_zpe_xr_wave1/runpod_expected_artifacts.json"
 
     freeze_cmd = (
         f"{py} -m pip freeze"
@@ -442,7 +443,7 @@ def main() -> int:
             f"# stderr={freeze_result.stderr.strip()[:500]}\n"
         )
     lock_path.write_text(lock_body + ("\n" if not lock_body.endswith("\n") else ""), encoding="utf-8")
-    runpod_manifest["dependency_lock_file"] = "proofs/artifacts/2026-02-20_zpe_xr_wave1/runpod_requirements_lock.txt"
+    runpod_manifest["dependency_lock_file"] = "artifacts/2026-02-20_zpe_xr_wave1/runpod_requirements_lock.txt"
 
     write_json(ARTIFACT_DIR / "runpod_readiness_manifest.json", runpod_manifest)
     write_json(attempts_path, attempts)
@@ -501,9 +502,9 @@ def main() -> int:
             f"- E-G4: `{eg4_pass}`",
             f"- E-G5: `{eg5_pass}`",
             "",
-            "Evidence log: `proofs/artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log`",
-            "RunPod dependency lock: `proofs/artifacts/2026-02-20_zpe_xr_wave1/runpod_requirements_lock.txt`",
-            "RunPod expected manifest: `proofs/artifacts/2026-02-20_zpe_xr_wave1/runpod_expected_artifacts.json`",
+            "Evidence log: `artifacts/2026-02-20_zpe_xr_wave1/resource_attempts_raw.log`",
+            "RunPod dependency lock: `artifacts/2026-02-20_zpe_xr_wave1/runpod_requirements_lock.txt`",
+            "RunPod expected manifest: `artifacts/2026-02-20_zpe_xr_wave1/runpod_expected_artifacts.json`",
             "",
         ]
     )

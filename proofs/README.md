@@ -1,18 +1,30 @@
+<p>
+  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
+</p>
+
+<p>
+  <img src="../.github/assets/readme/section-bars/proof-corpus.svg" alt="PROOFS" width="100%">
+</p>
+
 # Proofs
 
-This directory contains the current staged reading of the repo plus the
-preserved historical Wave-1 artifact bundle.
+This directory contains the current staged reading of the repo and the retained evidence anchors for the private-only release posture.
 
 ## Current Staged Reading
 
 - `proofs/FINAL_STATUS.md`
 - `proofs/RELEASE_READINESS_REPORT.md`
+- `release_readiness.json`
+- `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json`
+- `proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z/phase4_contactpose_benchmark.json`
+- `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json`
 
-## Preserved Historical Evidence
+## Historical Evidence
 
-- `proofs/artifacts/2026-02-20_zpe_xr_wave1/`
 - `proofs/runbooks/`
 
-The copied historical bundle is intentionally preserved. It still contains older
-flat-workspace references and machine-absolute path strings. Treat those as
-historical evidence lineage, not as current repo instructions.
+Older artifact bundles were removed to keep the repo lean. Request legacy lineage from the owner if needed.
+
+<p>
+  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
+</p>

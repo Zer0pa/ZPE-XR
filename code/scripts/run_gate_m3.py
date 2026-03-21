@@ -9,19 +9,19 @@ from pathlib import Path
 import sys
 from typing import Any, Dict, List, Sequence, Tuple
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
 
 from zpe_xr.codec import XRCodec
 from zpe_xr.gesture import classify_gesture, evaluate_corpus
 from zpe_xr.io_utils import write_json
 from zpe_xr.network import decode_with_realtime_recovery, encode_sequence, simulate_realtime_packet_map
 from zpe_xr.pipeline import evaluate_bandwidth, evaluate_packet_loss_resilience
+from zpe_xr.runtime_paths import resolve_artifact_dir
 from zpe_xr.synthetic import generate_gesture_corpus, generate_sequence
 
-ARTIFACT_DIR = ROOT.parent / "proofs" / "artifacts" / "2026-02-20_zpe_xr_wave1"
+ARTIFACT_DIR = resolve_artifact_dir(ROOT)
 
 
 def _degrade_sequence(

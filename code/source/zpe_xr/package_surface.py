@@ -10,8 +10,8 @@ from . import __version__
 from .io_utils import read_json
 
 
-PHASE1_RUN_ID = "2026-03-20_zpe_xr_wave1_live"
-PHASE2_RUN_ID = "2026-03-20_zpe_xr_phase2_pre_runpod"
+PHASE4_CONTACTPOSE_RUN_ID = "2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z"
+PHASE5_MULTI_SEQUENCE_RUN_ID = "2026-03-21_zpe_xr_phase5_multi_sequence_161900Z"
 
 
 def _artifact_locator(prefix: str, run_id: str, filename: str) -> str:
@@ -59,20 +59,11 @@ def _pyproject_path(root: Path) -> Path:
 def load_phase_evidence(root: Path) -> dict[str, Any]:
     root = Path(root).resolve()
     artifact_base = _artifact_base_dir(root)
-    phase1_dir = artifact_base / PHASE1_RUN_ID
-    phase2_dir = artifact_base / PHASE2_RUN_ID
+    phase4_dir = artifact_base / PHASE4_CONTACTPOSE_RUN_ID
+    phase5_dir = artifact_base / PHASE5_MULTI_SEQUENCE_RUN_ID
     return {
-        "compression": _load_json(phase1_dir / "xr_compression_benchmark.json"),
-        "fidelity": _load_json(phase1_dir / "xr_fidelity_eval.json"),
-        "latency": _load_json(phase1_dir / "xr_latency_benchmark.json"),
-        "packet_loss": _load_json(phase1_dir / "xr_packet_loss_resilience.json"),
-        "gesture": _load_json(phase1_dir / "xr_gesture_eval.json"),
-        "bandwidth": _load_json(phase1_dir / "xr_bandwidth_eval.json"),
-        "phase1_summary": _load_json(phase1_dir / "phase1_execution_summary.json"),
-        "phase2_comparator": _load_json(phase2_dir / "phase2_comparator_matrix.json"),
-        "phase2_runtime": _load_json(phase2_dir / "phase2_runtime_probe_matrix.json"),
-        "phase2_corpus": _load_json(phase2_dir / "phase2_outward_corpus_probe.json"),
-        "phase2_summary": _load_json(phase2_dir / "phase2_execution_summary.json"),
+        "phase4_contactpose": _load_json(phase4_dir / "phase4_contactpose_benchmark.json"),
+        "phase5_multi_sequence": _load_json(phase5_dir / "phase5_multi_sequence_benchmark.json"),
     }
 
 
@@ -92,96 +83,80 @@ def load_project_metadata(root: Path) -> dict[str, Any]:
 
 def build_wedge_claims(root: Path, *, artifact_prefix: str = "artifacts") -> dict[str, Any]:
     evidence = load_phase_evidence(root)
+    phase4 = evidence["phase4_contactpose"]["benchmark"]
+    phase5 = evidence["phase5_multi_sequence"]["benchmark"]
+    aggregate = phase5["aggregate"]
     claims = {
         "generated_from": {
-            "phase1_run_id": PHASE1_RUN_ID,
-            "phase2_run_id": PHASE2_RUN_ID,
+            "phase4_contactpose_run_id": PHASE4_CONTACTPOSE_RUN_ID,
+            "phase5_multi_sequence_run_id": PHASE5_MULTI_SEQUENCE_RUN_ID,
         },
         "allowed_claims": [
             {
-                "id": "codec_frozen_lane",
-                "title": "Fresh frozen-lane codec performance",
+                "id": "contactpose_multi_sequence",
+                "title": "ContactPose multi-sequence codec performance",
                 "summary": (
-                    f"Fresh root rerun preserves {_fmt_ratio(evidence['compression']['compression_ratio_vs_raw'])} "
-                    f"compression vs raw, { _fmt_float(evidence['fidelity']['mpjpe_mm']) } mm MPJPE, "
-                    f"{ _fmt_float(evidence['latency']['combined_avg_ms']) } ms average encode+decode latency, "
-                    f"and { _fmt_float(evidence['packet_loss']['target_case']['pose_error_percent']) }% pose error at 10% loss."
+                    f"Phase 5 ContactPose multi-sequence mean compression is {_fmt_ratio(aggregate['compression_ratio_vs_raw_mean'])}, "
+                    f"mean MPJPE { _fmt_float(aggregate['mpjpe_mm_mean']) } mm, "
+                    f"mean encode+decode latency { _fmt_float(aggregate['latency_ms_mean']) } ms, "
+                    f"and mean 10% loss error { _fmt_float(aggregate['packet_loss_error_pct_mean']) }%."
                 ),
                 "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "xr_compression_benchmark.json"),
-                    _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "xr_fidelity_eval.json"),
-                    _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "xr_latency_benchmark.json"),
-                    _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "xr_packet_loss_resilience.json"),
+                    _artifact_locator(artifact_prefix, PHASE5_MULTI_SEQUENCE_RUN_ID, "phase5_multi_sequence_benchmark.json"),
                 ],
-                "guardrail": "Synthetic frozen v1 lane only; does not imply runtime closure.",
+                "guardrail": "ContactPose corpus only; does not imply runtime closure.",
             },
             {
-                "id": "synthetic_gesture_sidecar",
-                "title": "Synthetic compressed-space gesture sidecar",
+                "id": "contactpose_single_sequence",
+                "title": "ContactPose single-sequence benchmark anchor",
                 "summary": (
-                    f"Fresh synthetic gesture evaluation remains at { _fmt_float(evidence['gesture']['accuracy']) } accuracy "
-                    "with the claim kept inside the synthetic corpus boundary."
+                    f"Phase 4 ContactPose single-sequence benchmark preserves "
+                    f"{ _fmt_ratio(phase4['compression_metrics']['compression_ratio_vs_raw']) } compression vs raw, "
+                    f"{ _fmt_float(phase4['fidelity_metrics']['mpjpe_mm']) } mm MPJPE, "
+                    f"{ _fmt_float(phase4['latency_metrics']['combined_avg_ms']) } ms latency, "
+                    f"and { _fmt_float(phase4['packet_loss_metrics']['pose_error_percent']) }% pose error at 10% loss."
                 ),
                 "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "xr_gesture_eval.json"),
+                    _artifact_locator(artifact_prefix, PHASE4_CONTACTPOSE_RUN_ID, "phase4_contactpose_benchmark.json"),
                 ],
-                "guardrail": "Synthetic only; not a broader external-vocabulary claim.",
-            },
-            {
-                "id": "ultraleap_bounded_row",
-                "title": "Bounded Ultraleap transport comparison",
-                "summary": "ZPE remains smaller than the open-source Ultraleap VectorHand row under the documented close transport semantics.",
-                "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_comparator_matrix.json"),
-                ],
-                "guardrail": "This is a bounded comparator row, not a universal incumbent-displacement claim.",
-            },
-            {
-                "id": "contactpose_local_lane",
-                "title": "ContactPose readiness as the first outward-safe local corpus lane",
-                "summary": "ContactPose is ready for local intake with an explicit 21-to-26 topology adapter and the exact PRD corpus gap preserved.",
-                "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_outward_corpus_probe.json"),
-                ],
-                "guardrail": "ContactPose readiness does not close the exact PRD egocentric corpus requirement.",
+                "guardrail": "Single-sequence anchor; modern comparator gate failed in Phase 5 multi-sequence run.",
             },
         ],
         "open_claims": [
             {
-                "id": "photon_displacement",
-                "title": "Photon displacement",
-                "status": "OPEN",
-                "reason": "Photon's documented compressed hand path is smaller but narrower in semantics, so the row stays open.",
+                "id": "modern_comparator_gate",
+                "title": "Modern comparator multi-sequence gate",
+                "status": "FAILED",
+                "reason": f"Modern comparator passes {aggregate['modern_comparator_pass_count']}/{aggregate['sequence_count']} in Phase 5.",
                 "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_comparator_matrix.json"),
+                    _artifact_locator(artifact_prefix, PHASE5_MULTI_SEQUENCE_RUN_ID, "phase5_multi_sequence_benchmark.json"),
                 ],
             },
             {
                 "id": "runtime_closure",
                 "title": "Unity/Meta runtime closure",
                 "status": "PAUSED_EXTERNAL",
-                "reason": "Editor, disk, device-trace, and MANO-license blockers remain active.",
+                "reason": "XR-C007 remains paused due to device/editor/license constraints.",
                 "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_runtime_probe_matrix.json"),
+                    "proofs/FINAL_STATUS.md",
+                ],
+            },
+            {
+                "id": "photon_displacement",
+                "title": "Photon displacement",
+                "status": "OPEN",
+                "reason": "Photon semantics-equivalent comparison remains secondary and open.",
+                "evidence": [
+                    "proofs/FINAL_STATUS.md",
                 ],
             },
             {
                 "id": "exact_prd_corpus",
                 "title": "Exact PRD egocentric corpus closure",
                 "status": "UNRESOLVED",
-                "reason": "ContactPose is the best outward-safe lane available now, but it is not the exact PRD surface.",
+                "reason": "ContactPose is outward-safe but not the exact PRD corpus.",
                 "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_outward_corpus_probe.json"),
-                ],
-            },
-            {
-                "id": "public_release_readiness",
-                "title": "Public release readiness",
-                "status": "NOT_READY",
-                "reason": "Blind-clone and release-channel decision phases are still outstanding.",
-                "evidence": [
-                    _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "phase1_execution_summary.json"),
-                    _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_execution_summary.json"),
+                    "proofs/FINAL_STATUS.md",
                 ],
             },
         ],
@@ -194,7 +169,7 @@ def build_wedge_claims(root: Path, *, artifact_prefix: str = "artifacts") -> dic
             {
                 "id": "photon_closed",
                 "claim": "Photon is displaced",
-                "reason": "Photon remains an open semantics-mismatched row.",
+                "reason": "Photon remains a secondary, open comparator row.",
             },
             {
                 "id": "exact_corpus_closed",
@@ -204,7 +179,7 @@ def build_wedge_claims(root: Path, *, artifact_prefix: str = "artifacts") -> dic
             {
                 "id": "public_release_ready",
                 "claim": "Ready for public release",
-                "reason": "Package candidate formation does not replace blind-clone or release-channel closure.",
+                "reason": "Modern comparator gate failed in Phase 5.",
             },
         ],
     }
@@ -222,9 +197,9 @@ def build_package_surface(
 ) -> dict[str, Any]:
     evidence = load_phase_evidence(root)
     project = load_project_metadata(root)
-    comparator = evidence["phase2_comparator"]
-    runtime = evidence["phase2_runtime"]
-    corpus = evidence["phase2_corpus"]
+    phase4 = evidence["phase4_contactpose"]["benchmark"]
+    phase5 = evidence["phase5_multi_sequence"]["benchmark"]
+    aggregate = phase5["aggregate"]
     return {
         "package": project,
         "verification": {
@@ -237,31 +212,26 @@ def build_package_surface(
             "stage_verify_passed": bool(stage_verify.get("passed")),
         },
         "evidence_snapshot": {
-            "compression_vs_raw": evidence["compression"]["compression_ratio_vs_raw"],
-            "mpjpe_mm": evidence["fidelity"]["mpjpe_mm"],
-            "combined_avg_ms": evidence["latency"]["combined_avg_ms"],
-            "pose_error_percent_10_loss": evidence["packet_loss"]["target_case"]["pose_error_percent"],
-            "gesture_accuracy": evidence["gesture"]["accuracy"],
-            "bandwidth_kb_per_s_4_player": evidence["bandwidth"]["kbps_for_4_player_session"],
-            "ultraleap_status": next(verdict["status"] for verdict in comparator["verdicts"] if "Ultraleap" in verdict["claim"]),
-            "photon_status": next(verdict["status"] for verdict in comparator["verdicts"] if "Photon" in verdict["claim"]),
-            "runtime_status": runtime["xr_c007_status_candidate"],
-            "contactpose_status": corpus["contactpose"]["status"],
-            "exact_prd_corpus_status": corpus["exact_prd_gap"]["status"],
+            "compression_vs_raw": aggregate["compression_ratio_vs_raw_mean"],
+            "mpjpe_mm": aggregate["mpjpe_mm_mean"],
+            "combined_avg_ms": aggregate["latency_ms_mean"],
+            "pose_error_percent_10_loss": aggregate["packet_loss_error_pct_mean"],
+            "modern_comparator_passes": aggregate["modern_comparator_pass_count"],
+            "sequence_count": aggregate["sequence_count"],
+            "phase4_single_sequence_compression": phase4["compression_metrics"]["compression_ratio_vs_raw"],
         },
         "anchors": {
-            "phase1_summary": _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "phase1_execution_summary.json"),
-            "phase2_summary": _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_execution_summary.json"),
-            "compression": _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "xr_compression_benchmark.json"),
-            "gesture": _artifact_locator(artifact_prefix, PHASE1_RUN_ID, "xr_gesture_eval.json"),
-            "comparator": _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_comparator_matrix.json"),
-            "runtime": _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_runtime_probe_matrix.json"),
-            "corpus": _artifact_locator(artifact_prefix, PHASE2_RUN_ID, "phase2_outward_corpus_probe.json"),
+            "phase4_contactpose": _artifact_locator(
+                artifact_prefix, PHASE4_CONTACTPOSE_RUN_ID, "phase4_contactpose_benchmark.json"
+            ),
+            "phase5_multi_sequence": _artifact_locator(
+                artifact_prefix, PHASE5_MULTI_SEQUENCE_RUN_ID, "phase5_multi_sequence_benchmark.json"
+            ),
+            "final_status": "proofs/FINAL_STATUS.md",
         },
-        "release_readiness": "NOT_READY_FOR_PUBLIC_RELEASE",
+        "release_readiness": "PRIVATE_ONLY",
         "release_blockers": [
-            "BLIND_CLONE_NOT_EXECUTED",
-            "PHOTON_ROW_OPEN",
+            "MODERN_COMPARATOR_GATE_FAILED",
             "XR_C007_PAUSED_EXTERNAL",
             "EXACT_PRD_CORPUS_UNRESOLVED",
         ],
@@ -291,13 +261,8 @@ def render_package_surface_markdown(surface: Mapping[str, Any]) -> str:
 - MPJPE: `{_fmt_float(snapshot['mpjpe_mm'])} mm`
 - combined latency: `{_fmt_float(snapshot['combined_avg_ms'])} ms`
 - pose error at 10% loss: `{_fmt_float(snapshot['pose_error_percent_10_loss'])}%`
-- gesture accuracy: `{_fmt_float(snapshot['gesture_accuracy'])}`
-- 4-player modeled bandwidth: `{_fmt_float(snapshot['bandwidth_kb_per_s_4_player'])} KB/s`
-- Ultraleap row: `{snapshot['ultraleap_status']}`
-- Photon row: `{snapshot['photon_status']}`
-- runtime: `{snapshot['runtime_status']}`
-- ContactPose: `{snapshot['contactpose_status']}`
-- exact PRD corpus: `{snapshot['exact_prd_corpus_status']}`
+- modern comparator passes: `{snapshot['modern_comparator_passes']}/{snapshot['sequence_count']}`
+- Phase 4 single-sequence compression: `{_fmt_ratio(snapshot['phase4_single_sequence_compression'])}`
 
 ## Build Artifacts
 
@@ -349,13 +314,9 @@ This repo is buildable and inspectable, but it is not yet public-release proof a
 
 ## Current Authority
 
-- Fresh frozen-lane evidence is anchored to `{anchors['phase1_summary']}`.
-- Direct-comparator and runtime boundary evidence is anchored to `{anchors['phase2_summary']}`.
-- The current outward wedge is narrow:
-  - fresh codec transport/fidelity/latency/loss results
-  - bounded synthetic gesture sidecar
-  - bounded Ultraleap row
-  - ContactPose readiness as an outward-safe local corpus lane
+- Phase 5 ContactPose multi-sequence evidence is anchored to `{anchors['phase5_multi_sequence']}`.
+- Phase 4 ContactPose single-sequence anchor is `{anchors['phase4_contactpose']}`.
+- Boundary and release-status truth is consolidated in `{anchors['final_status']}`.
 
 ## Current Metrics
 
@@ -363,7 +324,7 @@ This repo is buildable and inspectable, but it is not yet public-release proof a
 - MPJPE: `{_fmt_float(snapshot['mpjpe_mm'])} mm`
 - combined latency: `{_fmt_float(snapshot['combined_avg_ms'])} ms`
 - pose error at 10% loss: `{_fmt_float(snapshot['pose_error_percent_10_loss'])}%`
-- gesture accuracy: `{_fmt_float(snapshot['gesture_accuracy'])}`
+- modern comparator passes: `{snapshot['modern_comparator_passes']}/{snapshot['sequence_count']}`
 
 ## What This Repo Does Not Prove
 
@@ -402,8 +363,7 @@ This file defines what the staged ZPE-XR repo can and cannot establish right now
 ## What This Staged Repo Can Establish
 
 - a buildable package candidate with a non-placeholder package version
-- fresh frozen-lane evidence from the March 20 root rerun
-- bounded direct-comparator, runtime, and outward-safe corpus status from Phase 2
+- Phase 5 ContactPose multi-sequence metrics and Phase 4 single-sequence anchor
 - the current allowed/open/forbidden wedge boundary documented in `proofs/FINAL_STATUS.md`
 
 ## What This Staged Repo Does Not Establish
@@ -411,14 +371,12 @@ This file defines what the staged ZPE-XR repo can and cannot establish right now
 - Photon displacement
 - production Unity/Meta runtime readiness
 - exact PRD corpus closure
-- blind-clone closure for this exact staged snapshot
 - public-release readiness
 
 ## Known Limits
 
-- ContactPose is the first outward-safe local corpus lane, not the exact PRD corpus
-- the package candidate is truthful but still below release approval
-- the historical 2026-02-20 bundle remains evidence lineage, not the current repo's sovereign truth
+- ContactPose is the outward-safe corpus boundary, not the exact PRD corpus
+- the package candidate is truthful but still below public release approval
 """
 
     auditor = f"""# Auditor Playbook
@@ -452,14 +410,14 @@ python -m pytest ./code/tests -q
 
 - `proofs/FINAL_STATUS.md`
 - `proofs/RELEASE_READINESS_REPORT.md`
-- `{anchors['phase1_summary']}`
-- `{anchors['phase2_summary']}`
+- `{anchors['phase5_multi_sequence']}`
+- `{anchors['phase4_contactpose']}`
 - `PUBLIC_AUDIT_LIMITS.md`
 
 ## Expected Current Reading
 
-- package imports cleanly from `code/src`
-- the fresh March 20 evidence chain is present
+- package imports cleanly from `code/source`
+- Phase 5 ContactPose metrics present
 - Photon remains open
 - `XR-C007` remains `PAUSED_EXTERNAL`
 - public release readiness is still not established
@@ -467,18 +425,24 @@ python -m pytest ./code/tests -q
 
     changelog = """# Changelog
 
+## 2026-03-21
+
+- aligned documentation to the ZPE-IMC layout standard without importing IMC-specific claims
+- refreshed the front door to the Phase 5 authority chain and private-only release posture
+- added the shared IMC visual assets to `.github/assets/readme/`
+- created a canonical documentation registry and falsification report
+
 ## 2026-03-20
 
 - upgraded the staged repo from a historical staging shell to a truthful package candidate surface
 - refreshed staged README, proof status, and audit notes from the fresh March 20 evidence chain
-- carried forward the bounded Ultraleap win, Photon open row, runtime `PAUSED_EXTERNAL` status, and ContactPose readiness
+- carried forward runtime `PAUSED_EXTERNAL` status, ContactPose readiness, and explicit public-release blockers
 - added build/install-smoke evidence to the staged package story without promoting public release
 
 ## 2026-03-09
 
 - formed the first clean inner-repo boundary under `ZPE-XR/`
 - split repo material into `code/`, `docs/`, `proofs/`, and `executable/`
-- staged the historical Wave-1 artifact bundle under `proofs/artifacts/`
 - added private-staging front-door, legal, audit, and support surfaces
 """
 
@@ -515,7 +479,7 @@ pip install -e "./code[dev]"
 ## Current Bounded Read
 
 - version: `{surface['package']['version']}`
-- fresh frozen-lane codec evidence: yes
+- ContactPose codec evidence: yes
 - public release readiness: no
 - runtime closure: `PAUSED_EXTERNAL`
 
@@ -524,80 +488,81 @@ This package README does not claim Photon displacement, runtime closure, exact-c
 
     proofs_readme = f"""# Proofs
 
-This directory contains the current staged reading of the repo plus the preserved historical Wave-1 artifact bundle.
+This directory contains the current staged reading of the repo and the compact Phase 4/Phase 5 evidence bundles.
 
 ## Current Staged Reading
 
 - `proofs/FINAL_STATUS.md`
 - `proofs/RELEASE_READINESS_REPORT.md`
-- `{anchors['phase1_summary']}`
-- `{anchors['phase2_summary']}`
+- `{anchors['phase5_multi_sequence']}`
+- `{anchors['phase4_contactpose']}`
 
-## Preserved Historical Evidence
+## Notes
 
-- `proofs/artifacts/2026-02-20_zpe_xr_wave1/`
-- `proofs/runbooks/`
-
-The copied historical bundle remains evidence lineage. It does not outrank the fresh March 20 evidence chain used by the current staged proof boundary.
+- legacy pre-Phase 4 bundles were removed to keep the authority surface lean
 """
 
     final_status = f"""# Final Status
 
 This document is the current staged reading of the XR evidence boundary.
 
-## Claim Status
+## Current Authority
 
-| Claim | Current staged reading | Anchor | Notes |
-|---|---|---|---|
-| `XR-C001` | PASS | `{_artifact_locator('proofs/artifacts', PHASE1_RUN_ID, 'xr_compression_benchmark.json')}` | `{_fmt_ratio(snapshot['compression_vs_raw'])}` compression vs raw on fresh root rerun |
-| `XR-C002` | PASS | `{_artifact_locator('proofs/artifacts', PHASE1_RUN_ID, 'xr_fidelity_eval.json')}` | `{_fmt_float(snapshot['mpjpe_mm'])} mm` MPJPE on the frozen synthetic lane |
-| `XR-C003` | PASS | `{_artifact_locator('proofs/artifacts', PHASE1_RUN_ID, 'xr_latency_benchmark.json')}` | `{_fmt_float(snapshot['combined_avg_ms'])} ms` average encode+decode latency |
-| `XR-C004` | PASS | `{_artifact_locator('proofs/artifacts', PHASE1_RUN_ID, 'xr_packet_loss_resilience.json')}` | `{_fmt_float(snapshot['pose_error_percent_10_loss'])}%` pose error at `10%` packet loss |
-| `XR-C005` | PASS | `{_artifact_locator('proofs/artifacts', PHASE1_RUN_ID, 'xr_gesture_eval.json')}` | synthetic gesture corpus only |
-| `XR-C006` | PASS | `{_artifact_locator('proofs/artifacts', PHASE1_RUN_ID, 'xr_bandwidth_eval.json')}` | modeled multi-player bandwidth only |
-| `XR-C007` | `PAUSED_EXTERNAL` | `{_artifact_locator('proofs/artifacts', PHASE2_RUN_ID, 'phase2_runtime_probe_matrix.json')}` | runtime closure is still blocked by editor/device/license constraints |
+- Phase 5 ContactPose multi-sequence: mean compression `{_fmt_ratio(snapshot['compression_vs_raw'])}`, mean MPJPE `{_fmt_float(snapshot['mpjpe_mm'])} mm`, mean latency `{_fmt_float(snapshot['combined_avg_ms'])} ms`, mean loss error `{_fmt_float(snapshot['pose_error_percent_10_loss'])}%`, modern comparator passes `{snapshot['modern_comparator_passes']}/{snapshot['sequence_count']}`. Anchor: `{anchors['phase5_multi_sequence']}`.
+- Phase 4 ContactPose single-sequence: compression `{_fmt_ratio(snapshot['phase4_single_sequence_compression'])}`. Anchor: `{anchors['phase4_contactpose']}`.
+- Phase 4 cold-start audit: `PASS`, Comet logging disabled (key null). Anchor: `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json`.
+- Package mechanics: Rust backend, `twine check` PASS, version `{surface['package']['version']}`. Anchor: `release_readiness.json`.
 
 ## Comparator Boundary
 
-- Ultraleap row: bounded PASS under close transport semantics.
-- Photon row: OPEN because the documented compressed path is narrower in semantics and smaller in bytes/frame.
+- Modern comparator gate failed `{snapshot['modern_comparator_passes']}/{snapshot['sequence_count']}`; blocks public release.
+- Photon displacement remains open and secondary.
 
 ## Corpus Boundary
 
-- ContactPose: `READY_FOR_LOCAL_INTAKE` with the explicit `21-to-26` adapter path.
-- Exact PRD corpus: `UNRESOLVED`.
+- ContactPose lanes are the outward-safe corpus boundary.
+- Exact PRD corpus remains unresolved.
+
+## Runtime Boundary
+
+- `XR-C007` remains `PAUSED_EXTERNAL` due to device/editor/license constraints.
 
 ## Current Verdict
 
-- package candidate: formed
-- proof honesty: improved and refreshed from fresh evidence
-- public release readiness: not established
+- outward-safe workload: ContactPose `PASS`
+- package candidate: `PASS`
+- cold-start trust: `PASS`
+- outward channel: `PRIVATE_ONLY`
+- public release readiness: `NOT_READY_FOR_PUBLIC_RELEASE`
 """
 
     release_readiness = """# Release Readiness Report
 
-Date: 2026-03-20
-Verdict: `NOT_READY_FOR_PUBLIC_RELEASE`
+Date: 2026-03-21
+Verdict: `PRIVATE_ONLY`
+Public Release Status: `NOT_READY_FOR_PUBLIC_RELEASE`
 
-## What Was Completed In This Phase
+## What Was Completed In Phase 5
 
-- upgraded package metadata from placeholder status to a real package candidate
-- built fresh distribution artifacts and completed clean install/import smoke
-- refreshed staged README/proofs/audit surfaces from the fresh March 20 evidence chain
-- preserved the narrow wedge while keeping Photon, runtime, and exact-corpus blockers explicit
+- repaired the package surface to build through `maturin` with a real Rust backend
+- passed `maturin develop --release`, staged tests, `maturin build --release`, `twine check`, and fresh-venv wheel install/import smoke
+- executed the decisive Phase 5 ContactPose multi-sequence benchmark on RunPod with live Comet logging
+- produced a non-null Phase 5 Comet experiment key: `0e957cb027364d36880f6962fd70b78f`
+- reused and then removed the remote `contactpose_sample.zip`, leaving the verified workspace compact
+- completed surface adjudication and release-channel classification from the closed evidence chain
 
 ## Blocking Gaps
 
-- no blind-clone verification for the exact staged snapshot yet
-- Photon row remains open
-- `XR-C007` remains `PAUSED_EXTERNAL`
-- exact PRD corpus remains unresolved
+- the governing public-release comparator gate failed: the modern comparator row passed `0/5` sequences on the Phase 5 multi-sequence ContactPose run
+- public comparator-displacement language is therefore unsupported
+- `XR-C007` remains `PAUSED_EXTERNAL` for any future runtime-facing channel
 
 ## Non-Blocking But Important
 
-- package builds and imports with a non-placeholder version
-- fresh Phase 1 and Phase 2 evidence is now the staged source of truth
-- the staged repo is a truthful package candidate, not yet a public-release surface
+- the package is mechanically valid: Rust backend, x86_64 wheel, `twine check` PASS, and fresh install/import smoke PASS
+- the outward-safe ContactPose lane is stronger than before: mean `56.144x` compression vs raw, mean `0.479 mm` MPJPE, mean `0.026 ms` encode+decode latency, mean `0.399%` pose error at `10%` loss across five sequences
+- Phase 4 cold-start Comet logging was disabled (key null)
+- the strongest honest channel is now a private/internal package surface, not a public release
 """
 
     return {

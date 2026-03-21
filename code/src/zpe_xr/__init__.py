@@ -1,27 +1,20 @@
-"""zpe_xr wave-1 deterministic codec and evaluation harness."""
+"""Compatibility shim for legacy repo-local imports.
 
-__version__ = "0.3.0"
+The canonical Python runtime now lives under ``code/source/zpe_xr``.
+This shim exists only so older repo-local script paths that still insert
+``code/src`` keep resolving to the canonical package instead of drifting.
+"""
 
-from .constants import (
-    FPS,
-    HANDS,
-    JOINTS_PER_HAND,
-    RAW_BYTES_PER_FRAME,
-    TOTAL_JOINTS,
-)
-from .codec import DecoderState, EncoderState, XRCodec
-from .models import Frame, FrameSequence
+from __future__ import annotations
 
-__all__ = [
-    "DecoderState",
-    "EncoderState",
-    "FPS",
-    "Frame",
-    "FrameSequence",
-    "HANDS",
-    "JOINTS_PER_HAND",
-    "RAW_BYTES_PER_FRAME",
-    "TOTAL_JOINTS",
-    "XRCodec",
-    "__version__",
-]
+from pathlib import Path
+
+_SOURCE_PACKAGE = Path(__file__).resolve().parents[2] / "source" / "zpe_xr"
+_SOURCE_INIT = _SOURCE_PACKAGE / "__init__.py"
+
+if not _SOURCE_INIT.exists():
+    raise ImportError(f"canonical source package missing: {_SOURCE_INIT}")
+
+__path__ = [str(_SOURCE_PACKAGE)]
+__file__ = str(_SOURCE_INIT)
+exec(compile(_SOURCE_INIT.read_text(encoding="utf-8"), str(_SOURCE_INIT), "exec"), globals(), globals())

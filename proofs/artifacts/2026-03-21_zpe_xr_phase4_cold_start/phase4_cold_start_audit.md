@@ -1,5 +1,7 @@
 # Phase 4 Cold-Start Audit
 
+Note: the original wheel path referenced in this audit was removed during legacy artifact cleanup. Contact the owner if you need the archived wheel for replay.
+
 ## Verdict
 
 - verdict: `PASS`
@@ -10,7 +12,7 @@
 ## Install Path
 
 - install target kind: `wheel`
-- install target: `/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/cold_snapshot/ZPE-XR/proofs/artifacts/2026-03-20_zpe_xr_phase3_packaging/dist/zpe_xr-0.3.0-py3-none-any.whl`
+- install target: archived wheel (removed from repo during legacy cleanup)
 
 ## Scope
 

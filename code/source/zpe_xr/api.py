@@ -16,6 +16,7 @@ from .metadata import (
     ENCODING_BASIS,
     KERNEL,
     PHASE4_COLD_START_COMET_KEY,
+    PHASE5_MULTI_SEQUENCE_COMET_KEY,
     PRIMITIVE_COUNT,
     VERSION,
 )
@@ -61,6 +62,8 @@ def gesture_match(
 
 
 def codec_info() -> dict[str, object]:
+    phase5_key = os.getenv("ZPE_XR_PHASE5_COMET_KEY", PHASE5_MULTI_SEQUENCE_COMET_KEY)
+    phase4_key = PHASE4_COLD_START_COMET_KEY
     info: dict[str, object] = {
         "backend": "rust" if _kernel is not None else "python",
         "kernel": KERNEL,
@@ -68,11 +71,12 @@ def codec_info() -> dict[str, object]:
         "primitive_count": PRIMITIVE_COUNT,
         "version": VERSION,
         "compression_ratio_claim": COMPRESSION_RATIO_CLAIM,
-        "comet_evidence": PHASE4_COLD_START_COMET_KEY,
+        "comet_evidence": phase5_key or None,
     }
-    phase5_key = os.getenv("ZPE_XR_PHASE5_COMET_KEY")
     if phase5_key:
         info["comet_phase5_multi_sequence"] = phase5_key
+    if phase4_key:
+        info["comet_phase4_cold_start"] = phase4_key
     return info
 
 

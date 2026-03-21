@@ -1,8 +1,0 @@
-{
-  "claim_id": "XR-C007",
-  "mpjpe_mm": 0.8839973919757043,
-  "num_frames": 1800,
-  "pass": true,
-  "pass_threshold_mm": 2.0,
-  "unity_schema_version": "zpe-xr-unity-1"
-}

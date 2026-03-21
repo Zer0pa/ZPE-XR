@@ -1,3 +1,7 @@
+<p>
+  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
+</p>
+
 # Release Readiness Report
 
 Date: 2026-03-21
@@ -23,5 +27,9 @@ Public Release Status: `NOT_READY_FOR_PUBLIC_RELEASE`
 
 - the package is mechanically valid: Rust backend, x86_64 wheel, `twine check` PASS, and fresh install/import smoke PASS
 - the outward-safe ContactPose lane is stronger than before: mean `56.144x` compression vs raw, mean `0.479 mm` MPJPE, mean `0.026 ms` encode+decode latency, mean `0.399%` pose error at `10%` loss across five sequences
-- Phase 4 cold-start Comet key remains `44d7c45e2795474eb4624bdad4333dba`
+- Phase 4 cold-start Comet logging was disabled (key null)
 - the strongest honest channel is now a private/internal package surface, not a public release
+
+<p>
+  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
+</p>

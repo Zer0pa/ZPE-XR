@@ -9,12 +9,12 @@ import json
 from pathlib import Path
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
 
 from zpe_xr.io_utils import write_json
+from zpe_xr.runtime_paths import canonical_relpath, canonical_root
 from zpe_xr.synthetic import generate_sequence
 
 
@@ -30,14 +30,16 @@ def _sequence_digest(seed: int, frames: int) -> str:
 def main() -> int:
     fixtures_dir = ROOT / "fixtures"
     fixtures_dir.mkdir(parents=True, exist_ok=True)
-
-    concept_anchor = ROOT.parent / "README.md"
+    root = canonical_root(ROOT)
+    concept_anchor = root / "PRD_ZPE_XR.md"
+    hot3d_probe = root / "fixtures" / "hot3d"
+    mano_probe = root / "fixtures" / "mano"
 
     resource_lock = {
         "lock_generated_at_utc": datetime.now(UTC).isoformat(),
-        "lane_root": "code",
+        "lane_root": ".",
         "concept_anchor": {
-            "path": "README.md",
+            "path": canonical_relpath(ROOT, concept_anchor),
             "exists": concept_anchor.exists(),
         },
         "resources": [
@@ -61,8 +63,8 @@ def main() -> int:
                 "resource_id": "hot3d",
                 "source_reference": "https://facebookresearch.github.io/hot3d/",
                 "access_mode": "dataset external",
-                "local_probe": "code/fixtures/hot3d",
-                "available_locally": (ROOT / "fixtures" / "hot3d").exists(),
+                "local_probe": canonical_relpath(ROOT, hot3d_probe),
+                "available_locally": hot3d_probe.exists(),
                 "fallback": "synthetic_hot3d_snapshot_v1",
             },
             {
@@ -85,8 +87,8 @@ def main() -> int:
                 "resource_id": "mano",
                 "source_reference": "https://mano.is.tue.mpg.de",
                 "access_mode": "registration/licensed",
-                "local_probe": "code/fixtures/mano",
-                "available_locally": (ROOT / "fixtures" / "mano").exists(),
+                "local_probe": canonical_relpath(ROOT, mano_probe),
+                "available_locally": mano_probe.exists(),
                 "fallback": "kinematic_hand_shape_proxy_v1",
             },
             {

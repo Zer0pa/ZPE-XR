@@ -1,7 +1,7 @@
 {
   "comparability_note": "Synthetic fixture preserves OpenXR-like dimensionality and frame rate but is not a substitute for HOT3D real capture domain shift.",
   "frame_count": 900,
-  "generated_at_utc": "2026-02-21T10:17:10.329963+00:00",
+  "generated_at_utc": "2026-03-21T12:56:13.077644+00:00",
   "generator": "zpe_xr.synthetic.generate_sequence",
   "joint_layout": "26 joints/hand x 2 hands",
   "position_units": "meters",

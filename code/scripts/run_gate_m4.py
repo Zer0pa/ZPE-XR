@@ -8,14 +8,14 @@ from pathlib import Path
 import sys
 from typing import Any, Dict, List
 
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
+from _bootstrap import activate_source_root
+
+ROOT = activate_source_root(__file__)
 
 from zpe_xr.io_utils import utc_now_iso, write_json
+from zpe_xr.runtime_paths import resolve_artifact_dir
 
-ARTIFACT_DIR = ROOT.parent / "proofs" / "artifacts" / "2026-02-20_zpe_xr_wave1"
+ARTIFACT_DIR = resolve_artifact_dir(ROOT)
 
 
 def _load_json(name: str) -> Dict[str, Any]:
@@ -43,7 +43,7 @@ def main() -> int:
                 "status": "CLOSED",
                 "impracticality_code": None,
                 "quantified_impact": "None",
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m1_result.json",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m1_result.json",
             }
         )
     else:
@@ -55,7 +55,7 @@ def main() -> int:
                 "status": "ACCEPTED_WITH_IMPACT",
                 "impracticality_code": "IMP-ACCESS",
                 "quantified_impact": "XR-C001/XR-C002/XR-C005 remain synthetic-backed with real-corpus external validity risk.",
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m1_result.json",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m1_result.json",
             }
         )
 
@@ -68,7 +68,7 @@ def main() -> int:
                 "status": "CLOSED",
                 "impracticality_code": None,
                 "quantified_impact": "None",
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
             }
         )
     else:
@@ -80,7 +80,7 @@ def main() -> int:
                 "status": "ACCEPTED_WITH_IMPACT",
                 "impracticality_code": "IMP-ACCESS",
                 "quantified_impact": "XR-C007 production-readiness remains limited to interface-level contract evidence.",
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
             }
         )
 
@@ -94,7 +94,7 @@ def main() -> int:
                 "status": "CLOSED",
                 "impracticality_code": None,
                 "quantified_impact": "None",
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
             }
         )
     else:
@@ -106,7 +106,7 @@ def main() -> int:
                 "status": "ACCEPTED_WITH_IMPACT",
                 "impracticality_code": "IMP-LICENSE",
                 "quantified_impact": "Cross-hand-model retarget fidelity remains INCONCLUSIVE until license-approved corpus execution.",
-                "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+                "evidence": "artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
             }
         )
 
@@ -122,7 +122,7 @@ def main() -> int:
                 if m3.get("pass")
                 else "Stress profile executed but one or more stress thresholds failed; deployment risk elevated."
             ),
-            "evidence": "proofs/artifacts/2026-02-20_zpe_xr_wave1/interaction_stress_report.json",
+            "evidence": "artifacts/2026-02-20_zpe_xr_wave1/interaction_stress_report.json",
         }
     )
 

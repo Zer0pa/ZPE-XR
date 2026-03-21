@@ -27,7 +27,7 @@ def test_package_surface_uses_non_placeholder_version() -> None:
         stage_verify={"passed": True},
     )
     assert surface["package"]["version"] != "0.0.0"
-    assert surface["release_readiness"] == "NOT_READY_FOR_PUBLIC_RELEASE"
+    assert surface["release_readiness"] == "PRIVATE_ONLY"
 
 
 def test_rendered_final_status_uses_fresh_artifact_chain() -> None:
@@ -41,6 +41,9 @@ def test_rendered_final_status_uses_fresh_artifact_chain() -> None:
     )
     claims = build_wedge_claims(_root(), artifact_prefix="proofs/artifacts")
     rendered = render_staged_files(surface, claims)
-    assert "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_compression_benchmark.json" in rendered["proofs/FINAL_STATUS.md"]
-    assert "Photon row: OPEN" in rendered["proofs/FINAL_STATUS.md"]
-    assert "`PAUSED_EXTERNAL`" in rendered["proofs/FINAL_STATUS.md"]
+    assert (
+        "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"
+        in rendered["proofs/FINAL_STATUS.md"]
+    )
+    assert "Photon displacement remains open" in rendered["proofs/FINAL_STATUS.md"]
+    assert "`XR-C007` remains `PAUSED_EXTERNAL`" in rendered["proofs/FINAL_STATUS.md"]

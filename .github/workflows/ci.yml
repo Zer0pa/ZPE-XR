@@ -13,7 +13,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: python -m pip install --upgrade pip
-      - run: python -m pip install -e "./code[dev]"
+      - uses: dtolnay/rust-toolchain@stable
+      - run: python -m pip install --upgrade pip build pytest twine
+      - run: python -m build ./code --wheel
+      - run: python -m twine check ./code/dist/*
+      - run: python -m pip install ./code/dist/zpe_xr-*.whl
       - run: python ./executable/verify.py
       - run: python -m pytest ./code/tests -q

@@ -1,0 +1,23 @@
+{
+  "claim_id": "XR-C001",
+  "compression_ratio_vs_raw": 24.277456647398843,
+  "encoded_bytes_total": 107952,
+  "encoded_stats": {
+    "avg_bytes": 59.973333333333336,
+    "count": 1800,
+    "max_bytes": 331.0,
+    "min_bytes": 19.0,
+    "p95_bytes": 111.0
+  },
+  "modern_comparator": {
+    "avg_bytes_per_frame": 336.47277777777776,
+    "bytes_total": 605651,
+    "ratio_vs_raw": 4.327244568241446,
+    "ratio_vs_zpe": 5.610373128797984
+  },
+  "num_frames": 1800,
+  "pass": true,
+  "pass_threshold_ratio": 10.0,
+  "raw_bytes_per_frame": 1456,
+  "raw_bytes_total": 2620800
+}

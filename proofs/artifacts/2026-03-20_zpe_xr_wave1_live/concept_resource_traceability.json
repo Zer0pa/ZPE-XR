@@ -1,0 +1,68 @@
+{
+  "appendix_b_traceability": [
+    {
+      "comparability_impact": "Low",
+      "evidence_artifact": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/integration_readiness_contract.json",
+      "item": "OpenXR SDK interface compliance check included",
+      "planned_usage": "validate packet/joint schema compatibility",
+      "source_reference": "https://github.com/KhronosGroup/OpenXR-SDK",
+      "status": "RESOLVED",
+      "substitution": "None"
+    },
+    {
+      "comparability_impact": "Medium",
+      "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+      "item": "Meta XR SDK integration path validated where accessible",
+      "planned_usage": "runtime validation",
+      "source_reference": "Meta XR SDK",
+      "status": "PAUSED_EXTERNAL",
+      "substitution": "interface contract harness"
+    },
+    {
+      "comparability_impact": "High",
+      "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m1_result.json",
+      "item": "HOT3D dataset included in benchmark matrix",
+      "planned_usage": "external hand trajectory benchmarking",
+      "source_reference": "https://github.com/facebookresearch/hot3d",
+      "status": "INCONCLUSIVE",
+      "substitution": "synthetic harness"
+    },
+    {
+      "comparability_impact": "Medium",
+      "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+      "item": "XR Interaction Toolkit interoperability run included",
+      "planned_usage": "Unity runtime interoperability",
+      "source_reference": "com.unity.xr.interaction.toolkit",
+      "status": "PAUSED_EXTERNAL",
+      "substitution": "docs and endpoint probes"
+    },
+    {
+      "comparability_impact": "Medium",
+      "evidence_artifact": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_bandwidth_eval.json",
+      "item": "Unity Netcode and FishNet network-path evaluations included",
+      "planned_usage": "network bandwidth and loss stress",
+      "source_reference": "Unity Netcode/FishNet",
+      "status": "RESOLVED",
+      "substitution": "deterministic in-process simulator"
+    },
+    {
+      "comparability_impact": "High",
+      "evidence_artifact": "proofs/artifacts/2026-02-20_zpe_xr_wave1/gate_m2_result.json",
+      "item": "MANO hand-model retargeting validation included",
+      "planned_usage": "retarget validation",
+      "source_reference": "https://mano.is.tue.mpg.de",
+      "status": "PAUSED_EXTERNAL",
+      "substitution": "HO-Cap planned alternative"
+    },
+    {
+      "comparability_impact": "Low",
+      "evidence_artifact": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/integration_readiness_contract.json",
+      "item": "AvatarPoser outcomes captured as body-extension design decisions",
+      "planned_usage": "body extension roadmap",
+      "source_reference": "https://arxiv.org/abs/2207.13784",
+      "status": "RESOLVED",
+      "substitution": "N/A"
+    }
+  ],
+  "appendix_e_claim_resource_map": {}
+}

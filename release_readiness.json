@@ -1,0 +1,24 @@
+{
+  "verdict": "PRIVATE_ONLY",
+  "version": "0.3.0",
+  "package": "zpe-xr",
+  "wheel": "zpe_xr-0.3.0-cp314-cp314-macosx_10_12_x86_64.whl",
+  "twine_check": "PASSED",
+  "backend": "rust",
+  "comet_phase4_cold_start": "44d7c45e2795474eb4624bdad4333dba",
+  "comet_phase5_multi_sequence": "0e957cb027364d36880f6962fd70b78f",
+  "closed_claims": [
+    "56.144x mean compression vs raw on 5 ContactPose sequences",
+    "0.479mm mean MPJPE on real data",
+    "0.026ms mean encode+decode latency",
+    "0.399% mean pose error at 10% packet loss",
+    "package installs from a Rust-backed wheel on validated x86_64 Python 3.14"
+  ],
+  "open_claims": [
+    "Modern comparator multi-sequence gate failed 0/5 and blocks public release",
+    "Unity/Meta runtime integration remains PAUSED_EXTERNAL",
+    "Photon semantics-equivalent comparison remains secondary and open"
+  ],
+  "channel": "private",
+  "pypi_upload_command": "BLOCKED_FOR_PUBLIC_RELEASE: python -m twine upload code/rust/zpe_xr_kernel/target/wheels/zpe_xr-0.3.0-cp314-cp314-macosx_10_12_x86_64.whl"
+}

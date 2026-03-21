@@ -1,0 +1,130 @@
+{
+  "authority_boundary": {
+    "am_xr_01_status": "UNCHANGED",
+    "outward_superiority_status": "NOT_PROMOTED",
+    "reason": "Direct incumbent evidence is now bounded more concretely, but Photon remains a semantics-mismatched challenger rather than a closed head-to-head runtime benchmark."
+  },
+  "frozen_workload": {
+    "fps": 90,
+    "gesture": "mixed",
+    "num_frames": 1800,
+    "seed": 1103
+  },
+  "gate": "P2-COMP",
+  "generated_at_utc": "2026-03-20T00:05:33.714739+00:00",
+  "rows": [
+    {
+      "bytes_per_frame": 59.973333333333336,
+      "comparator_id": "zpe_xr_current",
+      "fairness_class": "frozen_v1_authority_surface",
+      "kb_per_s_modeled_4_player_session": 15.813281250000001,
+      "kb_per_s_single_remote": 5.27109375,
+      "label": "ZPE-XR deterministic codec",
+      "notes": "Measured directly from the frozen benchmark workload in this workspace.",
+      "relative_to_zpe": {
+        "bytes_ratio_vs_zpe": 1.0,
+        "zpe_larger": false,
+        "zpe_smaller": false
+      },
+      "semantics": "Two hands, 26 joints per hand, quantized 3D joint positions with deterministic keyframe+delta transport.",
+      "source_reference": "local_frozen_v1_rerun"
+    },
+    {
+      "bytes_per_frame": 1456.0,
+      "comparator_id": "raw_openxr_float_stream",
+      "fairness_class": "frozen_v1_authority_surface",
+      "kb_per_s_modeled_4_player_session": 383.90625,
+      "kb_per_s_single_remote": 127.96875,
+      "label": "Raw OpenXR-like float stream",
+      "notes": "Frozen raw baseline for AM-XR-01.",
+      "relative_to_zpe": {
+        "bytes_ratio_vs_zpe": 24.277456647398843,
+        "zpe_larger": false,
+        "zpe_smaller": true
+      },
+      "semantics": "Two hands, 26 joints per hand, position xyz plus quaternion xyzw as float32.",
+      "source_reference": "PRD_ZPE_XR.md / src/zpe_xr/constants.py"
+    },
+    {
+      "bytes_per_frame": 336.47277777777776,
+      "comparator_id": "modern_float16_delta_plus_zlib",
+      "fairness_class": "frozen_v1_authority_surface",
+      "kb_per_s_modeled_4_player_session": 88.718408203125,
+      "kb_per_s_single_remote": 29.572802734375,
+      "label": "Frozen modern comparator",
+      "notes": "Internal frozen modern proxy used in Phase 1.",
+      "relative_to_zpe": {
+        "bytes_ratio_vs_zpe": 5.610373128797984,
+        "zpe_larger": false,
+        "zpe_smaller": true
+      },
+      "semantics": "Two hands, half-float positional deltas and half-float rotations with zlib compression.",
+      "source_reference": "src/zpe_xr/metrics.py"
+    },
+    {
+      "bytes_per_frame": 38.0,
+      "comparator_id": "photon_fusion_xr_hands_doc",
+      "fairness_class": "narrower_semantics_than_frozen_v1",
+      "kb_per_s_modeled_4_player_session": 10.01953125,
+      "kb_per_s_single_remote": 3.33984375,
+      "label": "Photon Fusion XR Hands (doc-derived compressed rotations)",
+      "notes": "Official Photon documentation states that one hand full bone rotations compress to 19 bytes instead of 386 bytes for full quaternion transfer.",
+      "relative_to_zpe": {
+        "bytes_ratio_vs_zpe": 0.6336149399733214,
+        "zpe_larger": true,
+        "zpe_smaller": false
+      },
+      "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+      "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+    },
+    {
+      "bytes_per_frame": 772.0,
+      "comparator_id": "photon_fusion_xr_hands_full_quaternion_doc",
+      "fairness_class": "narrower_semantics_than_frozen_v1",
+      "kb_per_s_modeled_4_player_session": 203.5546875,
+      "kb_per_s_single_remote": 67.8515625,
+      "label": "Photon Fusion XR Hands (doc-derived full quaternion transfer)",
+      "notes": "Official Photon documentation states that one hand full bone rotations occupy 386 bytes.",
+      "relative_to_zpe": {
+        "bytes_ratio_vs_zpe": 12.872387727879056,
+        "zpe_larger": false,
+        "zpe_smaller": true
+      },
+      "semantics": "Hand-bone rotations only without Photon compression.",
+      "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+    },
+    {
+      "bytes_per_frame": 172.0,
+      "comparator_id": "ultraleap_vectorhand_open_source",
+      "fairness_class": "close_transport_semantics",
+      "kb_per_s_modeled_4_player_session": 45.3515625,
+      "kb_per_s_single_remote": 15.1171875,
+      "label": "Ultraleap VectorHand compressed encoding",
+      "notes": "Open-source Ultraleap VectorHand encoding fixes NUM_BYTES=86 per hand.",
+      "relative_to_zpe": {
+        "bytes_ratio_vs_zpe": 2.8679413072476656,
+        "zpe_larger": false,
+        "zpe_smaller": true
+      },
+      "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+      "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+    }
+  ],
+  "verdicts": [
+    {
+      "claim": "ZPE-XR remains clearly better than the frozen internal modern comparator on transport cost.",
+      "evidence": "zpe_xr_current.bytes_per_frame < modern_float16_delta_plus_zlib.bytes_per_frame",
+      "status": "PASS"
+    },
+    {
+      "claim": "ZPE-XR currently beats the open-source Ultraleap VectorHand encoding on bytes/frame under the frozen two-hand stream semantics.",
+      "evidence": "doc/code-derived Ultraleap VectorHand NUM_BYTES=86 per hand vs measured ZPE avg bytes/frame",
+      "status": "PASS"
+    },
+    {
+      "claim": "Photon-sized incumbent displacement is not closed because Photon's documented compressed path is narrower in semantics and smaller in bytes/frame.",
+      "evidence": "doc-derived Photon compressed rotations only = 19 bytes/hand, which is smaller than current ZPE bytes/frame but not apples-to-apples with the frozen full-position stream.",
+      "status": "OPEN"
+    }
+  ]
+}

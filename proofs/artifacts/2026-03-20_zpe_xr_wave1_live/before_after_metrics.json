@@ -1,0 +1,37 @@
+{
+  "compression_ratio_vs_raw": {
+    "after": 24.277456647398843,
+    "before": 1.0,
+    "delta": 23.277456647398843
+  },
+  "determinism_consistent_runs": {
+    "after": 5,
+    "before": 0,
+    "target": 5
+  },
+  "encode_decode_latency_ms": {
+    "after": 0.06682157055555556,
+    "before": null,
+    "threshold": 1.0
+  },
+  "gesture_accuracy": {
+    "after": 1.0,
+    "before": null,
+    "threshold": 0.95
+  },
+  "mpjpe_mm": {
+    "after": 0.8839973919757043,
+    "before": null,
+    "threshold": 2.0
+  },
+  "multiplayer_bandwidth_kbps_4_player": {
+    "after": 15.813281250000001,
+    "before": 383.90625,
+    "delta": -368.09296875
+  },
+  "packet_loss_pose_error_percent_10pct_loss": {
+    "after": 1.6329326063599245,
+    "before": 3.591828299820807,
+    "delta": -1.9588956934608823
+  }
+}

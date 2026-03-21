@@ -1,0 +1,48 @@
+{
+  "anchors": {
+    "comparator": "proofs/artifacts/2026-03-20_zpe_xr_phase2_pre_runpod/phase2_comparator_matrix.json",
+    "compression": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_compression_benchmark.json",
+    "corpus": "proofs/artifacts/2026-03-20_zpe_xr_phase2_pre_runpod/phase2_outward_corpus_probe.json",
+    "gesture": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_gesture_eval.json",
+    "phase1_summary": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/phase1_execution_summary.json",
+    "phase2_summary": "proofs/artifacts/2026-03-20_zpe_xr_phase2_pre_runpod/phase2_execution_summary.json",
+    "runtime": "proofs/artifacts/2026-03-20_zpe_xr_phase2_pre_runpod/phase2_runtime_probe_matrix.json"
+  },
+  "evidence_snapshot": {
+    "bandwidth_kb_per_s_4_player": 15.813281250000001,
+    "combined_avg_ms": 0.06682157055555556,
+    "compression_vs_raw": 24.277456647398843,
+    "contactpose_status": "READY_FOR_LOCAL_INTAKE",
+    "exact_prd_corpus_status": "UNRESOLVED",
+    "gesture_accuracy": 1.0,
+    "mpjpe_mm": 0.8839973919757043,
+    "photon_status": "OPEN",
+    "pose_error_percent_10_loss": 1.6329326063599245,
+    "runtime_status": "PAUSED_EXTERNAL",
+    "ultraleap_status": "PASS"
+  },
+  "package": {
+    "description": "Deterministic XR hand-stream codec and evaluation harness for bounded dual-hand pose transport, packet-loss recovery, and comparator analysis.",
+    "homepage": "https://github.com/Zer0pa/ZPE-XR",
+    "name": "zpe-xr",
+    "repository": "https://github.com/Zer0pa/ZPE-XR",
+    "requires_python": ">=3.11",
+    "version": "0.3.0"
+  },
+  "release_blockers": [
+    "BLIND_CLONE_NOT_EXECUTED",
+    "PHOTON_ROW_OPEN",
+    "XR_C007_PAUSED_EXTERNAL",
+    "EXACT_PRD_CORPUS_UNRESOLVED"
+  ],
+  "release_readiness": "NOT_READY_FOR_PUBLIC_RELEASE",
+  "verification": {
+    "build_passed": false,
+    "built_artifacts": [],
+    "install_smoke_passed": false,
+    "install_smoke_version": null,
+    "pytest_passed": true,
+    "pytest_summary": "summary unavailable",
+    "stage_verify_passed": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "claim_id": "XR-C002",
+  "mpjpe_mm": 0.8839973919757043,
+  "num_frames": 1800,
+  "pass": true,
+  "pass_threshold_mm": 2.0
+}

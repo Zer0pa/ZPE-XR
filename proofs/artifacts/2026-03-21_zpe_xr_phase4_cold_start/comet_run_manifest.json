@@ -1,0 +1,35 @@
+{
+  "project": "zpe-xr",
+  "runs": [
+    {
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start",
+      "experiment_key": null,
+      "name": "phase4-cold-start-2026-03-21_zpe_xr_phase4_cold_start",
+      "phase": "04",
+      "verdict": "FAIL"
+    },
+    {
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start",
+      "experiment_key": null,
+      "name": "phase4-cold-start-2026-03-21_zpe_xr_phase4_cold_start",
+      "phase": "04",
+      "verdict": "FAIL"
+    },
+    {
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start",
+      "experiment_key": null,
+      "name": "phase4-cold-start-2026-03-21_zpe_xr_phase4_cold_start",
+      "phase": "04",
+      "verdict": "PASS"
+    },
+    {
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start",
+      "experiment_key": null,
+      "name": "phase4-cold-start-2026-03-21_zpe_xr_phase4_cold_start",
+      "phase": "04",
+      "verdict": "PASS"
+    }
+  ],
+  "updated_at_utc": "2026-03-21T01:00:19.333727+00:00",
+  "workspace": "zer0pa"
+}

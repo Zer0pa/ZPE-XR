@@ -1,0 +1,8 @@
+# Command Log
+PYTHONHASHSEED=0 python3 scripts/lock_resources.py
+PYTHONHASHSEED=0 python3 scripts/generate_fixtures.py
+PYTHONHASHSEED=0 PYTHONPATH=src python3 -m unittest discover -s tests -p 'test_*.py' > proofs/artifacts/2026-03-20_zpe_xr_wave1_live/regression_results.txt 2>&1
+PYTHONHASHSEED=0 python3 scripts/run_gate_b.py
+PYTHONHASHSEED=0 python3 scripts/run_gate_c.py
+PYTHONHASHSEED=0 python3 scripts/run_gate_d.py
+PYTHONHASHSEED=0 ZPE_XR_PHASE=base python3 scripts/run_gate_e.py

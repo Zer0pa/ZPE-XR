@@ -1,0 +1,70 @@
+{
+  "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start",
+  "artifact_run_id": "2026-03-21_zpe_xr_phase4_cold_start",
+  "claim_audit": {
+    "checked_files": [
+      "README.md",
+      "PUBLIC_AUDIT_LIMITS.md",
+      "proofs/FINAL_STATUS.md",
+      "proofs/RELEASE_READINESS_REPORT.md"
+    ],
+    "forbidden_hits": [],
+    "missing_required_markers": [],
+    "pass": true
+  },
+  "comet": {
+    "enabled": false,
+    "experiment_key": null,
+    "project": "zpe-xr",
+    "workspace": "zer0pa"
+  },
+  "generated_at_utc": "2026-03-21T01:00:19.332544+00:00",
+  "install_smoke": {
+    "commands": [
+      [
+        "/usr/local/opt/python@3.14/bin/python3.14",
+        "-m",
+        "venv",
+        "/var/folders/49/b6bj2qfd5nl4vndxv7rb9dh00000gn/T/zpe_xr_phase4_cold_smoke_ap2p9m92/venv"
+      ],
+      [
+        "/var/folders/49/b6bj2qfd5nl4vndxv7rb9dh00000gn/T/zpe_xr_phase4_cold_smoke_ap2p9m92/venv/bin/pip",
+        "install",
+        "--upgrade",
+        "pip"
+      ],
+      [
+        "/var/folders/49/b6bj2qfd5nl4vndxv7rb9dh00000gn/T/zpe_xr_phase4_cold_smoke_ap2p9m92/venv/bin/pip",
+        "install",
+        "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/cold_snapshot/ZPE-XR/proofs/artifacts/2026-03-20_zpe_xr_phase3_packaging/dist/zpe_xr-0.3.0-py3-none-any.whl"
+      ],
+      [
+        "/var/folders/49/b6bj2qfd5nl4vndxv7rb9dh00000gn/T/zpe_xr_phase4_cold_smoke_ap2p9m92/venv/bin/python",
+        "-c",
+        "import json, zpe_xr; print(json.dumps({'package_import': True, 'version': zpe_xr.__version__}, sort_keys=True))"
+      ]
+    ],
+    "install_target": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/cold_snapshot/ZPE-XR/proofs/artifacts/2026-03-20_zpe_xr_phase3_packaging/dist/zpe_xr-0.3.0-py3-none-any.whl",
+    "install_target_kind": "wheel",
+    "last_stderr": "",
+    "last_stdout": "{\"package_import\": true, \"version\": \"0.3.0\"}\n",
+    "passed": true,
+    "result": {
+      "package_import": true,
+      "version": "0.3.0"
+    },
+    "returncode": 0
+  },
+  "snapshot_root": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/cold_snapshot/ZPE-XR",
+  "stage_verify": {
+    "command": [
+      "/usr/local/opt/python@3.14/bin/python3.14",
+      "executable/verify.py"
+    ],
+    "name": "stage_verify",
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\n  \"audit_limits_present\": true,\n  \"final_status_present\": true,\n  \"fresh_phase1_bundle_present\": true,\n  \"fresh_phase2_bundle_present\": true,\n  \"package_import\": true,\n  \"package_version\": \"0.3.0\",\n  \"package_version_is_placeholder\": false,\n  \"phase3_bundle\": \"/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/cold_snapshot/ZPE-XR/proofs/artifacts/2026-03-20_zpe_xr_phase3_packaging\",\n  \"phase3_bundle_present\": true,\n  \"release_readiness_present\": true,\n  \"repo_root\": \"/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/cold_snapshot/ZPE-XR\",\n  \"root_readme_present\": true\n}\n"
+  },
+  "verdict": "PASS"
+}

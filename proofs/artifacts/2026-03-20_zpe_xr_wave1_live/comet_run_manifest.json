@@ -1,0 +1,21 @@
+{
+  "project": "zpe-xr",
+  "runs": [
+    {
+      "all_steps_passed": false,
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/proofs/artifacts/2026-03-20_zpe_xr_wave1_live",
+      "experiment_key": "bbf392685c27444fb1b3693d43de739e",
+      "name": "phase1-core-closure-2026-03-20_zpe_xr_wave1_live",
+      "phase": "01"
+    },
+    {
+      "all_steps_passed": true,
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/proofs/artifacts/2026-03-20_zpe_xr_wave1_live",
+      "experiment_key": "5b85a7cfc7c041e7a5d6b198cf308df5",
+      "name": "phase1-core-closure-2026-03-20_zpe_xr_wave1_live",
+      "phase": "01"
+    }
+  ],
+  "updated_at_utc": "2026-03-19T23:20:37.513691+00:00",
+  "workspace": "zer0pa"
+}

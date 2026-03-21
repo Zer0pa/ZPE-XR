@@ -1,0 +1,129 @@
+{
+  "claims_all_pass": true,
+  "files": [
+    {
+      "bytes": 795,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/before_after_metrics.json",
+      "sha256": "f9d37ee6522c3f2ea7e5a06b66baa387ef16cbdb82541fd2e1f4c83861bbe11d"
+    },
+    {
+      "bytes": 2943,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/falsification_results.md",
+      "sha256": "efd97b899ad7c0c8b88c20f3797191087bb2bf16aae5caffcf2f2c0235f45a5a"
+    },
+    {
+      "bytes": 940,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/claim_status_delta.md",
+      "sha256": "70df0f7207d94a2927a61c18037b339eacca367e96e59fddde108ca469f7a70d"
+    },
+    {
+      "bytes": 479,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/command_log.txt",
+      "sha256": "9156dbc6deb80b831feba02da562a3d532a1c4163a1b493045d25b9a4fac3874"
+    },
+    {
+      "bytes": 575,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_compression_benchmark.json",
+      "sha256": "6fe21e7e9202813e762babfb849612fb2e0e7a2c665f985af7e46d90a060e4f6"
+    },
+    {
+      "bytes": 128,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_fidelity_eval.json",
+      "sha256": "ceb36f0f66ee0ddc867f687e41fd5e401324ce83c9a30f0a24b778536f0713bd"
+    },
+    {
+      "bytes": 290,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_latency_benchmark.json",
+      "sha256": "71f624a1f0a3e4a69171eef35b677d56d4bdf8ad111262a61741c568687f297c"
+    },
+    {
+      "bytes": 2116,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_packet_loss_resilience.json",
+      "sha256": "582256b0d74c2d0540241ca9086adfcdceb6ff654ec7936edc0a0aa1cf5468cf"
+    },
+    {
+      "bytes": 453,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_gesture_eval.json",
+      "sha256": "e79e63339ae48fc2681516c0c2ec33346f004e7ab280f7e7bbb34021bba213e0"
+    },
+    {
+      "bytes": 204,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_bandwidth_eval.json",
+      "sha256": "9b7f8659ae4c2e981d7c5b7095ef6d4016c5eb4a28272c44ec8537f4a09fd31d"
+    },
+    {
+      "bytes": 172,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_unity_roundtrip.json",
+      "sha256": "5b5cdeb8b72bab132a3b99a85649d83be3b0c24ec4bef33da1a08a7aafaa6778"
+    },
+    {
+      "bytes": 1427,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/determinism_replay_results.json",
+      "sha256": "6678e9ce86c5ed00b531e255081d1fcd282196623f4a8abd0a7ce2da049256f7"
+    },
+    {
+      "bytes": 103,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/regression_results.txt",
+      "sha256": "73aa3c20f337b40e17b580cf9fbe0b2c915dcb522f2ea90b7d3d2ae99476d065"
+    },
+    {
+      "bytes": 2121,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/quality_gate_scorecard.json",
+      "sha256": "32145de43edabff07a8b984deceb30c3b5ea4bb7976616889a821004945af8bd"
+    },
+    {
+      "bytes": 457,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/innovation_delta_report.md",
+      "sha256": "a6eacb4f76dd39cf0e1b7ccdffd96663c22ee1f4c1a91e82051a01392a07c6b3"
+    },
+    {
+      "bytes": 802,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/integration_readiness_contract.json",
+      "sha256": "1c67d1f8a36964ad657478cbefa6a0b550ac68a99b23df40dd973df0c71e4e18"
+    },
+    {
+      "bytes": 76,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/residual_risk_register.md",
+      "sha256": "07ee294adfec3993a5077383119a04eebb604a8b3aa3fab7341d4a9f74654aa8"
+    },
+    {
+      "bytes": 1056,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/concept_open_questions_resolution.md",
+      "sha256": "6c5f5cada98aa40a0b5cbef8194f6e7d7fb7e92ff51fc53bee35d98d53ae8d1a"
+    },
+    {
+      "bytes": 2902,
+      "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/concept_resource_traceability.json",
+      "sha256": "be5eb1553a91136346dbe2415e0b28f8a14fc420119d0ea1077599ebc179f545"
+    }
+  ],
+  "generated_at_utc": "2026-03-19T23:22:49.632733+00:00",
+  "max_wave_pass": false,
+  "missing_files": [],
+  "overall_gate_e_pass": true,
+  "phase": "base",
+  "phase_mode_requested": "base",
+  "quality_score_pass": true,
+  "required_files": [
+    "handoff_manifest.json",
+    "before_after_metrics.json",
+    "falsification_results.md",
+    "claim_status_delta.md",
+    "command_log.txt",
+    "xr_compression_benchmark.json",
+    "xr_fidelity_eval.json",
+    "xr_latency_benchmark.json",
+    "xr_packet_loss_resilience.json",
+    "xr_gesture_eval.json",
+    "xr_bandwidth_eval.json",
+    "xr_unity_roundtrip.json",
+    "determinism_replay_results.json",
+    "regression_results.txt",
+    "quality_gate_scorecard.json",
+    "innovation_delta_report.md",
+    "integration_readiness_contract.json",
+    "residual_risk_register.md",
+    "concept_open_questions_resolution.md",
+    "concept_resource_traceability.json"
+  ]
+}

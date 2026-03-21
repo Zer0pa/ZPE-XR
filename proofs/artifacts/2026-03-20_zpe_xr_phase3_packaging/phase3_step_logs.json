@@ -1,0 +1,132 @@
+{
+  "steps": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-c",
+        "import build"
+      ],
+      "duration_s": 0.045668999999179505,
+      "ended_at_utc": "2026-03-20T17:37:58.350135+00:00",
+      "name": "build_module_probe",
+      "returncode": 1,
+      "started_at_utc": "2026-03-20T17:37:58.303723+00:00",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import build\nModuleNotFoundError: No module named 'build'\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "pip",
+        "install",
+        "build>=1.2,<2"
+      ],
+      "duration_s": 0.8790109580004355,
+      "ended_at_utc": "2026-03-20T17:37:59.229102+00:00",
+      "name": "install_build",
+      "returncode": 1,
+      "started_at_utc": "2026-03-20T17:37:58.350181+00:00",
+      "stderr": "error: externally-managed-environment\n\n\u00d7 This environment is externally managed\n\u2570\u2500> To install Python packages system-wide, try brew install\n    xyz, where xyz is the package you are trying to\n    install.\n    \n    If you wish to install a Python library that isn't in Homebrew,\n    use a virtual environment:\n    \n    python3 -m venv path/to/venv\n    source path/to/venv/bin/activate\n    python3 -m pip install xyz\n    \n    If you wish to install a Python application that isn't in Homebrew,\n    it may be easiest to use 'pipx install xyz', which will manage a\n    virtual environment for you. You can install pipx with\n    \n    brew install pipx\n    \n    You may restore the old behavior of pip by passing\n    the '--break-system-packages' flag to pip, or by adding\n    'break-system-packages = true' to your pip.conf file. The latter\n    will permanently disable this error.\n    \n    If you disable this error, we STRONGLY recommend that you additionally\n    pass the '--user' flag to pip, or set 'user = true' in your pip.conf\n    file. Failure to do this can result in a broken Homebrew installation.\n    \n    Read more about this behavior here: <https://peps.python.org/pep-0668/>\n\nnote: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.\nhint: See PEP 668 for the detailed specification.\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "duration_s": 0.6541421250003623,
+      "ended_at_utc": "2026-03-20T17:37:59.883210+00:00",
+      "name": "pytest",
+      "returncode": 0,
+      "started_at_utc": "2026-03-20T17:37:59.229139+00:00",
+      "stderr": "",
+      "stdout": "..............                                                           [100%]\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "build",
+        "--sdist",
+        "--wheel",
+        "--outdir",
+        "/Users/Zer0pa/ZPE/ZPE XR/proofs/artifacts/2026-03-20_zpe_xr_phase3_packaging/dist"
+      ],
+      "duration_s": 0.021705958992242813,
+      "ended_at_utc": "2026-03-20T17:37:59.904972+00:00",
+      "name": "build",
+      "returncode": 1,
+      "started_at_utc": "2026-03-20T17:37:59.883260+00:00",
+      "stderr": "/opt/homebrew/opt/python@3.14/bin/python3.14: No module named build\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "scripts/sync_staged_repo.py",
+        "--run-id",
+        "2026-03-20_zpe_xr_phase3_packaging"
+      ],
+      "duration_s": 1.531970750002074,
+      "ended_at_utc": "2026-03-20T17:38:01.436848+00:00",
+      "name": "sync_staged_repo",
+      "returncode": 0,
+      "started_at_utc": "2026-03-20T17:37:59.905042+00:00",
+      "stderr": "",
+      "stdout": "Generated fixtures/resource_lock.json and fixtures/synthetic_hot3d_snapshot_v1.json\nGenerated fixtures/benchmark_config.json\nStaged sync complete for run 2026-03-20_zpe_xr_phase3_packaging\n"
+    },
+    {
+      "command": [
+        "install_smoke"
+      ],
+      "duration_s": 0.00029883299430366606,
+      "ended_at_utc": "2026-03-20T17:38:01.437205+00:00",
+      "name": "install_smoke",
+      "returncode": 1,
+      "started_at_utc": "2026-03-20T17:38:01.436904+00:00",
+      "stderr": "built wheel not found in dist directory",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "render_staged_surface"
+      ],
+      "duration_s": 0.0013230839977040887,
+      "ended_at_utc": "2026-03-20T17:38:01.440188+00:00",
+      "name": "render_staged_surface",
+      "result": {
+        "written_files": [
+          "README.md",
+          "PUBLIC_AUDIT_LIMITS.md",
+          "AUDITOR_PLAYBOOK.md",
+          "CHANGELOG.md",
+          "docs/README.md",
+          "code/README.md",
+          "proofs/README.md",
+          "proofs/FINAL_STATUS.md",
+          "proofs/RELEASE_READINESS_REPORT.md"
+        ]
+      },
+      "returncode": 0,
+      "started_at_utc": "2026-03-20T17:38:01.438861+00:00",
+      "stderr": "",
+      "stdout": "{\n  \"written_files\": [\n    \"README.md\",\n    \"PUBLIC_AUDIT_LIMITS.md\",\n    \"AUDITOR_PLAYBOOK.md\",\n    \"CHANGELOG.md\",\n    \"docs/README.md\",\n    \"code/README.md\",\n    \"proofs/README.md\",\n    \"proofs/FINAL_STATUS.md\",\n    \"proofs/RELEASE_READINESS_REPORT.md\"\n  ]\n}"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "executable/verify.py"
+      ],
+      "duration_s": 0.04232437499740627,
+      "ended_at_utc": "2026-03-20T17:38:01.482682+00:00",
+      "name": "stage_verify",
+      "returncode": 0,
+      "started_at_utc": "2026-03-20T17:38:01.440354+00:00",
+      "stderr": "",
+      "stdout": "{\n  \"audit_limits_present\": true,\n  \"final_status_present\": true,\n  \"fresh_phase1_bundle_present\": true,\n  \"fresh_phase2_bundle_present\": true,\n  \"package_import\": true,\n  \"package_version\": \"0.3.0\",\n  \"package_version_is_placeholder\": false,\n  \"phase3_bundle\": \"/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/proofs/artifacts/2026-03-20_zpe_xr_phase3_packaging\",\n  \"phase3_bundle_present\": true,\n  \"release_readiness_present\": true,\n  \"repo_root\": \"/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR\",\n  \"root_readme_present\": true\n}\n"
+    }
+  ]
+}

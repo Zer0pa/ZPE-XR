@@ -1,0 +1,42 @@
+{
+  "artifact_ref_root": "artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+  "artifact_ref_stage": "proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+  "artifact_run_id": "2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+  "canonical_root": "/Users/Zer0pa/ZPE/ZPE XR",
+  "copied_artifact_files": 6,
+  "copied_groups": [
+    {
+      "files": 18,
+      "source": "src",
+      "target": "code/src"
+    },
+    {
+      "files": 22,
+      "source": "scripts",
+      "target": "code/scripts"
+    },
+    {
+      "files": 11,
+      "source": "tests",
+      "target": "code/tests"
+    },
+    {
+      "files": 1,
+      "source": "executable",
+      "target": "executable"
+    },
+    {
+      "files": 1,
+      "source": "pyproject.toml",
+      "target": "code/pyproject.toml"
+    },
+    {
+      "files": 13,
+      "source": "runbooks",
+      "target": "proofs/runbooks"
+    }
+  ],
+  "generated_at_utc": "2026-03-21T12:56:15.958035+00:00",
+  "stage_artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+  "stage_root": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR"
+}

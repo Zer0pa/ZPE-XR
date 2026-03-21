@@ -1,0 +1,14 @@
+{
+  "project": "zpe-xr",
+  "runs": [
+    {
+      "artifact_dir": "/workspace/zpe_xr_phase4_2026-03-21_zpe_xr_phase4_runpod_contactpose_124543Z/proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+      "experiment_key": null,
+      "name": "phase4-contactpose-2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+      "phase": "04",
+      "verdict": "PASS"
+    }
+  ],
+  "updated_at_utc": "2026-03-21T12:48:57.423595+00:00",
+  "workspace": "zer0pa"
+}

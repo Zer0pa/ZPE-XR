@@ -1,0 +1,605 @@
+{
+  "all_steps_passed": true,
+  "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/proofs/artifacts/2026-03-20_zpe_xr_wave1_live",
+  "artifact_run_id": "2026-03-20_zpe_xr_wave1_live",
+  "comet": {
+    "enabled": true,
+    "experiment_key": "5b85a7cfc7c041e7a5d6b198cf308df5",
+    "project": "zpe-xr",
+    "workspace": "zer0pa"
+  },
+  "gate_d_summary.json": {
+    "campaigns": [
+      {
+        "campaign": "DT-XR-1",
+        "failure_signatures": [
+          "Packet too short",
+          "Packet too short",
+          "Checksum mismatch",
+          "Checksum mismatch",
+          "Checksum mismatch",
+          "Checksum mismatch"
+        ],
+        "handled_failures": 6,
+        "malformed_inputs": 6,
+        "pass": true,
+        "uncaught_crashes": 0
+      },
+      {
+        "campaign": "DT-XR-2",
+        "pass": true,
+        "stress_case": {
+          "decoder_stats": {
+            "backup_recoveries": 368,
+            "concealed_frames": 765,
+            "parse_failures": 0
+          },
+          "delivery_stats": {
+            "missing_packets": 765,
+            "provided_packets": 735,
+            "total_frames": 1500
+          },
+          "jitter_probability": 0.3,
+          "loss_rate": 0.3,
+          "max_delay_frames": 2,
+          "mpjpe_mm": 5.471137417906396,
+          "pass": true,
+          "pass_threshold_percent": 5.0,
+          "pose_error_percent": 4.559281181588664,
+          "seed": 2207
+        },
+        "target_case": {
+          "decoder_stats": {
+            "backup_recoveries": 284,
+            "concealed_frames": 397,
+            "parse_failures": 0
+          },
+          "delivery_stats": {
+            "missing_packets": 397,
+            "provided_packets": 1103,
+            "total_frames": 1500
+          },
+          "jitter_probability": 0.2,
+          "loss_rate": 0.1,
+          "max_delay_frames": 1,
+          "mpjpe_mm": 1.6366386724041315,
+          "pass": true,
+          "pass_threshold_percent": 5.0,
+          "pose_error_percent": 1.3638655603367764,
+          "seed": 1103
+        }
+      },
+      {
+        "accuracy": 1.0,
+        "campaign": "DT-XR-3",
+        "confusion_matrix": {
+          "fist": {
+            "fist": 20
+          },
+          "grip": {
+            "grip": 20
+          },
+          "pinch": {
+            "pinch": 20
+          },
+          "point": {
+            "point": 20
+          },
+          "spread": {
+            "spread": 20
+          },
+          "wave": {
+            "wave": 20
+          }
+        },
+        "pass": true,
+        "pass_threshold_accuracy": 0.9,
+        "total_samples": 120
+      },
+      {
+        "campaign": "DT-XR-4",
+        "consistent_runs": 5,
+        "pass": true,
+        "required_consistent_runs": 5,
+        "runs": [
+          {
+            "first_hash": "9c66b028022e5e1630e0bfe06abe171049ea3cdcca6b842f12d07024a3ee9645",
+            "hash_match": true,
+            "packet_count": 700,
+            "second_hash": "9c66b028022e5e1630e0bfe06abe171049ea3cdcca6b842f12d07024a3ee9645",
+            "seed": 1103
+          },
+          {
+            "first_hash": "e37a20e569909f6c0c060e150db9f4482c5f8651b71f2061caa6e8ebbc15ae98",
+            "hash_match": true,
+            "packet_count": 700,
+            "second_hash": "e37a20e569909f6c0c060e150db9f4482c5f8651b71f2061caa6e8ebbc15ae98",
+            "seed": 2207
+          },
+          {
+            "first_hash": "596b7fd704594750d0d704246f32f59828d1892e9734b00487cb167a92d26ccd",
+            "hash_match": true,
+            "packet_count": 700,
+            "second_hash": "596b7fd704594750d0d704246f32f59828d1892e9734b00487cb167a92d26ccd",
+            "seed": 3301
+          },
+          {
+            "first_hash": "662165ec9a753978fc73c97e82c8e2eefa5336838671d6ebeeb5e8f39ce32f74",
+            "hash_match": true,
+            "packet_count": 700,
+            "second_hash": "662165ec9a753978fc73c97e82c8e2eefa5336838671d6ebeeb5e8f39ce32f74",
+            "seed": 4409
+          },
+          {
+            "first_hash": "561f0364c6f646b6d1e60a3a6de04c302253785b3e829cf0ab9589106e3e724a",
+            "hash_match": true,
+            "packet_count": 700,
+            "second_hash": "561f0364c6f646b6d1e60a3a6de04c302253785b3e829cf0ab9589106e3e724a",
+            "seed": 5501
+          }
+        ]
+      },
+      {
+        "campaign": "DT-XR-5",
+        "eight_player": {
+          "avg_packet_bytes": 59.96,
+          "fps": 90,
+          "kbps_for_4_player_session": 36.889453124999996,
+          "pass": true,
+          "pass_threshold_kbps": 40.0,
+          "remote_players": 7
+        },
+        "four_player": {
+          "avg_packet_bytes": 59.96,
+          "fps": 90,
+          "kbps_for_4_player_session": 15.809765624999999,
+          "pass": true,
+          "pass_threshold_kbps": 40.0,
+          "remote_players": 3
+        },
+        "pass": true
+      }
+    ],
+    "overall_pass": true,
+    "uncaught_crash_rate": 0.0
+  },
+  "gate_execution_matrix.json": {
+    "gates": [
+      {
+        "evidence": [
+          "fixtures/resource_lock.json",
+          "fixtures/synthetic_hot3d_snapshot_v1.json",
+          "fixtures/benchmark_config.json"
+        ],
+        "gate": "A",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_compression_benchmark.json",
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_fidelity_eval.json",
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_latency_benchmark.json"
+        ],
+        "gate": "B",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_packet_loss_resilience.json",
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_gesture_eval.json",
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_bandwidth_eval.json"
+        ],
+        "gate": "C",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/gate_d_summary.json",
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/falsification_results.md"
+        ],
+        "gate": "D",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/handoff_manifest.json",
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/quality_gate_scorecard.json"
+        ],
+        "gate": "E-base",
+        "status": "PASS"
+      }
+    ],
+    "generated_at_utc": "2026-03-19T23:20:34.149427+00:00"
+  },
+  "generated_at_utc": "2026-03-19T23:20:37.503050+00:00",
+  "handoff_manifest.json": {
+    "claims_all_pass": true,
+    "files": [
+      {
+        "bytes": 795,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/before_after_metrics.json",
+        "sha256": "a165185b0fc43e8ee31ccdb8a3d310181a50fa83bb3715e7d6684673bc837cfc"
+      },
+      {
+        "bytes": 2943,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/falsification_results.md",
+        "sha256": "efd97b899ad7c0c8b88c20f3797191087bb2bf16aae5caffcf2f2c0235f45a5a"
+      },
+      {
+        "bytes": 999,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/claim_status_delta.md",
+        "sha256": "6f5ee6d66cb793cc0e5267196e699397653cc7a2a6d4243593872411f9d945e0"
+      },
+      {
+        "bytes": 479,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/command_log.txt",
+        "sha256": "9156dbc6deb80b831feba02da562a3d532a1c4163a1b493045d25b9a4fac3874"
+      },
+      {
+        "bytes": 575,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_compression_benchmark.json",
+        "sha256": "6fe21e7e9202813e762babfb849612fb2e0e7a2c665f985af7e46d90a060e4f6"
+      },
+      {
+        "bytes": 128,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_fidelity_eval.json",
+        "sha256": "ceb36f0f66ee0ddc867f687e41fd5e401324ce83c9a30f0a24b778536f0713bd"
+      },
+      {
+        "bytes": 279,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_latency_benchmark.json",
+        "sha256": "1f499a76c71c0b90c90ddc84d7a73b0c6558be44c04d64cd23963ccb47f8783d"
+      },
+      {
+        "bytes": 2116,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_packet_loss_resilience.json",
+        "sha256": "582256b0d74c2d0540241ca9086adfcdceb6ff654ec7936edc0a0aa1cf5468cf"
+      },
+      {
+        "bytes": 453,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_gesture_eval.json",
+        "sha256": "e79e63339ae48fc2681516c0c2ec33346f004e7ab280f7e7bbb34021bba213e0"
+      },
+      {
+        "bytes": 204,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_bandwidth_eval.json",
+        "sha256": "9b7f8659ae4c2e981d7c5b7095ef6d4016c5eb4a28272c44ec8537f4a09fd31d"
+      },
+      {
+        "bytes": 172,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_unity_roundtrip.json",
+        "sha256": "5b5cdeb8b72bab132a3b99a85649d83be3b0c24ec4bef33da1a08a7aafaa6778"
+      },
+      {
+        "bytes": 1427,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/determinism_replay_results.json",
+        "sha256": "6678e9ce86c5ed00b531e255081d1fcd282196623f4a8abd0a7ce2da049256f7"
+      },
+      {
+        "bytes": 103,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/regression_results.txt",
+        "sha256": "faaebb1b1bf961ca1bc40e8dcfa77d25de2d488199a932a63444878a5774784f"
+      },
+      {
+        "bytes": 2121,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/quality_gate_scorecard.json",
+        "sha256": "32145de43edabff07a8b984deceb30c3b5ea4bb7976616889a821004945af8bd"
+      },
+      {
+        "bytes": 457,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/innovation_delta_report.md",
+        "sha256": "a6eacb4f76dd39cf0e1b7ccdffd96663c22ee1f4c1a91e82051a01392a07c6b3"
+      },
+      {
+        "bytes": 802,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/integration_readiness_contract.json",
+        "sha256": "be7a5184a95baef3005a183b1ada9ec647bbb912929374134931f39172fe0deb"
+      },
+      {
+        "bytes": 76,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/residual_risk_register.md",
+        "sha256": "07ee294adfec3993a5077383119a04eebb604a8b3aa3fab7341d4a9f74654aa8"
+      },
+      {
+        "bytes": 1056,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/concept_open_questions_resolution.md",
+        "sha256": "6c5f5cada98aa40a0b5cbef8194f6e7d7fb7e92ff51fc53bee35d98d53ae8d1a"
+      },
+      {
+        "bytes": 2902,
+        "path": "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/concept_resource_traceability.json",
+        "sha256": "be5eb1553a91136346dbe2415e0b28f8a14fc420119d0ea1077599ebc179f545"
+      }
+    ],
+    "generated_at_utc": "2026-03-19T23:20:34.122098+00:00",
+    "max_wave_pass": false,
+    "missing_files": [],
+    "overall_gate_e_pass": true,
+    "phase": "base",
+    "phase_mode_requested": "base",
+    "quality_score_pass": true,
+    "required_files": [
+      "handoff_manifest.json",
+      "before_after_metrics.json",
+      "falsification_results.md",
+      "claim_status_delta.md",
+      "command_log.txt",
+      "xr_compression_benchmark.json",
+      "xr_fidelity_eval.json",
+      "xr_latency_benchmark.json",
+      "xr_packet_loss_resilience.json",
+      "xr_gesture_eval.json",
+      "xr_bandwidth_eval.json",
+      "xr_unity_roundtrip.json",
+      "determinism_replay_results.json",
+      "regression_results.txt",
+      "quality_gate_scorecard.json",
+      "innovation_delta_report.md",
+      "integration_readiness_contract.json",
+      "residual_risk_register.md",
+      "concept_open_questions_resolution.md",
+      "concept_resource_traceability.json"
+    ]
+  },
+  "quality_gate_scorecard.json": {
+    "dimensions": [
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/handoff_manifest.json"
+        ],
+        "name": "engineering_completeness",
+        "score": 5
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/command_log.txt"
+        ],
+        "name": "problem_solving_autonomy",
+        "score": 5
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/innovation_delta_report.md"
+        ],
+        "name": "exceed_brief_innovation",
+        "score": 4
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/falsification_results.md"
+        ],
+        "name": "anti_toy_depth",
+        "score": 4
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/falsification_results.md"
+        ],
+        "name": "robustness_failure_transparency",
+        "score": 5
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/determinism_replay_results.json"
+        ],
+        "name": "deterministic_reproducibility",
+        "score": 5
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/regression_results.txt"
+        ],
+        "name": "code_quality_cohesion",
+        "score": 4
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/xr_latency_benchmark.json"
+        ],
+        "name": "performance_efficiency",
+        "score": 5
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/integration_readiness_contract.json"
+        ],
+        "name": "interoperability_readiness",
+        "score": 4
+      },
+      {
+        "evidence": [
+          "proofs/artifacts/2026-03-20_zpe_xr_wave1_live/claim_status_delta.md"
+        ],
+        "name": "scientific_claim_hygiene",
+        "score": 5
+      }
+    ],
+    "non_negotiable": {
+      "appendix_d_e_gates_pass": true,
+      "claims_have_evidence_paths": true,
+      "determinism_5_of_5": true,
+      "end_to_end_completed": true,
+      "lane_boundary_respected": true,
+      "uncaught_crash_rate_zero": true
+    },
+    "pass": true,
+    "pass_threshold": 45,
+    "rubric_version_date": "2026-02-20",
+    "total_score": 46
+  },
+  "step_status": {
+    "gate_b": 0,
+    "gate_c": 0,
+    "gate_d": 0,
+    "gate_e": 0,
+    "generate_fixtures": 0,
+    "lock_resources": 0,
+    "sync_staged_repo": 0,
+    "tests": 0
+  },
+  "xr_bandwidth_eval.json": {
+    "avg_packet_bytes": 59.973333333333336,
+    "claim_id": "XR-C006",
+    "fps": 90,
+    "kbps_for_4_player_session": 15.813281250000001,
+    "pass": true,
+    "pass_threshold_kbps": 40.0,
+    "remote_players": 3
+  },
+  "xr_compression_benchmark.json": {
+    "claim_id": "XR-C001",
+    "compression_ratio_vs_raw": 24.277456647398843,
+    "encoded_bytes_total": 107952,
+    "encoded_stats": {
+      "avg_bytes": 59.973333333333336,
+      "count": 1800,
+      "max_bytes": 331.0,
+      "min_bytes": 19.0,
+      "p95_bytes": 111.0
+    },
+    "modern_comparator": {
+      "avg_bytes_per_frame": 336.47277777777776,
+      "bytes_total": 605651,
+      "ratio_vs_raw": 4.327244568241446,
+      "ratio_vs_zpe": 5.610373128797984
+    },
+    "num_frames": 1800,
+    "pass": true,
+    "pass_threshold_ratio": 10.0,
+    "raw_bytes_per_frame": 1456,
+    "raw_bytes_total": 2620800
+  },
+  "xr_fidelity_eval.json": {
+    "claim_id": "XR-C002",
+    "mpjpe_mm": 0.8839973919757043,
+    "num_frames": 1800,
+    "pass": true,
+    "pass_threshold_mm": 2.0
+  },
+  "xr_gesture_eval.json": {
+    "accuracy": 1.0,
+    "claim_id": "XR-C005",
+    "confusion_matrix": {
+      "fist": {
+        "fist": 40
+      },
+      "grip": {
+        "grip": 40
+      },
+      "pinch": {
+        "pinch": 40
+      },
+      "point": {
+        "point": 40
+      },
+      "spread": {
+        "spread": 40
+      },
+      "wave": {
+        "wave": 40
+      }
+    },
+    "correct_samples": 240,
+    "mean_confidence": 0.9131324650991002,
+    "pass": true,
+    "pass_threshold_accuracy": 0.95,
+    "total_samples": 240
+  },
+  "xr_latency_benchmark.json": {
+    "claim_id": "XR-C003",
+    "combined_avg_ms": 0.06827202722222221,
+    "combined_p95_ms": 0.084125,
+    "combined_p99_ms": 0.091792,
+    "decode_avg_ms": 0.009166944444444445,
+    "encode_avg_ms": 0.05910508277777778,
+    "num_frames": 1800,
+    "pass": true,
+    "pass_threshold_ms": 1.0
+  },
+  "xr_packet_loss_resilience.json": {
+    "claim_id": "XR-C004",
+    "pass": true,
+    "sweep": [
+      {
+        "decoder_stats": {
+          "backup_recoveries": 215,
+          "concealed_frames": 262,
+          "parse_failures": 0
+        },
+        "delivery_stats": {
+          "missing_packets": 262,
+          "provided_packets": 1538,
+          "total_frames": 1800
+        },
+        "jitter_probability": 0.1,
+        "loss_rate": 0.05,
+        "max_delay_frames": 1,
+        "mpjpe_mm": 1.2179569874223048,
+        "pass": true,
+        "pass_threshold_percent": 5.0,
+        "pose_error_percent": 1.014964156185254,
+        "seed": 3301
+      },
+      {
+        "decoder_stats": {
+          "backup_recoveries": 378,
+          "concealed_frames": 526,
+          "parse_failures": 0
+        },
+        "delivery_stats": {
+          "missing_packets": 526,
+          "provided_packets": 1274,
+          "total_frames": 1800
+        },
+        "jitter_probability": 0.2,
+        "loss_rate": 0.1,
+        "max_delay_frames": 1,
+        "mpjpe_mm": 1.9595191276319095,
+        "pass": true,
+        "pass_threshold_percent": 5.0,
+        "pose_error_percent": 1.6329326063599245,
+        "seed": 4409
+      },
+      {
+        "decoder_stats": {
+          "backup_recoveries": 413,
+          "concealed_frames": 737,
+          "parse_failures": 0
+        },
+        "delivery_stats": {
+          "missing_packets": 737,
+          "provided_packets": 1063,
+          "total_frames": 1800
+        },
+        "jitter_probability": 0.25,
+        "loss_rate": 0.2,
+        "max_delay_frames": 2,
+        "mpjpe_mm": 3.513347143652955,
+        "pass": true,
+        "pass_threshold_percent": 5.0,
+        "pose_error_percent": 2.9277892863774624,
+        "seed": 5501
+      }
+    ],
+    "target_case": {
+      "decoder_stats": {
+        "backup_recoveries": 378,
+        "concealed_frames": 526,
+        "parse_failures": 0
+      },
+      "delivery_stats": {
+        "missing_packets": 526,
+        "provided_packets": 1274,
+        "total_frames": 1800
+      },
+      "jitter_probability": 0.2,
+      "loss_rate": 0.1,
+      "max_delay_frames": 1,
+      "mpjpe_mm": 1.9595191276319095,
+      "pass": true,
+      "pass_threshold_percent": 5.0,
+      "pose_error_percent": 1.6329326063599245,
+      "seed": 4409
+    }
+  }
+}

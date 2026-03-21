@@ -1,28 +1,48 @@
 [build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["maturin>=1.10,<2"]
+build-backend = "maturin"
 
 [project]
 name = "zpe-xr"
-version = "0.0.0"
-description = "Deterministic XR hand-stream codec and evaluation harness"
+version = "0.3.0"
+description = "Deterministic XR hand-pose transport codec. 56x compression, sub-mm fidelity, 0.025ms latency, CPU-native."
 readme = "README.md"
-requires-python = ">=3.10"
-authors = [{name = "Zer0pa"}]
+requires-python = ">=3.11"
 license = {text = "LicenseRef-Zer0pa-SAL-6.0"}
-dependencies = []
+authors = [{name = "Zer0pa"}]
+keywords = ["xr", "codec", "hand-tracking", "networking", "openxr"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: Other/Proprietary License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Rust",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "numpy>=2,<3",
+]
 
 [project.optional-dependencies]
-dev = ["pytest>=8"]
+dev = [
+  "maturin>=1.10,<2",
+  "pytest>=8,<9",
+  "twine>=5,<7",
+]
 
-[tool.setuptools]
-include-package-data = false
+[project.urls]
+Homepage = "https://github.com/Zer0pa/ZPE-XR"
+Repository = "https://github.com/Zer0pa/ZPE-XR"
+Issues = "https://github.com/Zer0pa/ZPE-XR/issues"
 
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["zpe_xr*"]
+[tool.maturin]
+bindings = "pyo3"
+manifest-path = "rust/zpe_xr_kernel/Cargo.toml"
+module-name = "zpe_xr._kernel"
+python-source = "source"
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = ["source", "src"]
 testpaths = ["tests"]
 addopts = "-q"

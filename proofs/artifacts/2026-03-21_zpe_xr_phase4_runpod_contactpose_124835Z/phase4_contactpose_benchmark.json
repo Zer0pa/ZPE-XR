@@ -1,0 +1,113 @@
+{
+  "artifact_dir": "/workspace/zpe_xr_phase4_2026-03-21_zpe_xr_phase4_runpod_contactpose_124543Z/proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+  "artifact_run_id": "2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z",
+  "benchmark": {
+    "acceptance": {
+      "secondary_checks": {
+        "modern_comparator_beaten": false
+      },
+      "sovereign_checks": {
+        "fidelity_floor": true,
+        "latency_floor": true,
+        "order_of_magnitude_vs_raw": true,
+        "packet_loss_floor": true
+      },
+      "sovereign_pass": true,
+      "verdict": "PASS"
+    },
+    "codec": {
+      "deadband_mm": 1,
+      "keyframe_interval": 45,
+      "quant_step_mm": 1.0
+    },
+    "compression_metrics": {
+      "compression_ratio_vs_raw": 56.1439588688946,
+      "encoded_bytes_total": 2334,
+      "encoded_stats": {
+        "avg_bytes": 25.933333333333334,
+        "count": 90,
+        "max_bytes": 331.0,
+        "min_bytes": 19.0,
+        "p95_bytes": 19.0
+      },
+      "modern_comparator": {
+        "avg_bytes_per_frame": 21.6,
+        "bytes_total": 1944,
+        "ratio_vs_raw": 67.4074074074074,
+        "ratio_vs_zpe": 0.8329048843187661
+      },
+      "num_frames": 90,
+      "raw_bytes_per_frame": 1456,
+      "raw_bytes_total": 131040
+    },
+    "fidelity_metrics": {
+      "mpjpe_mm": 0.47828856949163745,
+      "num_frames": 90,
+      "pass": true,
+      "pass_threshold_mm": 2.0
+    },
+    "latency_metrics": {
+      "combined_avg_ms": 0.025282422222222215,
+      "combined_p95_ms": 0.03147,
+      "combined_p99_ms": 0.03848,
+      "decode_avg_ms": 0.0021136555555555546,
+      "encode_avg_ms": 0.02316876666666666,
+      "num_frames": 90,
+      "pass": true,
+      "pass_threshold_ms": 1.0
+    },
+    "packet_digest_sha256": "923053dd59b3bd8a9486f98f430b8470897b66ea02cd6d188099e9311947b4ca",
+    "packet_loss_metrics": {
+      "decoder_stats": {
+        "backup_recoveries": 19,
+        "concealed_frames": 28,
+        "parse_failures": 0
+      },
+      "delivery_stats": {
+        "missing_packets": 28,
+        "provided_packets": 62,
+        "total_frames": 90
+      },
+      "jitter_probability": 0.2,
+      "loss_rate": 0.1,
+      "max_delay_frames": 1,
+      "mpjpe_mm": 0.47828856949163745,
+      "pass": true,
+      "pass_threshold_percent": 5.0,
+      "pose_error_percent": 0.3985738079096979,
+      "seed": 4409
+    },
+    "workload": {
+      "dataset": "ContactPose",
+      "frames_used": 90,
+      "selected_sequence": {
+        "archive_member": "ContactPose sample data/grasps.zip::grasps/full36_use/binoculars.zip::binoculars/annotations.json",
+        "frame_count": 867,
+        "object_name": "binoculars",
+        "valid_hands": [
+          0,
+          1
+        ]
+      },
+      "source_bytes": 1979376914,
+      "source_path": "/workspace/zpe_xr_phase4_2026-03-21_zpe_xr_phase4_runpod_contactpose_124543Z/artifacts/contactpose_cache/downloads/contactpose_sample.zip",
+      "source_sha256": "dd1437adc79ab1a7879b46629ddbf3b29146e90694043cbc85d990ba3e1abd7d"
+    }
+  },
+  "cleanup": {
+    "path": "/workspace/zpe_xr_phase4_2026-03-21_zpe_xr_phase4_runpod_contactpose_124543Z/artifacts/contactpose_cache/downloads/contactpose_sample.zip",
+    "removed": false
+  },
+  "comet": {
+    "enabled": false,
+    "experiment_key": null,
+    "project": "zpe-xr",
+    "workspace": "zer0pa"
+  },
+  "execution_status": "EXECUTED",
+  "generated_at_utc": "2026-03-21T12:48:47.997070+00:00",
+  "preflight": {
+    "disk_headroom_gib": 149241.03771972656,
+    "min_required_gib": 5.0
+  }
+}

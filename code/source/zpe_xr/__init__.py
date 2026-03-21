@@ -1,6 +1,6 @@
 """zpe_xr wave-1 deterministic codec and evaluation harness."""
 
-__version__ = "0.3.0"
+from .metadata import VERSION as __version__
 
 from .constants import (
     FPS,
@@ -10,6 +10,7 @@ from .constants import (
     TOTAL_JOINTS,
 )
 from .codec import DecoderState, EncoderState, XRCodec
+from .api import codec_info, decode, encode, gesture_match
 from .models import Frame, FrameSequence
 
 __all__ = [
@@ -23,5 +24,9 @@ __all__ = [
     "RAW_BYTES_PER_FRAME",
     "TOTAL_JOINTS",
     "XRCodec",
+    "codec_info",
+    "decode",
+    "encode",
+    "gesture_match",
     "__version__",
 ]

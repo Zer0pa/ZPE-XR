@@ -2,114 +2,77 @@
   <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
 </p>
 
-<table align="center" width="100%" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="50%"><a href="../README.md"><img src="../.github/assets/readme/nav/what-this-is.svg" alt="Front Door" width="100%"></a></td>
-    <td width="50%"><a href="README.md"><img src="../.github/assets/readme/nav/go-next.svg" alt="Docs Index" width="100%"></a></td>
-  </tr>
-</table>
-
 <p>
-  <img src="../.github/assets/readme/section-bars/repo-shape.svg" alt="REPO MAP" width="100%">
+  <img src="../.github/assets/readme/section-bars/what-this-is.svg" alt="WHAT THIS IS" width="100%">
 </p>
 
-# Architecture
+This document is the architecture index for the current ZPE-XR runtime and proof surface.
 
-## Repo Map
+Canonical anchors:
 
-<table width="100%" border="1" bordercolor="#b8c0ca" cellpadding="0" cellspacing="0">
-  <thead>
-    <tr>
-      <th align="left">Path</th>
-      <th align="left">Role</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>code/source/zpe_xr/</code></td>
-      <td>Canonical Python runtime surface.</td>
-    </tr>
-    <tr>
-      <td><code>code/rust/zpe_xr_kernel/</code></td>
-      <td>Rust kernel and PyO3 extension.</td>
-    </tr>
-    <tr>
-      <td><code>code/tests/</code></td>
-      <td>Deterministic test suite.</td>
-    </tr>
-    <tr>
-      <td><code>code/scripts/</code></td>
-      <td>Gate, phase, and verification scripts.</td>
-    </tr>
-    <tr>
-      <td><code>executable/verify.py</code></td>
-      <td>Repo-local verification harness.</td>
-    </tr>
-    <tr>
-      <td><code>proofs/</code></td>
-      <td>Evidence corpus, release readiness, and runbooks.</td>
-    </tr>
-  </tbody>
-</table>
+- External acquisition surface: `https://github.com/Zer0pa/ZPE-XR.git`
+- Contact: `architects@zer0pa.ai`
+- Python package root: `code/source/zpe_xr`
+- Rust kernel crate: `code/rust/zpe_xr_kernel`
+- Verification entrypoint: `executable/verify.py`
+- Governing proof surfaces: `proofs/FINAL_STATUS.md`, `proofs/RELEASE_READINESS_REPORT.md`
 
 <p>
-  <img src="../.github/assets/readme/section-bars/evidence-and-claims.svg" alt="AUTHORITY CLASSES" width="100%">
+  <img src="../.github/assets/readme/section-bars/interface-contracts.svg" alt="INTERFACE CONTRACTS" width="100%">
 </p>
 
-## Authority Classes
-
-<table width="100%" border="1" bordercolor="#b8c0ca" cellpadding="0" cellspacing="0">
-  <thead>
-    <tr>
-      <th align="left" width="22%">Class</th>
-      <th align="left" width="45%">Definition</th>
-      <th align="left" width="33%">Primary Evidence</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Runtime truth</td>
-      <td>Executable package surface and Rust backend behavior.</td>
-      <td><code>code/source/</code>, <code>code/rust/</code>, <code>release_readiness.json</code></td>
-    </tr>
-    <tr>
-      <td>Proof authority</td>
-      <td>Staged evidence and claim boundaries.</td>
-      <td><code>proofs/FINAL_STATUS.md</code>, <code>proofs/RELEASE_READINESS_REPORT.md</code></td>
-    </tr>
-    <tr>
-      <td>Audit boundary</td>
-      <td>External verification and public limits.</td>
-      <td><code>AUDITOR_PLAYBOOK.md</code>, <code>PUBLIC_AUDIT_LIMITS.md</code></td>
-    </tr>
-  </tbody>
-</table>
+| Surface | Role | Canonical path |
+|---|---|---|
+| Public API | Package entrypoints for encode/decode/gesture/info | `code/source/zpe_xr/__init__.py`, `code/source/zpe_xr/api.py` |
+| Codec envelope | Packet encode/parse and recovery logic | `code/source/zpe_xr/codec.py` |
+| Verification path | Repo-local install and smoke verification | `executable/verify.py` |
+| Evidence authority | Claim boundary and release verdict | `proofs/FINAL_STATUS.md`, `proofs/RELEASE_READINESS_REPORT.md` |
+| Machine-readable package state | Build/install/release summary | `release_readiness.json` |
 
 <p>
-  <img src="../.github/assets/readme/section-bars/architecture-and-theory.svg" alt="RUNTIME SHAPE" width="100%">
+  <img src="../.github/assets/readme/section-bars/word-layout.svg" alt="WORD LAYOUT" width="100%">
 </p>
 
-## Runtime Shape
+The XR packet envelope in `code/source/zpe_xr/codec.py` is packet-based rather than a single fixed token word. The governing packet fields are:
 
-The package implements a deterministic codec for two-hand joint streams and ships a Rust-backed extension. It provides:
-
-- keyframe and delta packet encoding
-- bounded packet parsing and checksum validation
-- realtime loss recovery with concealment and backup deltas
-- metric helpers for compression, fidelity, bandwidth, and latency
-- a Unity-envelope compatibility layer for evaluation only
+| Envelope field | Source |
+|---|---|
+| `magic`, `version`, `flags` | `_HEADER_STRUCT = struct.Struct("<3sBBHHIBB")` |
+| `seq`, `backup_seq`, `timestamp_ms` | `_HEADER_STRUCT` |
+| `current_count`, `backup_count` | `_HEADER_STRUCT` |
+| keyframe quantized joints or delta entries | `_QVEC_STRUCT`, `_ENTRY_STRUCT` |
+| CRC32 checksum tail | `_CHECKSUM_STRUCT` |
 
 <p>
-  <img src="../.github/assets/readme/section-bars/verification.svg" alt="VERIFICATION SURFACES" width="100%">
+  <img src="../.github/assets/readme/section-bars/modality-markers.svg" alt="MODALITY MARKERS" width="100%">
 </p>
 
-## Verification Surfaces
+Primary runtime and evaluation surfaces:
 
-- Package verification: `executable/verify.py`
-- Evidence boundary: `proofs/FINAL_STATUS.md`
-- Release verdict: `proofs/RELEASE_READINESS_REPORT.md`
-- Phase 5 benchmark: `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json`
+- `XRCodec`, `EncoderState`, `DecoderState` for codec mechanics
+- `encode`, `decode`, `gesture_match`, `codec_info` for package API
+- `network.py` for sequence encode/decode and loss-recovery evaluation
+- `external_benchmarks.py` for comparator measurement surfaces
+- `unity.py` for the Unity-envelope compatibility layer used in evaluation
 
 <p>
-  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
+  <img src="../.github/assets/readme/section-bars/dispatch-precedence.svg" alt="DISPATCH PRECEDENCE" width="100%">
 </p>
+
+When repo surfaces disagree, use this precedence:
+
+1. current proof artifacts and verdict docs
+2. `release_readiness.json`
+3. package/runtime docs
+4. historical or narrative prose
+
+<p>
+  <img src="../.github/assets/readme/section-bars/open-risks-non-blocking.svg" alt="OPEN RISKS (NON-BLOCKING)" width="100%">
+</p>
+
+Deployment guardrails for architecture readers:
+
+- package validity does not imply public-release validity
+- the comparator gate is still failed at `0/5`
+- runtime closure remains `PAUSED_EXTERNAL`
+- ContactPose is the current outward-safe lane, not the exact PRD corpus

@@ -1,31 +1,13 @@
-<p>
-  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
-</p>
-
-<table align="center" width="100%" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="50%"><a href="../README.md"><img src="../.github/assets/readme/nav/what-this-is.svg" alt="Front Door" width="100%"></a></td>
-    <td width="50%"><a href="../GOVERNANCE.md"><img src="../.github/assets/readme/nav/go-next.svg" alt="Governance" width="100%"></a></td>
-  </tr>
-</table>
-
-<p>
-  <img src="../.github/assets/readme/section-bars/license-and-ip.svg" alt="LICENSE AND IP" width="100%">
-</p>
-
 # Legal Boundaries
 
-This document is an operational summary, not legal advice.
+This note is a release-surface summary only. `../LICENSE` is the legal source of truth for Zer0pa Source-Available License v6.0 (SAL v6.0).
 
-## Repository License
+## Package Surfaces
 
-- software license: `LicenseRef-Zer0pa-SAL-6.0`
-- legal source of truth: `LICENSE`
-- licensing contact: `architects@zer0pa.ai`
-
-<p>
-  <img src="../.github/assets/readme/section-bars/scope.svg" alt="DATASET AND RUNTIME BOUNDARIES" width="100%">
-</p>
+- `code/pyproject.toml` is governed by the root `LICENSE`.
+- `code/rust/zpe_xr_kernel/Cargo.toml` is an internal crate under the root `LICENSE`.
+- `code/source/zpe_xr/` is the shipped package source surface under the root `LICENSE`.
+- `release_readiness.json` is package/readiness metadata, not an independent license surface.
 
 ## Dataset And Runtime Boundaries
 
@@ -72,14 +54,12 @@ This document is an operational summary, not legal advice.
   </tbody>
 </table>
 
-<p>
-  <img src="../.github/assets/readme/section-bars/evidence-and-claims.svg" alt="CLAIM DISCIPLINE" width="100%">
-</p>
-
 ## Claim Discipline
 
-This repo may describe historical artifacts, but historical prose does not outrank the current staged claim-boundary notes in `proofs/FINAL_STATUS.md` and `PUBLIC_AUDIT_LIMITS.md`.
+Historical or aspirational prose does not outrank:
 
-<p>
-  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
-</p>
+- `proofs/FINAL_STATUS.md`
+- `proofs/RELEASE_READINESS_REPORT.md`
+- `PUBLIC_AUDIT_LIMITS.md`
+
+Package validity, benchmark validity, runtime closure, and public-release readiness must stay separated. A real package surface does not automatically create a real runtime-closure or public-release claim.

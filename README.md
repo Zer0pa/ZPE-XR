@@ -31,55 +31,19 @@
 
 ## What This Is
 
-ZPE-XR is a deterministic hand-pose transport codec for XR two-hand joint streams, optimized for package truth, replay discipline, and bounded benchmark evidence.
+ZPE-XR is a deterministic hand-pose transport codec for XR two-hand joint streams — built for headset pipelines, gesture runtimes, and spatial-computing infrastructure where stream fidelity and replay discipline matter.
 
-## Commercial Wedge
+On the ContactPose benchmark: **0.479 mm mean per-joint position error**, **56× compression vs raw**, **0.026 ms encode+decode latency**. Package mechanics are real and installable. These numbers trace to committed artifacts under `proofs/`.
 
-This is for **XR platform teams, headset ecosystem teams, gesture runtime teams, and spatial-computing infrastructure teams** who need deterministic hand-stream transport with measurable fidelity, bandwidth reduction, and auditable replay. The business value is reproducible hand-pose delivery at sub-millimeter fidelity (0.479 mm MPJPE), 56× compression, and sub-millisecond encode/decode latency — with every claim traceable to committed benchmark artifacts.
+The repo is **private-stage**. The ContactPose lane and package install path work. The modern comparator gate is 0/5 — not closed. Unity and Meta runtime closure are open engineering blockers. This is a bounded proof surface, not a shipped XR product.
 
-## Technical Wedge
-
-The technical edge is a deterministic two-hand joint codec with ContactPose benchmark evidence: **MPJPE 0.479 mm**, **56.144× compression vs raw**, **0.026 ms encode+decode latency**. Package mechanics are real and installable. Runtime closure on Unity/Meta targets remains an open engineering gate.
-
-## Current Readiness
-
-**`PRIVATE_STAGE`** — ContactPose benchmark lane and package mechanics are real. Modern comparator gate (0/5) and Unity/Meta runtime closure are open blockers for public release.
-
-## What Is Proved
-
-- ContactPose benchmark fidelity: 0.479 mm mean per-joint position error
-- 56.144× compression ratio vs raw joint streams
-- 0.026 ms combined encode+decode latency
-- Package mechanics: installable, testable, and locally verifiable
-- Deterministic replay on the tested surface
-
-## What Is Not Being Claimed
-
-- Public release readiness — modern comparator gate not closed
-- Unity or Meta runtime closure — XR-C007 is PAUSED_EXTERNAL
-- Photon displacement claim — not yet evidenced
-- Exact PRD corpus closure — ContactPose is the current safe lane, not the full target
-- Broad hand-tracking superiority — claims are bounded to the ContactPose benchmark surface
-
-## Ideal First Buyer
-
-XR platform team or spatial-computing infrastructure team building deterministic hand-stream transport for headset or gesture-runtime pipelines.
-
-## Deployment Model
-
-SDK — Python package candidate with repo-local evaluation harness. Private repo checkout today; public package when comparator and runtime gates close.
-
-## Authority / Proof Anchors
+**Not claimed:** public release readiness, Unity/Meta runtime closure, photon displacement evidence, exact PRD corpus closure, or broad hand-tracking superiority beyond ContactPose.
 
 | Anchor | Artifact |
 |---|---|
-| Phase 5 multi-sequence benchmark | [`proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json) |
-| Release readiness report | [`proofs/RELEASE_READINESS_REPORT.md`](proofs/RELEASE_READINESS_REPORT.md) |
-| Final status | [`proofs/FINAL_STATUS.md`](proofs/FINAL_STATUS.md) |
-
-## Role In The Zer0pa Family
-
-ZPE-XR is a product-candidate member of the Zer0pa deterministic encoding family. [ZPE-IMC](https://github.com/Zer0pa/ZPE-IMC) is the umbrella integration and dispatch layer; this repo is the domain-specific XR hand-stream wedge.
+| Phase 5 multi-sequence benchmark | [`phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json) |
+| Release readiness report | [`RELEASE_READINESS_REPORT.md`](proofs/RELEASE_READINESS_REPORT.md) |
+| Final status | [`FINAL_STATUS.md`](proofs/FINAL_STATUS.md) |
 
 ---
 

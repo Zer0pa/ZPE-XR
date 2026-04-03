@@ -27,6 +27,26 @@
   </tr>
 </table>
 
+---
+
+## What This Is
+
+ZPE-XR is a deterministic hand-pose transport codec for XR two-hand joint streams — built for headset pipelines, gesture runtimes, and spatial-computing infrastructure where stream fidelity and replay discipline matter.
+
+On the ContactPose benchmark: **0.479 mm mean per-joint position error**, **56× compression vs raw**, **0.026 ms encode+decode latency**. Package mechanics are real and installable. These numbers trace to committed artifacts under `proofs/`.
+
+The repo is **private-stage**. The ContactPose lane and package install path work. The modern comparator gate is 0/5 — not closed. Unity and Meta runtime closure are open engineering blockers. This is a bounded proof surface, not a shipped XR product.
+
+**Not claimed:** public release readiness, Unity/Meta runtime closure, photon displacement evidence, exact PRD corpus closure, or broad hand-tracking superiority beyond ContactPose.
+
+| Anchor | Artifact |
+|---|---|
+| Phase 5 multi-sequence benchmark | [`phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json) |
+| Release readiness report | [`RELEASE_READINESS_REPORT.md`](proofs/RELEASE_READINESS_REPORT.md) |
+| Final status | [`FINAL_STATUS.md`](proofs/FINAL_STATUS.md) |
+
+---
+
 <a id="quickstart-and-license"></a>
 <h2 align="center">Quickstart And License</h2>
 

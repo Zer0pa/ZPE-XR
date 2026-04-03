@@ -1,0 +1,25 @@
+{
+  "repo_name": "ZPE-XR",
+  "repo_role": "product_candidate",
+  "status": "PRIVATE_STAGE",
+  "plain_english_summary": "Deterministic hand-pose transport codec for XR two-hand joint streams.",
+  "commercial_wedge": "Reproducible hand-stream transport for XR platforms. Sub-millimeter fidelity (0.479 mm MPJPE), 56× compression, sub-millisecond latency — all traceable to committed benchmark artifacts.",
+  "technical_wedge": "Deterministic two-hand joint codec. ContactPose benchmark: 0.479 mm MPJPE, 56.144× compression, 0.026 ms encode+decode. Package mechanics real and installable.",
+  "ideal_first_buyer": "XR platform team or spatial-computing infrastructure team",
+  "deployment_model": "SDK — Python package candidate with evaluation harness",
+  "proof_anchors": [
+    "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json",
+    "proofs/RELEASE_READINESS_REPORT.md",
+    "proofs/FINAL_STATUS.md"
+  ],
+  "not_claimed": [
+    "Public release readiness (modern comparator gate not closed)",
+    "Unity or Meta runtime closure (XR-C007 PAUSED_EXTERNAL)",
+    "Photon displacement",
+    "Exact PRD corpus closure",
+    "Broad hand-tracking superiority"
+  ],
+  "family_position": "Product candidate in the Zer0pa deterministic encoding family. ZPE-IMC is the umbrella integration layer.",
+  "license": "LicenseRef-Zer0pa-SAL-6.0",
+  "contact": "hello@zer0pa.com"
+}

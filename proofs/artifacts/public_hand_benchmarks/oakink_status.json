@@ -1,0 +1,22 @@
+{
+  "access": "huggingface_plus_google_form",
+  "adapter_status": "planned",
+  "artifact_class": "planning_scaffold_only",
+  "benchmark_status": "not_run",
+  "current_authority_anchor": null,
+  "dataset_id": "oakink",
+  "disk_notes": "Official guidance requires zipped dataset files plus an annotation download gate; confirm storage before fetch.",
+  "expected_layout": [
+    "OakBase.zip",
+    "image/anno_v2.1.zip",
+    "shape/oakink_shape_v2.zip"
+  ],
+  "homepage": "https://oakink.net/",
+  "label": "OakInk",
+  "notes": "Intent-aware hand-object benchmark candidate. Repo support is planning-only today.",
+  "recommended_cache_path": "proofs/artifacts/datasets/oakink/zipped/",
+  "scaffold_status": "not_run",
+  "scripts_requiring_data": [],
+  "status_file": "oakink_status.json",
+  "tests_requiring_data": []
+}

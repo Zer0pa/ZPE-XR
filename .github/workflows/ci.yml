@@ -4,19 +4,29 @@ on:
   push:
     branches: ["main"]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   smoke:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+        python-version: ["3.11"]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
       - uses: dtolnay/rust-toolchain@stable
       - run: python -m pip install --upgrade pip build pytest twine
       - run: python -m build ./code --wheel
       - run: python -m twine check ./code/dist/*
-      - run: python -m pip install ./code/dist/zpe_xr-*.whl
+      - run: python -m pip install "./code[dev]"
       - run: python ./executable/verify.py
       - run: python -m pytest ./code/tests -q
+      - run: |
+          tmpdir="$(mktemp -d)"
+          python ./code/scripts/export_public_benchmark_manifest.py --output-dir "$tmpdir/public_hand_benchmarks"
+          python ./code/scripts/export_comparator_triage.py --output "$tmpdir/comparator_triage.json"

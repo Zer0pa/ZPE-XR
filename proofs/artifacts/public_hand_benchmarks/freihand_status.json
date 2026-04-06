@@ -1,0 +1,21 @@
+{
+  "access": "official_dataset_download",
+  "adapter_status": "planned",
+  "artifact_class": "planning_scaffold_only",
+  "benchmark_status": "not_run",
+  "current_authority_anchor": null,
+  "dataset_id": "freihand",
+  "disk_notes": "Check current dataset package and annotation split on the official download page before caching.",
+  "expected_layout": [
+    "training/",
+    "evaluation/"
+  ],
+  "homepage": "https://lmb.informatik.uni-freiburg.de/projects/freihand/",
+  "label": "FreiHAND",
+  "notes": "Single-hand articulation benchmark candidate. Repo support is planning-only today.",
+  "recommended_cache_path": "proofs/artifacts/datasets/freihand/FreiHAND_pub_v2/",
+  "scaffold_status": "not_run",
+  "scripts_requiring_data": [],
+  "status_file": "freihand_status.json",
+  "tests_requiring_data": []
+}

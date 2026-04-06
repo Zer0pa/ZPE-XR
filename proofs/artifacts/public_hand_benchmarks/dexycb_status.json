@@ -1,0 +1,22 @@
+{
+  "access": "official_site_google_drive",
+  "adapter_status": "planned",
+  "artifact_class": "planning_scaffold_only",
+  "benchmark_status": "not_run",
+  "current_authority_anchor": null,
+  "dataset_id": "dexycb",
+  "disk_notes": "Official site offers a 119G combined archive or per-subject archives; do not fetch casually on a tight disk budget.",
+  "expected_layout": [
+    "20200709-subject-01/",
+    "calibration/",
+    "models/"
+  ],
+  "homepage": "https://dex-ycb.github.io/",
+  "label": "DexYCB",
+  "notes": "Dexterous grasping benchmark candidate with official toolkit support. Repo support is planning-only today.",
+  "recommended_cache_path": "proofs/artifacts/datasets/dexycb/",
+  "scaffold_status": "not_run",
+  "scripts_requiring_data": [],
+  "status_file": "dexycb_status.json",
+  "tests_requiring_data": []
+}

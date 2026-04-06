@@ -1,0 +1,273 @@
+{
+  "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64",
+  "artifact_run_id": "2026-03-29_zpe_xr_phase6_mac_comparator_arm64",
+  "benchmark": {
+    "conclusions": [
+      "ZPE-XR now has a same-machine measured Mac row from the staged package surface.",
+      "The raw float stream and the internal modern comparator proxy now have same-machine measured proxy rows, so local latency and overhead are no longer purely inherited from historical artifacts.",
+      "ZPE-XR is smaller than the code-derived Ultraleap VectorHand row on bytes/frame under the frozen two-hand stream semantics.",
+      "Photon remains smaller on the documented compressed transport row, but that row is still narrower in semantics and not a closed head-to-head displacement result.",
+      "Market-popular lanes such as Unity NGO and Normcore still need a runnable same-machine benchmark before they can enter the numeric comparison table."
+    ],
+    "contactpose_attempt": {
+      "aggregate": {
+        "all_sovereign_checks_passed": true,
+        "compression_ratio_vs_raw_mean": 56.14395886889461,
+        "latency_ms_mean": 0.02812478666666667,
+        "modern_comparator_pass_count": 0,
+        "modern_comparator_requirement_met": false,
+        "mpjpe_mm_mean": 0.4785933583765226,
+        "packet_loss_error_pct_mean": 0.39882779864710216,
+        "sequence_count": 5
+      },
+      "selected_objects": [
+        "mug",
+        "bowl",
+        "camera",
+        "binoculars",
+        "ps_controller"
+      ],
+      "source_path": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/phase6_contactpose_probe/downloads/contactpose_sample.zip",
+      "source_sha256": "dd1437adc79ab1a7879b46629ddbf3b29146e90694043cbc85d990ba3e1abd7d",
+      "status": "executed"
+    },
+    "execution_surface": {
+      "canonical_root": "/Users/Zer0pa/ZPE/ZPE XR",
+      "root_execution_surface": {
+        "missing_modules": [
+          "constants.py",
+          "codec.py",
+          "io_utils.py",
+          "metrics.py",
+          "models.py",
+          "pipeline.py",
+          "synthetic.py"
+        ],
+        "status": "incomplete"
+      },
+      "root_package_dir": "/Users/Zer0pa/ZPE/ZPE XR/src/zpe_xr",
+      "stage_code_root": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/code",
+      "staged_package_backend": "rust"
+    },
+    "host": {
+      "generated_at_utc": "2026-03-29T13:32:34.969169+00:00",
+      "machine": "arm64",
+      "platform": "Darwin",
+      "platform_release": "24.5.0",
+      "platform_version": "Darwin Kernel Version 24.5.0: Tue Apr 22 19:48:46 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8103",
+      "python_version": "3.14.0"
+    },
+    "market_reference_only": [
+      {
+        "comparator_id": "unity_ngo",
+        "evidence_class": "market_reference_only",
+        "label": "Unity Netcode for GameObjects",
+        "notes": "Mainstream networking surface, but no official apples-to-apples XR hand-sync transport or latency row was found.",
+        "source_reference": "https://docs.unity3d.com/kr/6000.0/Manual/com.unity.netcode.gameobjects.html"
+      },
+      {
+        "comparator_id": "normcore",
+        "evidence_class": "market_reference_only",
+        "label": "Normcore VR/AR",
+        "notes": "Major VR/AR multiplayer product, but no official hand-sync byte or latency table was found.",
+        "source_reference": "https://normcore.io/solutions/vr-ar"
+      }
+    ],
+    "rows": [
+      {
+        "backend": "rust",
+        "comparator_id": "zpe_xr_current_mac",
+        "evidence_class": "measured_local",
+        "fairness_class": "frozen_v1_authority_surface",
+        "fidelity": {
+          "mpjpe_mm": 0.8787099314170437
+        },
+        "label": "ZPE-XR staged package (local Mac)",
+        "latency": {
+          "combined_avg_ms_per_frame": 0.029440307962962962,
+          "combined_avg_ms_per_sequence": 2.6496277166666666,
+          "combined_p50_ms_per_sequence": 1.979042,
+          "combined_p95_ms_per_frame": 0.06465925555555556,
+          "combined_p95_ms_per_sequence": 5.819333,
+          "combined_p99_ms_per_frame": 0.07856851111111111,
+          "combined_p99_ms_per_sequence": 7.071166,
+          "decode_avg_ms_per_frame": 0.014756658148148147,
+          "decode_avg_ms_per_sequence": 1.3280992333333332,
+          "decode_p50_ms_per_sequence": 1.053416,
+          "decode_p95_ms_per_sequence": 2.486958,
+          "decode_p99_ms_per_sequence": 2.927,
+          "encode_avg_ms_per_frame": 0.014683649814814816,
+          "encode_avg_ms_per_sequence": 1.3215284833333334,
+          "encode_p50_ms_per_sequence": 0.923,
+          "encode_p95_ms_per_sequence": 2.766208,
+          "encode_p99_ms_per_sequence": 5.120125,
+          "iterations": 60.0
+        },
+        "notes": "Measured from the staged package API on this Mac with backend=rust.",
+        "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport through the staged package API.",
+        "source_reference": "local_staged_package_api",
+        "transport": {
+          "bytes_per_frame": 55.72222222222222,
+          "bytes_total": 5015.0,
+          "compression_ratio_vs_raw": 26.1296111665005,
+          "kb_per_s_modeled_4_player_session": 14.6923828125,
+          "kb_per_s_single_remote": 4.8974609375
+        }
+      },
+      {
+        "comparator_id": "raw_openxr_float_stream_local",
+        "evidence_class": "proxy_measured_local",
+        "fairness_class": "frozen_v1_authority_surface",
+        "fidelity": {
+          "mpjpe_mm": 0.0
+        },
+        "label": "Raw OpenXR-like float stream (local proxy)",
+        "latency": {
+          "combined_avg_ms_per_frame": 0.00061855,
+          "combined_avg_ms_per_sequence": 0.055669500000000004,
+          "combined_p50_ms_per_sequence": 0.027625,
+          "combined_p95_ms_per_frame": 0.002582411111111111,
+          "combined_p95_ms_per_sequence": 0.23241699999999998,
+          "combined_p99_ms_per_frame": 0.004422688888888889,
+          "combined_p99_ms_per_sequence": 0.398042,
+          "decode_avg_ms_per_frame": 0.0005662416666666666,
+          "decode_avg_ms_per_sequence": 0.05096175,
+          "decode_p50_ms_per_sequence": 0.024625,
+          "decode_p95_ms_per_sequence": 0.211917,
+          "decode_p99_ms_per_sequence": 0.380083,
+          "encode_avg_ms_per_frame": 5.2308333333333335e-05,
+          "encode_avg_ms_per_sequence": 0.00470775,
+          "encode_p50_ms_per_sequence": 0.003,
+          "encode_p95_ms_per_sequence": 0.017959,
+          "encode_p99_ms_per_sequence": 0.0205,
+          "iterations": 60.0
+        },
+        "notes": "Measured locally by serializing the full float32 position+rotation stream.",
+        "semantics": "Two hands, 26 joints per hand, position xyz plus quaternion xyzw as float32.",
+        "source_reference": "local_proxy_measurement",
+        "transport": {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 131040.0,
+          "compression_ratio_vs_raw": 1.0,
+          "kb_per_s_modeled_4_player_session": 383.90625,
+          "kb_per_s_single_remote": 127.96875
+        }
+      },
+      {
+        "comparator_id": "modern_float16_delta_plus_zlib_local",
+        "evidence_class": "proxy_measured_local",
+        "fairness_class": "frozen_v1_authority_surface",
+        "fidelity": {
+          "mpjpe_mm": 0.277196224784474
+        },
+        "label": "Modern float16+zlib proxy (local)",
+        "latency": {
+          "combined_avg_ms_per_frame": 0.08387935129629628,
+          "combined_avg_ms_per_sequence": 7.549141616666666,
+          "combined_p50_ms_per_sequence": 7.278125,
+          "combined_p95_ms_per_frame": 0.09390694444444445,
+          "combined_p95_ms_per_sequence": 8.451625,
+          "combined_p99_ms_per_frame": 0.12805786666666666,
+          "combined_p99_ms_per_sequence": 11.525208,
+          "decode_avg_ms_per_frame": 0.032473495,
+          "decode_avg_ms_per_sequence": 2.92261455,
+          "decode_p50_ms_per_sequence": 2.695959,
+          "decode_p95_ms_per_sequence": 3.326583,
+          "decode_p99_ms_per_sequence": 6.878625,
+          "encode_avg_ms_per_frame": 0.0514058562962963,
+          "encode_avg_ms_per_sequence": 4.626527066666667,
+          "encode_p50_ms_per_sequence": 4.599167,
+          "encode_p95_ms_per_sequence": 4.916,
+          "encode_p99_ms_per_sequence": 5.2255,
+          "iterations": 60.0
+        },
+        "notes": "Measured locally with the same transport model used by the repo's frozen modern comparator row.",
+        "semantics": "Two hands, half-float positional deltas plus half-float rotations with zlib compression.",
+        "source_reference": "local_proxy_measurement",
+        "transport": {
+          "bytes_per_frame": 336.1,
+          "bytes_total": 30249.0,
+          "compression_ratio_vs_raw": 4.332044034513538,
+          "kb_per_s_modeled_4_player_session": 88.62011718750001,
+          "kb_per_s_single_remote": 29.540039062500004
+        }
+      },
+      {
+        "comparator_id": "photon_fusion_xr_hands_doc",
+        "evidence_class": "doc_derived_transport_only",
+        "fairness_class": "narrower_semantics_than_frozen_v1",
+        "fidelity": null,
+        "label": "Photon Fusion XR Hands (doc-derived compressed rotations)",
+        "latency": null,
+        "notes": "Official Photon documentation states that one hand full bone rotations compress to 19 bytes instead of 386 bytes for full quaternion transfer.",
+        "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+        "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+        "transport": {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 3420.0,
+          "compression_ratio_vs_raw": 38.31578947368421,
+          "kb_per_s_modeled_4_player_session": 10.01953125,
+          "kb_per_s_single_remote": 3.33984375
+        }
+      },
+      {
+        "comparator_id": "photon_fusion_xr_hands_full_quaternion_doc",
+        "evidence_class": "doc_derived_transport_only",
+        "fairness_class": "narrower_semantics_than_frozen_v1",
+        "fidelity": null,
+        "label": "Photon Fusion XR Hands (doc-derived full quaternion transfer)",
+        "latency": null,
+        "notes": "Official Photon documentation states that one hand full bone rotations occupy 386 bytes.",
+        "semantics": "Hand-bone rotations only without Photon compression.",
+        "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+        "transport": {
+          "bytes_per_frame": 772.0,
+          "bytes_total": 69480.0,
+          "compression_ratio_vs_raw": 1.8860103626943006,
+          "kb_per_s_modeled_4_player_session": 203.5546875,
+          "kb_per_s_single_remote": 67.8515625
+        }
+      },
+      {
+        "comparator_id": "ultraleap_vectorhand_open_source",
+        "evidence_class": "code_derived_transport_only",
+        "fairness_class": "close_transport_semantics",
+        "fidelity": null,
+        "label": "Ultraleap VectorHand compressed encoding",
+        "latency": null,
+        "notes": "Open-source Ultraleap VectorHand encoding fixes NUM_BYTES=86 per hand.",
+        "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+        "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs",
+        "transport": {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 15480.0,
+          "compression_ratio_vs_raw": 8.465116279069768,
+          "kb_per_s_modeled_4_player_session": 45.3515625,
+          "kb_per_s_single_remote": 15.1171875
+        }
+      }
+    ],
+    "unresolved": [
+      "Photon remains transport-only in this phase; no same-machine runtime benchmark closes displacement.",
+      "Ultraleap remains the strongest close-semantics open transport row, but it is still code-derived here rather than locally executed.",
+      "Unity NGO and Normcore remain market references only until a runnable same-machine hand-sync benchmark is added inside this folder.",
+      "The canonical root execution surface is still incomplete if required root package modules remain missing."
+    ],
+    "workload": {
+      "fps": 90,
+      "frames": 90,
+      "gesture": "mixed",
+      "iterations": 60,
+      "kind": "synthetic_frozen_v1",
+      "seed": 6607
+    }
+  },
+  "comet": {
+    "enabled": true,
+    "experiment_key": "350a7e0d3d2d4892bfaa9f0936651af9",
+    "project": "zpe-xr",
+    "workspace": "zer0pa"
+  },
+  "execution_status": "EXECUTED",
+  "generated_at_utc": "2026-03-29T13:32:34.332285+00:00"
+}

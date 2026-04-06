@@ -5,6 +5,12 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
+from .comparator_catalog import (
+    MODERN_PROXY_COMPARATOR_ID,
+    MODERN_PROXY_LABEL,
+    NORMCORE_REFERENCE,
+    UNITY_NGO_REFERENCE,
+)
 from .external_benchmarks import photon_fusion_measurement, ultraleap_vectorhand_measurement
 
 
@@ -43,8 +49,8 @@ def comparator_triage_candidates() -> tuple[ComparatorTriageCandidate, ...]:
     ultraleap = ultraleap_vectorhand_measurement()
     return (
         ComparatorTriageCandidate(
-            comparator_id="modern_float16_delta_plus_zlib_local",
-            label="Modern float16+zlib proxy (local)",
+            comparator_id=MODERN_PROXY_COMPARATOR_ID,
+            label=MODERN_PROXY_LABEL,
             priority="first_target",
             executable_now=True,
             authority_alignment="closest currently instrumented lane to the frozen two-hand stream semantics",
@@ -85,8 +91,8 @@ def comparator_triage_candidates() -> tuple[ComparatorTriageCandidate, ...]:
             next_step="only revisit after the staged repo mirrors the local proxy lane and preserves the side-input caveat",
         ),
         ComparatorTriageCandidate(
-            comparator_id="unity_ngo",
-            label="Unity Netcode for GameObjects",
+            comparator_id=UNITY_NGO_REFERENCE.comparator_id,
+            label=UNITY_NGO_REFERENCE.label,
             priority="blocked",
             executable_now=False,
             authority_alignment="market reference only until a runnable hand-sync harness exists",
@@ -98,8 +104,8 @@ def comparator_triage_candidates() -> tuple[ComparatorTriageCandidate, ...]:
             next_step="build a local proxy or runtime harness before treating NGO as a numeric comparator",
         ),
         ComparatorTriageCandidate(
-            comparator_id="normcore",
-            label="Normcore VR/AR",
+            comparator_id=NORMCORE_REFERENCE.comparator_id,
+            label=NORMCORE_REFERENCE.label,
             priority="blocked",
             executable_now=False,
             authority_alignment="market reference only until a runnable hand-sync harness exists",

@@ -57,7 +57,7 @@ def main() -> int:
             "attempt_contactpose": args.attempt_contactpose,
         },
     )
-    experiment_id = experiment_key(experiment)
+    experiment_id = experiment_key(experiment) if experiment is not None else None
 
     summary: Dict[str, Any]
     if experiment is None or experiment_id is None:

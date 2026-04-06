@@ -13,6 +13,11 @@ import zlib
 import numpy as np
 
 from .api import codec_info, decode, encode
+from .comparator_catalog import (
+    MODERN_PROXY_COMPARATOR_ID,
+    MODERN_PROXY_LABEL,
+    market_reference_only_rows,
+)
 from .constants import FPS, RAW_BYTES_PER_FRAME, TOTAL_JOINTS
 from .codec import XRCodec
 from .external_benchmarks import (
@@ -81,6 +86,8 @@ def build_synthetic_frames(
     gesture: str,
     seed: int,
 ) -> tuple[object, ...]:
+    if num_frames <= 0:
+        return ()
     return generate_sequence(num_frames=num_frames, gesture=gesture, seed=seed)
 
 
@@ -127,22 +134,7 @@ def benchmark_report(
             "iterations": iterations,
         },
         "rows": rows,
-        "market_reference_only": [
-            {
-                "comparator_id": "unity_ngo",
-                "label": "Unity Netcode for GameObjects",
-                "evidence_class": "market_reference_only",
-                "source_reference": "https://docs.unity3d.com/kr/6000.0/Manual/com.unity.netcode.gameobjects.html",
-                "notes": "Mainstream networking surface, but no official apples-to-apples XR hand-sync transport or latency row was found.",
-            },
-            {
-                "comparator_id": "normcore",
-                "label": "Normcore VR/AR",
-                "evidence_class": "market_reference_only",
-                "source_reference": "https://normcore.io/solutions/vr-ar",
-                "notes": "Major VR/AR multiplayer product, but no official hand-sync byte or latency table was found.",
-            },
-        ],
+        "market_reference_only": list(market_reference_only_rows()),
         "contactpose_attempt": (
             attempt_contactpose_report(stage_code_root) if attempt_contactpose else {"status": "skipped"}
         ),
@@ -157,6 +149,22 @@ def benchmark_report(
 
 
 def measure_zpe_api_row(*, frames: Sequence[object], iterations: int) -> dict[str, object]:
+    if not frames:
+        info = codec_info()
+        return {
+            "comparator_id": "zpe_xr_current_mac",
+            "label": "ZPE-XR staged package (local Mac)",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport through the staged package API.",
+            "source_reference": "local_staged_package_api",
+            "notes": f"Measured from the staged package API on this Mac with backend={info.get('backend')}.",
+            "transport": _transport_metrics(bytes_total=0, num_frames=0),
+            "latency": _latency_metrics(encode_ns=(), decode_ns=(), num_frames=0),
+            "fidelity": {"mpjpe_mm": 0.0},
+            "backend": info.get("backend"),
+        }
+
     positions = np.asarray([frame.positions for frame in frames], dtype=np.float32)
     reference_positions = positions.tolist()
     info = codec_info()
@@ -197,6 +205,20 @@ def measure_zpe_api_row(*, frames: Sequence[object], iterations: int) -> dict[st
 
 
 def measure_raw_proxy_row(*, frames: Sequence[object], iterations: int) -> dict[str, object]:
+    if not frames:
+        return {
+            "comparator_id": "raw_openxr_float_stream_local",
+            "label": "Raw OpenXR-like float stream (local proxy)",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "semantics": "Two hands, 26 joints per hand, position xyz plus quaternion xyzw as float32.",
+            "source_reference": "local_proxy_measurement",
+            "notes": "Measured locally by serializing the full float32 position+rotation stream.",
+            "transport": _transport_metrics(bytes_total=0, num_frames=0),
+            "latency": _latency_metrics(encode_ns=(), decode_ns=(), num_frames=0),
+            "fidelity": {"mpjpe_mm": 0.0},
+        }
+
     positions = np.asarray([frame.positions for frame in frames], dtype=np.float32)
     rotations = np.asarray([frame.rotations for frame in frames], dtype=np.float32)
     combined = np.concatenate((positions, rotations), axis=2).astype(np.float32, copy=False)
@@ -231,6 +253,20 @@ def measure_raw_proxy_row(*, frames: Sequence[object], iterations: int) -> dict[
 
 
 def measure_modern_proxy_row(*, frames: Sequence[object], iterations: int) -> dict[str, object]:
+    if not frames:
+        return {
+            "comparator_id": MODERN_PROXY_COMPARATOR_ID,
+            "label": MODERN_PROXY_LABEL,
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "semantics": "Two hands, half-float positional deltas plus half-float rotations with zlib compression.",
+            "source_reference": "local_proxy_measurement",
+            "notes": "Measured locally with the same transport model used by the repo's frozen modern comparator row.",
+            "transport": _transport_metrics(bytes_total=0, num_frames=0),
+            "latency": _latency_metrics(encode_ns=(), decode_ns=(), num_frames=0),
+            "fidelity": {"mpjpe_mm": 0.0},
+        }
+
     encode_ns: list[int] = []
     decode_ns: list[int] = []
     packets: list[bytes] = []
@@ -248,8 +284,8 @@ def measure_modern_proxy_row(*, frames: Sequence[object], iterations: int) -> di
     total_bytes = sum(len(packet) for packet in packets)
     reference_positions = [[tuple(joint) for joint in frame.positions] for frame in frames]
     return {
-        "comparator_id": "modern_float16_delta_plus_zlib_local",
-        "label": "Modern float16+zlib proxy (local)",
+        "comparator_id": MODERN_PROXY_COMPARATOR_ID,
+        "label": MODERN_PROXY_LABEL,
         "evidence_class": "proxy_measured_local",
         "fairness_class": "frozen_v1_authority_surface",
         "semantics": "Two hands, half-float positional deltas plus half-float rotations with zlib compression.",
@@ -416,6 +452,15 @@ def build_conclusions(rows: Sequence[Mapping[str, object]], *, zpe_row: Mapping[
 
 
 def _transport_metrics(*, bytes_total: int, num_frames: int) -> dict[str, float]:
+    if num_frames <= 0:
+        return {
+            "bytes_total": float(bytes_total),
+            "bytes_per_frame": 0.0,
+            "compression_ratio_vs_raw": 0.0,
+            "kb_per_s_single_remote": 0.0,
+            "kb_per_s_modeled_4_player_session": 0.0,
+        }
+
     raw_total = RAW_BYTES_PER_FRAME * num_frames
     bytes_per_frame = bytes_total / num_frames
     return {
@@ -437,11 +482,15 @@ def _latency_metrics(
     decode_ns: Sequence[int],
     num_frames: int,
 ) -> dict[str, float]:
-    encode_ms = [value / 1_000_000.0 for value in encode_ns]
-    decode_ms = [value / 1_000_000.0 for value in decode_ns]
+    iterations = min(len(encode_ns), len(decode_ns))
+    if num_frames <= 0 or iterations <= 0:
+        return _zero_latency_metrics()
+
+    encode_ms = [value / 1_000_000.0 for value in encode_ns[:iterations]]
+    decode_ms = [value / 1_000_000.0 for value in decode_ns[:iterations]]
     combined_ms = [enc + dec for enc, dec in zip(encode_ms, decode_ms)]
     return {
-        "iterations": float(len(encode_ms)),
+        "iterations": float(iterations),
         "encode_avg_ms_per_sequence": _avg(encode_ms),
         "encode_p50_ms_per_sequence": percentile(encode_ms, 50),
         "encode_p95_ms_per_sequence": percentile(encode_ms, 95),
@@ -459,6 +508,29 @@ def _latency_metrics(
         "combined_avg_ms_per_frame": _avg(combined_ms) / num_frames,
         "combined_p95_ms_per_frame": percentile(combined_ms, 95) / num_frames,
         "combined_p99_ms_per_frame": percentile(combined_ms, 99) / num_frames,
+    }
+
+
+def _zero_latency_metrics() -> dict[str, float]:
+    return {
+        "iterations": 0.0,
+        "encode_avg_ms_per_sequence": 0.0,
+        "encode_p50_ms_per_sequence": 0.0,
+        "encode_p95_ms_per_sequence": 0.0,
+        "encode_p99_ms_per_sequence": 0.0,
+        "decode_avg_ms_per_sequence": 0.0,
+        "decode_p50_ms_per_sequence": 0.0,
+        "decode_p95_ms_per_sequence": 0.0,
+        "decode_p99_ms_per_sequence": 0.0,
+        "combined_avg_ms_per_sequence": 0.0,
+        "combined_p50_ms_per_sequence": 0.0,
+        "combined_p95_ms_per_sequence": 0.0,
+        "combined_p99_ms_per_sequence": 0.0,
+        "encode_avg_ms_per_frame": 0.0,
+        "decode_avg_ms_per_frame": 0.0,
+        "combined_avg_ms_per_frame": 0.0,
+        "combined_p95_ms_per_frame": 0.0,
+        "combined_p99_ms_per_frame": 0.0,
     }
 
 

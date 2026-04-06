@@ -1,0 +1,26 @@
+{
+  "access": "google_drive_sample",
+  "adapter_status": "runnable",
+  "artifact_class": "planning_scaffold_only",
+  "benchmark_status": "existing_authority_anchor",
+  "current_authority_anchor": "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json",
+  "dataset_id": "contactpose",
+  "disk_notes": "Benchmark runners require at least 5.0 GiB free before fetching.",
+  "expected_layout": [
+    "ContactPose sample data/grasps.zip",
+    "grasps/full28_use/<object>.zip",
+    "<object>/annotations.json"
+  ],
+  "homepage": "https://drive.google.com/uc?export=download&id=1paUAxXgHp6wDFBFw9MI1mxGElEl2KPew",
+  "label": "ContactPose",
+  "notes": "The only dataset lane currently runnable in the nested repo. The exported scaffold points at the established Phase 4 and Phase 5 authority anchors.",
+  "recommended_cache_path": "proofs/artifacts/datasets/contactpose/contactpose_sample.zip",
+  "scaffold_status": "baseline_available",
+  "scripts_requiring_data": [
+    "code/scripts/run_phase4_contactpose_benchmark.py",
+    "code/scripts/run_phase5_contactpose_multi_sequence.py",
+    "code/scripts/run_phase6_mac_comparator_benchmark.py --attempt-contactpose"
+  ],
+  "status_file": "contactpose_status.json",
+  "tests_requiring_data": []
+}

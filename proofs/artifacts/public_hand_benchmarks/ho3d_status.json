@@ -1,0 +1,21 @@
+{
+  "access": "project_repo_and_docs",
+  "adapter_status": "planned",
+  "artifact_class": "planning_scaffold_only",
+  "benchmark_status": "not_run",
+  "current_authority_anchor": null,
+  "dataset_id": "ho3d",
+  "disk_notes": "Hand-object sequences are substantially larger than ContactPose; inspect the project docs before fetching.",
+  "expected_layout": [
+    "train/",
+    "evaluation/"
+  ],
+  "homepage": "https://github.com/shreyashampali/ho3d",
+  "label": "HO-3D",
+  "notes": "Useful manipulation-context benchmark candidate. No adapter or measured benchmark exists in this repo yet.",
+  "recommended_cache_path": "proofs/artifacts/datasets/ho3d/HO3D_v3/",
+  "scaffold_status": "not_run",
+  "scripts_requiring_data": [],
+  "status_file": "ho3d_status.json",
+  "tests_requiring_data": []
+}

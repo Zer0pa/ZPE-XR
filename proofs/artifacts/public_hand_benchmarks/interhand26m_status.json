@@ -1,0 +1,21 @@
+{
+  "access": "official_project_page",
+  "adapter_status": "planned",
+  "artifact_class": "planning_scaffold_only",
+  "benchmark_status": "not_run",
+  "current_authority_anchor": null,
+  "dataset_id": "interhand26m",
+  "disk_notes": "Large multi-subject corpus; confirm size and splits at the official project page before download.",
+  "expected_layout": [
+    "annotations/",
+    "images/"
+  ],
+  "homepage": "https://mks0601.github.io/InterHand2.6M/",
+  "label": "InterHand2.6M",
+  "notes": "Useful multi-hand interaction candidate. No adapter or measured benchmark exists in this repo yet.",
+  "recommended_cache_path": "proofs/artifacts/datasets/interhand26m/InterHand2.6M/",
+  "scaffold_status": "not_run",
+  "scripts_requiring_data": [],
+  "status_file": "interhand26m_status.json",
+  "tests_requiring_data": []
+}

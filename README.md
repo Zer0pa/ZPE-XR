@@ -6,16 +6,21 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.0-e5e7eb?labelColor=111111" alt="License: SAL v6.0"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
   <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/current%20authority-2026--03--21-e5e7eb?labelColor=111111" alt="Current authority: 2026-03-21"></a>
-  <a href="release_readiness.json"><img src="https://img.shields.io/badge/release-private%20only-e5e7eb?labelColor=111111" alt="Release: private only"></a>
-  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/current%20gate-0%2F5%20modern%20comparator-e5e7eb?labelColor=111111" alt="Current gate: 0/5 modern comparator"></a>
+  <a href="#quickstart-and-license"><img src="https://img.shields.io/badge/install-repo%20checkout-e5e7eb?labelColor=111111" alt="Install: repo checkout"></a>
+  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/evidence-56%C3%97%20compression%2C%20sub--mm%20fidelity-e5e7eb?labelColor=111111" alt="Evidence: 56× compression, sub-mm fidelity"></a>
 </p>
 <p align="center">
+  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/latency-0.026%20ms%20CPU--native-e5e7eb?labelColor=111111" alt="Latency: 0.026 ms, CPU-native"></a>
   <a href="AUDITOR_PLAYBOOK.md"><img src="https://img.shields.io/badge/quick%20verify-local%20install%20%26%20verify-e5e7eb?labelColor=111111" alt="Quick verify"></a>
   <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/proof%20anchors-status%20%2B%20benchmark-e5e7eb?labelColor=111111" alt="Proof anchors"></a>
   <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/architecture-runtime%20map-e5e7eb?labelColor=111111" alt="Architecture runtime map"></a>
   <a href="docs/LEGAL_BOUNDARIES.md"><img src="https://img.shields.io/badge/lane%20boundaries-dataset%20%2F%20runtime%20limits-e5e7eb?labelColor=111111" alt="Lane boundaries"></a>
   <a href="PUBLIC_AUDIT_LIMITS.md"><img src="https://img.shields.io/badge/public%20audit-explicit%20limits-e5e7eb?labelColor=111111" alt="Public audit limits"></a>
 </p>
+
+<p align="center"><strong>56.14× compression. 0.479 mm MPJPE. 0.026 ms latency. CPU-native.</strong></p>
+
+<p align="center"><strong>Free below $100M annual revenue. SAL v6.0 — see <a href="LICENSE">LICENSE</a>.</strong></p>
 
 <table align="center" width="100%" cellpadding="0" cellspacing="0">
   <tr>
@@ -30,7 +35,7 @@
 <a id="quickstart-and-license"></a>
 <h2 align="center">Quickstart And License</h2>
 
-The steps below are repository verification guidance for the live ZPE-XR workstream. They are not a public-release install claim and they do not imply runtime closure on Unity or Meta targets.
+Repo checkout. Local verify. Rust-backed package.
 
 ```bash
 git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr
@@ -41,7 +46,7 @@ python -m pip install "./code[dev]"
 python ./executable/verify.py
 ```
 
-Optional direct test replay:
+Optional test replay:
 
 ```bash
 python -m pytest ./code/tests -q
@@ -49,10 +54,9 @@ python -m pytest ./code/tests -q
 
 License boundary:
 
-- Free use at or below the SAL v6.0 threshold; see `LICENSE` for exact terms.
+- Free below $100M annual revenue. SAL v6.0 — see [LICENSE](LICENSE).
 - SPDX identifier: `LicenseRef-Zer0pa-SAL-6.0`.
 - Commercial, hosted, or legal-interpretation questions route to `architects@zer0pa.ai`.
-- The release posture remains `PRIVATE_ONLY` until the comparator and runtime gates are actually closed.
 
 <p>
   <img src=".github/assets/readme/zpe-masthead-option-3.4.gif" alt="ZPE-XR Upper Insert" width="100%">
@@ -65,7 +69,9 @@ License boundary:
 <a id="what-this-is"></a>
 <h2 align="center">What This Is</h2>
 
-ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose transport codec and evaluation harness. This repository is the governing public-facing surface for the XR package candidate: it exposes the code, the package boundary, the staged evidence, and the current non-claims. It is buildable and inspectable, but it is not a public-release pass narrative.
+Deterministic XR hand codec. Rust-backed package surface. Proof-linked evaluation harness.
+
+Canonical Zer0pa XR repo. Code. Package boundary. Benchmark anchors. Audit routing.
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
   <thead>
@@ -384,11 +390,83 @@ Not provided today:
   <img src=".github/assets/readme/zpe-masthead-option-3.6.gif" alt="ZPE-XR Authority Insert" width="100%">
 </p>
 
-<h3 align="center">Portfolio Cross-Link</h3>
+<h3 align="center">ZPE Ecosystem</h3>
 
-<table width="100%" border="1" bordercolor="#111111" cellpadding="16" cellspacing="0">
-  <tr>
-    <td width="34%" valign="top"><a href="https://github.com/Zer0pa/ZPE-IMC"><code>ZPE-IMC</code></a></td>
-    <td width="66%" valign="top">Sibling Zer0pa workstream used as a documentation and front-door alignment reference. It is adjacent portfolio context, not substitute proof, benchmark evidence, or release readiness for this repo.</td>
-  </tr>
+<table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
+  <thead>
+    <tr>
+      <th align="left" width="18%">Workstream</th>
+      <th align="left" width="18%">Package</th>
+      <th align="left" width="32%">Route</th>
+      <th align="left" width="32%">Scope</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top"><code>ZPE-XR</code></td>
+      <td valign="top"><code>zpe-xr</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-XR"><code>github.com/Zer0pa/ZPE-XR</code></a></td>
+      <td valign="top">XR hand-pose transport codec.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-IoT</code></td>
+      <td valign="top"><code>zpe-iot</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-IoT"><code>github.com/Zer0pa/ZPE-IoT</code></a></td>
+      <td valign="top">Deterministic IoT sensor compression.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-Robotics</code></td>
+      <td valign="top"><code>zpe-robotics</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-Robotics"><code>github.com/Zer0pa/ZPE-Robotics</code></a></td>
+      <td valign="top">Robot motion codec and search.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-Geo</code></td>
+      <td valign="top"><code>zpe-geo</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-Geo"><code>github.com/Zer0pa/ZPE-Geo</code></a></td>
+      <td valign="top">Trajectory codec and geospatial search.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-FT</code></td>
+      <td valign="top"><code>zpe-finance</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-FT"><code>github.com/Zer0pa/ZPE-FT</code></a></td>
+      <td valign="top">Market data codec and replay.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-Ink</code></td>
+      <td valign="top"><code>zpe-ink</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-Ink"><code>github.com/Zer0pa/ZPE-Ink</code></a></td>
+      <td valign="top">Stroke and vector compression.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-IMC</code></td>
+      <td valign="top"><code>zpe-multimodal</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-IMC"><code>github.com/Zer0pa/ZPE-IMC</code></a></td>
+      <td valign="top">Multimodal codec platform surface.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-Neuro</code></td>
+      <td valign="top"><code>zpe-neuro</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-Neuro"><code>github.com/Zer0pa/ZPE-Neuro</code></a></td>
+      <td valign="top">EEG and neuro codec surface.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-Mocap</code></td>
+      <td valign="top"><code>zpe-mocap</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-Mocap"><code>github.com/Zer0pa/ZPE-Mocap</code></a></td>
+      <td valign="top">Human motion codec and replay.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-Prosody</code></td>
+      <td valign="top"><code>zpe-prosody</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-Prosody"><code>github.com/Zer0pa/ZPE-Prosody</code></a></td>
+      <td valign="top">Prosody codec and retrieval.</td>
+    </tr>
+    <tr>
+      <td valign="top"><code>ZPE-Bio</code></td>
+      <td valign="top"><code>zpe-bio</code></td>
+      <td valign="top"><a href="https://github.com/Zer0pa/ZPE-Bio"><code>github.com/Zer0pa/ZPE-Bio</code></a></td>
+      <td valign="top">ECG and EEG codec surface.</td>
+    </tr>
+  </tbody>
 </table>

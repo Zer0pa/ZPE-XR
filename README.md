@@ -383,3 +383,12 @@ Not provided today:
 <p>
   <img src=".github/assets/readme/zpe-masthead-option-3.6.gif" alt="ZPE-XR Authority Insert" width="100%">
 </p>
+
+<h3 align="center">Portfolio Cross-Link</h3>
+
+<table width="100%" border="1" bordercolor="#111111" cellpadding="16" cellspacing="0">
+  <tr>
+    <td width="34%" valign="top"><a href="https://github.com/Zer0pa/ZPE-IMC"><code>ZPE-IMC</code></a></td>
+    <td width="66%" valign="top">Sibling Zer0pa workstream used as a documentation and front-door alignment reference. It is adjacent portfolio context, not substitute proof, benchmark evidence, or release readiness for this repo.</td>
+  </tr>
+</table>

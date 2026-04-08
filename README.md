@@ -6,16 +6,48 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.0-e5e7eb?labelColor=111111" alt="License: SAL v6.0"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
   <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/current%20authority-2026--03--21-e5e7eb?labelColor=111111" alt="Current authority: 2026-03-21"></a>
-  <a href="release_readiness.json"><img src="https://img.shields.io/badge/release-private%20only-e5e7eb?labelColor=111111" alt="Release: private only"></a>
-  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/current%20gate-0%2F5%20modern%20comparator-e5e7eb?labelColor=111111" alt="Current gate: 0/5 modern comparator"></a>
+  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/contactpose-56.144x%20compression-e5e7eb?labelColor=111111" alt="ContactPose: 56.144x compression"></a>
+  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/contactpose-0.479%20mm%20MPJPE-e5e7eb?labelColor=111111" alt="ContactPose: 0.479 mm MPJPE"></a>
 </p>
 <p align="center">
+  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/contactpose-0.026%20ms%20latency-e5e7eb?labelColor=111111" alt="ContactPose: 0.026 ms latency"></a>
+  <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/release-private%20only-e5e7eb?labelColor=111111" alt="Release: private only"></a>
+  <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/modern%20comparator-0%2F5-e5e7eb?labelColor=111111" alt="Modern comparator: 0/5"></a>
   <a href="AUDITOR_PLAYBOOK.md"><img src="https://img.shields.io/badge/quick%20verify-local%20install%20%26%20verify-e5e7eb?labelColor=111111" alt="Quick verify"></a>
   <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/proof%20anchors-status%20%2B%20benchmark-e5e7eb?labelColor=111111" alt="Proof anchors"></a>
   <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/architecture-runtime%20map-e5e7eb?labelColor=111111" alt="Architecture runtime map"></a>
   <a href="docs/LEGAL_BOUNDARIES.md"><img src="https://img.shields.io/badge/lane%20boundaries-dataset%20%2F%20runtime%20limits-e5e7eb?labelColor=111111" alt="Lane boundaries"></a>
   <a href="PUBLIC_AUDIT_LIMITS.md"><img src="https://img.shields.io/badge/public%20audit-explicit%20limits-e5e7eb?labelColor=111111" alt="Public audit limits"></a>
 </p>
+
+<p align="center"><strong>XR motion compression SDK. Rust kernel. Proof-linked ContactPose benchmark.</strong></p>
+
+<table align="center" width="100%" border="1" bordercolor="#111111" cellpadding="12" cellspacing="0">
+  <thead>
+    <tr>
+      <th align="left" width="25%">Benchmark</th>
+      <th align="left" width="25%">Compression</th>
+      <th align="left" width="25%">MPJPE</th>
+      <th align="left" width="25%">Latency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">ContactPose</td>
+      <td valign="top"><code>56.144x</code></td>
+      <td valign="top"><code>0.479 mm</code></td>
+      <td valign="top"><code>0.026 ms</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p align="center"><strong>Meta Quest developer. Apple Vision Pro researcher. Teleoperation engineer.</strong></p>
+
+<p align="center"><strong>MediaPipe tracks hands. ZPE-XR compresses motion. No open-source XR pose compression SDK surfaced today.</strong></p>
+
+<p align="center"><strong>Unity/Unreal plugins: roadmap Q3 2026.</strong></p>
+
+<p align="center"><strong>Dataset ecosystem: <a href="https://github.com/facebookresearch/ContactPose">ContactPose</a> · <a href="https://grab.is.tue.mpg.de/">GRAB</a> · <a href="https://mks0601.github.io/InterHand2.6M/">InterHand2.6M</a></strong></p>
 
 <table align="center" width="100%" cellpadding="0" cellspacing="0">
   <tr>
@@ -30,13 +62,12 @@
 <a id="quickstart-and-license"></a>
 <h2 align="center">Quickstart And License</h2>
 
-The steps below are repository verification guidance for the live ZPE-XR workstream. They are not a public-release install claim and they do not imply runtime closure on Unity or Meta targets.
+Repo checkout. Local verify. Rust-backed package.
 
 ```bash
 git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr
 cd zpe-xr
-python -m venv .venv
-source .venv/bin/activate
+python -m venv .venv && source .venv/bin/activate
 python -m pip install "./code[dev]"
 python ./executable/verify.py
 ```
@@ -65,7 +96,7 @@ License boundary:
 <a id="what-this-is"></a>
 <h2 align="center">What This Is</h2>
 
-ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose transport codec and evaluation harness. This repository is the governing public-facing surface for the XR package candidate: it exposes the code, the package boundary, the staged evidence, and the current non-claims. It is buildable and inspectable, but it is not a public-release pass narrative.
+ZPE-XR is the canonical Zer0pa XR motion compression SDK and evaluation harness. This repository is the governing public-facing surface for the staged XR package candidate: it exposes the code, the package boundary, the benchmark evidence, and the current non-claims. It is buildable and inspectable, with engine integration still tracked below in Status And Gaps.
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
   <thead>
@@ -77,7 +108,7 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
   <tbody>
     <tr>
       <td valign="top">What is this repo for?</td>
-      <td valign="top">A deterministic XR codec and evaluation harness for two-hand joint streams, packaging, and proof-surface adjudication.</td>
+      <td valign="top">An XR motion compression SDK and evaluation harness for two-hand joint streams, packaging, and proof-surface adjudication.</td>
     </tr>
     <tr>
       <td valign="top">What is the current strongest claim?</td>

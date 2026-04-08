@@ -11,6 +11,12 @@
 
 # Changelog
 
+## Unreleased
+
+- reframed the front door around the XR motion compression SDK audience
+- added ContactPose hero metrics, personas, competitive context, and dataset ecosystem links
+- expanded XR package metadata with documentation, changelog, and domain classifiers
+
 <p>
   <img src=".github/assets/readme/section-bars/release-notes.svg" alt="2026-03-21" width="100%">
 </p>

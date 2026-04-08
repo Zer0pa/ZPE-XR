@@ -14,10 +14,13 @@ keywords = ["xr", "codec", "hand-tracking", "networking", "openxr"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
   "License :: Other/Proprietary License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Rust",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Scientific/Engineering",
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
@@ -33,7 +36,9 @@ dev = [
 
 [project.urls]
 Homepage = "https://github.com/Zer0pa/ZPE-XR"
+Documentation = "https://github.com/Zer0pa/ZPE-XR/tree/main/docs"
 Repository = "https://github.com/Zer0pa/ZPE-XR"
+Changelog = "https://github.com/Zer0pa/ZPE-XR/blob/main/CHANGELOG.md"
 Issues = "https://github.com/Zer0pa/ZPE-XR/issues"
 
 [tool.maturin]

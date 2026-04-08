@@ -32,6 +32,16 @@ python ./executable/verify.py
 ```
 
 <p>
+  <img src="../.github/assets/readme/section-bars/runtime-proof-wave-1.svg" alt="RUNNABLE EXAMPLES" width="100%">
+</p>
+
+```bash
+python examples/streaming_demo.py
+python examples/websocket_bridge.py
+python examples/contactpose_roundtrip.py
+```
+
+<p>
   <img src="../.github/assets/readme/section-bars/quick-start.svg" alt="QUICK START" width="100%">
 </p>
 
@@ -60,9 +70,11 @@ info = zpe_xr.codec_info()
   <img src="../.github/assets/readme/section-bars/optional-dependency-groups.svg" alt="OPTIONAL DEPENDENCY GROUPS" width="100%">
 </p>
 
-The only published optional dependency group today is:
+The published optional dependency groups today are:
 
-- `dev`: maturin, pytest, and twine tooling
+- `dev`: build, maturin, pytest, twine, websocket demo, and markdown preview tooling
+- `test`: pytest plus websocket demo support
+- `docs`: markdown preview tooling
 
 <p>
   <img src="../.github/assets/readme/section-bars/cli.svg" alt="VERIFICATION ENTRYPOINT" width="100%">

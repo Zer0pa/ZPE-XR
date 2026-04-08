@@ -29,9 +29,19 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+  "build>=1.2,<2",
   "maturin>=1.10,<2",
   "pytest>=8,<9",
   "twine>=5,<7",
+  "websockets>=13,<16",
+  "grip>=4,<5",
+]
+test = [
+  "pytest>=8,<9",
+  "websockets>=13,<16",
+]
+docs = [
+  "grip>=4,<5",
 ]
 
 [project.urls]

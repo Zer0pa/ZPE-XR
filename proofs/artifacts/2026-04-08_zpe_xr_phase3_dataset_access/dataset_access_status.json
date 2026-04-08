@@ -1,0 +1,30 @@
+{
+  "captured_at": "2026-04-08",
+  "contactpose_full_corpus": {
+    "status": "blocked",
+    "doi_url": "https://dx.doi.org/10.21227/fb0w-gt48",
+    "landing_url": "https://ieee-dataport.org/documents/contactpose-part-1",
+    "observations": [
+      "The DOI resolved to the IEEE DataPort landing page.",
+      "The landing page was reachable anonymously.",
+      "The page exposed a time-limited code.zip attachment, but this pass did not establish an anonymous bulk dataset archive URL for the full corpus."
+    ],
+    "outcome": "Retain the existing ContactPose subset authority without promoting full-corpus coverage."
+  },
+  "grab": {
+    "status": "blocked",
+    "landing_url": "https://grab.is.tue.mpg.de/",
+    "observations": [
+      "The homepage was reachable anonymously.",
+      "The homepage states that registration and license acceptance are required before the dataset download works."
+    ],
+    "outcome": "No GRAB benchmark was added during this pass."
+  },
+  "interhand26m": {
+    "status": "complete",
+    "artifact": "proofs/artifacts/2026-04-08_zpe_xr_phase3_interhand_realdata/phase3_interhand_benchmark.md",
+    "sequence_count": 3,
+    "frame_count_total": 2828,
+    "outcome": "Three bilateral sequences were benchmarked and anchored in-repo."
+  }
+}

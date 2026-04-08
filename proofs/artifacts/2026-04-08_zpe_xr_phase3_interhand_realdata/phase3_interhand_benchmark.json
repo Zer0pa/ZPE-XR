@@ -1,0 +1,55 @@
+{
+  "aggregate": {
+    "all_latency_passed": true,
+    "all_quality_passed": true,
+    "combined_latency_ms_mean": 0.09146671393298426,
+    "compression_ratio_vs_raw_mean": 4.244123847762609,
+    "frame_count_total": 2828,
+    "mpjpe_mm_mean": 0.6200264121040523,
+    "sequence_count": 3
+  },
+  "dataset": "InterHand2.6M",
+  "sequence_results": [
+    {
+      "capture_id": "1",
+      "combined_latency_ms": 0.09747425760517803,
+      "compression_ratio_vs_raw": 3.7867965786988482,
+      "frames_used": 1545,
+      "latency_pass": true,
+      "mpjpe_mm": 0.5670368409020057,
+      "quality_pass": true,
+      "seq_id": "0390_dh_touchROM",
+      "source_frame_count": 1545,
+      "split": "train"
+    },
+    {
+      "capture_id": "0",
+      "combined_latency_ms": 0.09281245963756184,
+      "compression_ratio_vs_raw": 4.1504078594540275,
+      "frames_used": 607,
+      "latency_pass": true,
+      "mpjpe_mm": 0.6169324662860655,
+      "quality_pass": true,
+      "seq_id": "ROM09_Interaction_Fingers_Touching",
+      "source_frame_count": 607,
+      "split": "val"
+    },
+    {
+      "capture_id": "1",
+      "combined_latency_ms": 0.08411342455621293,
+      "compression_ratio_vs_raw": 4.795167105134951,
+      "frames_used": 676,
+      "latency_pass": true,
+      "mpjpe_mm": 0.6761099291240854,
+      "quality_pass": true,
+      "seq_id": "ROM01_No_Interaction_2_Hand",
+      "source_frame_count": 676,
+      "split": "test"
+    }
+  ],
+  "splits_used": [
+    "train",
+    "val",
+    "test"
+  ]
+}

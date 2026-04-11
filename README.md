@@ -163,7 +163,7 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 </p>
 
 <a id="current-authority"></a>
-## Current Authority
+## Commercial Readiness
 
 | Field | Value |
 |-------|-------|
@@ -174,7 +174,7 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 
 - Completeness basis: `5` closed claims / `8` tracked claims | RELEASE_READINESS_JSON
 
-## Verification Status
+## Tests and Verification
 
 | Code | Check | Verdict |
 |------|-------|---------|

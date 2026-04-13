@@ -86,14 +86,26 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 <a id="key-metrics"></a>
 ## Key Metrics
 
-| Metric | Value | Tag |
-|--------|-------|-----|
-| Joint Error | 0.479mm | CONTACTPOSE |
-| Compression | 56× | VS_RAW |
-| Latency | 0.026ms | ENCODE_DECODE |
-| Comparator | 0/5 | NOT_CLOSED |
+| Metric | Value | Baseline |
+|--------|-------|----------|
+| COMPRESSION | 56.144× | vs Ultraleap 8.465× (code-derived) |
+| MPJPE | 0.4786 mm | position fidelity |
+| LATENCY | 0.026 ms | mean encode+decode |
+| COMPARATOR_GATE | 0/5 pass | modern comparators |
 
-- Supporting metric: `0.399%` pose error at `10%` loss | PHASE5_CONTACTPOSE
+> Source: [`proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
+
+## Competitive Benchmarks
+
+> Source: [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
+
+| Comparator | Status | Result |
+|-----------|--------|--------|
+| **ZPE-XR staged package (local Mac)** | Measured local | 55.722 bytes/frame, 26.130× compression |
+| Ultraleap VectorHand | Code-derived transport | 172.000 bytes/frame, 8.465× compression |
+| Photon Fusion XR Hands (compressed rotations) | Doc-derived transport | 38.000 bytes/frame, 38.316× compression (narrower semantics) |
+| Unity Netcode for GameObjects | Blocked | No runnable same-machine hand-sync benchmark |
+| Normcore VR/AR | Blocked | No runnable same-machine hand-sync benchmark |
 
 <p>
   <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="WHAT WE PROVE" width="100%">

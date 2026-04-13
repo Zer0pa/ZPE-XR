@@ -38,10 +38,10 @@ Issues = "https://github.com/Zer0pa/ZPE-XR/issues"
 
 [tool.maturin]
 bindings = "pyo3"
-manifest-path = "rust/zpe_xr_kernel/Cargo.toml"
+manifest-path = "code/rust/zpe_xr_kernel/Cargo.toml"
 module-name = "zpe_xr._kernel"
-python-source = "source"
+python-source = "code/source"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["code/tests"]
 addopts = "-q"

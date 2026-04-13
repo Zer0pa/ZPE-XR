@@ -65,7 +65,11 @@ License boundary:
 <a id="what-this-is"></a>
 <h2 align="center">What This Is</h2>
 
-ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose transport codec and evaluation harness. This repository is the governing public-facing surface for the XR package candidate: it exposes the code, the package boundary, the staged evidence, and the current non-claims. It is buildable and inspectable, but it is not a public-release pass narrative.
+**ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose transport codec and evaluation harness.**
+
+This repository is the governing public-facing surface for the XR package candidate: it exposes the code, the package boundary, the staged evidence, and the current non-claims.
+
+It is buildable and inspectable, but it is not a public-release pass narrative.
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
   <thead>
@@ -97,6 +101,57 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 <p>
   <img src=".github/assets/readme/zpe-masthead-option-3.5.gif" alt="ZPE-XR Lower Insert" width="100%">
 </p>
+
+<a id="key-metrics"></a>
+<h2 align="center">Key Metrics</h2>
+
+| Metric | Value | Baseline |
+|--------|-------|----------|
+| JOINT_ERROR | 0.479mm | — |
+| COMPRESSION | 56× | vs Draco ~8–12× |
+| LATENCY | 0.026ms | — |
+| COMPARATOR | 0/5 | — |
+
+* Baselines are approximate analogues — not direct comparisons. Corpus, scope, and conditions differ.
+
+<a id="what-we-prove"></a>
+<h2 align="center">What We Prove</h2>
+
+- Sparse directional joint deltas encode two-hand pose streams efficiently
+- Keyframe + delta structure enables random-access seek and packet-loss recovery
+- Sub-millimeter joint precision (0.479mm mean error on ContactPose benchmark)
+- 56× compression vs raw with 0.026ms encode+decode latency
+- Local package install and regression test surface verified
+
+<a id="what-we-dont-claim"></a>
+<h2 align="center">What We Don't Claim</h2>
+
+- No modern comparator gate closure (0/5)
+- No Unity or Meta XR runtime integration
+- No release readiness
+- No production headset deployment
+
+<a id="tests-and-verification"></a>
+<h2 align="center">Tests and Verification</h2>
+
+| Code | Check | Verdict |
+|------|-------|---------|
+| V_01 | CONTACTPOSE_BENCHMARK_LANE | PASS |
+| V_02 | PACKAGE_MECHANICS | PASS |
+| V_03 | COLD-START_AUDIT | PASS |
+| V_04 | MODERN_COMPARATOR_GATE | FAIL |
+| V_05 | XR-C007_RUNTIME_CLOSURE | INC |
+| V_06 | PUBLIC_RELEASE_READINESS | FAIL |
+
+<a id="commercial-readiness"></a>
+<h2 align="center">Commercial Readiness</h2>
+
+| Field | Value |
+|-------|-------|
+| Verdict | STAGED |
+| Commit SHA | B0A08FA |
+| Confidence | 62% |
+| Source | proofs/FINAL_STATUS.md |
 
 <p>
   <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="EVIDENCE AND CLAIMS" width="100%">

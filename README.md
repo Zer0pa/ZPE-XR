@@ -274,6 +274,8 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 - [ZPE-Robotics](https://github.com/Zer0pa/ZPE-Robotics) — Robot motion codec and search.
 - [ZPE-IMC](https://github.com/Zer0pa/ZPE-IMC) — Multimodal codec platform surface.
 
+**Observability:** [Comet dashboard](https://www.comet.com/zer0pa/zpe-xr/view/new/panels) (public)
+
 ## Who This Is For
 
 | | |

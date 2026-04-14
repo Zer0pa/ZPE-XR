@@ -82,7 +82,7 @@ License boundary:
 
 ## What This Is
 
-56× hand-pose compression at sub-millimeter fidelity and sub-millisecond latency. Every encode is byte-identical. ContactPose benchmark validated.
+24× hand-pose compression at sub-millimeter fidelity and sub-millisecond latency. Every encode is byte-identical. ContactPose multi-sequence benchmark validated.
 
 ZPE-XR is a deterministic codec for two-hand joint streams — built for XR platform teams and spatial-computing infrastructure where generic compressors destroy the sub-millimeter precision that downstream physics, gesture recognition, and replay depend on. Package candidate, not yet released.
 
@@ -295,15 +295,15 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 
 ## Competitive Benchmarks
 
-> Source: [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
+> Phase 6 Mac benchmark. Source: [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/)
 
-| Comparator | Status | Result |
-|-----------|--------|--------|
-| **ZPE-XR staged package (local Mac)** | Measured local | 55.722 bytes/frame, 26.130× compression |
-| Ultraleap VectorHand | Code-derived transport | 172.000 bytes/frame, 8.465× compression |
-| Photon Fusion XR Hands (compressed rotations) | Doc-derived transport | 38.000 bytes/frame, 38.316× compression (narrower semantics) |
-| Unity Netcode for GameObjects | Blocked | No runnable same-machine hand-sync benchmark |
-| Normcore VR/AR | Blocked | No runnable same-machine hand-sync benchmark |
+| Tool | Ratio | Evidence |
+|------|-------|----------|
+| Photon Fusion | 38.3× | doc-derived; rotations only |
+| **ZPE-XR** | **26.1×** | measured local; full positions |
+| Ultraleap VectorHand | 8.5× | code-derived |
+
+Photon exceeds ZPE-XR on ratio (narrower data semantics). Unity Netcode / Normcore: blocked. Modern comparator gate: **0/5 FAIL**.
 
 <p>
   <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="WHAT WE PROVE" width="100%">

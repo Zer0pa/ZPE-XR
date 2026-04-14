@@ -203,7 +203,7 @@ def evaluate_contactpose_multi_sequence_workload(
     sequence_results: list[dict[str, Any]] = []
     for selected in selected_candidates:
         annotation = read_annotation_from_zip(sample_zip, selected.archive_member)
-        frames = build_zpe_frames_from_annotation(annotation, max_frames=max_frames)
+        frames = build_zpe_frames_from_annotation(annotation, max_frames=selected.frame_count)
         gate_b = evaluate_gate_b(frames, codec)
         packets = encode_sequence(codec, frames)
         packet_loss = evaluate_packet_loss_resilience(

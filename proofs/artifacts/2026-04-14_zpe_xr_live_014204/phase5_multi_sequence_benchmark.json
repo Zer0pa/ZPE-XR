@@ -1,0 +1,138 @@
+{
+  "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-04-14_zpe_xr_live_014204",
+  "artifact_run_id": "2026-04-14_zpe_xr_live_014204",
+  "benchmark": {
+    "acceptance": {
+      "modern_comparator_requirement_met": false,
+      "verdict": "PASS"
+    },
+    "aggregate": {
+      "all_sovereign_checks_passed": true,
+      "compression_ratio_vs_raw_mean": 23.898100632208035,
+      "latency_ms_mean": 0.05748107130494111,
+      "modern_comparator_pass_count": 0,
+      "modern_comparator_requirement_met": false,
+      "mpjpe_mm_mean": 0.4785933583765303,
+      "packet_loss_error_pct_mean": 0.3988277986471086,
+      "sequence_count": 5
+    },
+    "codec": {
+      "deadband_mm": 1,
+      "keyframe_interval": 45,
+      "quant_step_mm": 1.0
+    },
+    "sequence_results": [
+      {
+        "archive_member": "ContactPose sample data/grasps.zip::grasps/full38_handoff/mug.zip::mug/annotations.json",
+        "compression_ratio_vs_raw": 24.0,
+        "frame_count": 312,
+        "frames_used": 312,
+        "latency_ms": 0.05752461217948717,
+        "modern_comparator_beaten": false,
+        "modern_comparator_ratio_vs_zpe": 0.7328648915187377,
+        "mpjpe_mm": 0.46312042144507143,
+        "object_name": "mug",
+        "packet_digest_sha256": "4b51fef542e24ef242a9b77fcde99f4837cf1a6c181c97bb0ad52f4c61f988f7",
+        "packet_loss_error_pct": 0.3859336845375595,
+        "sovereign_pass": true
+      },
+      {
+        "archive_member": "ContactPose sample data/grasps.zip::grasps/full50_use/bowl.zip::bowl/annotations.json",
+        "compression_ratio_vs_raw": 23.993904607101133,
+        "frame_count": 757,
+        "frames_used": 757,
+        "latency_ms": 0.057689863936591805,
+        "modern_comparator_beaten": false,
+        "modern_comparator_ratio_vs_zpe": 0.7085894244933205,
+        "mpjpe_mm": 0.47981888275058826,
+        "object_name": "bowl",
+        "packet_digest_sha256": "7b51a05c6a81c27b14eddb6274dad4d85fbea27f8985afad58df0f15e24144b1",
+        "packet_loss_error_pct": 0.3998490689588236,
+        "sovereign_pass": true
+      },
+      {
+        "archive_member": "ContactPose sample data/grasps.zip::grasps/full28_use/camera.zip::camera/annotations.json",
+        "compression_ratio_vs_raw": 23.95961450206517,
+        "frame_count": 753,
+        "frames_used": 753,
+        "latency_ms": 0.05535809163346614,
+        "modern_comparator_beaten": false,
+        "modern_comparator_ratio_vs_zpe": 0.7075620825047167,
+        "mpjpe_mm": 0.5039612866974437,
+        "object_name": "camera",
+        "packet_digest_sha256": "541a6ac531d55a77d147729898cc17f8aa90eb3f65014febaf3945f2b7c08478",
+        "packet_loss_error_pct": 0.4199677389145364,
+        "sovereign_pass": true
+      },
+      {
+        "archive_member": "ContactPose sample data/grasps.zip::grasps/full36_use/binoculars.zip::binoculars/annotations.json",
+        "compression_ratio_vs_raw": 23.819310527010963,
+        "frame_count": 867,
+        "frames_used": 867,
+        "latency_ms": 0.059131201845444056,
+        "modern_comparator_beaten": false,
+        "modern_comparator_ratio_vs_zpe": 0.7013604543653414,
+        "mpjpe_mm": 0.4782885694916404,
+        "object_name": "binoculars",
+        "packet_digest_sha256": "fdca204c7bbda23d381dcdec259939fc16f6e212190d36257a39c204504e1b6e",
+        "packet_loss_error_pct": 0.3985738079097003,
+        "sovereign_pass": true
+      },
+      {
+        "archive_member": "ContactPose sample data/grasps.zip::grasps/full36_use/ps_controller.zip::ps_controller/annotations.json",
+        "compression_ratio_vs_raw": 23.717673524862914,
+        "frame_count": 811,
+        "frames_used": 811,
+        "latency_ms": 0.05770158692971639,
+        "modern_comparator_beaten": false,
+        "modern_comparator_ratio_vs_zpe": 0.6995828841917795,
+        "mpjpe_mm": 0.4677776314979078,
+        "object_name": "ps_controller",
+        "packet_digest_sha256": "c0ad1dd9a9a7b0e9c15f7a6f963c0fd2dc5c1b61bebb0a22674eef546d36d0cd",
+        "packet_loss_error_pct": 0.3898146929149232,
+        "sovereign_pass": true
+      }
+    ],
+    "workload": {
+      "dataset": "ContactPose",
+      "requested_objects": [
+        "mug",
+        "wine_glass",
+        "bowl",
+        "camera",
+        "binoculars"
+      ],
+      "selected_objects": [
+        "mug",
+        "bowl",
+        "camera",
+        "binoculars",
+        "ps_controller"
+      ],
+      "source_bytes": 1979376914,
+      "source_path": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-04-14_zpe_xr_live_014204/downloads/contactpose_sample.zip",
+      "source_sha256": "dd1437adc79ab1a7879b46629ddbf3b29146e90694043cbc85d990ba3e1abd7d"
+    }
+  },
+  "cleanup": {
+    "path": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-04-14_zpe_xr_live_014204/downloads/contactpose_sample.zip",
+    "removed": true
+  },
+  "comet": {
+    "enabled": true,
+    "experiment_key": "88d683be22db41bda0998df419a35adf",
+    "project": "zpe-xr",
+    "workspace": "zer0pa"
+  },
+  "execution_status": "EXECUTED",
+  "generated_at_utc": "2026-04-14T01:45:02.576653+00:00",
+  "preflight": {
+    "disk_headroom_gib": 12.071769714355469,
+    "min_required_gib": 5.0
+  },
+  "workspace_usage_after_cleanup": {
+    "bytes": 939872524,
+    "megabytes": 896.3322868347168,
+    "path": "/Users/Zer0pa/ZPE/ZPE XR"
+  }
+}

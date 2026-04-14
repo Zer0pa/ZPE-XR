@@ -1,0 +1,14 @@
+{
+  "project": "zpe-xr",
+  "runs": [
+    {
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/2026-04-14_zpe_xr_live_014204",
+      "execution_status": "EXECUTED",
+      "experiment_key": "88d683be22db41bda0998df419a35adf",
+      "name": "phase5-contactpose-multi-sequence-2026-04-14_zpe_xr_live_014204",
+      "phase": "05"
+    }
+  ],
+  "updated_at_utc": "2026-04-14T01:45:23.891946+00:00",
+  "workspace": "zer0pa"
+}

@@ -144,19 +144,19 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 
 | Metric | Value | Baseline |
 |--------|-------|----------|
-| COMPRESSION | 24.062× | vs Ultraleap 8.465× (code-derived) |
+| COMPRESSION | 23.898× | vs Ultraleap 8.465× (code-derived) |
 | MPJPE | 0.4786 mm | position fidelity |
-| LATENCY | 0.0584 ms | mean encode+decode |
+| LATENCY | 0.0575 ms | mean encode+decode |
 | COMPARATOR_GATE | 0/5 pass | modern comparators |
 
-> Source: [`proofs/artifacts/2026-04-14_zpe_xr_live_013700/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-04-14_zpe_xr_live_013700/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
+> Source: [`proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
 
 
 ## What We Prove
 
 - 0.4786mm mean per-joint position error | ContactPose benchmark
-- 24.062× compression vs raw | two-hand joint streams
-- 0.0584ms encode+decode latency
+- 23.898× compression vs raw | two-hand joint streams
+- 0.0575ms encode+decode latency
 - Local package install and tests pass
 
 <p>

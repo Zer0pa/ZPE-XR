@@ -190,7 +190,7 @@ def main() -> int:
     log_mapping(experiment, "phase4.contactpose", summary)
 
     verdict = summary.get("benchmark", {}).get("acceptance", {}).get(
-        "verdict",
+        "sovereign_verdict",
         summary.get("benchmark_verdict", "INCONCLUSIVE"),
     )
 

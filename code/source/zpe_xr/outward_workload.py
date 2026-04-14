@@ -267,7 +267,7 @@ def evaluate_contactpose_multi_sequence_workload(
         "sequence_results": sequence_results,
         "aggregate": aggregate,
         "acceptance": {
-            "verdict": "PASS" if aggregate["all_sovereign_checks_passed"] else "FAIL",
+            "sovereign_verdict": "PASS" if aggregate["all_sovereign_checks_passed"] else "FAIL",
             "modern_comparator_requirement_met": aggregate["modern_comparator_requirement_met"],
         },
     }
@@ -303,7 +303,7 @@ def build_outward_acceptance(
         "secondary_checks": {
             "modern_comparator_beaten": modern_comparator_beaten,
         },
-        "verdict": "PASS" if sovereign_pass else "FAIL",
+        "sovereign_verdict": "PASS" if sovereign_pass else "FAIL",
         "sovereign_pass": sovereign_pass,
     }
 
@@ -335,7 +335,7 @@ def render_contactpose_benchmark_markdown(summary: dict[str, Any]) -> str:
 
 ## Acceptance
 
-- sovereign verdict: `{acceptance['verdict']}`
+- sovereign verdict: `{acceptance['sovereign_verdict']}`
 - order of magnitude vs raw: `{acceptance['sovereign_checks']['order_of_magnitude_vs_raw']}`
 - fidelity floor: `{acceptance['sovereign_checks']['fidelity_floor']}`
 - latency floor: `{acceptance['sovereign_checks']['latency_floor']}`
@@ -379,7 +379,7 @@ def render_contactpose_multi_sequence_markdown(summary: dict[str, Any]) -> str:
             f"- mean packet-loss error: `{aggregate['packet_loss_error_pct_mean']:.3f}%`",
             f"- modern comparator passes: `{aggregate['modern_comparator_pass_count']}` of `{aggregate['sequence_count']}`",
             f"- comparator requirement met: `{aggregate['modern_comparator_requirement_met']}`",
-            f"- sovereign verdict: `{summary['acceptance']['verdict']}`",
+            f"- sovereign verdict: `{summary['acceptance']['sovereign_verdict']}`",
         ]
     )
     return "\n".join(lines) + "\n"

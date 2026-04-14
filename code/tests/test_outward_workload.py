@@ -37,7 +37,7 @@ def test_build_outward_acceptance_uses_sovereign_checks() -> None:
     )
     assert acceptance["sovereign_pass"] is True
     assert acceptance["secondary_checks"]["modern_comparator_beaten"] is False
-    assert acceptance["verdict"] == "PASS"
+    assert acceptance["sovereign_verdict"] == "PASS"
 
 
 def test_build_outward_acceptance_fails_when_quality_floor_breaks() -> None:
@@ -51,7 +51,7 @@ def test_build_outward_acceptance_fails_when_quality_floor_breaks() -> None:
         packet_loss_metrics={"pass": True},
     )
     assert acceptance["sovereign_pass"] is False
-    assert acceptance["verdict"] == "FAIL"
+    assert acceptance["sovereign_verdict"] == "FAIL"
 
 
 def test_ensure_contactpose_sample_reuses_existing_archive(tmp_path) -> None:

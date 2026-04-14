@@ -4,7 +4,7 @@ FPS = 90
 HANDS = 2
 JOINTS_PER_HAND = 26
 TOTAL_JOINTS = HANDS * JOINTS_PER_HAND
-RAW_FLOATS_PER_JOINT = 7  # position xyz + quaternion xyzw
+RAW_FLOATS_PER_JOINT = 3  # position xyz only (codec does not encode rotations)
 RAW_BYTES_PER_FRAME = TOTAL_JOINTS * RAW_FLOATS_PER_JOINT * 4
 
 MAGIC = b"ZXR"

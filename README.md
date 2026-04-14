@@ -38,6 +38,48 @@
 </p>
 
 <a id="what-this-is"></a>
+
+
+## Quick Start
+
+The steps below are repository verification guidance for the live ZPE-XR workstream. They are not a public-release install claim and they do not imply runtime closure on Unity or Meta targets.
+
+```bash
+git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr
+cd zpe-xr
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install "./code[dev]"
+python ./executable/verify.py
+```
+
+Optional direct test replay:
+
+```bash
+python -m pytest ./code/tests -q
+```
+
+Current live repo:
+
+- clone target: <code>https://github.com/Zer0pa/ZPE-XR.git</code>
+- package metadata: <code>code/pyproject.toml</code>
+- install/verify path: <code>python ./executable/verify.py</code>
+- optional direct replay: <code>python -m pytest ./code/tests -q</code>
+
+Not provided today:
+
+- no PyPI release
+- no public-release verdict
+- no runtime-closure pass narrative
+
+License boundary:
+
+- Free use at or below the SAL v6.0 threshold; see `LICENSE` for exact terms.
+- SPDX identifier: `LicenseRef-Zer0pa-SAL-6.0`.
+- Commercial, hosted, or legal-interpretation questions route to `architects@zer0pa.ai`.
+- The release posture remains `PRIVATE_ONLY` until the comparator and runtime gates are actually closed.
+
+
 ## What This Is
 
 ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose transport codec and evaluation harness. This repository is the governing public-facing surface for the XR package candidate: it exposes the code, the package boundary, the staged evidence, and the current non-claims. It is buildable and inspectable, but it is not a public-release pass narrative.
@@ -84,38 +126,37 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 
 <a id="current-metrics"></a>
 <a id="key-metrics"></a>
+
+
+## Commercial Readiness
+
+| Field | Value |
+|-------|-------|
+| Verdict | PRIVATE_ONLY |
+| Commit SHA | b0a08fa02fd1 |
+| Confidence | 62% |
+| Source | proofs/FINAL_STATUS.md |
+
+- Completeness basis: `5` closed claims / `8` tracked claims | RELEASE_READINESS_JSON
+
+
 ## Key Metrics
 
 | Metric | Value | Baseline |
 |--------|-------|----------|
-| COMPRESSION | 56.144× | vs Ultraleap 8.465× (code-derived) |
+| COMPRESSION | 24.062× | vs Ultraleap 8.465× (code-derived) |
 | MPJPE | 0.4786 mm | position fidelity |
-| LATENCY | 0.026 ms | mean encode+decode |
+| LATENCY | 0.0584 ms | mean encode+decode |
 | COMPARATOR_GATE | 0/5 pass | modern comparators |
 
-> Source: [`proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
+> Source: [`proofs/artifacts/2026-04-14_zpe_xr_live_013700/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-04-14_zpe_xr_live_013700/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
 
-## Competitive Benchmarks
-
-> Source: [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
-
-| Comparator | Status | Result |
-|-----------|--------|--------|
-| **ZPE-XR staged package (local Mac)** | Measured local | 55.722 bytes/frame, 26.130× compression |
-| Ultraleap VectorHand | Code-derived transport | 172.000 bytes/frame, 8.465× compression |
-| Photon Fusion XR Hands (compressed rotations) | Doc-derived transport | 38.000 bytes/frame, 38.316× compression (narrower semantics) |
-| Unity Netcode for GameObjects | Blocked | No runnable same-machine hand-sync benchmark |
-| Normcore VR/AR | Blocked | No runnable same-machine hand-sync benchmark |
-
-<p>
-  <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="WHAT WE PROVE" width="100%">
-</p>
 
 ## What We Prove
 
-- 0.479mm mean per-joint position error | ContactPose benchmark
-- 56× compression vs raw | two-hand joint streams
-- 0.026ms encode+decode latency
+- 0.4786mm mean per-joint position error | ContactPose benchmark
+- 24.062× compression vs raw | two-hand joint streams
+- 0.0584ms encode+decode latency
 - Local package install and tests pass
 
 <p>
@@ -127,12 +168,15 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 </p>
 
 <a id="status-and-gaps"></a>
+
+
 ## What We Don't Claim
 
 - No modern comparator gate closure (0/5)
 - No Unity or Meta XR runtime integration
 - No release readiness
 - No production headset deployment
+- Rotation encoding — codec encodes joint positions only (3 floats/joint), not full pose (7 floats/joint)
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
   <thead>
@@ -175,16 +219,7 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 </p>
 
 <a id="current-authority"></a>
-## Commercial Readiness
 
-| Field | Value |
-|-------|-------|
-| Verdict | PRIVATE_ONLY |
-| Commit SHA | b0a08fa02fd1 |
-| Confidence | 62% |
-| Source | proofs/FINAL_STATUS.md |
-
-- Completeness basis: `5` closed claims / `8` tracked claims | RELEASE_READINESS_JSON
 
 ## Tests and Verification
 
@@ -197,6 +232,7 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 | V_05 | XR-C007 runtime closure | INC |
 | V_06 | Public release readiness | FAIL |
 
+
 ## Proof Anchors
 
 | Path | State |
@@ -207,6 +243,7 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 | proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z/phase4_contactpose_benchmark.json | VERIFIED |
 | proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json | VERIFIED |
 | release_readiness.json | VERIFIED |
+
 
 ## Repo Shape
 
@@ -223,44 +260,7 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 <a id="quickstart-and-license"></a>
 <a id="acquisition-surface"></a>
 <a id="quick-start"></a>
-## Quick Start
 
-The steps below are repository verification guidance for the live ZPE-XR workstream. They are not a public-release install claim and they do not imply runtime closure on Unity or Meta targets.
-
-```bash
-git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr
-cd zpe-xr
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install "./code[dev]"
-python ./executable/verify.py
-```
-
-Optional direct test replay:
-
-```bash
-python -m pytest ./code/tests -q
-```
-
-Current live repo:
-
-- clone target: <code>https://github.com/Zer0pa/ZPE-XR.git</code>
-- package metadata: <code>code/pyproject.toml</code>
-- install/verify path: <code>python ./executable/verify.py</code>
-- optional direct replay: <code>python -m pytest ./code/tests -q</code>
-
-Not provided today:
-
-- no PyPI release
-- no public-release verdict
-- no runtime-closure pass narrative
-
-License boundary:
-
-- Free use at or below the SAL v6.0 threshold; see `LICENSE` for exact terms.
-- SPDX identifier: `LicenseRef-Zer0pa-SAL-6.0`.
-- Commercial, hosted, or legal-interpretation questions route to `architects@zer0pa.ai`.
-- The release posture remains `PRIVATE_ONLY` until the comparator and runtime gates are actually closed.
 
 ## Ecosystem
 
@@ -273,6 +273,28 @@ License boundary:
 </p>
 
 <a id="go-next"></a>
+
+
+---
+
+
+## Competitive Benchmarks
+
+> Source: [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
+
+| Comparator | Status | Result |
+|-----------|--------|--------|
+| **ZPE-XR staged package (local Mac)** | Measured local | 55.722 bytes/frame, 26.130× compression |
+| Ultraleap VectorHand | Code-derived transport | 172.000 bytes/frame, 8.465× compression |
+| Photon Fusion XR Hands (compressed rotations) | Doc-derived transport | 38.000 bytes/frame, 38.316× compression (narrower semantics) |
+| Unity Netcode for GameObjects | Blocked | No runnable same-machine hand-sync benchmark |
+| Normcore VR/AR | Blocked | No runnable same-machine hand-sync benchmark |
+
+<p>
+  <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="WHAT WE PROVE" width="100%">
+</p>
+
+
 ## Go Next
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
@@ -315,6 +337,8 @@ License boundary:
 </p>
 
 <a id="contributing-security-support"></a>
+
+
 ## Contributing, Security, Support
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="16" cellspacing="0">

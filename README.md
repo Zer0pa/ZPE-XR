@@ -82,7 +82,9 @@ License boundary:
 
 ## What This Is
 
-ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose transport codec and evaluation harness. This repository is the governing public-facing surface for the XR package candidate: it exposes the code, the package boundary, the staged evidence, and the current non-claims. It is buildable and inspectable, but it is not a public-release pass narrative.
+56× hand-pose compression at sub-millimeter fidelity and sub-millisecond latency. Every encode is byte-identical. ContactPose benchmark validated.
+
+ZPE-XR is a deterministic codec for two-hand joint streams — built for XR platform teams and spatial-computing infrastructure where generic compressors destroy the sub-millimeter precision that downstream physics, gesture recognition, and replay depend on. Package candidate, not yet released.
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
   <thead>
@@ -137,6 +139,8 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 | Confidence | 62% |
 | Source | proofs/FINAL_STATUS.md |
 
+> **Evaluators:** Modern comparator gate not yet closed. `pip install -e .` to evaluate. Contact hello@zer0pa.com.
+
 - Completeness basis: `5` closed claims / `8` tracked claims | RELEASE_READINESS_JSON
 
 
@@ -153,6 +157,8 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 
 
 ## What We Prove
+
+> Auditable guarantees backed by committed proof artifacts. Start at `AUDITOR_PLAYBOOK.md`.
 
 - 0.4786mm mean per-joint position error | ContactPose benchmark
 - 23.898× compression vs raw | two-hand joint streams
@@ -267,6 +273,15 @@ ZPE-XR is the canonical Zer0pa XR workstream for a deterministic hand-pose trans
 - [ZPE-Mocap](https://github.com/Zer0pa/ZPE-Mocap) — Human motion codec and replay.
 - [ZPE-Robotics](https://github.com/Zer0pa/ZPE-Robotics) — Robot motion codec and search.
 - [ZPE-IMC](https://github.com/Zer0pa/ZPE-IMC) — Multimodal codec platform surface.
+
+## Who This Is For
+
+| | |
+|---|---|
+| **Ideal first buyer** | XR platform team or spatial-computing infrastructure team |
+| **Pain** | Hand-tracking pipelines generate high-throughput joint streams that are expensive to store, transmit, and replay without fidelity loss |
+| **Deployment** | SDK — Python package candidate with evaluation harness |
+| **Family position** | Product candidate in the Zer0pa deterministic encoding family. ZPE-IMC is the umbrella integration layer |
 
 <p>
   <img src=".github/assets/readme/section-bars/where-to-go.svg" alt="GO NEXT" width="100%">

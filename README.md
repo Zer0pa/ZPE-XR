@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.0-e5e7eb?labelColor=111111" alt="License: SAL v6.0"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.2-e5e7eb?labelColor=111111" alt="License: SAL v6.2"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
   <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/current%20authority-2026--03--21-e5e7eb?labelColor=111111" alt="Current authority: 2026-03-21"></a>
   <a href="release_readiness.json"><img src="https://img.shields.io/badge/release-private%20only-e5e7eb?labelColor=111111" alt="Release: private only"></a>
@@ -74,7 +74,7 @@ Not provided today:
 
 License boundary:
 
-- Free use at or below the SAL v6.0 threshold; see `LICENSE` for exact terms.
+- Free use at or below the SAL v6.2 threshold; see `LICENSE` for exact terms.
 - SPDX identifier: `LicenseRef-Zer0pa-SAL-6.0`.
 - Commercial, hosted, or legal-interpretation questions route to `architects@zer0pa.ai`.
 - The release posture remains `PRIVATE_ONLY` until the comparator and runtime gates are actually closed.
@@ -149,9 +149,9 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 | Metric | Value | Baseline |
 |--------|-------|----------|
 | COMPRESSION | 23.90× | vs Ultraleap 8.465× |
-| MPJPE | 0.48 | mm position fidelity |
-| LATENCY | 0.06 | ms mean encode+decode |
-| VS_ULTRALEAP | 2.82× | compression win ratio |
+| MPJPE | 0.48 | mm |
+| LATENCY | 0.06 | ms |
+| VS_ULTRALEAP | 2.82× | — |
 
 > Source: [`proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
 

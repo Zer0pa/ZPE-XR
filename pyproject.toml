@@ -41,6 +41,7 @@ bindings = "pyo3"
 manifest-path = "code/rust/zpe_xr_kernel/Cargo.toml"
 module-name = "zpe_xr._kernel"
 python-source = "code/source"
+include = ["LICENSE"]
 
 [tool.pytest.ini_options]
 testpaths = ["code/tests"]

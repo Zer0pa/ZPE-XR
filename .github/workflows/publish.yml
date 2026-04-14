@@ -21,24 +21,20 @@ jobs:
             os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
             manylinux: "2014"
-            args: --release --locked --compatibility pypi -i python3.11 --out dist
+            args: --release --compatibility pypi -i python3.11 --out dist
           - name: manylinux-aarch64
             os: ubuntu-latest
             target: aarch64-unknown-linux-gnu
             manylinux: "2014"
-            args: --release --locked --compatibility pypi -i python3.11 --out dist
+            args: --release --compatibility pypi -i python3.11 --out dist
           - name: macos-arm64
             os: macos-14
             target: aarch64-apple-darwin
-            args: --release --locked --compatibility pypi --out dist
-          - name: macos-x86_64
-            os: macos-13
-            target: x86_64-apple-darwin
-            args: --release --locked --compatibility pypi --out dist
+            args: --release --compatibility pypi --out dist
           - name: windows-x86_64
             os: windows-latest
             target: x86_64-pc-windows-msvc
-            args: --release --locked --compatibility pypi --out dist
+            args: --release --compatibility pypi --out dist
     steps:
       - name: Checkout
         uses: actions/checkout@v4

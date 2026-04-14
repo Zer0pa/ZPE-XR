@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from zpe_xr.constants import RAW_BYTES_PER_FRAME
+from zpe_xr.constants import RAW_BYTES_PER_FRAME, TOTAL_JOINTS
 from zpe_xr.external_benchmarks import photon_fusion_measurement
 from zpe_xr.phase6_benchmarks import (
     benchmark_environment,
@@ -11,6 +11,10 @@ from zpe_xr.phase6_benchmarks import (
     measure_raw_proxy_row,
 )
 from zpe_xr.synthetic import generate_sequence
+
+# Raw proxy row serializes positions (3) + rotations (4) = 7 floats per joint.
+# RAW_BYTES_PER_FRAME covers positions only (codec baseline).
+RAW_PROXY_BYTES_PER_FRAME = TOTAL_JOINTS * 7 * 4  # 1456
 
 
 def test_transport_only_row_leaves_latency_and_fidelity_null() -> None:
@@ -31,7 +35,7 @@ def test_raw_proxy_row_matches_frozen_raw_bytes() -> None:
     row = measure_raw_proxy_row(frames=frames, iterations=2)
 
     assert row["evidence_class"] == "proxy_measured_local"
-    assert row["transport"]["bytes_per_frame"] == RAW_BYTES_PER_FRAME
+    assert row["transport"]["bytes_per_frame"] == RAW_PROXY_BYTES_PER_FRAME
     assert row["fidelity"]["mpjpe_mm"] == 0.0
 
 

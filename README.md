@@ -42,7 +42,15 @@
 
 ## Quick Start
 
-The steps below are repository verification guidance for the live ZPE-XR workstream. They are not a public-release install claim and they do not imply runtime closure on Unity or Meta targets.
+**Install from PyPI (recommended):**
+
+```bash
+pip install zpe-xr
+```
+
+**Install from source:**
+
+The steps below are repository verification guidance for the live ZPE-XR workstream. They do not imply runtime closure on Unity or Meta targets.
 
 ```bash
 git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr
@@ -68,8 +76,6 @@ Current live repo:
 
 Not provided today:
 
-- no PyPI release
-- no public-release verdict
 - no runtime-closure pass narrative
 
 License boundary:
@@ -84,7 +90,7 @@ License boundary:
 
 24× hand-pose compression at sub-millimeter fidelity and sub-millisecond latency. Every encode is byte-identical. ContactPose multi-sequence benchmark validated.
 
-ZPE-XR is a deterministic codec for two-hand joint streams — built for XR platform teams and spatial-computing infrastructure where generic compressors destroy the sub-millimeter precision that downstream physics, gesture recognition, and replay depend on. Package candidate, not yet released.
+ZPE-XR is a deterministic codec for two-hand joint streams — built for XR platform teams and spatial-computing infrastructure where generic compressors destroy the sub-millimeter precision that downstream physics, gesture recognition, and replay depend on. Published on PyPI as `zpe-xr`.
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
   <thead>
@@ -284,7 +290,7 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 |---|---|
 | **Ideal first buyer** | XR platform team or spatial-computing infrastructure team |
 | **Pain** | Hand-tracking pipelines generate high-throughput joint streams that are expensive to store, transmit, and replay without fidelity loss |
-| **Deployment** | SDK — Python package candidate with evaluation harness |
+| **Deployment** | SDK — Python package on PyPI with evaluation harness |
 | **Family position** | Product candidate in the Zer0pa deterministic encoding family. ZPE-IMC is the umbrella integration layer |
 
 <p>

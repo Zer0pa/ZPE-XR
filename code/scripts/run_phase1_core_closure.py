@@ -46,7 +46,7 @@ def _run_step(name: str, command: List[str], *, env: Dict[str, str]) -> Dict[str
 
 
 def _normalize_root_artifacts(artifact_dir: Path, root: Path) -> Dict[str, Any]:
-    legacy_lane_root = "/Users/prinivenpillay/ZPE Multimodality/ZPE XR"
+    legacy_lane_root = "/Users/zer0pa-build/ZPE Multimodality/ZPE XR"
 
     updated_files = 0
     for path in artifact_dir.rglob("*"):

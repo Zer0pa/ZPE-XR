@@ -157,8 +157,8 @@ def main() -> int:
         attempts = json.loads(attempts_path.read_text(encoding="utf-8"))
 
     # Track mandatory evidence inputs.
-    md_input = Path("/Users/prinivenpillay/ZPE Multimodality/ZPE 10-Lane NET-NEW Resource Maximization Pack.md")
-    pdf_input = Path("/Users/prinivenpillay/ZPE Multimodality/ZPE 10-Lane NET-NEW Resource Maximization Pack.pdf")
+    md_input = Path("/Users/zer0pa-build/ZPE Multimodality/ZPE 10-Lane NET-NEW Resource Maximization Pack.md")
+    pdf_input = Path("/Users/zer0pa-build/ZPE Multimodality/ZPE 10-Lane NET-NEW Resource Maximization Pack.pdf")
 
     # Ensure HOT3D attempts are present and add an explicit package index probe.
     hot3d_pip_probe = run_cmd(f"{py} -m pip index versions hot3d-toolkit", cwd=ROOT)

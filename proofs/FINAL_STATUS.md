@@ -8,8 +8,8 @@ This document is the current staged reading of the XR evidence boundary.
 
 ## Current Authority
 
-- Phase 5 ContactPose multi-sequence: mean compression `56.144x`, mean MPJPE `0.479 mm`, mean latency `0.026 ms`, mean loss error `0.399%`, modern comparator passes `0/5`. Anchor: `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json`.
-- Phase 4 ContactPose single-sequence: compression `56.144x`, MPJPE `0.478 mm`, latency `0.025 ms`, loss error `0.399%`. Anchor: `proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z/phase4_contactpose_benchmark.json`.
+- Phase 5 ContactPose multi-sequence (2026-04-14 rerun): mean compression `23.90x`, mean MPJPE `0.479 mm`, mean latency `0.057 ms`, mean loss error `0.399%`, modern comparator passes `0/5`. Anchor: `proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json`.
+- Phase 4 ContactPose single-sequence (historical): compression figure was `56.144x` in the original run but has been superseded by the 2026-04-14 rerun at `23.90x`. Anchor: `proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z/phase4_contactpose_benchmark.json`.
 - Phase 4 cold-start audit: `PASS`, Comet logging disabled (key null). Anchor: `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json`.
 - Package mechanics: Rust backend, `twine check` PASS, version `0.3.0`. Anchor: `release_readiness.json`.
 

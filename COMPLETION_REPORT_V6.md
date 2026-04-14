@@ -24,7 +24,7 @@
 
 | Metric | Value | Baseline | Proof File |
 |--------|-------|----------|------------|
-| COMPRESSION | 56.144× | vs Ultraleap 8.465× (code-derived) | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json |
+| COMPRESSION | 23.90× | vs Ultraleap 8.465× (code-derived) | proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json |
 | MPJPE | 0.4786 mm | position fidelity | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json |
 | LATENCY | 0.026 ms | mean encode+decode | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json |
 | COMPARATOR_GATE | 0/5 pass | modern comparators | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json |

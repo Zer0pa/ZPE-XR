@@ -61,7 +61,7 @@ python -m pytest ./code/tests -q
 
 - package version `0.3.0`
 - local install/verify path succeeds on the staged package surface
-- mean compression `56.144x`, mean MPJPE `0.479 mm`, mean latency `0.026 ms`, mean loss error `0.399%`
+- mean compression `23.90x`, mean MPJPE `0.479 mm`, mean latency `0.057 ms`, mean loss error `0.399%`
 - modern comparator gate `0/5`
 - release verdict `PRIVATE_ONLY`, `NOT_READY_FOR_PUBLIC_RELEASE`
 - runtime closure `XR-C007 = PAUSED_EXTERNAL`

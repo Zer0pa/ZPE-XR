@@ -5,7 +5,7 @@ build-backend = "maturin"
 [project]
 name = "zpe-xr"
 version = "0.3.0"
-description = "Deterministic XR hand-pose transport codec. 56x compression, sub-mm fidelity, 0.025ms latency, CPU-native."
+description = "Deterministic XR hand-pose transport codec. ~24x compression, sub-mm fidelity, sub-ms latency, CPU-native."
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "LicenseRef-Zer0pa-SAL-6.2"}

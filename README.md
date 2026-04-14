@@ -183,6 +183,8 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 - No release readiness
 - No production headset deployment
 - Rotation encoding — codec encodes joint positions only (3 floats/joint), not full pose (7 floats/joint)
+- 8-primitive directional encoding — codec uses int16 quantization + int8 delta compression with CRC32 integrity, not directional primitives
+- float16+zlib baseline beats ZPE-XR on 5/5 ContactPose sequences in the Phase 6 comparator matrix
 
 <table width="100%" border="1" bordercolor="#111111" cellpadding="14" cellspacing="0">
   <thead>
@@ -299,13 +301,14 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 
 > Phase 6 Mac benchmark. Source: [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/)
 
-| Tool | Ratio | Evidence |
-|------|-------|----------|
-| Photon Fusion | 38.3× | doc-derived; rotations only |
-| **ZPE-XR** | **26.1×** | measured local; full positions |
-| Ultraleap VectorHand | 8.5× | code-derived |
+| Tool | Ratio | MPJPE mm | Evidence |
+|------|-------|----------|----------|
+| Photon Fusion | 38.3× | — | doc-derived; rotations only |
+| **ZPE-XR** | **26.1×** | **0.879** | measured local; full positions |
+| Ultraleap VectorHand | 8.5× | — | code-derived |
+| float16+zlib baseline | 4.3× | 0.277 | measured local; modern comparator |
 
-Photon exceeds ZPE-XR on ratio (narrower data semantics). Unity Netcode / Normcore: blocked. Modern comparator gate: **0/5 FAIL**.
+Photon exceeds ZPE-XR on ratio (narrower data semantics). float16+zlib baseline beats ZPE-XR on fidelity (lower MPJPE) on 5/5 ContactPose sequences despite lower compression ratio — this is why the modern comparator gate fails 0/5. Unity Netcode / Normcore: blocked. Modern comparator gate: **0/5 FAIL**.
 
 <p>
   <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="WHAT WE PROVE" width="100%">

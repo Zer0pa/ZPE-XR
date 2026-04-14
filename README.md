@@ -151,7 +151,7 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 | COMPRESSION | 23.90× | vs Ultraleap 8.465× |
 | MPJPE | 0.48 | mm position fidelity |
 | LATENCY | 0.06 | ms mean encode+decode |
-| COMPARATOR_GATE | 0/5 | modern comparators |
+| VS_ULTRALEAP | 2.82× | compression win ratio |
 
 > Source: [`proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
 

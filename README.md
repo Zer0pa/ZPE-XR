@@ -88,7 +88,7 @@ License boundary:
 
 ## What This Is
 
-24× hand-pose compression at sub-millimeter fidelity and sub-millisecond latency. Every encode is byte-identical. ContactPose multi-sequence benchmark validated.
+Byte-identical hand-pose transport at 0.06ms latency. ~24× compression, 0.48mm fidelity on ContactPose. Multi-sequence benchmark validated.
 
 ZPE-XR is a deterministic codec for two-hand joint streams — built for XR platform teams and spatial-computing infrastructure where generic compressors destroy the sub-millimeter precision that downstream physics, gesture recognition, and replay depend on. Published on PyPI as `zpe-xr`.
 
@@ -154,10 +154,10 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 
 | Metric | Value | Baseline |
 |--------|-------|----------|
-| COMPRESSION | 23.90× | vs Ultraleap 8.465× |
-| MPJPE | 0.48 | mm |
 | LATENCY | 0.06 | ms |
-| VS_ULTRALEAP | 2.82× | — |
+| MPJPE | 0.48 | mm |
+| COMPRESSION | 23.90× | vs Ultraleap 8.465× |
+| DETERMINISM | byte-identical | encode-decode roundtrip |
 
 > Source: [`proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json`](proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json) | [`proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md`](proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md)
 

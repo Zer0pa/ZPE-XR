@@ -3,7 +3,7 @@
   "repo_role": "product_candidate",
   "status": "PRIVATE_STAGE",
   "plain_english_summary": "Deterministic hand-pose transport codec for XR two-hand joint streams.",
-  "commercial_wedge": "Reproducible hand-stream transport for XR platforms. Sub-millimeter fidelity (0.479 mm MPJPE), ~24× compression, sub-millisecond latency — all traceable to committed benchmark artifacts.",
+  "commercial_wedge": "Deterministic hand-pose transport for XR platforms. Sub-millisecond latency (0.06 ms), sub-millimeter fidelity (0.479 mm MPJPE), ~24× compression — all traceable to committed benchmark artifacts.",
   "technical_wedge": "Deterministic two-hand joint codec. ContactPose benchmark: 0.479 mm MPJPE, 23.90× compression, 0.057 ms encode+decode. Package mechanics real and installable.",
   "ideal_first_buyer": "XR platform team or spatial-computing infrastructure team",
   "deployment_model": "SDK — Python package candidate with evaluation harness",

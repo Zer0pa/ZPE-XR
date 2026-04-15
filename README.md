@@ -5,8 +5,8 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.2-e5e7eb?labelColor=111111" alt="License: SAL v6.2"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
-  <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/current%20authority-2026--03--21-e5e7eb?labelColor=111111" alt="Current authority: 2026-03-21"></a>
-  <a href="release_readiness.json"><img src="https://img.shields.io/badge/release-private%20only-e5e7eb?labelColor=111111" alt="Release: private only"></a>
+  <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/current%20authority-2026--04--14-e5e7eb?labelColor=111111" alt="Current authority: 2026-04-14"></a>
+  <a href="release_readiness.json"><img src="https://img.shields.io/badge/release-PyPI%20v0.3.0-e5e7eb?labelColor=111111" alt="Release: PyPI v0.3.0"></a>
   <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/current%20gate-0%2F5%20modern%20comparator-e5e7eb?labelColor=111111" alt="Current gate: 0/5 modern comparator"></a>
 </p>
 <p align="center">
@@ -83,7 +83,7 @@ License boundary:
 - Free use at or below the SAL v6.2 threshold; see `LICENSE` for exact terms.
 - SPDX identifier: `LicenseRef-Zer0pa-SAL-6.0`.
 - Commercial, hosted, or legal-interpretation questions route to `architects@zer0pa.ai`.
-- The release posture remains `PRIVATE_ONLY` until the comparator and runtime gates are actually closed.
+- v0.3.0 is published on PyPI. The modern comparator gate (0/5) and runtime closure (PAUSED_EXTERNAL) remain open.
 
 
 ## What This Is
@@ -140,7 +140,7 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 
 | Field | Value |
 |-------|-------|
-| Verdict | PRIVATE_ONLY |
+| Verdict | PUBLISHED_PYPI |
 | Commit SHA | b0a08fa02fd1 |
 | Confidence | 62% |
 | Source | proofs/FINAL_STATUS.md |

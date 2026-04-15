@@ -229,7 +229,7 @@ def build_package_surface(
             ),
             "final_status": "proofs/FINAL_STATUS.md",
         },
-        "release_readiness": "PRIVATE_ONLY",
+        "release_readiness": "PUBLISHED_PYPI",
         "release_blockers": [
             "MODERN_COMPARATOR_GATE_FAILED",
             "XR_C007_PAUSED_EXTERNAL",
@@ -308,9 +308,9 @@ def render_staged_files(surface: Mapping[str, Any], claims: Mapping[str, Any]) -
     snapshot = surface["evidence_snapshot"]
     readme = f"""# ZPE-XR
 
-ZPE-XR is a private-stage package candidate for a deterministic XR hand-stream codec and evaluation harness.
+ZPE-XR is a deterministic XR hand-stream codec and evaluation harness, published on PyPI as `zpe-xr` v0.3.0.
 
-This repo is buildable and inspectable, but it is not yet public-release proof and it is not a runtime-closure claim surface.
+The modern comparator gate remains 0/5 FAIL and runtime closure remains PAUSED_EXTERNAL.
 
 ## Current Authority
 
@@ -376,12 +376,12 @@ This file defines what the staged ZPE-XR repo can and cannot establish right now
 ## Known Limits
 
 - ContactPose is the outward-safe corpus boundary, not the exact PRD corpus
-- the package candidate is truthful but still below public release approval
+- the package is published on PyPI; the modern comparator gate (0/5) remains the primary open quality gate
 """
 
     auditor = f"""# Auditor Playbook
 
-This is the shortest honest audit path for the current private-stage package candidate.
+This is the shortest honest audit path for the current ZPE-XR package (v0.3.0, published on PyPI).
 
 ## Shortest Staged Audit Path
 
@@ -460,7 +460,7 @@ python -m pytest ./code/tests -q
 
     code_readme = f"""# zpe-xr
 
-Private-stage Python package candidate for the ZPE-XR codec and evaluation harness.
+Python package for the ZPE-XR codec and evaluation harness. Published on PyPI as `zpe-xr`.
 
 ## Install
 
@@ -532,15 +532,17 @@ This document is the current staged reading of the XR evidence boundary.
 - outward-safe workload: ContactPose `PASS`
 - package candidate: `PASS`
 - cold-start trust: `PASS`
-- outward channel: `PRIVATE_ONLY`
-- public release readiness: `NOT_READY_FOR_PUBLIC_RELEASE`
+- PyPI publication: `PUBLISHED` (v0.3.0 on PyPI)
+- modern comparator gate: `FAIL` (0/5)
+- Unity/Meta runtime closure: `PAUSED_EXTERNAL`
 """
 
     release_readiness = """# Release Readiness Report
 
-Date: 2026-03-21
-Verdict: `PRIVATE_ONLY`
-Public Release Status: `NOT_READY_FOR_PUBLIC_RELEASE`
+Date: 2026-03-21 (original); updated 2026-04-14
+Verdict: `PUBLISHED_PYPI` (v0.3.0 on PyPI)
+Modern Comparator Gate: `0/5 FAIL`
+Runtime Closure: `PAUSED_EXTERNAL`
 
 ## What Was Completed In Phase 5
 

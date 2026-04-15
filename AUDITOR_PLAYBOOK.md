@@ -63,7 +63,7 @@ python -m pytest ./code/tests -q
 - local install/verify path succeeds on the staged package surface
 - mean compression `23.90x`, mean MPJPE `0.479 mm`, mean latency `0.057 ms`, mean loss error `0.399%`
 - modern comparator gate `0/5`
-- release verdict `PRIVATE_ONLY`, `NOT_READY_FOR_PUBLIC_RELEASE`
+- release verdict `PUBLISHED_PYPI` (v0.3.0); modern comparator gate `0/5 FAIL`
 - runtime closure `XR-C007 = PAUSED_EXTERNAL`
 
 ## If Your Replay Disagrees

@@ -16,9 +16,9 @@
 
 # PyPI Upload Readiness
 
-Current verdict: `PRIVATE_ONLY`
+Current verdict: `PUBLISHED_PYPI` (v0.3.0)
 
-Public PyPI upload is not approved from the current evidence chain. The package mechanics are ready, but the governing public-release comparator gate failed `0/5`, so this command is preserved for a future release decision rather than for immediate execution.
+zpe-xr v0.3.0 is published on PyPI. The modern comparator gate failed `0/5` (float16+zlib baseline beats ZPE-XR on fidelity on all 5 ContactPose sequences), so comparator-displacement claims remain unsupported, but the package itself is publicly installable.
 
 ## Environment
 

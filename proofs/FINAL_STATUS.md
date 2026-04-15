@@ -15,7 +15,7 @@ This document is the current staged reading of the XR evidence boundary.
 
 ## Comparator Boundary
 
-- Modern comparator gate failed `0/5` on Phase 5 multi-sequence; this blocks public release.
+- Modern comparator gate failed `0/5` on Phase 5 multi-sequence. float16+zlib baseline beats ZPE-XR on fidelity on all 5 sequences.
 - Photon displacement remains open and secondary.
 - Legacy comparator lanes were removed from the repo to keep the authority surface lean.
 
@@ -33,8 +33,9 @@ This document is the current staged reading of the XR evidence boundary.
 - outward-safe workload: ContactPose `PASS`
 - package candidate: `PASS`
 - cold-start trust: `PASS`
-- outward channel: `PRIVATE_ONLY`
-- public release readiness: `NOT_READY_FOR_PUBLIC_RELEASE`
+- PyPI publication: `PUBLISHED` (v0.3.0 on PyPI)
+- modern comparator gate: `FAIL` (0/5 — float16+zlib baseline beats ZPE-XR on fidelity)
+- Unity/Meta runtime closure: `PAUSED_EXTERNAL`
 
 <p>
   <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">

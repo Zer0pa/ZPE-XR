@@ -8,11 +8,11 @@ def test_audit_outward_claims_passes_with_required_markers(tmp_path: Path) -> No
     (tmp_path / "README.md").write_text("Private-stage package candidate\n", encoding="utf-8")
     (tmp_path / "PUBLIC_AUDIT_LIMITS.md").write_text("Audit boundary\n", encoding="utf-8")
     (tmp_path / "proofs" / "FINAL_STATUS.md").write_text(
-        "Photon row: OPEN\nXR-C007 is `PAUSED_EXTERNAL`\n",
+        "Photon displacement remains open\nXR-C007 is `PAUSED_EXTERNAL`\n",
         encoding="utf-8",
     )
     (tmp_path / "proofs" / "RELEASE_READINESS_REPORT.md").write_text(
-        "Verdict: `NOT_READY_FOR_PUBLIC_RELEASE`\n",
+        "Modern Comparator Gate: `0/5 FAIL`\n",
         encoding="utf-8",
     )
 
@@ -29,7 +29,7 @@ def test_audit_outward_claims_flags_forbidden_language(tmp_path: Path) -> None:
         encoding="utf-8",
     )
     (tmp_path / "proofs" / "RELEASE_READINESS_REPORT.md").write_text(
-        "Verdict: `NOT_READY_FOR_PUBLIC_RELEASE`\n",
+        "Modern Comparator Gate: `0/5 FAIL`\n",
         encoding="utf-8",
     )
 

@@ -4,9 +4,10 @@
 
 # Release Readiness Report
 
-Date: 2026-03-21
-Verdict: `PRIVATE_ONLY`
-Public Release Status: `NOT_READY_FOR_PUBLIC_RELEASE`
+Date: 2026-03-21 (original); updated 2026-04-14
+Verdict: `PUBLISHED_PYPI` (v0.3.0 on PyPI)
+Modern Comparator Gate: `0/5 FAIL`
+Runtime Closure: `PAUSED_EXTERNAL`
 
 ## What Was Completed In Phase 5
 

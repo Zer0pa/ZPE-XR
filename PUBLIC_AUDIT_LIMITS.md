@@ -11,7 +11,7 @@ It is intentionally narrow. It keeps the public XR audit path honest without tur
 - the current staged package version `0.3.0`
 - the current primary benchmark identity in `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json`
 - the cold-start audit and release-readiness machine surfaces
-- the honest current verdict of `PRIVATE_ONLY` and `NOT_READY_FOR_PUBLIC_RELEASE`
+- the current verdict of `PUBLISHED_PYPI` (v0.3.0) with modern comparator gate `0/5 FAIL`
 
 ## What The Public Audit Path Does Not Establish
 
@@ -92,7 +92,7 @@ Any live-telemetry surfaces are subordinate to the local proof artifacts shipped
 ## Honest Reading Rules
 
 - Read ContactPose as the outward-safe benchmark lane, not as the exact PRD corpus.
-- Read `PRIVATE_ONLY` and `NOT_READY_FOR_PUBLIC_RELEASE` as governing truth, not as a marketing delay.
+- Read `PUBLISHED_PYPI` as meaning the package is on PyPI, not that all quality gates are closed.
 - Read the failed modern comparator row as a real blocker, not as a soft caveat.
 - Read `XR-C007 = PAUSED_EXTERNAL` as a runtime-closure blocker, not as an implied near-pass.
 - Read package mechanics and release readiness separately: the package can be mechanically valid while the release gate is still closed.

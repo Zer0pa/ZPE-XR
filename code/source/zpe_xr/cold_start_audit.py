@@ -14,8 +14,8 @@ FORBIDDEN_PHRASES = {
 }
 
 REQUIRED_MARKERS = {
-    "release_not_ready": ("proofs/RELEASE_READINESS_REPORT.md", "NOT_READY_FOR_PUBLIC_RELEASE"),
-    "photon_open": ("proofs/FINAL_STATUS.md", "Photon row: OPEN"),
+    "comparator_gate_fail": ("proofs/RELEASE_READINESS_REPORT.md", "0/5 FAIL"),
+    "photon_open": ("proofs/FINAL_STATUS.md", "Photon displacement remains open"),
     "runtime_paused": ("proofs/FINAL_STATUS.md", "PAUSED_EXTERNAL"),
 }
 

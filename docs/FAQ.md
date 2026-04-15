@@ -38,7 +38,7 @@ python ./executable/verify.py
 
 **Is this available on PyPI?**
 
-No. The supported acquisition surface is the repo itself: `https://github.com/Zer0pa/ZPE-XR.git`.
+Yes. `pip install zpe-xr` installs v0.3.0 from PyPI. The source repo is also available at `https://github.com/Zer0pa/ZPE-XR.git`.
 
 **Should I also run tests?**
 
@@ -83,7 +83,7 @@ Use the Phase 5 benchmark artifact for the numbers and `proofs/FINAL_STATUS.md` 
 
 **What is the governing release verdict?**
 
-`PRIVATE_ONLY` and `NOT_READY_FOR_PUBLIC_RELEASE`.
+`PUBLISHED_PYPI` (v0.3.0). The modern comparator gate remains `0/5 FAIL` and runtime closure remains `PAUSED_EXTERNAL`.
 
 <p>
   <img src="../.github/assets/readme/section-bars/license-and-ip.svg" alt="LICENSE AND IP" width="100%">

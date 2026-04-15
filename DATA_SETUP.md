@@ -98,6 +98,6 @@ python ./code/scripts/export_public_benchmark_manifest.py
 
 ## Boundary Reminder
 
-- New dataset setup guidance does not change the current `PRIVATE_ONLY` verdict.
+- New dataset setup guidance does not change the current modern comparator gate (0/5 FAIL) or runtime closure status.
 - Only new measured benchmark artifacts can change dataset claims.
 - The exact public comparator gate remains controlled by the current proof boundary, not by this operator document.

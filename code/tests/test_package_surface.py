@@ -27,7 +27,7 @@ def test_package_surface_uses_non_placeholder_version() -> None:
         stage_verify={"passed": True},
     )
     assert surface["package"]["version"] != "0.0.0"
-    assert surface["release_readiness"] == "PRIVATE_ONLY"
+    assert surface["release_readiness"] == "PUBLISHED_PYPI"
 
 
 def test_rendered_final_status_uses_fresh_artifact_chain() -> None:

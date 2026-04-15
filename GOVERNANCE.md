@@ -12,7 +12,7 @@ Canonical anchors:
 
 - Repository: `https://github.com/Zer0pa/ZPE-XR.git`
 - Contact: `architects@zer0pa.ai`
-- Release posture: `PRIVATE_ONLY`, `NOT_READY_FOR_PUBLIC_RELEASE`
+- Release posture: `PUBLISHED_PYPI` (v0.3.0); modern comparator gate `0/5 FAIL`
 
 <p>
   <img src=".github/assets/readme/section-bars/evidence-and-claims.svg" alt="EVIDENCE AND CLAIMS" width="100%">
@@ -33,7 +33,7 @@ Governance baseline:
 |---|---|---|
 | Package version | `0.3.0` | `release_readiness.json`, `code/pyproject.toml` |
 | Primary benchmark authority | `2026-03-21_zpe_xr_phase5_multi_sequence_161900Z` | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json` |
-| Release posture | `PRIVATE_ONLY`, `NOT_READY_FOR_PUBLIC_RELEASE` | `proofs/RELEASE_READINESS_REPORT.md` |
+| Release posture | `PUBLISHED_PYPI` (v0.3.0); modern comparator gate `0/5 FAIL` | `proofs/RELEASE_READINESS_REPORT.md` |
 | Runtime closure | `XR-C007 = PAUSED_EXTERNAL` | `proofs/FINAL_STATUS.md` |
 | Corpus posture | `ContactPose outward-safe, exact PRD corpus unresolved` | `proofs/FINAL_STATUS.md`, `PUBLIC_AUDIT_LIMITS.md` |
 

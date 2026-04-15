@@ -5,13 +5,13 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.2-e5e7eb?labelColor=111111" alt="License: SAL v6.2"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
-  <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/current%20authority-2026--04--14-e5e7eb?labelColor=111111" alt="Current authority: 2026-04-14"></a>
-  <a href="release_readiness.json"><img src="https://img.shields.io/badge/release-PyPI%20v0.3.0-e5e7eb?labelColor=111111" alt="Release: PyPI v0.3.0"></a>
+  <img src="https://img.shields.io/badge/current%20authority-2026--04--14-e5e7eb?labelColor=111111" alt="Current authority: 2026-04-14">
+  <a href="https://pypi.org/project/zpe-xr/"><img src="https://img.shields.io/badge/release-PyPI%20v0.3.0-e5e7eb?labelColor=111111" alt="Release: PyPI v0.3.0"></a>
   <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json"><img src="https://img.shields.io/badge/current%20gate-0%2F5%20modern%20comparator-e5e7eb?labelColor=111111" alt="Current gate: 0/5 modern comparator"></a>
 </p>
 <p align="center">
   <a href="AUDITOR_PLAYBOOK.md"><img src="https://img.shields.io/badge/quick%20verify-local%20install%20%26%20verify-e5e7eb?labelColor=111111" alt="Quick verify"></a>
-  <a href="proofs/FINAL_STATUS.md"><img src="https://img.shields.io/badge/proof%20anchors-status%20%2B%20benchmark-e5e7eb?labelColor=111111" alt="Proof anchors"></a>
+  <img src="https://img.shields.io/badge/proof%20anchors-status%20%2B%20benchmark-e5e7eb?labelColor=111111" alt="Proof anchors">
   <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/architecture-runtime%20map-e5e7eb?labelColor=111111" alt="Architecture runtime map"></a>
   <a href="docs/LEGAL_BOUNDARIES.md"><img src="https://img.shields.io/badge/lane%20boundaries-dataset%20%2F%20runtime%20limits-e5e7eb?labelColor=111111" alt="Lane boundaries"></a>
   <a href="PUBLIC_AUDIT_LIMITS.md"><img src="https://img.shields.io/badge/public%20audit-explicit%20limits-e5e7eb?labelColor=111111" alt="Public audit limits"></a>
@@ -143,11 +143,11 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 | Verdict | PUBLISHED_PYPI |
 | Commit SHA | b0a08fa02fd1 |
 | Confidence | 62% |
-| Source | proofs/FINAL_STATUS.md |
+| Source | proofs/FINAL_STATUS.md (removed) |
 
 > **Evaluators:** Modern comparator gate not yet closed. `pip install -e .` to evaluate. Contact hello@zer0pa.com.
 
-- Completeness basis: `5` closed claims / `8` tracked claims | RELEASE_READINESS_JSON
+- Completeness basis: `5` closed claims / `8` tracked claims
 
 
 ## Key Metrics
@@ -251,12 +251,12 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 
 | Path | State |
 |------|-------|
-| proofs/FINAL_STATUS.md | VERIFIED |
-| proofs/RELEASE_READINESS_REPORT.md | VERIFIED |
+| proofs/FINAL_STATUS.md | REMOVED |
+| proofs/RELEASE_READINESS_REPORT.md | REMOVED |
 | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json | VERIFIED |
 | proofs/artifacts/2026-03-21_zpe_xr_phase4_runpod_contactpose_124835Z/phase4_contactpose_benchmark.json | VERIFIED |
 | proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json | VERIFIED |
-| release_readiness.json | VERIFIED |
+| release_readiness.json | REMOVED |
 
 
 ## Repo Shape
@@ -265,7 +265,7 @@ ZPE-XR is a deterministic codec for two-hand joint streams — built for XR plat
 |-------|-------|
 | Proof Anchors | 6 |
 | Modality Lanes | 5 |
-| Authority Source | proofs/FINAL_STATUS.md |
+| Authority Source | proofs/FINAL_STATUS.md (removed) |
 
 <p>
   <img src=".github/assets/readme/section-bars/quick-start.svg" alt="QUICK START" width="100%">
@@ -333,11 +333,11 @@ Photon exceeds ZPE-XR on ratio (narrower data semantics). float16+zlib baseline 
   <tbody>
     <tr>
       <td valign="top">Read the current verdict and claim boundary</td>
-      <td valign="top"><a href="proofs/FINAL_STATUS.md"><code>proofs/FINAL_STATUS.md</code></a></td>
+      <td valign="top"><code>proofs/FINAL_STATUS.md</code> (removed)</td>
     </tr>
     <tr>
       <td valign="top">Read the release decision and blockers</td>
-      <td valign="top"><a href="proofs/RELEASE_READINESS_REPORT.md"><code>proofs/RELEASE_READINESS_REPORT.md</code></a></td>
+      <td valign="top"><code>proofs/RELEASE_READINESS_REPORT.md</code> (removed)</td>
     </tr>
     <tr>
       <td valign="top">Understand package/runtime surfaces</td>

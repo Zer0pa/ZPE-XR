@@ -75,6 +75,7 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 | Field | Value |
 |---|---|
 | Verdict | `PRIVATE_ONLY` |
+| Release posture | Live work in progress; not a final official release |
 | Ideal first buyer | XR platform team or spatial-computing infrastructure team |
 | Deployment | SDK — Python package candidate with evaluation harness |
 | Current blocker | Modern comparator gate `0/5` plus `XR-C007` runtime closure `PAUSED_EXTERNAL` |

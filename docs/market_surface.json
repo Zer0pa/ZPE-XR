@@ -1,16 +1,17 @@
 {
   "repo_name": "ZPE-XR",
   "repo_role": "product_candidate",
-  "status": "PRIVATE_STAGE",
-  "plain_english_summary": "Deterministic hand-pose transport codec for XR two-hand joint streams.",
-  "commercial_wedge": "Deterministic hand-pose transport for XR platforms. Sub-millisecond latency (0.06 ms), sub-millimeter fidelity (0.479 mm MPJPE), ~24× compression — all traceable to committed benchmark artifacts.",
-  "technical_wedge": "Deterministic two-hand joint codec. ContactPose benchmark: 0.479 mm MPJPE, 23.90× compression, 0.057 ms encode+decode. Package mechanics real and installable.",
+  "status": "PRIVATE_ONLY",
+  "plain_english_summary": "Deterministic hand-joint transport codec for XR two-hand streams with private-stage release posture.",
+  "commercial_wedge": "Deterministic hand transport for XR platforms: sub-millisecond latency (0.057 ms mean encode+decode), byte-identical replay, and mixed-gesture packet transport on the current ContactPose lane. Compression is real, but the current public wedge is transport behavior, not release-ready comparator displacement.",
+  "technical_wedge": "Deterministic two-hand joint codec. Current public lane: 0.479 mm MPJPE, 23.90× compression vs raw, 0.057 ms mean encode+decode latency, 0/5 modern-comparator gate, verdict PRIVATE_ONLY.",
   "ideal_first_buyer": "XR platform team or spatial-computing infrastructure team",
   "deployment_model": "SDK — Python package candidate with evaluation harness",
   "proof_anchors": [
-    "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_multi_sequence_benchmark.json",
-    "proofs/RELEASE_READINESS_REPORT.md",
-    "proofs/FINAL_STATUS.md"
+    "proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json",
+    "proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.json",
+    "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md",
+    "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md"
   ],
   "not_claimed": [
     "Public release readiness (modern comparator gate not closed)",
@@ -19,7 +20,7 @@
     "Exact PRD corpus closure",
     "Broad hand-tracking superiority"
   ],
-  "family_position": "Product candidate in the Zer0pa deterministic encoding family. ZPE-IMC is the umbrella integration layer.",
+  "family_position": "Product candidate in the Zer0pa deterministic encoding family; evaluated as an independent lane surface.",
   "license": "LicenseRef-Zer0pa-SAL-6.2",
   "contact": "hello@zer0pa.com"
 }

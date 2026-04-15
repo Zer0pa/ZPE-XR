@@ -8,8 +8,24 @@ from pathlib import Path
 import sys
 
 
-PHASE1_RUN_ID = "2026-03-20_zpe_xr_wave1_live"
-PHASE2_RUN_ID = "2026-03-20_zpe_xr_phase2_pre_runpod"
+PHASE5_BENCHMARK = (
+    "proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json"
+)
+PHASE6_COMPARATOR = (
+    "proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/"
+    "phase6_mac_comparator_benchmark.json"
+)
+PHASE4_COLD_START = (
+    "proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json"
+)
+PHASE5_RELEASE_DECISION = (
+    "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/"
+    "phase5_release_decision.md"
+)
+PHASE5_SURFACE_ADJUDICATION = (
+    "proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/"
+    "phase5_surface_adjudication.md"
+)
 
 
 def _canonical_source_root(repo_root: Path) -> Path:
@@ -29,35 +45,16 @@ def _candidate_site_packages(repo_root: Path) -> tuple[Path, ...]:
     return tuple(path for path in candidates if path.exists())
 
 
-def _artifact_root(repo_root: Path) -> Path:
-    if (repo_root / "artifacts").exists():
-        return repo_root / "artifacts"
-    return repo_root / "proofs" / "artifacts"
-
-
-def _proof_root(repo_root: Path) -> Path:
-    if (repo_root / "proofs").exists():
-        return repo_root / "proofs"
-    return repo_root / "ZPE-XR" / "proofs"
-
-
-def _audit_limits_path(repo_root: Path) -> Path:
-    if (repo_root / "PUBLIC_AUDIT_LIMITS.md").exists():
-        return repo_root / "PUBLIC_AUDIT_LIMITS.md"
-    return repo_root / "ZPE-XR" / "PUBLIC_AUDIT_LIMITS.md"
-
-
 def _readme_path(repo_root: Path) -> Path:
     if (repo_root / "README.md").exists():
         return repo_root / "README.md"
     return repo_root / "ZPE-XR" / "README.md"
 
-
-def _latest_phase3_dir(repo_root: Path) -> Path | None:
-    phase3_dirs = sorted(_artifact_root(repo_root).glob("*phase3_packaging*"))
-    if not phase3_dirs:
-        return None
-    return phase3_dirs[-1]
+def _doc_path(repo_root: Path, relative: str) -> Path:
+    candidate = repo_root / relative
+    if candidate.exists():
+        return candidate
+    return repo_root / "ZPE-XR" / relative
 
 
 def main() -> int:
@@ -70,22 +67,20 @@ def main() -> int:
         if site_packages_str not in sys.path:
             sys.path.append(site_packages_str)
 
-    phase3_dir = _latest_phase3_dir(repo_root)
-    artifact_root = _artifact_root(repo_root)
-    proof_root = _proof_root(repo_root)
-    audit_limits = _audit_limits_path(repo_root)
     readme_path = _readme_path(repo_root)
+    architecture_doc = _doc_path(repo_root, "docs/ARCHITECTURE.md")
+    legal_boundaries_doc = _doc_path(repo_root, "docs/LEGAL_BOUNDARIES.md")
     checks = {
         "repo_root": str(repo_root),
         "canonical_source_root": str(source_root),
         "site_packages": [str(path) for path in _candidate_site_packages(repo_root)],
-        "fresh_phase1_bundle_present": (artifact_root / PHASE1_RUN_ID).exists(),
-        "fresh_phase2_bundle_present": (artifact_root / PHASE2_RUN_ID).exists(),
-        "phase3_bundle_present": phase3_dir is not None,
-        "phase3_bundle": str(phase3_dir) if phase3_dir is not None else None,
-        "final_status_present": (proof_root / "FINAL_STATUS.md").exists(),
-        "release_readiness_present": (proof_root / "RELEASE_READINESS_REPORT.md").exists(),
-        "audit_limits_present": audit_limits.exists(),
+        "phase5_benchmark_present": (repo_root / PHASE5_BENCHMARK).exists(),
+        "phase6_comparator_present": (repo_root / PHASE6_COMPARATOR).exists(),
+        "phase4_cold_start_present": (repo_root / PHASE4_COLD_START).exists(),
+        "phase5_release_decision_present": (repo_root / PHASE5_RELEASE_DECISION).exists(),
+        "phase5_surface_adjudication_present": (repo_root / PHASE5_SURFACE_ADJUDICATION).exists(),
+        "architecture_doc_present": architecture_doc.exists(),
+        "legal_boundaries_doc_present": legal_boundaries_doc.exists(),
         "root_readme_present": readme_path.exists(),
     }
     try:
@@ -104,12 +99,13 @@ def main() -> int:
     print(json.dumps(checks, indent=2, sort_keys=True))
     required_truthy = [
         "package_import",
-        "fresh_phase1_bundle_present",
-        "fresh_phase2_bundle_present",
-        "phase3_bundle_present",
-        "final_status_present",
-        "release_readiness_present",
-        "audit_limits_present",
+        "phase5_benchmark_present",
+        "phase6_comparator_present",
+        "phase4_cold_start_present",
+        "phase5_release_decision_present",
+        "phase5_surface_adjudication_present",
+        "architecture_doc_present",
+        "legal_boundaries_doc_present",
         "root_readme_present",
     ]
     ok = all(checks[key] for key in required_truthy) and not checks["package_version_is_placeholder"]

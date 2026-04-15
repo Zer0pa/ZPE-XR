@@ -15,7 +15,7 @@ Canonical anchors:
 - Python package root: `code/source/zpe_xr`
 - Rust kernel crate: `code/rust/zpe_xr_kernel`
 - Verification entrypoint: `executable/verify.py`
-- Governing proof surfaces: `proofs/FINAL_STATUS.md`, `proofs/RELEASE_READINESS_REPORT.md`
+- Governing proof surfaces: `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md` and `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md`
 
 <p>
   <img src="../.github/assets/readme/section-bars/interface-contracts.svg" alt="INTERFACE CONTRACTS" width="100%">
@@ -26,8 +26,8 @@ Canonical anchors:
 | Public API | Package entrypoints for encode/decode/gesture/info | `code/source/zpe_xr/__init__.py`, `code/source/zpe_xr/api.py` |
 | Codec envelope | Packet encode/parse and recovery logic | `code/source/zpe_xr/codec.py` |
 | Verification path | Repo-local install and smoke verification | `executable/verify.py` |
-| Evidence authority | Claim boundary and release verdict | `proofs/FINAL_STATUS.md`, `proofs/RELEASE_READINESS_REPORT.md` |
-| Machine-readable package state | Build/install/release summary | `release_readiness.json` |
+| Evidence authority | Claim boundary and release verdict | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md`, `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
+| Machine-readable package state | Current product/wedge summary | `docs/market_surface.json` |
 
 <p>
   <img src="../.github/assets/readme/section-bars/word-layout.svg" alt="WORD LAYOUT" width="100%">
@@ -61,8 +61,8 @@ Primary runtime and evaluation surfaces:
 
 When repo surfaces disagree, use this precedence:
 
-1. current proof artifacts and verdict docs
-2. `release_readiness.json`
+1. current proof artifacts and adjudication docs
+2. `docs/market_surface.json`
 3. package/runtime docs
 4. historical or narrative prose
 

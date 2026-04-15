@@ -16,3 +16,6 @@ proofs/reruns/
 code/rust/*/target/
 code/rust/*/Cargo.lock
 code/source/zpe_xr/_kernel*.so
+
+# State files (removed in RTR strip-down)
+release_readiness.json

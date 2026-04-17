@@ -3,7 +3,7 @@
 </p>
 
 <p align="center"><strong>Deterministic hand transport for XR two-hand streams: sub-millisecond encode+decode latency, byte-identical replay, and mixed-gesture packet delivery on the current ContactPose lane.</strong></p>
-<p align="center"><em>The codec package is real. The ContactPose benchmark lane is real. Public release readiness is still blocked because the modern comparator gate remains 0/5 and runtime closure stays external.</em></p>
+<p align="center"><em>The codec package is live and useful now. The ContactPose benchmark lane is live. Comparator closure remains open at 0/5 and Unity or Meta runtime closure stays external, so this repo is carried as a continuously improving evaluation surface.</em></p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.2-e5e7eb?labelColor=111111" alt="License: SAL v6.2"></a>
@@ -30,9 +30,9 @@
 
 ## What This Is
 
-ZPE-XR is a deterministic transport codec for two-hand joint streams. It targets XR platform teams that care about packet size, transport determinism, and replay behavior more than a generic compression headline.
+ZPE-XR is a deterministic transport codec for two-hand joint streams. It targets XR infrastructure teams that care about packet size, transport determinism, and replay behavior more than a generic compression headline.
 
-The honest public wedge is transport behavior on the current ContactPose lane: `0.057 ms` mean encode+decode latency, byte-identical replay, and `0.479 mm` mean position error while moving far less data than raw streams. The package is real and published. Public release readiness is not real because the modern comparator gate is still `0/5`, Photon remains narrower semantics, and runtime closure for Unity or Meta remains external.
+The honest public wedge is transport behavior on the current ContactPose lane: `0.057 ms` mean encode+decode latency, byte-identical replay, and `0.479 mm` mean position error while moving far less data than raw streams. The package is real and published. Comparator closure is still `0/5`, Photon remains narrower semantics, and runtime closure for Unity or Meta remains external, so the product is carried as a live evaluation surface that can improve materially as new work lands.
 
 ## Key Metrics
 
@@ -45,7 +45,7 @@ The honest public wedge is transport behavior on the current ContactPose lane: `
 
 ## Competitive Benchmarks
 
-The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surface on the outward-safe ContactPose lane, but the closest modern local proxy still beats it on fidelity. That is why the release posture stays private-only.
+The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surface on the outward-safe ContactPose lane, but the closest modern local proxy still beats it on fidelity. That is why this repo stays in evaluation mode while the comparator gap remains open.
 
 | Tool | Compression | Fidelity | Boundary |
 |---|---|---|---|
@@ -75,12 +75,12 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 | Field | Value |
 |---|---|
 | Verdict | `PRIVATE_ONLY` |
-| Release posture | Live work in progress; not a final official release |
+| Release posture | Useful now, improving continuously through live evaluation |
 | Ideal first buyer | XR platform team or spatial-computing infrastructure team |
 | Deployment | SDK — Python package candidate with evaluation harness |
 | Current blocker | Modern comparator gate `0/5` plus `XR-C007` runtime closure `PAUSED_EXTERNAL` |
 
-The repo is commercially legible now because the transport wedge is explicit, but the release gate remains shut. The correct outward posture is private evaluation, not public rollout.
+The repo is commercially legible now because the transport wedge is explicit and installable today. The gate that remains open is comparator closure, so the correct outward posture is continuous evaluation rather than finished-platform language.
 
 ## Tests and Verification
 

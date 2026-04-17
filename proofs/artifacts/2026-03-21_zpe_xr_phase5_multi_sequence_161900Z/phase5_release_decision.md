@@ -4,6 +4,8 @@
 
 `PRIVATE_ONLY`
 
+This means the codec is useful today for private evaluation and engineering handoff while the comparator gate remains open.
+
 ## Why
 
 - The repo has a real Rust-backed package surface, a fresh x86_64 wheel, `twine check` PASS, and fresh-venv install/import smoke PASS.

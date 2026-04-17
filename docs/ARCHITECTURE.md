@@ -6,7 +6,7 @@
   <img src="../.github/assets/readme/section-bars/what-this-is.svg" alt="WHAT THIS IS" width="100%">
 </p>
 
-This document is the architecture index for the current ZPE-XR runtime and proof surface.
+This document is the architecture index for the current ZPE-XR runtime and proof surface. ZPE-XR is its own XR transport product, not a portfolio-wide platform claim.
 
 Canonical anchors:
 
@@ -74,5 +74,5 @@ Deployment guardrails for architecture readers:
 
 - package validity does not imply public-release validity
 - the comparator gate is still failed at `0/5`
-- runtime closure remains `PAUSED_EXTERNAL`
+- runtime closure remains `PAUSED_EXTERNAL` while the installable evaluation surface continues to improve
 - ContactPose is the current outward-safe lane, not the exact PRD corpus

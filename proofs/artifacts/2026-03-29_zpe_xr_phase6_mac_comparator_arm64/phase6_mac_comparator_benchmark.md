@@ -9,7 +9,7 @@
 ## Execution Surface
 
 - canonical root: `/Users/Zer0pa/ZPE/ZPE XR`
-- root execution surface: `incomplete`
+- root execution surface on this historical run: non-canonical
 - staged backend: `rust`
 
 ## Workload
@@ -57,4 +57,4 @@
 - Photon remains transport-only in this phase; no same-machine runtime benchmark closes displacement.
 - Ultraleap remains the strongest close-semantics open transport row, but it is still code-derived here rather than locally executed.
 - Unity NGO and Normcore remain market references only until a runnable same-machine hand-sync benchmark is added inside this folder.
-- The canonical root execution surface is still incomplete if required root package modules remain missing.
+- This March 29 comparator snapshot predates the current root install wrapper and should be read as a historical comparator pass, not as the canonical install status.

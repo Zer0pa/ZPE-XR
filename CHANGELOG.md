@@ -18,7 +18,7 @@
 ## 2026-03-21
 
 - aligned documentation to the ZPE-IMC layout standard without importing IMC-specific claims
-- refreshed the front door to the Phase 5 authority chain and private-only release posture
+- refreshed the front door to the Phase 5 authority chain and the live evaluation posture
 - added the shared IMC visual assets to `.github/assets/readme/`
 - created a canonical documentation registry and falsification report
 
@@ -30,7 +30,7 @@
 
 - upgraded the staged repo from a historical staging shell to a truthful package candidate surface
 - refreshed staged README, proof status, and audit notes from the fresh March 20 evidence chain
-- carried forward runtime `PAUSED_EXTERNAL` status, ContactPose readiness, and explicit public-release blockers
+- carried forward runtime `PAUSED_EXTERNAL` status, ContactPose readiness, and explicit release blockers
 - added build and install-smoke evidence to the staged package story without promoting public release
 
 <p>

@@ -62,4 +62,4 @@ Historical or aspirational prose does not outrank:
 - `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md`
 - `docs/market_surface.json`
 
-Package validity, benchmark validity, runtime closure, and public-release readiness must stay separated. A real package surface does not automatically create a real runtime-closure or public-release claim.
+Package validity, benchmark validity, runtime closure, and release posture must stay separated. A real package surface does not automatically create a real runtime-closure or finished-release claim.

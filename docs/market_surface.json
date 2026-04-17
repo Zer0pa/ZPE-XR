@@ -2,9 +2,9 @@
   "repo_name": "ZPE-XR",
   "repo_role": "product_candidate",
   "status": "PRIVATE_ONLY",
-  "plain_english_summary": "Deterministic hand-joint transport codec for XR two-hand streams with private-stage release posture.",
-  "commercial_wedge": "Deterministic hand transport for XR platforms: sub-millisecond latency (0.057 ms mean encode+decode), byte-identical replay, and mixed-gesture packet transport on the current ContactPose lane. Compression is real, but the current public wedge is transport behavior, not release-ready comparator displacement.",
-  "technical_wedge": "Deterministic two-hand joint codec. Current public lane: 0.479 mm MPJPE, 23.90× compression vs raw, 0.057 ms mean encode+decode latency, 0/5 modern-comparator gate, verdict PRIVATE_ONLY.",
+  "plain_english_summary": "Deterministic hand-joint transport codec for XR two-hand streams, carried as a live evaluation surface with useful installable behavior today.",
+  "commercial_wedge": "Deterministic hand transport for XR products: sub-millisecond latency (0.057 ms mean encode+decode), byte-identical replay, and mixed-gesture packet transport on the current ContactPose lane. Compression is real, but the active wedge is transport behavior, not finished comparator displacement.",
+  "technical_wedge": "Deterministic two-hand joint codec. Current public lane: 0.479 mm MPJPE, 23.90× compression vs raw, 0.057 ms mean encode+decode latency, 0/5 modern-comparator gate, live evaluation posture.",
   "ideal_first_buyer": "XR platform team or spatial-computing infrastructure team",
   "deployment_model": "SDK — Python package candidate with evaluation harness",
   "proof_anchors": [
@@ -20,7 +20,7 @@
     "Exact PRD corpus closure",
     "Broad hand-tracking superiority"
   ],
-  "family_position": "Product candidate in the Zer0pa deterministic encoding family; evaluated as an independent lane surface.",
+  "family_position": "Independent XR encoding product in the Zer0pa portfolio; evaluated as its own lane surface.",
   "license": "LicenseRef-Zer0pa-SAL-6.2",
   "contact": "hello@zer0pa.com"
 }

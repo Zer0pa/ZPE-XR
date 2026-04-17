@@ -12,7 +12,7 @@ The package exposes:
 - `XRCodec`, `EncoderState`, `DecoderState`
 - `Frame`, `FrameSequence`
 
-Current authority for this package follows the repo-wide XR story: real package mechanics, real benchmark evidence, and explicit blocker states where closure is not yet earned.
+Current authority for this package follows the repo-wide XR story: real package mechanics, real benchmark evidence, and explicit blocker states where comparator closure and runtime closure still remain open.
 
 <p>
   <img src="../.github/assets/readme/section-bars/install.svg" alt="INSTALL" width="100%">
@@ -76,6 +76,6 @@ There is no separate published console-script entrypoint in the package metadata
   <img src="../.github/assets/readme/section-bars/compatibility-note-for-parallel-tracks.svg" alt="COMPATIBILITY NOTE FOR PARALLEL TRACKS" width="100%">
 </p>
 
-- This package surface is real even though runtime closure is not.
+- This package surface is real even while runtime closure remains external.
 - Package validity does not imply Photon displacement, exact-corpus closure, or public-release readiness.
 - The benchmark and blocker surfaces remain governed by the repo root docs, not by this package README alone.

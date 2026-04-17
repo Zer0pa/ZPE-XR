@@ -5,8 +5,8 @@
 <table align="center" width="100%" cellpadding="0" cellspacing="0">
   <tr>
     <td width="33%"><a href="../README.md"><img src="../.github/assets/readme/nav/what-this-is.svg" alt="Front Door" width="100%"></a></td>
-    <td width="33%"><a href="README.md"><img src="../.github/assets/readme/nav/go-next.svg" alt="Docs Index" width="100%"></a></td>
-    <td width="33%"><a href="DOC_REGISTRY.md"><img src="../.github/assets/readme/nav/current-authority.svg" alt="Doc Registry" width="100%"></a></td>
+    <td width="33%"><a href="ARCHITECTURE.md"><img src="../.github/assets/readme/nav/go-next.svg" alt="Architecture" width="100%"></a></td>
+    <td width="33%"><a href="LEGAL_BOUNDARIES.md"><img src="../.github/assets/readme/nav/current-authority.svg" alt="Legal Boundaries" width="100%"></a></td>
   </tr>
 </table>
 
@@ -20,7 +20,7 @@ This report records doc-surface falsification findings and the fixes applied dur
 
 ## Unsupported Claims Removed Or Downgraded
 
-- Removed or downgraded any public-release language to `PRIVATE_ONLY` in the front door and supporting docs.
+- Removed or downgraded any finished-release language so the front door and supporting docs stay aligned to live evaluation posture.
 - Removed modern-comparator displacement claims; the Phase 5 gate failed `0/5` and blocks public release.
 - Replaced Wave-1 (2026-02-20) anchors with the current 2026-03-21 evidence chain where authoritative.
 - Removed the Phase 4 cold-start Comet key claim; audit evidence shows logging disabled (key null).
@@ -43,7 +43,7 @@ This report records doc-surface falsification findings and the fixes applied dur
 
 ## Live Versus Local Drift
 
-- Local docs are updated to the 2026-03-21 authority chain and private-only status.
+- Local docs are updated to the 2026-03-21 authority chain and the live evaluation posture carried by the current repo.
 - After pushing this commit, confirm the private GitHub render matches the local state.
 
 <p>

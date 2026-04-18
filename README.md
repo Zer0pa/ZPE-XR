@@ -38,10 +38,10 @@ The honest public wedge is transport behavior on the current ContactPose lane: `
 
 | Metric | Value | Baseline |
 |---|---|---|
-| Compression vs raw | 23.90x | Ultraleap 8.47x |
-| Mean position error | 0.479 mm MPJPE | float16+zlib 0.277 mm |
 | Encode+decode latency | 0.057 ms mean | float16+zlib 0.084 ms |
-| Modern comparator gate | 0/5 passed | float16+zlib wins 5/5 |
+| Packet digests recorded | 5/5 sequences | SHA256 packet outputs |
+| Mean position error | 0.479 mm MPJPE | float16+zlib 0.277 mm |
+| Compression vs raw | 23.90x | Ultraleap 8.47x |
 
 ## Competitive Benchmarks
 
@@ -74,13 +74,12 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 
 | Field | Value |
 |---|---|
-| Verdict | `PRIVATE_ONLY` |
-| Release posture | Useful now, improving continuously through live evaluation |
-| Ideal first buyer | XR platform team or spatial-computing infrastructure team |
-| Deployment | SDK — Python package candidate with evaluation harness |
-| Current blocker | Modern comparator gate `0/5` plus `XR-C007` runtime closure `PAUSED_EXTERNAL` |
+| Verdict | `BLOCKED` |
+| Commit SHA | `c5e8bf11a1c1` |
+| Confidence | `88%` |
+| Source | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
 
-The repo is commercially legible now because the transport wedge is explicit and installable today. The gate that remains open is comparator closure, so the correct outward posture is continuous evaluation rather than finished-platform language.
+The repo is commercially legible now because the transport wedge is explicit and installable today. The current posture is useful-now private evaluation while the comparator gate remains the sovereign blocker and `XR-C007` runtime closure stays `PAUSED_EXTERNAL`.
 
 ## Tests and Verification
 

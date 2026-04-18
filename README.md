@@ -34,6 +34,11 @@ ZPE-XR is a deterministic transport codec for two-hand joint streams. It targets
 
 The honest public wedge is transport behavior on the current ContactPose lane: `0.057 ms` mean encode+decode latency, byte-identical replay, and `0.479 mm` mean position error while moving far less data than raw streams. The package is real and published. Comparator closure is still `0/5`, Photon remains narrower semantics, and runtime closure for Unity or Meta remains external, so the product is carried as a live evaluation surface that can improve materially as new work lands.
 
+| Field | Value |
+|-------|-------|
+| Architecture | HAND_POSE_STREAM |
+| Encoding | XR_QUANT_DELTA_V1 |
+
 ## Key Metrics
 
 | Metric | Value | Baseline |

@@ -1,6 +1,6 @@
 # Legal Boundaries
 
-This note is a release-surface summary only. `../LICENSE` is the legal source of truth for Zer0pa Source-Available License v6.2 (SAL v6.2).
+This note is a release-surface summary only. `../LICENSE` is the legal source of truth for Zer0pa Source-Available License v6.2 (SAL v7.0).
 
 ## Package Surfaces
 

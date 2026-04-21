@@ -6,7 +6,7 @@
 <p align="center"><em>The codec package is real. The ContactPose benchmark lane is real. Public release readiness is still blocked because the modern comparator gate remains 0/5 and runtime closure stays external.</em></p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v6.2-e5e7eb?labelColor=111111" alt="License: SAL v6.2"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v7.0-e5e7eb?labelColor=111111" alt="License: SAL v7.0"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
   <a href="https://pypi.org/project/zpe-xr/"><img src="https://img.shields.io/badge/release-PyPI%20v0.3.0-e5e7eb?labelColor=111111" alt="Release: PyPI v0.3.0"></a>
   <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md"><img src="https://img.shields.io/badge/current%20gate-PRIVATE__ONLY-e5e7eb?labelColor=111111" alt="Current gate: PRIVATE_ONLY"></a>
@@ -73,14 +73,11 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 ## Commercial Readiness
 
 | Field | Value |
-|---|---|
-| Verdict | `PRIVATE_ONLY` |
-| Release posture | Live work in progress; not a final official release |
-| Ideal first buyer | XR platform team or spatial-computing infrastructure team |
-| Deployment | SDK — Python package candidate with evaluation harness |
-| Current blocker | Modern comparator gate `0/5` plus `XR-C007` runtime closure `PAUSED_EXTERNAL` |
-
-The repo is commercially legible now because the transport wedge is explicit, but the release gate remains shut. The correct outward posture is private evaluation, not public rollout.
+|-------|-------|
+| Verdict | BLOCKED |
+| Commit SHA | c5e8bf11a1c1 |
+| Confidence | 88% |
+| Source | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md |
 
 ## Tests and Verification
 
@@ -132,4 +129,4 @@ python ./executable/verify.py
 python -m pytest ./code/tests -q
 ```
 
-Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Phase 5 and Phase 6 proof anchors above. `LICENSE` is the legal source of truth; the repo uses SAL v6.2.
+Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Phase 5 and Phase 6 proof anchors above. `LICENSE` is the legal source of truth; the repo uses SAL v7.0.

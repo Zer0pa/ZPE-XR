@@ -1,0 +1,26 @@
+{
+  "title": "ZPE-XR",
+  "description": "ZPE-XR is a deterministic transport codec for two-hand joint streams. It targets XR platform teams that care about packet size, transport determinism, and replay behavior more than a generic compression headline.",
+  "creators": [
+    {
+      "name": "Zer0pa (Pty) Ltd"
+    }
+  ],
+  "keywords": [
+    "xr",
+    "codec",
+    "hand-tracking",
+    "networking",
+    "openxr"
+  ],
+  "license": "LicenseRef-Zer0pa-SAL-7.0",
+  "upload_type": "software",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Zer0pa/ZPE-XR",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ]
+}

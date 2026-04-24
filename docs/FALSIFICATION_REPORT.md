@@ -1,22 +1,11 @@
-<p>
-  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
-</p>
-
-<table align="center" width="100%" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="33%"><a href="../README.md"><img src="../.github/assets/readme/nav/what-this-is.svg" alt="Front Door" width="100%"></a></td>
-    <td width="33%"><a href="README.md"><img src="../.github/assets/readme/nav/go-next.svg" alt="Docs Index" width="100%"></a></td>
-    <td width="33%"><a href="DOC_REGISTRY.md"><img src="../.github/assets/readme/nav/current-authority.svg" alt="Doc Registry" width="100%"></a></td>
-  </tr>
-</table>
-
-<p>
-  <img src="../.github/assets/readme/section-bars/summary.svg" alt="FALSIFICATION REPORT" width="100%">
-</p>
-
 # Falsification Report (2026-03-21)
 
 This report records doc-surface falsification findings and the fixes applied during this pass.
+
+Related surfaces:
+
+- Front door: `../README.md`
+- Architecture index: `ARCHITECTURE.md`
 
 ## Unsupported Claims Removed Or Downgraded
 
@@ -30,9 +19,9 @@ This report records doc-surface falsification findings and the fixes applied dur
 
 ## Path And Render Issues Found
 
-- Missing ZPE-IMC visual assets in this repo: resolved by copying `.github/assets/readme/` into ZPE-XR.
+- Missing local visual assets in this repo: broken asset references were removed from the public docs surface.
 - Stale references to editable install and `code/src` paths: corrected across docs and runbooks.
-- All doc assets now use GitHub-safe relative paths for root and `docs/` depth.
+- Broken docs navigation links were narrowed to the existing front door and architecture surfaces.
 - Legacy artifact folders and gate runbooks were removed to keep the repo lean; proofs map updated accordingly.
 
 ## Remaining Owner Inputs
@@ -45,7 +34,3 @@ This report records doc-surface falsification findings and the fixes applied dur
 
 - Local docs are updated to the 2026-03-21 authority chain and private-only status.
 - After pushing this commit, confirm the private GitHub render matches the local state.
-
-<p>
-  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
-</p>

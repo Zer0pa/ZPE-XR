@@ -8,8 +8,8 @@ version = "0.3.0"
 description = "Deterministic XR hand-pose transport codec. ~24x compression, sub-mm fidelity, sub-ms latency, CPU-native."
 readme = "README.md"
 requires-python = ">=3.11"
-license = {text = "LicenseRef-Zer0pa-SAL-7.0"}
-authors = [{name = "Zer0pa"}]
+license = "LicenseRef-Zer0pa-SAL-7.0"
+authors = [{name = "Zer0pa (Pty) Ltd", email = "architects@zer0pa.ai"}]
 keywords = ["xr", "codec", "hand-tracking", "networking", "openxr"]
 classifiers = [
   "Development Status :: 3 - Alpha",

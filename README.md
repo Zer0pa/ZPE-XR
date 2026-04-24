@@ -1,7 +1,3 @@
-<p align="center">
-  <img src=".github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
-</p>
-
 <p align="center"><strong>Deterministic hand transport for XR two-hand streams: sub-millisecond encode+decode latency, byte-identical replay, and mixed-gesture packet delivery on the current ContactPose lane.</strong></p>
 <p align="center"><em>The codec package is real. The ContactPose benchmark lane is real. Public release readiness is still blocked because the modern comparator gate remains 0/5 and runtime closure stays external.</em></p>
 
@@ -75,7 +71,7 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 | Field | Value |
 |-------|-------|
 | Verdict | BLOCKED |
-| Commit SHA | c5e8bf11a1c1 |
+| Commit SHA | d9ec5f4964ab |
 | Confidence | 88% |
 | Source | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md |
 

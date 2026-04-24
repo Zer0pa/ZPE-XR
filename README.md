@@ -9,7 +9,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v7.0-e5e7eb?labelColor=111111" alt="License: SAL v7.0"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
   <a href="https://pypi.org/project/zpe-xr/"><img src="https://img.shields.io/badge/release-PyPI%20v0.3.0-e5e7eb?labelColor=111111" alt="Release: PyPI v0.3.0"></a>
-  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md"><img src="https://img.shields.io/badge/current%20gate-PRIVATE__ONLY-e5e7eb?labelColor=111111" alt="Current gate: PRIVATE_ONLY"></a>
+  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md"><img src="https://img.shields.io/badge/current%20gate-BLOCKED-e5e7eb?labelColor=111111" alt="Current gate: BLOCKED"></a>
 </p>
 <p align="center">
   <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/quick%20verify-install%20%26%20verify-e5e7eb?labelColor=111111" alt="Quick verify: install and verify"></a>
@@ -75,7 +75,7 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 | Field | Value |
 |-------|-------|
 | Verdict | BLOCKED |
-| Commit SHA | c5e8bf11a1c1 |
+| Commit SHA | d9ec5f4964ab |
 | Confidence | 88% |
 | Source | proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md |
 
@@ -118,6 +118,8 @@ pip install zpe-xr
 ```
 
 Verify from source:
+
+Requires Python 3.11+ and a Rust toolchain with `cargo`; the Rust-backed package builds through `maturin`.
 
 ```bash
 git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr

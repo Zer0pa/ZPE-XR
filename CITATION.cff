@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: ZPE-XR
+message: "If you use ZPE-XR, cite the repository and the specific proof artifact used."
+type: software
+authors:
+  - name: Zer0pa
+repository-code: "https://github.com/Zer0pa/ZPE-XR"
+license: "LicenseRef-Zer0pa-SAL-7.0"
+version: "0.3.0"
+date-released: "2026-03-21"
+abstract: "Deterministic hand transport for XR two-hand streams with explicit public-release blockers."

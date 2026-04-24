@@ -15,6 +15,13 @@
   <img src=".github/assets/readme/section-bars/release-notes.svg" alt="2026-03-21" width="100%">
 </p>
 
+## 2026-04-24
+
+- reconciled the staged repo onto a fresh Phase 09-02 branch from current `origin/main`
+- mirrored Phase 7 Ultraleap and Phase 8 Photon proxy code, tests, and proof bundles
+- added proof and readiness summaries that preserve the `0/5` public comparator gate
+- kept Phase 7 and Phase 8 as proxy lanes, not runtime displacement claims
+
 ## 2026-03-21
 
 - aligned documentation to the ZPE-IMC layout standard without importing IMC-specific claims

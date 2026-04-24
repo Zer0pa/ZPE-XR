@@ -18,6 +18,15 @@
 
 This report records doc-surface falsification findings and the fixes applied during this pass.
 
+## March 29 Proxy-Lane Addendum
+
+Phase 09-02 mirrors the later same-machine proxy evidence without changing the release verdict.
+
+- Phase 6 keeps the modern comparator failure visible: the public comparator gate remains `0/5`.
+- Phase 7 adds an Ultraleap VectorHand local proxy lane with ZPE lower on bytes, latency, and MPJPE on the executed ContactPose object set.
+- Phase 8 adds a Photon Fusion XR Hands local articulation proxy lane; Photon remains narrower than the frozen full-position stream because shared hand-root pose stays outside the metered payload.
+- None of these proxy lanes close Unity, Meta, Photon runtime, or public release readiness.
+
 ## Unsupported Claims Removed Or Downgraded
 
 - Removed or downgraded any public-release language to `PRIVATE_ONLY` in the front door and supporting docs.

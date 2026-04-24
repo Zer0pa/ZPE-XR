@@ -15,6 +15,14 @@ PHASE6_COMPARATOR = (
     "proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/"
     "phase6_mac_comparator_benchmark.json"
 )
+PHASE7_ULTRALEAP = (
+    "proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/"
+    "phase7_ultraleap_local_benchmark.json"
+)
+PHASE8_PHOTON = (
+    "proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/"
+    "phase8_photon_local_benchmark.json"
+)
 PHASE4_COLD_START = (
     "proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json"
 )
@@ -76,6 +84,8 @@ def main() -> int:
         "site_packages": [str(path) for path in _candidate_site_packages(repo_root)],
         "phase5_benchmark_present": (repo_root / PHASE5_BENCHMARK).exists(),
         "phase6_comparator_present": (repo_root / PHASE6_COMPARATOR).exists(),
+        "phase7_ultraleap_present": (repo_root / PHASE7_ULTRALEAP).exists(),
+        "phase8_photon_present": (repo_root / PHASE8_PHOTON).exists(),
         "phase4_cold_start_present": (repo_root / PHASE4_COLD_START).exists(),
         "phase5_release_decision_present": (repo_root / PHASE5_RELEASE_DECISION).exists(),
         "phase5_surface_adjudication_present": (repo_root / PHASE5_SURFACE_ADJUDICATION).exists(),
@@ -101,6 +111,8 @@ def main() -> int:
         "package_import",
         "phase5_benchmark_present",
         "phase6_comparator_present",
+        "phase7_ultraleap_present",
+        "phase8_photon_present",
         "phase4_cold_start_present",
         "phase5_release_decision_present",
         "phase5_surface_adjudication_present",

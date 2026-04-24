@@ -27,6 +27,7 @@ Canonical anchors:
 | Codec envelope | Packet encode/parse and recovery logic | `code/source/zpe_xr/codec.py` |
 | Verification path | Repo-local install and smoke verification | `executable/verify.py` |
 | Evidence authority | Claim boundary and release verdict | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md`, `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
+| Proxy benchmark lanes | Same-machine proxy evidence, not runtime displacement | `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.md`, `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.md` |
 | Machine-readable package state | Current product/wedge summary | `docs/market_surface.json` |
 
 <p>

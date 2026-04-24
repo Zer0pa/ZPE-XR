@@ -1,0 +1,25 @@
+{
+  "repo": "ZPE-XR",
+  "date": "2026-04-24",
+  "verdict": "BLOCKED",
+  "public_release_ready": false,
+  "governing_gate": "modern comparator gate remains 0/5",
+  "closed": [
+    "package mechanics",
+    "ContactPose transport lane",
+    "same-machine Ultraleap proxy lane",
+    "same-machine Photon articulation proxy lane"
+  ],
+  "open": [
+    "public release readiness",
+    "Unity/Meta runtime closure",
+    "Photon displacement",
+    "exact PRD corpus closure"
+  ],
+  "proof_anchors": [
+    "proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json",
+    "proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md",
+    "proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.md",
+    "proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.md"
+  ]
+}

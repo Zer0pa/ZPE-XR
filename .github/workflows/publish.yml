@@ -87,6 +87,7 @@ jobs:
       url: https://pypi.org/p/zpe-xr
     permissions:
       id-token: write
+      contents: read
     steps:
       - name: Download built distributions
         uses: actions/download-artifact@v4
@@ -98,5 +99,5 @@ jobs:
       - name: Publish distributions
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+          attestations: true
           skip-existing: true

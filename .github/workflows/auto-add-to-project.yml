@@ -3,13 +3,30 @@ on:
   issues:
     types: [opened, transferred]
   pull_request:
-    types: [opened]
+    types: [opened, synchronize, reopened]
 
 jobs:
   add-to-project:
     runs-on: ubuntu-latest
+    env:
+      ADD_TO_PROJECT_PAT: ${{ secrets.ADD_TO_PROJECT_PAT }}
     steps:
+      - name: Check project token
+        id: project-token
+        if: ${{ env.ADD_TO_PROJECT_PAT != '' }}
+        env:
+          GH_TOKEN: ${{ env.ADD_TO_PROJECT_PAT }}
+        run: |
+          if gh api rate_limit >/dev/null 2>&1; then
+            echo "valid=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "valid=false" >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/add-to-project@v1.0.2
+        if: ${{ steps.project-token.outputs.valid == 'true' }}
         with:
           project-url: https://github.com/orgs/Zer0pa/projects/1
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          github-token: ${{ env.ADD_TO_PROJECT_PAT }}
+      - name: Skip project board add when token is unavailable or invalid
+        if: ${{ env.ADD_TO_PROJECT_PAT == '' || steps.project-token.outputs.valid != 'true' }}
+        run: echo "ADD_TO_PROJECT_PAT is unavailable or invalid; skipping project-board automation."

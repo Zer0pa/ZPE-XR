@@ -1,11 +1,11 @@
-<p align="center"><strong>Deterministic hand transport for XR two-hand streams: sub-millisecond encode+decode latency, byte-identical replay, and mixed-gesture packet delivery on the current ContactPose lane.</strong></p>
-<p align="center"><em>The codec package is real. The ContactPose benchmark lane is real. Public release readiness is still blocked because the modern comparator gate remains 0/5 and runtime closure stays external.</em></p>
+<p align="center"><strong>Deterministic hand transport for XR two-hand streams: 23.90x compression vs raw (2.82x past Ultraleap's 8.47x), 6.63x smaller frames, and 9.5x better fidelity than the Ultraleap VectorHand proxy — on the ContactPose aggregate lane.</strong></p>
+<p align="center"><em>The codec package is real. The ContactPose benchmark lane is real. Public release is BLOCKED: the modern comparator gate is 0/5 and runtime closure for Unity/Meta remains external. Transport numbers are same-machine local proxies, not vendor runtimes.</em></p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v7.0-e5e7eb?labelColor=111111" alt="License: SAL v7.0"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
   <a href="https://pypi.org/project/zpe-xr/"><img src="https://img.shields.io/badge/release-PyPI%20v0.3.0-e5e7eb?labelColor=111111" alt="Release: PyPI v0.3.0"></a>
-  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md"><img src="https://img.shields.io/badge/current%20gate-PRIVATE__ONLY-e5e7eb?labelColor=111111" alt="Current gate: PRIVATE_ONLY"></a>
+  <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md"><img src="https://img.shields.io/badge/release-BLOCKED-e5e7eb?labelColor=111111" alt="Release: BLOCKED"></a>
 </p>
 <p align="center">
   <a href="docs/ARCHITECTURE.md"><img src="https://img.shields.io/badge/quick%20verify-install%20%26%20verify-e5e7eb?labelColor=111111" alt="Quick verify: install and verify"></a>
@@ -26,9 +26,9 @@
 
 ## What This Is
 
-ZPE-XR is a deterministic transport codec for two-hand joint streams. It targets XR platform teams that care about packet size, transport determinism, and replay behavior more than a generic compression headline.
+ZPE-XR is a deterministic transport codec for two-hand joint streams in the Zer0pa 17-lane codec portfolio. It targets XR platform teams that care about packet size, transport determinism, and replay behavior more than a generic compression headline.
 
-The honest public wedge is transport behavior on the current ContactPose lane: `0.057 ms` mean encode+decode latency, byte-identical replay, and `0.479 mm` mean position error while moving far less data than raw streams. The package is real and published. Public release readiness is not real because the modern comparator gate is still `0/5`, Photon remains narrower semantics, and runtime closure for Unity or Meta remains external.
+Transport behavior on the ContactPose aggregate lane (five sequences): `23.90x` compression vs raw, `0.057 ms` mean encode+decode latency, `0.479 mm` mean position error, and `6.63x` smaller frames than the Ultraleap VectorHand local proxy. The package is real and published on PyPI. Public release is BLOCKED: the modern comparator gate is `0/5` (float16+zlib wins on fidelity), Photon semantics remain narrower, and Unity/Meta runtime closure is external.
 
 ## Key Metrics
 
@@ -47,7 +47,7 @@ The honest public wedge is transport behavior on the current ContactPose lane: `
 
 ## Competitive Benchmarks
 
-The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surface on the outward-safe ContactPose lane, but the closest modern local proxy (float16+zlib) still beats it on fidelity. That is why the release posture stays private-only. All comparator rows are same-machine local proxies, not vendor runtimes.
+The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surface on the ContactPose lane — 6.63x smaller frames and 9.5x better fidelity than the Ultraleap VectorHand proxy — but the closest modern local baseline (float16+zlib) still wins on fidelity (0.277 mm vs 0.479 mm). That is the honest reason the release posture stays `PRIVATE_ONLY`. Release posture per phase5 decision: `PRIVATE_ONLY` — public package shipped on PyPI v0.3.0; vendor-runtime closure (Unity/Meta) is external; comparator gate is 0/5 vs float16+zlib. All comparator rows are same-machine local proxies, not vendor runtimes.
 
 | Tool | Compression vs raw | Bytes/frame | Fidelity (MPJPE mm) | Latency (combined ms) | Packet-loss error (10% loss) | Boundary / evidence |
 |---|---|---|---|---|---|---|
@@ -86,6 +86,7 @@ Note on Photon: ZPE is smaller than the Photon articulation proxy on ContactPose
 | Field | Value |
 |-------|-------|
 | Verdict | BLOCKED |
+| Release posture | `PRIVATE_ONLY` — public release withheld; package on PyPI v0.3.0 but vendor-runtime closure (Unity/Meta) is external; comparator gate is 0/5 vs float16+zlib |
 | Source | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
 
 ## Tests and Verification
@@ -108,7 +109,7 @@ Note on Photon: ZPE is smaller than the Photon articulation proxy on ContactPose
 | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md` | Release decision and blocker framing |
 | `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json` | Package cold-start audit |
 | `proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.json` | Comparator failure surface: float16+zlib wins 5/5, ZPE fidelity gap quantified |
-| `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` | Same-machine Ultraleap proxy: 6.63x bytes, 6.4x latency, 9.5x fidelity advantage for ZPE |
+| `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` | Same-machine Ultraleap proxy: 6.63x bytes, 6.4x latency, 9.5x fidelity advantage for ZPE (5-seq aggregate) |
 | `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.json` | Same-machine Photon articulation proxy: ZPE smaller on real-data bytes, 22x better fidelity |
 
 ## Repo Shape

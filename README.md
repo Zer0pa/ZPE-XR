@@ -41,7 +41,7 @@ The honest public wedge is transport behavior on the current ContactPose lane: `
 | Latency vs Ultraleap VectorHand (ContactPose) | 0.024 ms vs 0.154 ms — 6.4x lower | Ultraleap VectorHand local proxy | `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` |
 | Bytes/frame vs Photon (ContactPose real data) | 25.9 vs 38.0 bytes — ZPE smaller on real data | Photon articulation proxy (narrower semantics) | `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.json` |
 | Fidelity vs Photon (ContactPose) | 0.479 mm vs 10.683 mm MPJPE — 22x better | Photon articulation proxy | `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.json` |
-| Packet-loss resilience (10% loss) | 0.399% pose error | Ultraleap 4.34% pose error | `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` + `code/tests/test_network.py` |
+| Packet-loss resilience (10% loss) | 0.399% pose error | Ultraleap 3.80% pose error (5-seq mean) | `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` + `code/tests/test_network.py` |
 | 4-player modeled bandwidth @90 fps | 6.84 KB/s | Ultraleap 45.35 KB/s | `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` |
 | Modern comparator gate | 0/5 passed | float16+zlib wins 5/5 | `proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.json` |
 
@@ -53,14 +53,14 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 |---|---|---|---|---|---|---|
 | ZPE-XR live ContactPose (full sequences) | 23.90x | 25.9 | 0.479 | 0.057 | 0.399% | `2026-04-14_zpe_xr_live_014204` — measured local |
 | float16+zlib local proxy | 4.33x | 336.1 | **0.277** (wins) | 0.084 | — | `2026-03-29_zpe_xr_phase6_mac_comparator_arm64` — modern comparator wins 5/5 |
-| Ultraleap VectorHand local proxy | 8.47x | 172.0 | 4.554 | 0.154 | 4.34% | `2026-03-29_zpe_xr_phase7_ultraleap_local` — proxy measured, not vendor runtime |
+| Ultraleap VectorHand local proxy | 8.47x | 172.0 | 4.554 | 0.154 | 3.80% (5-seq mean) | `2026-03-29_zpe_xr_phase7_ultraleap_local` — proxy measured, not vendor runtime |
 | Photon Fusion XR Hands articulation proxy (ContactPose) | 38.32x synthetic / ZPE smaller on real data | **38.0** (synthetic win only) | 10.683 | 0.179 | 8.90% | `2026-03-29_zpe_xr_phase8_photon_local` — narrower semantics, no hand-root pose metered |
 
 Key ratios vs closest open-transport comparator (Ultraleap, same-machine proxy):
 - Bytes: ZPE **6.63x smaller** on ContactPose real data (25.9 vs 172.0 bytes/frame)
 - Latency: ZPE **6.4x lower** on ContactPose (0.024 ms vs 0.154 ms mean)
 - Fidelity: ZPE **9.5x better** MPJPE (0.479 mm vs 4.554 mm)
-- Packet-loss resilience: ZPE **10.9x lower** pose error at 10% loss (0.399% vs 4.34%)
+- Packet-loss resilience: ZPE **9.5x lower** pose error at 10% loss (0.399% vs 3.80% 5-seq mean)
 
 Note on Photon: ZPE is smaller than the Photon articulation proxy on ContactPose real-data bytes (25.9 vs 38.0 bytes/frame), but the Photon row meters only the 19-byte-per-hand finger stream and does not include shared hand-root pose — semantics are narrower than ZPE's full two-hand position stream.
 

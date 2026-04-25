@@ -22,7 +22,7 @@ def test_package_surface_uses_non_placeholder_version() -> None:
     surface = build_package_surface(
         _root(),
         build_summary={"passed": True, "artifacts": []},
-        install_smoke={"passed": True, "version": "0.3.0"},
+        install_smoke={"passed": True, "version": "0.3.1"},
         test_summary={"passed": True, "summary": "12 passed"},
         stage_verify={"passed": True},
     )
@@ -35,7 +35,7 @@ def test_rendered_final_status_uses_fresh_artifact_chain() -> None:
         _root(),
         artifact_prefix="proofs/artifacts",
         build_summary={"passed": True, "artifacts": []},
-        install_smoke={"passed": True, "version": "0.3.0"},
+        install_smoke={"passed": True, "version": "0.3.1"},
         test_summary={"passed": True, "summary": "12 passed"},
         stage_verify={"passed": True},
     )

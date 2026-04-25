@@ -308,7 +308,7 @@ def render_staged_files(surface: Mapping[str, Any], claims: Mapping[str, Any]) -
     snapshot = surface["evidence_snapshot"]
     readme = f"""# ZPE-XR
 
-ZPE-XR is a deterministic XR hand-stream codec and evaluation harness, published on PyPI as `zpe-xr` v0.3.0.
+ZPE-XR is a deterministic XR hand-stream codec and evaluation harness, published on PyPI as `zpe-xr` v0.3.1.
 
 The modern comparator gate remains 0/5 FAIL and runtime closure remains PAUSED_EXTERNAL.
 
@@ -381,7 +381,7 @@ This file defines what the staged ZPE-XR repo can and cannot establish right now
 
     auditor = f"""# Auditor Playbook
 
-This is the shortest honest audit path for the current ZPE-XR package (v0.3.0, published on PyPI).
+This is the shortest honest audit path for the current ZPE-XR package (v0.3.1, published on PyPI).
 
 ## Shortest Staged Audit Path
 
@@ -532,7 +532,7 @@ This document is the current staged reading of the XR evidence boundary.
 - outward-safe workload: ContactPose `PASS`
 - package candidate: `PASS`
 - cold-start trust: `PASS`
-- PyPI publication: `PUBLISHED` (v0.3.0 on PyPI)
+- PyPI publication: `PUBLISHED` (v0.3.1 on PyPI)
 - modern comparator gate: `FAIL` (0/5)
 - Unity/Meta runtime closure: `PAUSED_EXTERNAL`
 """
@@ -540,7 +540,7 @@ This document is the current staged reading of the XR evidence boundary.
     release_readiness = """# Release Readiness Report
 
 Date: 2026-03-21 (original); updated 2026-04-14
-Verdict: `PUBLISHED_PYPI` (v0.3.0 on PyPI)
+Verdict: `PUBLISHED_PYPI` (v0.3.1 on PyPI)
 Modern Comparator Gate: `0/5 FAIL`
 Runtime Closure: `PAUSED_EXTERNAL`
 

@@ -17,7 +17,7 @@ def test_public_api_roundtrip_uses_rust_backend() -> None:
 
     assert decoded.shape == positions.shape
     assert info["backend"] == "rust"
-    assert info["version"] == "0.3.0"
+    assert info["version"] == "0.3.1"
     assert info["comet_evidence"]
     assert label in {"wave", "grip", "pinch", "point"}
     assert 0.0 <= confidence <= 1.0

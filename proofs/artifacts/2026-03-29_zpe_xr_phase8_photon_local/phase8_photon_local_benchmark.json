@@ -1,0 +1,646 @@
+{
+  "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/artifacts/2026-03-29_zpe_xr_phase8_photon_local",
+  "artifact_run_id": "2026-03-29_zpe_xr_phase8_photon_local",
+  "benchmark": {
+    "canonical_root": "/Users/Zer0pa/ZPE/ZPE XR",
+      "conclusions": [
+        "Photon remains smaller on bytes/frame than ZPE-XR because the articulation proxy meters only the 19-byte-per-hand finger stream.",
+        "ZPE-XR has lower measured synthetic latency than the local Photon articulation proxy on this Mac.",
+        "Photon is now a same-machine proxy-measured incumbent row rather than a doc-only transport placeholder.",
+        "ZPE-XR retains lower mean ContactPose MPJPE than the local Photon articulation proxy.",
+        "This Phase 08 row stays narrower than the frozen full-position stream because shared per-frame hand-root pose remains outside the metered payload."
+      ],
+    "contactpose": {
+      "aggregate": {
+        "photon": {
+          "bytes_per_frame_mean": 38.0,
+          "compression_ratio_vs_raw_mean": 38.31578947368421,
+          "latency_ms_mean": 0.17939679555555554,
+          "mpjpe_mm_mean": 10.683284696188352,
+          "packet_loss_error_pct_mean": 8.902737246823627
+        },
+        "zpe": {
+          "bytes_per_frame_mean": 25.93333333333333,
+          "compression_ratio_vs_raw_mean": 56.14395886889461,
+          "latency_ms_mean": 0.023799735555555555,
+          "mpjpe_mm_mean": 0.4785933583765226,
+          "packet_loss_error_pct_mean": 0.39882779864710216
+        },
+        "zpe_lower_latency_on_mean": true,
+        "zpe_lower_mpjpe_on_mean": true,
+        "zpe_smaller_on_all_sequences": true
+      },
+      "sequence_results": [
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full38_handoff/mug.zip::mug/annotations.json",
+          "frame_count": 312,
+          "frames_used": 90,
+          "object_name": "mug",
+          "photon": {
+            "comparator_id": "photon_fusion_local_articulation_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "narrower_semantics_than_frozen_v1",
+            "fidelity": {
+              "mpjpe_mm": 9.529631424295012
+            },
+            "label": "Photon Fusion XR Hands local articulation proxy",
+            "latency": {
+              "combined_avg_ms": 0.16029673333333333,
+              "combined_p95_ms": 0.165542,
+              "combined_p99_ms": 0.189792,
+              "decode_avg_ms": 0.07770834444444444,
+              "encode_avg_ms": 0.08258838888888889
+            },
+            "notes": "Measured locally from a 19-byte-per-hand articulation proxy that preserves the published Photon byte budget but does not execute the vendor runtime or meter the shared hand-root pose.",
+            "packet_digest_sha256": "ff4a80cb1f6f0976a423ec61c0a3b64a2754fb977077c6741c7dce08927987cd",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 9.529631424295012,
+              "pose_error_percent": 7.941359520245843,
+              "seed": 4409
+            },
+            "semantics": "Finger-bone articulation only at the published 19-byte-per-hand budget, with shared per-frame hand-root pose and fixed local bone positions treated as side input.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+            "transport": {
+              "bytes_per_frame": 38.0,
+              "bytes_total": 3420.0,
+              "compression_ratio_vs_raw": 38.31578947368421,
+              "kb_per_s_modeled_4_player_session": 10.01953125,
+              "kb_per_s_single_remote": 3.33984375
+            }
+          },
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 1.4652956298200515,
+            "latency_ratio_incumbent_vs_zpe": 6.78370054244378,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.46312042144508353
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.02362968888888889,
+              "combined_p95_ms": 0.024333,
+              "combined_p99_ms": 0.030125,
+              "decode_avg_ms": 0.0017694666666666667,
+              "encode_avg_ms": 0.021860222222222222
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "89767e33c407ec3c61f675f43e732e89821d1126d77e365e2dfd173bc6ce6769",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.46312042144508353,
+              "pose_error_percent": 0.3859336845375696
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full50_use/bowl.zip::bowl/annotations.json",
+          "frame_count": 757,
+          "frames_used": 90,
+          "object_name": "bowl",
+          "photon": {
+            "comparator_id": "photon_fusion_local_articulation_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "narrower_semantics_than_frozen_v1",
+            "fidelity": {
+              "mpjpe_mm": 12.391067197038629
+            },
+            "label": "Photon Fusion XR Hands local articulation proxy",
+            "latency": {
+              "combined_avg_ms": 0.2502662,
+              "combined_p95_ms": 0.226,
+              "combined_p99_ms": 0.249833,
+              "decode_avg_ms": 0.15074533333333334,
+              "encode_avg_ms": 0.09952086666666667
+            },
+            "notes": "Measured locally from a 19-byte-per-hand articulation proxy that preserves the published Photon byte budget but does not execute the vendor runtime or meter the shared hand-root pose.",
+            "packet_digest_sha256": "25e6af89f13d669221c2362d8d2844067a30d76f344438e6f3fd3d79460fbb5c",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 12.391067197038629,
+              "pose_error_percent": 10.325889330865525,
+              "seed": 4409
+            },
+            "semantics": "Finger-bone articulation only at the published 19-byte-per-hand budget, with shared per-frame hand-root pose and fixed local bone positions treated as side input.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+            "transport": {
+              "bytes_per_frame": 38.0,
+              "bytes_total": 3420.0,
+              "compression_ratio_vs_raw": 38.31578947368421,
+              "kb_per_s_modeled_4_player_session": 10.01953125,
+              "kb_per_s_single_remote": 3.33984375
+            }
+          },
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 1.4652956298200515,
+            "latency_ratio_incumbent_vs_zpe": 9.809569269215343,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.47981888275056506
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.025512455555555553,
+              "combined_p95_ms": 0.038333,
+              "combined_p99_ms": 0.040832999999999994,
+              "decode_avg_ms": 0.002085122222222222,
+              "encode_avg_ms": 0.023427333333333335
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "83a4abf6bbb99c0108e37a3b053b674735ec09f11ce8073e7e703a05c1a10298",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.47981888275056506,
+              "pose_error_percent": 0.39984906895880423
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full28_use/camera.zip::camera/annotations.json",
+          "frame_count": 753,
+          "frames_used": 90,
+          "object_name": "camera",
+          "photon": {
+            "comparator_id": "photon_fusion_local_articulation_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "narrower_semantics_than_frozen_v1",
+            "fidelity": {
+              "mpjpe_mm": 6.10000999087939
+            },
+            "label": "Photon Fusion XR Hands local articulation proxy",
+            "latency": {
+              "combined_avg_ms": 0.1629073,
+              "combined_p95_ms": 0.167167,
+              "combined_p99_ms": 0.185542,
+              "decode_avg_ms": 0.0785361,
+              "encode_avg_ms": 0.08437120000000001
+            },
+            "notes": "Measured locally from a 19-byte-per-hand articulation proxy that preserves the published Photon byte budget but does not execute the vendor runtime or meter the shared hand-root pose.",
+            "packet_digest_sha256": "b35e4a546c7c06049f24b4c5c00bb003e7326cc15b34c76e33c55f622c284b8f",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 6.10000999087939,
+              "pose_error_percent": 5.083341659066158,
+              "seed": 4409
+            },
+            "semantics": "Finger-bone articulation only at the published 19-byte-per-hand budget, with shared per-frame hand-root pose and fixed local bone positions treated as side input.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+            "transport": {
+              "bytes_per_frame": 38.0,
+              "bytes_total": 3420.0,
+              "compression_ratio_vs_raw": 38.31578947368421,
+              "kb_per_s_modeled_4_player_session": 10.01953125,
+              "kb_per_s_single_remote": 3.33984375
+            }
+          },
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 1.4652956298200515,
+            "latency_ratio_incumbent_vs_zpe": 7.078224367871583,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.5039612866974165
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.02301527777777778,
+              "combined_p95_ms": 0.023209,
+              "combined_p99_ms": 0.030625,
+              "decode_avg_ms": 0.0017796444444444445,
+              "encode_avg_ms": 0.021235633333333333
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "4a33024f06174164c565fca37edebdec0612ce212723fb6d2403412c79351c8f",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.5039612866974165,
+              "pose_error_percent": 0.41996773891451367
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full36_use/binoculars.zip::binoculars/annotations.json",
+          "frame_count": 867,
+          "frames_used": 90,
+          "object_name": "binoculars",
+          "photon": {
+            "comparator_id": "photon_fusion_local_articulation_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "narrower_semantics_than_frozen_v1",
+            "fidelity": {
+              "mpjpe_mm": 8.974098415761837
+            },
+            "label": "Photon Fusion XR Hands local articulation proxy",
+            "latency": {
+              "combined_avg_ms": 0.16136566666666666,
+              "combined_p95_ms": 0.172875,
+              "combined_p99_ms": 0.190291,
+              "decode_avg_ms": 0.07776246666666667,
+              "encode_avg_ms": 0.0836032
+            },
+            "notes": "Measured locally from a 19-byte-per-hand articulation proxy that preserves the published Photon byte budget but does not execute the vendor runtime or meter the shared hand-root pose.",
+            "packet_digest_sha256": "c3b4b0ad68da965528a22deebe6c367286720e87544a0df16d670bca342e5937",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 8.974098415761837,
+              "pose_error_percent": 7.478415346468198,
+              "seed": 4409
+            },
+            "semantics": "Finger-bone articulation only at the published 19-byte-per-hand budget, with shared per-frame hand-root pose and fixed local bone positions treated as side input.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+            "transport": {
+              "bytes_per_frame": 38.0,
+              "bytes_total": 3420.0,
+              "compression_ratio_vs_raw": 38.31578947368421,
+              "kb_per_s_modeled_4_player_session": 10.01953125,
+              "kb_per_s_single_remote": 3.33984375
+            }
+          },
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 1.4652956298200515,
+            "latency_ratio_incumbent_vs_zpe": 6.937136912216945,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.47828856949163745
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.023261133333333333,
+              "combined_p95_ms": 0.027999999999999997,
+              "combined_p99_ms": 0.032792,
+              "decode_avg_ms": 0.0019083000000000001,
+              "encode_avg_ms": 0.021352833333333335
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "923053dd59b3bd8a9486f98f430b8470897b66ea02cd6d188099e9311947b4ca",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.47828856949163745,
+              "pose_error_percent": 0.3985738079096979
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full36_use/ps_controller.zip::ps_controller/annotations.json",
+          "frame_count": 811,
+          "frames_used": 90,
+          "object_name": "ps_controller",
+          "photon": {
+            "comparator_id": "photon_fusion_local_articulation_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "narrower_semantics_than_frozen_v1",
+            "fidelity": {
+              "mpjpe_mm": 16.421616452966894
+            },
+            "label": "Photon Fusion XR Hands local articulation proxy",
+            "latency": {
+              "combined_avg_ms": 0.1621480777777778,
+              "combined_p95_ms": 0.16525,
+              "combined_p99_ms": 0.19425,
+              "decode_avg_ms": 0.07787501111111111,
+              "encode_avg_ms": 0.08427306666666667
+            },
+            "notes": "Measured locally from a 19-byte-per-hand articulation proxy that preserves the published Photon byte budget but does not execute the vendor runtime or meter the shared hand-root pose.",
+            "packet_digest_sha256": "6408c3950befc7a519f04dbdb192a27b1e27f0626164ab2566b1fff36bcf74b9",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 16.421616452966894,
+              "pose_error_percent": 13.68468037747241,
+              "seed": 4409
+            },
+            "semantics": "Finger-bone articulation only at the published 19-byte-per-hand budget, with shared per-frame hand-root pose and fixed local bone positions treated as side input.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+            "transport": {
+              "bytes_per_frame": 38.0,
+              "bytes_total": 3420.0,
+              "compression_ratio_vs_raw": 38.31578947368421,
+              "kb_per_s_modeled_4_player_session": 10.01953125,
+              "kb_per_s_single_remote": 3.33984375
+            }
+          },
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 1.4652956298200515,
+            "latency_ratio_incumbent_vs_zpe": 6.87647316878482,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.46777763149791046
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.023580122222222222,
+              "combined_p95_ms": 0.024833,
+              "combined_p99_ms": 0.030042,
+              "decode_avg_ms": 0.0018208666666666667,
+              "encode_avg_ms": 0.021759255555555555
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "c0f36602c06ed8f88a8f5abc976bb0afda05913bebf565377422de59256fc9f6",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.46777763149791046,
+              "pose_error_percent": 0.3898146929149254
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        }
+      ],
+      "status": "executed",
+      "workload": {
+        "dataset": "ContactPose",
+        "requested_objects": [
+          "mug",
+          "wine_glass",
+          "bowl",
+          "camera",
+          "binoculars"
+        ],
+        "selected_objects": [
+          "mug",
+          "bowl",
+          "camera",
+          "binoculars",
+          "ps_controller"
+        ],
+        "source_bytes": 1979376914,
+        "source_path": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/phase6_contactpose_probe/downloads/contactpose_sample.zip",
+        "source_sha256": "dd1437adc79ab1a7879b46629ddbf3b29146e90694043cbc85d990ba3e1abd7d"
+      }
+    },
+    "host": {
+      "generated_at_utc": "2026-03-29T15:31:53.544748+00:00",
+      "machine": "arm64",
+      "platform": "Darwin",
+      "platform_release": "24.5.0",
+      "platform_version": "Darwin Kernel Version 24.5.0: Tue Apr 22 19:48:46 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8103",
+      "python_version": "3.14.0"
+    },
+    "synthetic": {
+      "relative": {
+        "bytes_ratio_incumbent_vs_zpe": 0.7361170899698666,
+        "latency_ratio_incumbent_vs_zpe": 4.257409593571905,
+        "zpe_lower_latency": true,
+        "zpe_lower_mpjpe": true,
+        "zpe_smaller_on_bytes": false
+      },
+      "rows": [
+        {
+          "comparator_id": "zpe_xr_root_current",
+          "evidence_class": "measured_local",
+          "fairness_class": "frozen_v1_authority_surface",
+          "fidelity": {
+            "mpjpe_mm": 0.8787137695761005
+          },
+          "label": "ZPE-XR canonical root codec",
+          "latency": {
+            "combined_avg_ms": 0.06853802222222222,
+            "combined_p95_ms": 0.083709,
+            "combined_p99_ms": 0.097584,
+            "decode_avg_ms": 0.008889788888888889,
+            "encode_avg_ms": 0.059648233333333335
+          },
+          "notes": "Measured locally from the canonical root codec path.",
+          "packet_digest_sha256": "eca1ea389c28c4c141a3e75dd740825466cb9395a2b6a7e800673eb3dbb90aa3",
+          "packet_loss": {
+            "delivery_stats": {
+              "missing_packets": 28,
+              "provided_packets": 62,
+              "total_frames": 90
+            },
+            "mpjpe_mm": 1.2122573407300292,
+            "pose_error_percent": 1.0102144506083577
+          },
+          "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+          "source_reference": "local_root_workspace",
+          "transport": {
+            "bytes_per_frame": 51.62222222222222,
+            "bytes_total": 4646.0,
+            "compression_ratio_vs_raw": 28.204907447266464,
+            "kb_per_s_modeled_4_player_session": 13.611328125,
+            "kb_per_s_single_remote": 4.537109375
+          }
+        },
+        {
+          "comparator_id": "photon_fusion_local_articulation_proxy",
+          "evidence_class": "proxy_measured_local",
+          "fairness_class": "narrower_semantics_than_frozen_v1",
+          "fidelity": {
+            "mpjpe_mm": 1.8464580871781922
+          },
+          "label": "Photon Fusion XR Hands local articulation proxy",
+          "latency": {
+            "combined_avg_ms": 0.2917944333333333,
+            "combined_p95_ms": 0.354,
+            "combined_p99_ms": 0.3805,
+            "decode_avg_ms": 0.13974345555555553,
+            "encode_avg_ms": 0.15205097777777776
+          },
+          "notes": "Measured locally from a 19-byte-per-hand articulation proxy that preserves the published Photon byte budget but does not execute the vendor runtime or meter the shared hand-root pose.",
+          "packet_digest_sha256": "6b597411efc77a60873cf42b486cf76b7ea5699280d658c577c5468a1ea1e3a8",
+          "packet_loss": {
+            "decoder_stats": {
+              "backup_recoveries": 0,
+              "concealed_frames": 28,
+              "parse_failures": 0
+            },
+            "delivery_stats": {
+              "missing_packets": 28,
+              "provided_packets": 62,
+              "total_frames": 90
+            },
+            "jitter_probability": 0.2,
+            "loss_rate": 0.1,
+            "max_delay_frames": 1,
+            "mpjpe_mm": 1.8598773321976552,
+            "pose_error_percent": 1.5498977768313793,
+            "seed": 4409
+          },
+          "semantics": "Finger-bone articulation only at the published 19-byte-per-hand budget, with shared per-frame hand-root pose and fixed local bone positions treated as side input.",
+          "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization",
+          "transport": {
+            "bytes_per_frame": 38.0,
+            "bytes_total": 3420.0,
+            "compression_ratio_vs_raw": 38.31578947368421,
+            "kb_per_s_modeled_4_player_session": 10.01953125,
+            "kb_per_s_single_remote": 3.33984375
+          }
+        }
+      ]
+    },
+    "unresolved": [
+      "The Photon lane is now same-machine and proxy-measured, but it still relies on shared per-frame hand-root pose side input.",
+      "The executed row is not the vendor runtime path and does not close public Photon displacement by itself.",
+      "The governing multi-sequence modern-comparator public gate remains unchanged from Phase 5."
+    ],
+    "workload": {
+      "fps": 90,
+      "kind": "same_machine_photon_articulation_proxy",
+      "synthetic_frames": 90
+    }
+  },
+  "comet": {
+    "enabled": true,
+    "experiment_key": "37e7c38af61146b48182ac043c8f90a8",
+    "project": "zpe-xr",
+    "workspace": "zer0pa"
+  },
+  "execution_status": "EXECUTED",
+  "generated_at_utc": "2026-03-29T15:31:45.252340+00:00"
+}

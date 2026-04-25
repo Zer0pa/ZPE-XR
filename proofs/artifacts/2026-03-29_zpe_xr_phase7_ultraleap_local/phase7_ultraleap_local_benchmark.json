@@ -1,0 +1,647 @@
+{
+  "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local",
+  "artifact_run_id": "2026-03-29_zpe_xr_phase7_ultraleap_local",
+  "benchmark": {
+    "canonical_root": "/Users/Zer0pa/ZPE/ZPE XR",
+    "conclusions": [
+      "ZPE-XR remains smaller than the same-machine Ultraleap local proxy on the frozen synthetic lane.",
+      "ZPE-XR has lower measured synthetic latency than the local Ultraleap proxy on this Mac.",
+      "ZPE-XR stays smaller than the local Ultraleap proxy across the executed ContactPose multi-sequence object set.",
+      "Ultraleap is now a same-machine local proxy-measured incumbent row rather than a transport-only placeholder."
+    ],
+    "contactpose": {
+      "aggregate": {
+        "ultraleap": {
+          "bytes_per_frame_mean": 172.0,
+          "compression_ratio_vs_raw_mean": 8.465116279069768,
+          "latency_ms_mean": 0.1540718577777778,
+          "mpjpe_mm_mean": 4.554141472450543,
+          "packet_loss_error_pct_mean": 3.795117893708786
+        },
+        "zpe": {
+          "bytes_per_frame_mean": 25.93333333333333,
+          "compression_ratio_vs_raw_mean": 56.14395886889461,
+          "latency_ms_mean": 0.02433232,
+          "mpjpe_mm_mean": 0.4785933583765226,
+          "packet_loss_error_pct_mean": 0.39882779864710216
+        },
+        "zpe_lower_latency_on_mean": true,
+        "zpe_lower_mpjpe_on_mean": true,
+        "zpe_smaller_on_all_sequences": true
+      },
+      "sequence_results": [
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full38_handoff/mug.zip::mug/annotations.json",
+          "frame_count": 312,
+          "frames_used": 90,
+          "object_name": "mug",
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 6.632390745501286,
+            "latency_ratio_incumbent_vs_zpe": 5.792550348853324,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "ultraleap": {
+            "comparator_id": "ultraleap_vectorhand_local_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "close_transport_semantics",
+            "fidelity": {
+              "mpjpe_mm": 5.21296759098545
+            },
+            "label": "Ultraleap VectorHand local proxy",
+            "latency": {
+              "combined_avg_ms": 0.13886011111111113,
+              "combined_p95_ms": 0.14825,
+              "combined_p99_ms": 0.166417,
+              "decode_avg_ms": 0.05231903333333333,
+              "encode_avg_ms": 0.08654107777777778
+            },
+            "notes": "Measured locally with the published VectorHand byte layout and an inferred 4-byte normalized quaternion packing, not a full vendor runtime path.",
+            "packet_digest_sha256": "0788ac7f14670959da0dcf88d04cfe04606e8c52a01120b67767a707540d1185",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 5.21296759098545,
+              "pose_error_percent": 4.344139659154542,
+              "seed": 4409
+            },
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs",
+            "transport": {
+              "bytes_per_frame": 172.0,
+              "bytes_total": 15480.0,
+              "compression_ratio_vs_raw": 8.465116279069768,
+              "kb_per_s_modeled_4_player_session": 45.3515625,
+              "kb_per_s_single_remote": 15.1171875
+            }
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.46312042144508353
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.02397218888888889,
+              "combined_p95_ms": 0.024708,
+              "combined_p99_ms": 0.031042,
+              "decode_avg_ms": 0.0017874777777777777,
+              "encode_avg_ms": 0.02218471111111111
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "89767e33c407ec3c61f675f43e732e89821d1126d77e365e2dfd173bc6ce6769",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.46312042144508353,
+              "pose_error_percent": 0.3859336845375696
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full50_use/bowl.zip::bowl/annotations.json",
+          "frame_count": 757,
+          "frames_used": 90,
+          "object_name": "bowl",
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 6.632390745501286,
+            "latency_ratio_incumbent_vs_zpe": 8.374394486386382,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "ultraleap": {
+            "comparator_id": "ultraleap_vectorhand_local_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "close_transport_semantics",
+            "fidelity": {
+              "mpjpe_mm": 4.881237656439592
+            },
+            "label": "Ultraleap VectorHand local proxy",
+            "latency": {
+              "combined_avg_ms": 0.19273966666666667,
+              "combined_p95_ms": 0.145541,
+              "combined_p99_ms": 0.172833,
+              "decode_avg_ms": 0.05271662222222222,
+              "encode_avg_ms": 0.14002304444444444
+            },
+            "notes": "Measured locally with the published VectorHand byte layout and an inferred 4-byte normalized quaternion packing, not a full vendor runtime path.",
+            "packet_digest_sha256": "7ff16a800ee0178bc1ce929e64485c1de8327183c8418ea86eb99c926f6fb058",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 4.881237656439592,
+              "pose_error_percent": 4.0676980470329935,
+              "seed": 4409
+            },
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs",
+            "transport": {
+              "bytes_per_frame": 172.0,
+              "bytes_total": 15480.0,
+              "compression_ratio_vs_raw": 8.465116279069768,
+              "kb_per_s_modeled_4_player_session": 45.3515625,
+              "kb_per_s_single_remote": 15.1171875
+            }
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.47981888275056506
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.023015355555555558,
+              "combined_p95_ms": 0.025875000000000002,
+              "combined_p99_ms": 0.030083,
+              "decode_avg_ms": 0.0018509222222222222,
+              "encode_avg_ms": 0.021164433333333336
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "83a4abf6bbb99c0108e37a3b053b674735ec09f11ce8073e7e703a05c1a10298",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.47981888275056506,
+              "pose_error_percent": 0.39984906895880423
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full28_use/camera.zip::camera/annotations.json",
+          "frame_count": 753,
+          "frames_used": 90,
+          "object_name": "camera",
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 6.632390745501286,
+            "latency_ratio_incumbent_vs_zpe": 5.547828431625236,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "ultraleap": {
+            "comparator_id": "ultraleap_vectorhand_local_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "close_transport_semantics",
+            "fidelity": {
+              "mpjpe_mm": 3.801065491588802
+            },
+            "label": "Ultraleap VectorHand local proxy",
+            "latency": {
+              "combined_avg_ms": 0.15545693333333332,
+              "combined_p95_ms": 0.164,
+              "combined_p99_ms": 0.187583,
+              "decode_avg_ms": 0.05865784444444445,
+              "encode_avg_ms": 0.0967990888888889
+            },
+            "notes": "Measured locally with the published VectorHand byte layout and an inferred 4-byte normalized quaternion packing, not a full vendor runtime path.",
+            "packet_digest_sha256": "45110160f48c3501ff6b258692814de1ff73ab289667075862ad5a452fa7d01b",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 3.801065491588802,
+              "pose_error_percent": 3.167554576324002,
+              "seed": 4409
+            },
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs",
+            "transport": {
+              "bytes_per_frame": 172.0,
+              "bytes_total": 15480.0,
+              "compression_ratio_vs_raw": 8.465116279069768,
+              "kb_per_s_modeled_4_player_session": 45.3515625,
+              "kb_per_s_single_remote": 15.1171875
+            }
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.5039612866974165
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.02802122222222222,
+              "combined_p95_ms": 0.032542,
+              "combined_p99_ms": 0.037791000000000005,
+              "decode_avg_ms": 0.002174055555555556,
+              "encode_avg_ms": 0.025847166666666668
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "4a33024f06174164c565fca37edebdec0612ce212723fb6d2403412c79351c8f",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.5039612866974165,
+              "pose_error_percent": 0.41996773891451367
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full36_use/binoculars.zip::binoculars/annotations.json",
+          "frame_count": 867,
+          "frames_used": 90,
+          "object_name": "binoculars",
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 6.632390745501286,
+            "latency_ratio_incumbent_vs_zpe": 6.033740974968331,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "ultraleap": {
+            "comparator_id": "ultraleap_vectorhand_local_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "close_transport_semantics",
+            "fidelity": {
+              "mpjpe_mm": 4.984394918977722
+            },
+            "label": "Ultraleap VectorHand local proxy",
+            "latency": {
+              "combined_avg_ms": 0.13918968888888889,
+              "combined_p95_ms": 0.149709,
+              "combined_p99_ms": 0.168333,
+              "decode_avg_ms": 0.052535177777777775,
+              "encode_avg_ms": 0.08665451111111112
+            },
+            "notes": "Measured locally with the published VectorHand byte layout and an inferred 4-byte normalized quaternion packing, not a full vendor runtime path.",
+            "packet_digest_sha256": "a4abc758d73101dfd679b95beb6306d7bf4c840ac47a00c92fbe040d668e8908",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 4.984394918977722,
+              "pose_error_percent": 4.153662432481435,
+              "seed": 4409
+            },
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs",
+            "transport": {
+              "bytes_per_frame": 172.0,
+              "bytes_total": 15480.0,
+              "compression_ratio_vs_raw": 8.465116279069768,
+              "kb_per_s_modeled_4_player_session": 45.3515625,
+              "kb_per_s_single_remote": 15.1171875
+            }
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.47828856949163745
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.023068555555555557,
+              "combined_p95_ms": 0.026834,
+              "combined_p99_ms": 0.036375000000000005,
+              "decode_avg_ms": 0.0017513444444444445,
+              "encode_avg_ms": 0.021317211111111112
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "923053dd59b3bd8a9486f98f430b8470897b66ea02cd6d188099e9311947b4ca",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.47828856949163745,
+              "pose_error_percent": 0.3985738079096979
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        },
+        {
+          "archive_member": "ContactPose sample data/grasps.zip::grasps/full36_use/ps_controller.zip::ps_controller/annotations.json",
+          "frame_count": 811,
+          "frames_used": 90,
+          "object_name": "ps_controller",
+          "relative": {
+            "bytes_ratio_incumbent_vs_zpe": 6.632390745501286,
+            "latency_ratio_incumbent_vs_zpe": 6.110549165286668,
+            "zpe_lower_latency": true,
+            "zpe_lower_mpjpe": true,
+            "zpe_smaller_on_bytes": true
+          },
+          "ultraleap": {
+            "comparator_id": "ultraleap_vectorhand_local_proxy",
+            "evidence_class": "proxy_measured_local",
+            "fairness_class": "close_transport_semantics",
+            "fidelity": {
+              "mpjpe_mm": 3.8910417042611503
+            },
+            "label": "Ultraleap VectorHand local proxy",
+            "latency": {
+              "combined_avg_ms": 0.1441128888888889,
+              "combined_p95_ms": 0.168625,
+              "combined_p99_ms": 0.190166,
+              "decode_avg_ms": 0.05533056666666667,
+              "encode_avg_ms": 0.08878232222222222
+            },
+            "notes": "Measured locally with the published VectorHand byte layout and an inferred 4-byte normalized quaternion packing, not a full vendor runtime path.",
+            "packet_digest_sha256": "04fbe598cf1bc1f1f427aac67fcb0bcd8edc82cc19ff9123e127c5eadc01390f",
+            "packet_loss": {
+              "decoder_stats": {
+                "backup_recoveries": 0,
+                "concealed_frames": 28,
+                "parse_failures": 0
+              },
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "jitter_probability": 0.2,
+              "loss_rate": 0.1,
+              "max_delay_frames": 1,
+              "mpjpe_mm": 3.8910417042611503,
+              "pose_error_percent": 3.242534753550959,
+              "seed": 4409
+            },
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs",
+            "transport": {
+              "bytes_per_frame": 172.0,
+              "bytes_total": 15480.0,
+              "compression_ratio_vs_raw": 8.465116279069768,
+              "kb_per_s_modeled_4_player_session": 45.3515625,
+              "kb_per_s_single_remote": 15.1171875
+            }
+          },
+          "zpe": {
+            "comparator_id": "zpe_xr_root_current",
+            "evidence_class": "measured_local",
+            "fairness_class": "frozen_v1_authority_surface",
+            "fidelity": {
+              "mpjpe_mm": 0.46777763149791046
+            },
+            "label": "ZPE-XR canonical root codec",
+            "latency": {
+              "combined_avg_ms": 0.023584277777777777,
+              "combined_p95_ms": 0.028125,
+              "combined_p99_ms": 0.0305,
+              "decode_avg_ms": 0.001811522222222222,
+              "encode_avg_ms": 0.021772755555555554
+            },
+            "notes": "Measured locally from the canonical root codec path.",
+            "packet_digest_sha256": "c0f36602c06ed8f88a8f5abc976bb0afda05913bebf565377422de59256fc9f6",
+            "packet_loss": {
+              "delivery_stats": {
+                "missing_packets": 28,
+                "provided_packets": 62,
+                "total_frames": 90
+              },
+              "mpjpe_mm": 0.46777763149791046,
+              "pose_error_percent": 0.3898146929149254
+            },
+            "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+            "source_reference": "local_root_workspace",
+            "transport": {
+              "bytes_per_frame": 25.933333333333334,
+              "bytes_total": 2334.0,
+              "compression_ratio_vs_raw": 56.1439588688946,
+              "kb_per_s_modeled_4_player_session": 6.837890625,
+              "kb_per_s_single_remote": 2.279296875
+            }
+          }
+        }
+      ],
+      "status": "executed",
+      "workload": {
+        "dataset": "ContactPose",
+        "requested_objects": [
+          "mug",
+          "wine_glass",
+          "bowl",
+          "camera",
+          "binoculars"
+        ],
+        "selected_objects": [
+          "mug",
+          "bowl",
+          "camera",
+          "binoculars",
+          "ps_controller"
+        ],
+        "source_bytes": 1979376914,
+        "source_path": "/Users/Zer0pa/ZPE/ZPE XR/ZPE-XR/proofs/artifacts/phase6_contactpose_probe/downloads/contactpose_sample.zip",
+        "source_sha256": "dd1437adc79ab1a7879b46629ddbf3b29146e90694043cbc85d990ba3e1abd7d"
+      }
+    },
+    "host": {
+      "generated_at_utc": "2026-03-29T15:11:47.679819+00:00",
+      "machine": "arm64",
+      "platform": "Darwin",
+      "platform_release": "24.5.0",
+      "platform_version": "Darwin Kernel Version 24.5.0: Tue Apr 22 19:48:46 PDT 2025; root:xnu-11417.121.6~2/RELEASE_ARM64_T8103",
+      "python_version": "3.14.0"
+    },
+    "synthetic": {
+      "relative": {
+        "bytes_ratio_incumbent_vs_zpe": 3.331898407232028,
+        "latency_ratio_incumbent_vs_zpe": 4.108418794387349,
+        "zpe_lower_latency": true,
+        "zpe_lower_mpjpe": true,
+        "zpe_smaller_on_bytes": true
+      },
+      "rows": [
+        {
+          "comparator_id": "zpe_xr_root_current",
+          "evidence_class": "measured_local",
+          "fairness_class": "frozen_v1_authority_surface",
+          "fidelity": {
+            "mpjpe_mm": 0.8787137695761005
+          },
+          "label": "ZPE-XR canonical root codec",
+          "latency": {
+            "combined_avg_ms": 0.05525692222222223,
+            "combined_p95_ms": 0.06925,
+            "combined_p99_ms": 0.070583,
+            "decode_avg_ms": 0.007030088888888889,
+            "encode_avg_ms": 0.04822683333333334
+          },
+          "notes": "Measured locally from the canonical root codec path.",
+          "packet_digest_sha256": "eca1ea389c28c4c141a3e75dd740825466cb9395a2b6a7e800673eb3dbb90aa3",
+          "packet_loss": {
+            "delivery_stats": {
+              "missing_packets": 28,
+              "provided_packets": 62,
+              "total_frames": 90
+            },
+            "mpjpe_mm": 1.2122573407300292,
+            "pose_error_percent": 1.0102144506083577
+          },
+          "semantics": "Two hands, 26 joints per hand, deterministic keyframe+delta transport from the canonical root workspace.",
+          "source_reference": "local_root_workspace",
+          "transport": {
+            "bytes_per_frame": 51.62222222222222,
+            "bytes_total": 4646.0,
+            "compression_ratio_vs_raw": 28.204907447266464,
+            "kb_per_s_modeled_4_player_session": 13.611328125,
+            "kb_per_s_single_remote": 4.537109375
+          }
+        },
+        {
+          "comparator_id": "ultraleap_vectorhand_local_proxy",
+          "evidence_class": "proxy_measured_local",
+          "fairness_class": "close_transport_semantics",
+          "fidelity": {
+            "mpjpe_mm": 3.3654859127356267
+          },
+          "label": "Ultraleap VectorHand local proxy",
+          "latency": {
+            "combined_avg_ms": 0.22701857777777776,
+            "combined_p95_ms": 0.277042,
+            "combined_p99_ms": 0.304417,
+            "decode_avg_ms": 0.08670281111111111,
+            "encode_avg_ms": 0.14031576666666665
+          },
+          "notes": "Measured locally with the published VectorHand byte layout and an inferred 4-byte normalized quaternion packing, not a full vendor runtime path.",
+          "packet_digest_sha256": "663a43f55424a94e1e663dc609360153b8442d68a58dd011cdef7b7eac69a016",
+          "packet_loss": {
+            "decoder_stats": {
+              "backup_recoveries": 0,
+              "concealed_frames": 28,
+              "parse_failures": 0
+            },
+            "delivery_stats": {
+              "missing_packets": 28,
+              "provided_packets": 62,
+              "total_frames": 90
+            },
+            "jitter_probability": 0.2,
+            "loss_rate": 0.1,
+            "max_delay_frames": 1,
+            "mpjpe_mm": 3.4174611956438405,
+            "pose_error_percent": 2.8478843297032004,
+            "seed": 4409
+          },
+          "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+          "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs",
+          "transport": {
+            "bytes_per_frame": 172.0,
+            "bytes_total": 15480.0,
+            "compression_ratio_vs_raw": 8.465116279069768,
+            "kb_per_s_modeled_4_player_session": 45.3515625,
+            "kb_per_s_single_remote": 15.1171875
+          }
+        }
+      ]
+    },
+    "unresolved": [
+      "The Ultraleap lane is now same-machine and proxy-measured, but it is still not a full vendor runtime benchmark.",
+      "Photon, Unity NGO, and Normcore remain open or reference-only lanes.",
+      "A public-incumbent displacement claim still requires the remaining runtime and channel caveats to stay explicit."
+    ],
+    "workload": {
+      "fps": 90,
+      "frames": 90,
+      "gesture": "mixed",
+      "kind": "synthetic_frozen_v1",
+      "seed": 6607
+    }
+  },
+  "comet": {
+    "enabled": true,
+    "experiment_key": "59c5abe9e3d946fb8213b21d33e4d329",
+    "project": "zpe-xr",
+    "workspace": "zer0pa"
+  },
+  "execution_status": "EXECUTED",
+  "generated_at_utc": "2026-03-29T15:11:39.457406+00:00"
+}

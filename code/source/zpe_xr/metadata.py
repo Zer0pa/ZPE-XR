@@ -1,6 +1,6 @@
 """Package metadata and frozen evidence constants for the public API."""
 
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 KERNEL = "python-fallback-or-rust-pyo3"
 ENCODING_BASIS = "int16-quant-int8-delta-crc32"
 PRIMITIVE_COUNT = 0  # no directional primitives — codec uses int16 quantization + int8 delta compression

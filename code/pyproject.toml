@@ -4,7 +4,7 @@ build-backend = "maturin"
 
 [project]
 name = "zpe-xr"
-version = "0.3.0"
+version = "0.3.1"
 description = "Deterministic XR hand-pose transport codec. ~24x compression, sub-mm fidelity, sub-ms latency, CPU-native."
 readme = "README.md"
 requires-python = ">=3.11"

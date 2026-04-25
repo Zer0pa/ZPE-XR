@@ -47,8 +47,8 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 |---|---|---|---|
 | ZPE-XR live ContactPose lane | 23.90x | 0.479 mm MPJPE | Real measured repo lane |
 | float16+zlib local proxy | 4.33x | 0.277 mm MPJPE | Modern comparator that wins 5/5 |
-| Ultraleap VectorHand | 8.47x | — | Code-derived transport-only comparator |
-| Photon Fusion XR Hands | 38.32x | — | Doc-derived, narrower semantics than full position transport |
+| Ultraleap VectorHand local proxy | 8.47x | 4.554 mm MPJPE | Same-machine proxy, not vendor runtime |
+| Photon Fusion XR Hands local articulation proxy | 38.32x synthetic; 38.0 bytes/frame ContactPose | 10.683 mm MPJPE | Same-machine proxy, narrower semantics than full position transport |
 
 ## What We Prove
 
@@ -56,6 +56,7 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 - The current ContactPose rerun proves `23.90x` compression vs raw, `0.057 ms` mean encode+decode latency, and `0.479 mm` mean position error on the selected five-sequence lane.
 - Byte-identical replay is part of the carried transport surface.
 - The cold-start audit and release-decision packet are present and live in the repo.
+- Same-machine proxy lanes exist for Ultraleap VectorHand and Photon Fusion XR Hands, with Photon still narrower than the frozen full-position stream.
 - The repo can tell the truth about strong transport behavior without pretending comparator superiority or runtime closure.
 
 ## What We Don't Claim
@@ -95,6 +96,8 @@ The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surfa
 | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md` | Release decision and blocker framing |
 | `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json` | Package cold-start audit |
 | `proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.md` | Comparator failure surface that keeps the gate closed |
+| `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.md` | Same-machine Ultraleap proxy lane |
+| `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.md` | Same-machine Photon articulation proxy lane and narrower-semantics caveat |
 
 ## Repo Shape
 

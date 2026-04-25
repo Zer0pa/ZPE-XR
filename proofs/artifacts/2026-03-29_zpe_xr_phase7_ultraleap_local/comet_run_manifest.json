@@ -1,0 +1,21 @@
+{
+  "project": "zpe-xr",
+  "runs": [
+    {
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local",
+      "execution_status": "FAILED_EXECUTION",
+      "experiment_key": "bf64c919afb8465bb3f7e00db0083866",
+      "name": "phase7-ultraleap-local-2026-03-29_zpe_xr_phase7_ultraleap_local",
+      "phase": "07"
+    },
+    {
+      "artifact_dir": "/Users/Zer0pa/ZPE/ZPE XR/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local",
+      "execution_status": "EXECUTED",
+      "experiment_key": "59c5abe9e3d946fb8213b21d33e4d329",
+      "name": "phase7-ultraleap-local-2026-03-29_zpe_xr_phase7_ultraleap_local",
+      "phase": "07"
+    }
+  ],
+  "updated_at_utc": "2026-03-29T15:11:47.726595+00:00",
+  "workspace": "zer0pa"
+}

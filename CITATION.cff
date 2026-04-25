@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use ZPE-XR, please cite it using the metadata from this file."
+title: "ZPE-XR"
+type: software
+version: 0.3.0
+license: "LicenseRef-Zer0pa-SAL-7.0"
+repository-code: "https://github.com/Zer0pa/ZPE-XR"
+url: "https://github.com/Zer0pa/ZPE-XR"
+keywords:
+  - xr
+  - hand tracking
+  - deterministic transport
+  - pose compression
+  - openxr
+authors:
+  - name: "Zer0pa (Pty) Ltd"
+    email: "architects@zer0pa.ai"

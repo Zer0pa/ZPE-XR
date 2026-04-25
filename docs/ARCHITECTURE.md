@@ -1,12 +1,8 @@
-<p>
-  <img src="../.github/assets/readme/zpe-masthead.gif" alt="ZPE-XR Masthead" width="100%">
-</p>
-
-<p>
-  <img src="../.github/assets/readme/section-bars/what-this-is.svg" alt="WHAT THIS IS" width="100%">
-</p>
+# Architecture
 
 This document is the architecture index for the current ZPE-XR runtime and proof surface.
+
+## Canonical Anchors
 
 Canonical anchors:
 
@@ -17,9 +13,7 @@ Canonical anchors:
 - Verification entrypoint: `executable/verify.py`
 - Governing proof surfaces: `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md` and `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md`
 
-<p>
-  <img src="../.github/assets/readme/section-bars/interface-contracts.svg" alt="INTERFACE CONTRACTS" width="100%">
-</p>
+## Interface Contracts
 
 | Surface | Role | Canonical path |
 |---|---|---|
@@ -29,9 +23,7 @@ Canonical anchors:
 | Evidence authority | Claim boundary and release verdict | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md`, `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
 | Machine-readable package state | Current product/wedge summary | `docs/market_surface.json` |
 
-<p>
-  <img src="../.github/assets/readme/section-bars/word-layout.svg" alt="WORD LAYOUT" width="100%">
-</p>
+## Word Layout
 
 The XR packet envelope in `code/source/zpe_xr/codec.py` is packet-based rather than a single fixed token word. The governing packet fields are:
 
@@ -43,9 +35,7 @@ The XR packet envelope in `code/source/zpe_xr/codec.py` is packet-based rather t
 | keyframe quantized joints or delta entries | `_QVEC_STRUCT`, `_ENTRY_STRUCT` |
 | CRC32 checksum tail | `_CHECKSUM_STRUCT` |
 
-<p>
-  <img src="../.github/assets/readme/section-bars/modality-markers.svg" alt="MODALITY MARKERS" width="100%">
-</p>
+## Modality Markers
 
 Primary runtime and evaluation surfaces:
 
@@ -55,9 +45,7 @@ Primary runtime and evaluation surfaces:
 - `external_benchmarks.py` for comparator measurement surfaces
 - `unity.py` for the Unity-envelope compatibility layer used in evaluation
 
-<p>
-  <img src="../.github/assets/readme/section-bars/dispatch-precedence.svg" alt="DISPATCH PRECEDENCE" width="100%">
-</p>
+## Dispatch Precedence
 
 When repo surfaces disagree, use this precedence:
 
@@ -66,9 +54,7 @@ When repo surfaces disagree, use this precedence:
 3. package/runtime docs
 4. historical or narrative prose
 
-<p>
-  <img src="../.github/assets/readme/section-bars/open-risks-non-blocking.svg" alt="OPEN RISKS (NON-BLOCKING)" width="100%">
-</p>
+## Open Risks (Non-Blocking)
 
 Deployment guardrails for architecture readers:
 

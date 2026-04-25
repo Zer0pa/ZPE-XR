@@ -47,7 +47,7 @@ Transport behavior on the ContactPose aggregate lane (five sequences): `23.90x` 
 
 ## Competitive Benchmarks
 
-The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surface on the ContactPose lane — 6.63x smaller frames and 9.5x better fidelity than the Ultraleap VectorHand proxy — but the closest modern local baseline (float16+zlib) still wins on fidelity (0.277 mm vs 0.479 mm). That is the honest reason the release verdict is BLOCKED. All comparator rows are same-machine local proxies, not vendor runtimes.
+The benchmark story is mixed on purpose. ZPE-XR carries a strong transport surface on the ContactPose lane — 6.63x smaller frames and 9.5x better fidelity than the Ultraleap VectorHand proxy — but the closest modern local baseline (float16+zlib) still wins on fidelity (0.277 mm vs 0.479 mm). That is the honest reason the release posture stays `PRIVATE_ONLY`. Release posture per phase5 decision: `PRIVATE_ONLY` — public package shipped on PyPI v0.3.0; vendor-runtime closure (Unity/Meta) is external; comparator gate is 0/5 vs float16+zlib. All comparator rows are same-machine local proxies, not vendor runtimes.
 
 | Tool | Compression vs raw | Bytes/frame | Fidelity (MPJPE mm) | Latency (combined ms) | Packet-loss error (10% loss) | Boundary / evidence |
 |---|---|---|---|---|---|---|
@@ -86,6 +86,7 @@ Note on Photon: ZPE is smaller than the Photon articulation proxy on ContactPose
 | Field | Value |
 |-------|-------|
 | Verdict | BLOCKED |
+| Release posture | `PRIVATE_ONLY` — public release withheld; package on PyPI v0.3.0 but vendor-runtime closure (Unity/Meta) is external; comparator gate is 0/5 vs float16+zlib |
 | Source | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
 
 ## Tests and Verification

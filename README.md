@@ -142,3 +142,10 @@ python -m pytest ./code/tests -q
 ```
 
 Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Phase 5 and Phase 6 proof anchors above. `LICENSE` is the legal source of truth; the repo uses SAL v7.0.
+
+## Upcoming Workstreams
+
+This section captures the active lane priorities — what the next agent or contributor picks up, and what investors should expect. Cadence is continuous, not milestoned.
+
+- **Float16+zlib fidelity gap closure** — Research-Deferred — Investigation Underway. Current 0.479 mm MPJPE vs comparator 0.277 mm; primitive-level investigation into pose-component quantization tradeoffs. Public release blocked until this closes.
+- **Unity / Meta runtime closure** — Operations / External Dependency. Vendor integration shape (native plugin vs network bridge) under exploration; PRIVATE_ONLY remains correct posture meanwhile.

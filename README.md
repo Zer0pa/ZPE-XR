@@ -26,18 +26,117 @@
 
 ## What This Is
 
-ZPE-XR is a deterministic transport codec for two-hand joint streams in the Zer0pa 17-lane codec portfolio. It targets XR platform teams that care about packet size, transport determinism, and replay behavior more than a generic compression headline.
+Deterministic XR transport codec. Two-hand joint streams target packet size, transport determinism, and replay behavior. Install from PyPI: `pip install zpe-xr`
 
 Transport behavior on the ContactPose aggregate lane (five sequences): `23.90x` compression vs raw, `0.057 ms` mean encode+decode latency, `0.479 mm` mean position error, and `6.63x` smaller frames than the Ultraleap VectorHand local proxy. The package is real and published on PyPI. Public release is BLOCKED: the modern comparator gate is `0/5` (float16+zlib wins on fidelity), Photon semantics remain narrower, and Unity/Meta runtime closure is external.
 
+## Codec Mechanics
+
+<p>
+  <img src=".github/assets/readme/lane-mechanics/XR.gif" alt="ZPE-XR Codec Mechanics animation" width="100%">
+</p>
+
+| Field | Value |
+| ------- | ------- |
+| Architecture | XR |
+| Encoding | Not assigned |
+| Mechanics Asset | `.github/assets/readme/lane-mechanics/XR.gif` |
+
 ## Key Metrics
+
+| Metric | Value | Baseline |
+| -------- | ------- | ---------- |
+| Compression vs raw | 23.90x | Ultraleap 8.47x |
+| Mean position error | 0.479 mm MPJPE | float16+zlib 0.277 mm (better fidelity) |
+| Encode+decode latency | 0.057 ms mean | float16+zlib 0.084 ms |
+| Bytes/frame vs Ultraleap | 25.9 vs 172.0 (6.63x smaller) | Ultraleap VectorHand local proxy |
+
+> Source: `README.md`
+
+## Repo Identity
+
+| Field | Value |
+| ------- | ------- |
+| Identifier | ZPE-XR |
+| Repository | https://github.com/Zer0pa/ZPE-XR |
+| Section | encoding |
+| Visibility | PUBLIC |
+| Architecture | XR |
+| Encoding | Not assigned |
+| Commit SHA | c5e8bf11a1c1 |
+| License | SAL-7.0 |
+| Authority Source | README.md |
+
+## Readiness
+
+| Field | Value |
+| ------- | ------- |
+| Verdict | BLOCKED |
+| Checks | 3/6 |
+| Anchors | 6 display anchors |
+| Commit | c5e8bf11a1c1 |
+| Authority | README.md |
+
+### Honest Blocker
+
+No public release readiness.; No Unity or Meta runtime closure.; No Photon displacement claim.
+
+## What We Prove
+
+- The zpe-xr package and repo install surfaces are real.
+- The current ContactPose rerun proves 23.90x compression vs raw, 0.057 ms mean encode+decode latency, and 0.479 mm mean position error on the selected five-sequence lane.
+- Byte-identical replay is part of the carried transport surface.
+- The cold-start audit and release-decision packet are present and live in the repo.
+- Same-machine proxy lanes exist for Ultraleap VectorHand and Photon Fusion XR Hands, with Photon still narrower than the frozen full-position stream.
+- The repo can tell the truth about strong transport behavior without pretending comparator superiority or runtime closure.
+
+## What We Don't Claim
+
+- No public release readiness.
+- No Unity or Meta runtime closure.
+- No Photon displacement claim.
+- No exact PRD-corpus closure claim.
+- No broad hand-tracking superiority claim.
+
+## Verification Status
+
+| Code | Check | Verdict |
+| ------ | ------- | --------- |
+| V_01 | ContactPose benchmark lane | PASS |
+| V_02 | Package mechanics | PASS |
+| V_03 | Cold-start audit | PASS |
+| V_04 | Modern comparator gate | FAIL |
+| V_05 | XR-C007 runtime closure | INC |
+| V_06 | Public release readiness | FAIL |
+
+## Proof Anchors
+
+| Path | State |
+| ------ | ------- |
+| `proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json` | VERIFIED |
+| `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` | VERIFIED |
+| `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md` | VERIFIED |
+| `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json` | VERIFIED |
+| `proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.json` | VERIFIED |
+| `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` | VERIFIED |
+
+## Repo Shape
+
+| Field | Value |
+| ------- | ------- |
+| Proof Anchors | 6 display anchors |
+| Modality Lanes | 1 |
+| Architecture | XR |
+| Encoding | Not assigned |
+| Verification | 3/6 checks |
+| Authority Source | README.md |
+
+## Extended Metrics
+
+Rows retained from the previous expanded `## Key Metrics` table. The public product page uses the first four rows only.
 
 | Metric | Value | Baseline | Proof anchor |
 |---|---|---|---|
-| Compression vs raw (ContactPose full sequences) | 23.90x | Ultraleap 8.47x | `proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json` |
-| Mean position error | 0.479 mm MPJPE | float16+zlib 0.277 mm (better fidelity) | `proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json` |
-| Encode+decode latency | 0.057 ms mean | float16+zlib 0.084 ms | `proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json` |
-| Bytes/frame vs Ultraleap VectorHand (ContactPose) | 25.9 vs 172.0 bytes — 6.63x smaller | Ultraleap VectorHand local proxy | `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` |
 | Latency vs Ultraleap VectorHand (ContactPose) | 0.024 ms vs 0.154 ms — 6.4x lower | Ultraleap VectorHand local proxy | `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` |
 | Bytes/frame vs Photon (ContactPose real data) | 25.9 vs 38.0 bytes — ZPE smaller on real data | Photon articulation proxy (narrower semantics) | `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.json` |
 | Fidelity vs Photon (ContactPose) | 0.479 mm vs 10.683 mm MPJPE — 22x better | Photon articulation proxy | `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.json` |
@@ -63,63 +162,6 @@ Key ratios vs closest open-transport comparator (Ultraleap, same-machine proxy):
 - Packet-loss resilience: ZPE **9.5x lower** pose error at 10% loss (0.399% vs 3.80% 5-seq mean)
 
 Note on Photon: ZPE is smaller than the Photon articulation proxy on ContactPose real-data bytes (25.9 vs 38.0 bytes/frame), but the Photon row meters only the 19-byte-per-hand finger stream and does not include shared hand-root pose — semantics are narrower than ZPE's full two-hand position stream.
-
-## What We Prove
-
-- The `zpe-xr` package and repo install surfaces are real.
-- The current ContactPose rerun proves `23.90x` compression vs raw, `0.057 ms` mean encode+decode latency, and `0.479 mm` mean position error on the selected five-sequence lane.
-- Byte-identical replay is part of the carried transport surface.
-- The cold-start audit and release-decision packet are present and live in the repo.
-- Same-machine proxy lanes exist for Ultraleap VectorHand and Photon Fusion XR Hands, with Photon still narrower than the frozen full-position stream.
-- The repo can tell the truth about strong transport behavior without pretending comparator superiority or runtime closure.
-
-## What We Don't Claim
-
-- No public release readiness.
-- No Unity or Meta runtime closure.
-- No Photon displacement claim.
-- No exact PRD-corpus closure claim.
-- No broad hand-tracking superiority claim.
-
-## Commercial Readiness
-
-| Field | Value |
-|-------|-------|
-| Verdict | BLOCKED |
-| Release posture | `PRIVATE_ONLY` — public release withheld; package on PyPI v0.3.1 but vendor-runtime closure (Unity/Meta) is external; comparator gate is 0/5 vs float16+zlib |
-| Source | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
-
-## Tests and Verification
-
-| Code | Check | Verdict |
-|---|---|---|
-| V_01 | ContactPose benchmark lane | PASS |
-| V_02 | Package mechanics | PASS |
-| V_03 | Cold-start audit | PASS |
-| V_04 | Modern comparator gate | FAIL |
-| V_05 | XR-C007 runtime closure | INC |
-| V_06 | Public release readiness | FAIL |
-
-## Proof Anchors
-
-| Path | Why it matters |
-|---|---|
-| `proofs/artifacts/2026-04-14_zpe_xr_live_014204/phase5_multi_sequence_benchmark.json` | Current ContactPose transport metrics (23.90x, 0.479 mm, 0.057 ms) |
-| `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` | Governing claim boundary and verdict |
-| `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md` | Release decision and blocker framing |
-| `proofs/artifacts/2026-03-21_zpe_xr_phase4_cold_start/phase4_cold_start_audit.json` | Package cold-start audit |
-| `proofs/artifacts/2026-03-29_zpe_xr_phase6_mac_comparator_arm64/phase6_mac_comparator_benchmark.json` | Comparator failure surface: float16+zlib wins 5/5, ZPE fidelity gap quantified |
-| `proofs/artifacts/2026-03-29_zpe_xr_phase7_ultraleap_local/phase7_ultraleap_local_benchmark.json` | Same-machine Ultraleap proxy: 6.63x bytes, 6.4x latency, 9.5x fidelity advantage for ZPE (5-seq aggregate) |
-| `proofs/artifacts/2026-03-29_zpe_xr_phase8_photon_local/phase8_photon_local_benchmark.json` | Same-machine Photon articulation proxy: ZPE smaller on real-data bytes, 22x better fidelity |
-
-## Repo Shape
-
-| Area | Purpose |
-|---|---|
-| `code/` | Installable package and tests |
-| `executable/` | Root verification entrypoint |
-| `docs/` | Architecture, legal boundaries, and public audit limits |
-| `proofs/` | Live benchmark artifacts, adjudications, and comparator packets |
 
 ## Quick Start
 

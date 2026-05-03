@@ -2,7 +2,7 @@
 <p align="center"><em>The codec package is real. The ContactPose benchmark lane is real. Public release is BLOCKED: the modern comparator gate is 0/5 and runtime closure for Unity/Meta remains external. Transport numbers are same-machine local proxies, not vendor runtimes.</em></p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v7.0-e5e7eb?labelColor=111111" alt="License: SAL v7.0"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v7.0-e5e7eb?labelColor=111111" alt="License: SAL v7.1"></a>
   <a href="code/pyproject.toml"><img src="https://img.shields.io/badge/python-3.11%2B-e5e7eb?labelColor=111111" alt="Python 3.11+"></a>
   <a href="https://pypi.org/project/zpe-xr/"><img src="https://img.shields.io/badge/release-PyPI%20v0.3.1-e5e7eb?labelColor=111111" alt="Release: PyPI v0.3.1"></a>
   <a href="proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md"><img src="https://img.shields.io/badge/release-BLOCKED-e5e7eb?labelColor=111111" alt="Release: BLOCKED"></a>
@@ -183,7 +183,7 @@ python ./executable/verify.py
 python -m pytest ./code/tests -q
 ```
 
-Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Phase 5 and Phase 6 proof anchors above. `LICENSE` is the legal source of truth; the repo uses SAL v7.0.
+Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Phase 5 and Phase 6 proof anchors above. `LICENSE` is the legal source of truth; the repo uses SAL v7.1.
 
 ## Upcoming Workstreams
 

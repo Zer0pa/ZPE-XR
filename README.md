@@ -1,5 +1,5 @@
-<p align="center"><strong>Deterministic hand transport for XR two-hand streams: 23.90x compression vs raw (2.82x past Ultraleap's 8.47x), 6.63x smaller frames, and 9.5x better fidelity than the Ultraleap VectorHand proxy — on the ContactPose aggregate lane.</strong></p>
-<p align="center"><em>The codec package is real. The ContactPose benchmark lane is real. Public release is BLOCKED: the modern comparator gate is 0/5 and runtime closure for Unity/Meta remains external. Transport numbers are same-machine local proxies, not vendor runtimes.</em></p>
+<p align="center"><strong>Smaller, faster, less accurate.</strong> Deterministic VR hand-stream codec on the ContactPose evaluation surface: 23.90x compression vs raw, 0.057 ms encode+decode, 26 bytes per two-hand frame, byte-identical replay.</p>
+<p align="center"><em>The modern float16+zlib comparator still wins on fidelity at 0.277 mm to our 0.479 mm — comparator gate 0/5; Unity/Meta runtime closure remains external. Transport numbers are same-machine local proxies, not vendor runtimes.</em></p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-SAL%20v7.0-e5e7eb?labelColor=111111" alt="License: SAL v7.1"></a>

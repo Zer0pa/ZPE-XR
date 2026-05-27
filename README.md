@@ -2,6 +2,32 @@
 
 ## Install / Developer Commands
 
+<!-- INSTALL-DX:START -->
+#### Package Install
+
+Installable package: `python3.11 -m pip install zpe-xr`.
+Current release: `0.3.1` on [PyPI](https://pypi.org/project/zpe-xr/).
+Source: [Zer0pa/ZPE-XR](https://github.com/Zer0pa/ZPE-XR/).
+
+```bash
+python3.11 -m pip install zpe-xr
+```
+
+Import smoke:
+
+```bash
+python3.11 - <<'PY'
+import importlib.metadata as md
+import zpe_xr
+
+print("zpe-xr", md.version("zpe-xr"))
+PY
+```
+
+Install success only proves package acquisition/import. Product scope, stale PyPI state, platform limits, and blockers remain in the front-door sections below.
+- PyPI copy is stale and the wheel matrix is uneven; use Python 3.11 for smoke checks.
+<!-- INSTALL-DX:END -->
+
 #### Quick Start
 
 Install from PyPI:

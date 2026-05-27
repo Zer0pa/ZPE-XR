@@ -76,7 +76,7 @@ Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Pha
 <table width="100%">
 <tr>
 <td width="50%" valign="top">
-<div><b>03 · VALUE</b></div>
+<div><b>03 · VALUE OF MARKET</b></div>
       <div>23.9<span>×</span></div>
       <div>Smaller than a raw two-hand frame · <b>6.63&times; smaller than Ultraleap VectorHand</b></div>
 </td>

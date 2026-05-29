@@ -1,9 +1,6 @@
 # ZPE-XR
 
-## Install / Developer Commands
-
-<!-- INSTALL-DX:START -->
-#### Package Install
+## Package Install
 
 Installable package: `python3.11 -m pip install zpe-xr`.
 Current release: `0.3.1` on [PyPI](https://pypi.org/project/zpe-xr/).
@@ -13,42 +10,9 @@ Source: [Zer0pa/ZPE-XR](https://github.com/Zer0pa/ZPE-XR/).
 python3.11 -m pip install zpe-xr
 ```
 
-Import smoke:
+For full install, smoke, source, and developer commands, [click here](#install-developer-commands-detailed).
 
-```bash
-python3.11 - <<'PY'
-import importlib.metadata as md
-import zpe_xr
-
-print("zpe-xr", md.version("zpe-xr"))
-PY
-```
-
-Install success only proves package acquisition/import. Product scope, stale PyPI state, platform limits, and blockers remain in the front-door sections below.
-- PyPI copy is stale and the wheel matrix is uneven; use Python 3.11 for smoke checks.
-<!-- INSTALL-DX:END -->
-
-#### Quick Start
-
-Install from PyPI:
-
-```bash
-pip install zpe-xr
-```
-
-Verify from source:
-
-```bash
-git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr
-cd zpe-xr
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install "./code[dev]"
-python ./executable/verify.py
-python -m pytest ./code/tests -q
-```
-
-Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Phase 5 and Phase 6 proof anchors above. `LICENSE` is the legal source of truth; the repo uses SAL v7.1.
+---
 
 <table width="100%">
 <tr>
@@ -326,3 +290,57 @@ Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Pha
 </td>
 </tr>
 </table>
+
+---
+
+<a id="install-developer-commands-detailed"></a>
+
+## Install / Developer Commands Detailed
+
+<!-- INSTALL-DX:START -->
+#### Package Install
+
+Installable package: `python3.11 -m pip install zpe-xr`.
+Current release: `0.3.1` on [PyPI](https://pypi.org/project/zpe-xr/).
+Source: [Zer0pa/ZPE-XR](https://github.com/Zer0pa/ZPE-XR/).
+
+```bash
+python3.11 -m pip install zpe-xr
+```
+
+Import smoke:
+
+```bash
+python3.11 - <<'PY'
+import importlib.metadata as md
+import zpe_xr
+
+print("zpe-xr", md.version("zpe-xr"))
+PY
+```
+
+Install success only proves package acquisition/import. Product scope, stale PyPI state, platform limits, and blockers remain in the front-door sections below.
+- PyPI copy is stale and the wheel matrix is uneven; use Python 3.11 for smoke checks.
+<!-- INSTALL-DX:END -->
+
+#### Quick Start
+
+Install from PyPI:
+
+```bash
+pip install zpe-xr
+```
+
+Verify from source:
+
+```bash
+git clone https://github.com/Zer0pa/ZPE-XR.git zpe-xr
+cd zpe-xr
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install "./code[dev]"
+python ./executable/verify.py
+python -m pytest ./code/tests -q
+```
+
+Read `docs/ARCHITECTURE.md` first, then `docs/LEGAL_BOUNDARIES.md`, then the Phase 5 and Phase 6 proof anchors above. `LICENSE` is the legal source of truth; the repo uses SAL v7.1.

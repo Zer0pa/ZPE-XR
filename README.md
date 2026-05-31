@@ -18,7 +18,7 @@ For full install, smoke, source, and developer commands, [click here](#install-d
 <tr>
 <td width="100%" valign="top">
 <div><span><b>00 · ZPE-XR</b> · MOTION TRANSPORT</span> <span>RESEARCH-READY · COMPARATOR 0/5</span></div>
-      <h1>Hands that travel, <span>byte for byte.</span></h1>
+      <h1>Encoding Gestures <span>Down to the Last Degree</span></h1>
       <p>Two-hand pose transport codec · <em>zpe-xr v0.3.1</em> · github.com/Zer0pa/ZPE-XR</p>
       <p>In a VR session your hands are always moving &mdash; picking up, pointing, reaching across a room. Today that motion is a stream of raw floats, expensive on the network and erased the moment the session ends. ZPE-XR is a different answer: a sealed 25.9-byte packet for two complete hands per frame, decoded in 0.057 ms to <strong>byte-identical</strong> output on any machine, any year. The transport works on ContactPose. Unity and Meta runtime integration is still external; <em>float16+zlib</em> still wins raw fidelity by 0.2 mm.</p>
 </td>

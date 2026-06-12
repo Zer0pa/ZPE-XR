@@ -10,6 +10,13 @@ from .constants import (
     TOTAL_JOINTS,
 )
 from .codec import DecoderState, EncoderState, XRCodec
+from .denominator_baseline import (
+    DENOMINATOR_BASELINE_SCHEMA,
+    DenominatorReportValidationError,
+    build_denominator_report,
+    render_denominator_report_markdown,
+    validate_denominator_report,
+)
 from .embodiment_record import (
     CAPTURE_EVIDENCE_CLASSES,
     EMBODIMENT_RECORD_SCHEMA,
@@ -29,7 +36,9 @@ from .models import Frame, FrameSequence
 
 __all__ = [
     "CAPTURE_EVIDENCE_CLASSES",
+    "DENOMINATOR_BASELINE_SCHEMA",
     "DecoderState",
+    "DenominatorReportValidationError",
     "EMBODIMENT_RECORD_SCHEMA",
     "EncoderState",
     "EmbodimentRecordValidationError",
@@ -42,6 +51,7 @@ __all__ = [
     "RAW_BYTES_PER_FRAME",
     "TOTAL_JOINTS",
     "XRCodec",
+    "build_denominator_report",
     "build_headset_surrogate_manifest",
     "classify_surrogate_dataset",
     "codec_info",
@@ -50,6 +60,8 @@ __all__ = [
     "gesture_match",
     "headset_surrogate_specs",
     "is_native_capture_verified",
+    "render_denominator_report_markdown",
+    "validate_denominator_report",
     "validate_embodiment_record",
     "validate_real_headset_capture_manifest",
     "__version__",

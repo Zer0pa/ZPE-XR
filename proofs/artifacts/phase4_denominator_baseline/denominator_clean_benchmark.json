@@ -1,0 +1,2676 @@
+{
+  "aggregate": {
+    "frame_count": 96,
+    "policy": "aggregate_is_supplemental_only_segment_rows_are_authority",
+    "rows": [
+      {
+        "bytes_per_frame": 176.42708333333334,
+        "bytes_total": 16937,
+        "id": "float16_zlib_xyz",
+        "kbps_at_90hz": 127.0275,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": 197.5,
+        "bytes_total": 18960,
+        "id": "float16_zlib_xyzquat",
+        "kbps_at_90hz": 142.2,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": 38.0,
+        "bytes_total": 3648,
+        "id": "photon_xrhands_proxy",
+        "kbps_at_90hz": 27.36,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": null,
+        "bytes_total": null,
+        "id": "raw_21xyz",
+        "kbps_at_90hz": null,
+        "status": "not_applicable"
+      },
+      {
+        "bytes_per_frame": 624.0,
+        "bytes_total": 59904,
+        "id": "raw_26xyz",
+        "kbps_at_90hz": 449.28,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": 1456.0,
+        "bytes_total": 139776,
+        "id": "raw_26xyzquat",
+        "kbps_at_90hz": 1048.32,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": 2080.0,
+        "bytes_total": 199680,
+        "id": "raw_openxr_like_location",
+        "kbps_at_90hz": 1497.6,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": 172.0,
+        "bytes_total": 16512,
+        "id": "ultraleap_vectorhand_proxy",
+        "kbps_at_90hz": 123.84,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": null,
+        "bytes_total": null,
+        "id": "zpe_adaptive_hybrid",
+        "kbps_at_90hz": null,
+        "status": "not_available"
+      },
+      {
+        "bytes_per_frame": 706.28125,
+        "bytes_total": 67803,
+        "id": "zpe_embodiment_record",
+        "kbps_at_90hz": 508.5225,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": 71.33333333333333,
+        "bytes_total": 6848,
+        "id": "zpe_packet_stream",
+        "kbps_at_90hz": 51.36,
+        "status": "measured"
+      },
+      {
+        "bytes_per_frame": 76.08333333333333,
+        "bytes_total": 7304,
+        "id": "zpe_stream_container",
+        "kbps_at_90hz": 54.78,
+        "status": "measured"
+      }
+    ],
+    "segment_count": 8
+  },
+  "aggregate_only": false,
+  "artifact_class": "phase4_denominator_clean_benchmark",
+  "evidence_class": "synthetic_openxr_fixture",
+  "fail_closed_policy": {
+    "adaptive_hybrid_unseparated_bytes": "invalid",
+    "aggregate_only": "invalid",
+    "crc32_provenance": "invalid",
+    "ratio_without_denominator": "invalid",
+    "surrogate_native_claim": "invalid",
+    "xyz_xyzquat_denominator_mixing": "invalid"
+  },
+  "generated_at_utc": "2026-06-12T00:00:00+00:00",
+  "native_capture_claim": false,
+  "native_capture_status": "not_applicable",
+  "orientation_policy": {
+    "full_pose_denominators_required": true,
+    "source_orientation_exists": true,
+    "zpe_packet_orientation_policy": "omitted_position_only_codec"
+  },
+  "phase": "04",
+  "sampling": {
+    "frames_per_segment": 12,
+    "sample_rate_hz": 90,
+    "segment_count": 8
+  },
+  "schema": "zpe-xr-denominator-baseline-1",
+  "segments": [
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 171.0,
+          "bytes_total": 2052,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 123.12,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 187.66666666666666,
+          "bytes_total": 2252,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 135.12,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 51.75,
+          "bytes_total": 621,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 564,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 37.26,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 47.0,
+            "min_bytes": 19.0,
+            "p95_bytes": 31.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 47.0,
+          "bytes_total": 564,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 33.84,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 47.0,
+            "min_bytes": 19.0,
+            "p95_bytes": 31.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 681.4166666666666,
+          "bytes_total": 8177,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 564,
+            "packet_stream_container_bytes": 621,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7556,
+            "record_metadata_overhead_bytes": 6248,
+            "record_overhead_bytes": 7556,
+            "record_total_bytes": 8177,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 490.62,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7556,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {
+          "0-3": 4
+        },
+        "packet_size_bytes": {
+          "16-31": 11,
+          "320-335": 1
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "624ae84ec414231939cc86b46c8aecf2ec1a08c985567a6d4d4cc59b899c4fed",
+        "decode_ms_total": 0.269292009761557,
+        "encode_decode_ms_per_frame": 0.10445141864086811,
+        "encode_decode_ms_total": 1.2534170236904174,
+        "encode_ms_total": 0.9841250139288604,
+        "mpjpe_mm_max": 1.8188400563182578,
+        "mpjpe_mm_mean": 0.8768573215989885,
+        "mpjpe_mm_p50": 0.8626010061915083,
+        "mpjpe_mm_p95": 1.450851640532505,
+        "mpjpe_mm_p99": 1.6803107592657283,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8768573215989885,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7307144346658238,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8768573215989885,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7307144346658238,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.8855769505071783,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7379807920893153,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 4.666666666666667,
+        "deadband_skip_rate": 0.9102564102564102,
+        "delta_entry_count_mean": 4.666666666666667,
+        "delta_magnitude_histogram": {
+          "0-3": 4
+        },
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 47.0,
+          "min_bytes": 19.0,
+          "p95_bytes": 31.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 564,
+        "packet_stream_container_bytes": 621,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7556,
+        "record_metadata_overhead_bytes": 6248,
+        "record_overhead_bytes": 7556,
+        "record_total_bytes": 8177,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "static_hold",
+      "segment_index": 0
+    },
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 176.75,
+          "bytes_total": 2121,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 127.26,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 199.16666666666666,
+          "bytes_total": 2390,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 143.4,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 52.75,
+          "bytes_total": 633,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 576,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 37.98,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 48.0,
+            "min_bytes": 19.0,
+            "p95_bytes": 31.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 48.0,
+          "bytes_total": 576,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 34.56,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 48.0,
+            "min_bytes": 19.0,
+            "p95_bytes": 31.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 682.9166666666666,
+          "bytes_total": 8195,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 576,
+            "packet_stream_container_bytes": 633,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7562,
+            "record_metadata_overhead_bytes": 6254,
+            "record_overhead_bytes": 7562,
+            "record_total_bytes": 8195,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 491.7,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7562,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {
+          "0-3": 6
+        },
+        "packet_size_bytes": {
+          "16-31": 11,
+          "320-335": 1
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "ea2ee55dedc00c458c088515a988447e1bbe4acd1213bbe2092a8cace6a5df4c",
+        "decode_ms_total": 0.35895800101570785,
+        "encode_decode_ms_per_frame": 0.10090624952378373,
+        "encode_decode_ms_total": 1.2108749942854047,
+        "encode_ms_total": 0.8519169932696968,
+        "mpjpe_mm_max": 1.7354359269587967,
+        "mpjpe_mm_mean": 0.8394001130964016,
+        "mpjpe_mm_p50": 0.7859445641440849,
+        "mpjpe_mm_p95": 1.4323447760036803,
+        "mpjpe_mm_p99": 1.6540891208277833,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8394001130964016,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6995000942470014,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8394001130964016,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6995000942470014,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.845085533368682,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7042379444739016,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 4.833333333333333,
+        "deadband_skip_rate": 0.907051282051282,
+        "delta_entry_count_mean": 4.833333333333333,
+        "delta_magnitude_histogram": {
+          "0-3": 6
+        },
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 48.0,
+          "min_bytes": 19.0,
+          "p95_bytes": 31.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 576,
+        "packet_stream_container_bytes": 633,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7562,
+        "record_metadata_overhead_bytes": 6254,
+        "record_overhead_bytes": 7562,
+        "record_total_bytes": 8195,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "slow_manipulation",
+      "segment_index": 1
+    },
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 179.25,
+          "bytes_total": 2151,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 129.06,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 203.41666666666666,
+          "bytes_total": 2441,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 146.46,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 80.08333333333333,
+          "bytes_total": 961,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 904,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 57.66,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 75.33333333333333,
+            "min_bytes": 19.0,
+            "p95_bytes": 87.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 75.33333333333333,
+          "bytes_total": 904,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 54.24,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 75.33333333333333,
+            "min_bytes": 19.0,
+            "p95_bytes": 87.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 710.0833333333334,
+          "bytes_total": 8521,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 904,
+            "packet_stream_container_bytes": 961,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7560,
+            "record_metadata_overhead_bytes": 6252,
+            "record_overhead_bytes": 7560,
+            "record_total_bytes": 8521,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 511.26,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7560,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {
+          "0-3": 46
+        },
+        "packet_size_bytes": {
+          "16-31": 4,
+          "32-47": 1,
+          "320-335": 1,
+          "48-63": 2,
+          "64-79": 2,
+          "80-95": 2
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "cd0abdf594e8f8b671b323b7c2e8a45ad31ce0cda88508a92c58a6bd452b2d31",
+        "decode_ms_total": 0.1859170151874423,
+        "encode_decode_ms_per_frame": 0.06110766844358295,
+        "encode_decode_ms_total": 0.7332920213229954,
+        "encode_ms_total": 0.5473750061355531,
+        "mpjpe_mm_max": 1.8366698795613656,
+        "mpjpe_mm_mean": 0.8588885932079601,
+        "mpjpe_mm_p50": 0.8024175884634905,
+        "mpjpe_mm_p95": 1.5211268067236958,
+        "mpjpe_mm_p99": 1.6990930643707627,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8588885932079601,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7157404943399668,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8588885932079601,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7157404943399668,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.8871805180010045,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7393170983341704,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 8.166666666666666,
+        "deadband_skip_rate": 0.842948717948718,
+        "delta_entry_count_mean": 8.166666666666666,
+        "delta_magnitude_histogram": {
+          "0-3": 46
+        },
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 75.33333333333333,
+          "min_bytes": 19.0,
+          "p95_bytes": 87.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 904,
+        "packet_stream_container_bytes": 961,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7560,
+        "record_metadata_overhead_bytes": 6252,
+        "record_overhead_bytes": 7560,
+        "record_total_bytes": 8521,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "active_reaching",
+      "segment_index": 2
+    },
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 175.0,
+          "bytes_total": 2100,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 126.0,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 195.75,
+          "bytes_total": 2349,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 140.94,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 187.41666666666666,
+          "bytes_total": 2249,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 2192,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 134.94,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 182.66666666666666,
+            "min_bytes": 51.0,
+            "p95_bytes": 223.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 182.66666666666666,
+          "bytes_total": 2192,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 131.52,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 182.66666666666666,
+            "min_bytes": 51.0,
+            "p95_bytes": 223.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 817.5,
+          "bytes_total": 9810,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 2192,
+            "packet_stream_container_bytes": 2249,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7561,
+            "record_metadata_overhead_bytes": 6253,
+            "record_overhead_bytes": 7561,
+            "record_total_bytes": 9810,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 588.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7561,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {
+          "0-3": 215
+        },
+        "packet_size_bytes": {
+          "112-127": 1,
+          "144-159": 3,
+          "176-191": 2,
+          "192-207": 1,
+          "208-223": 3,
+          "320-335": 1,
+          "48-63": 1
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "56d4e0c3d867f50aff5a2d4568ef4f852d514c925efe122cc2878832b6c77029",
+        "decode_ms_total": 0.2890830219257623,
+        "encode_decode_ms_per_frame": 0.07997566717676818,
+        "encode_decode_ms_total": 0.9597080061212182,
+        "encode_ms_total": 0.6706249841954559,
+        "mpjpe_mm_max": 1.7492350519329187,
+        "mpjpe_mm_mean": 0.8227719372938876,
+        "mpjpe_mm_p50": 0.7094509151587898,
+        "mpjpe_mm_p95": 1.531924081022201,
+        "mpjpe_mm_p99": 1.680866509667683,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8227719372938876,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6856432810782397,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8227719372938876,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6856432810782397,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.9045026052380388,
+            "parse_failures": 0,
+            "pose_error_pct": 0.753752171031699,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 22.25,
+        "deadband_skip_rate": 0.5721153846153846,
+        "delta_entry_count_mean": 22.25,
+        "delta_magnitude_histogram": {
+          "0-3": 215
+        },
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 182.66666666666666,
+          "min_bytes": 51.0,
+          "p95_bytes": 223.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 2192,
+        "packet_stream_container_bytes": 2249,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7561,
+        "record_metadata_overhead_bytes": 6253,
+        "record_overhead_bytes": 7561,
+        "record_total_bytes": 9810,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "fast_translation",
+      "segment_index": 3
+    },
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 177.0,
+          "bytes_total": 2124,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 127.44,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 197.83333333333334,
+          "bytes_total": 2374,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 142.44,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 53.083333333333336,
+          "bytes_total": 637,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 580,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 38.22,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 48.333333333333336,
+            "min_bytes": 19.0,
+            "p95_bytes": 31.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 48.333333333333336,
+          "bytes_total": 580,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 34.8,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 48.333333333333336,
+            "min_bytes": 19.0,
+            "p95_bytes": 31.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 682.5,
+          "bytes_total": 8190,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 580,
+            "packet_stream_container_bytes": 637,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7553,
+            "record_metadata_overhead_bytes": 6245,
+            "record_overhead_bytes": 7553,
+            "record_total_bytes": 8190,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 491.4,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7553,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {
+          "0-3": 6
+        },
+        "packet_size_bytes": {
+          "16-31": 11,
+          "320-335": 1
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "bc1c05f7eb248aaa9598a2c6b087d5d67796a34a15a0ecb60177fe3d219fc6ac",
+        "decode_ms_total": 0.15833400539122522,
+        "encode_decode_ms_per_frame": 0.054583334228179105,
+        "encode_decode_ms_total": 0.6550000107381493,
+        "encode_ms_total": 0.49666600534692407,
+        "mpjpe_mm_max": 1.7944040877195073,
+        "mpjpe_mm_mean": 0.8469917490117558,
+        "mpjpe_mm_p50": 0.8491894834278881,
+        "mpjpe_mm_p95": 1.4088497498922514,
+        "mpjpe_mm_p99": 1.5990974802295945,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8469917490117558,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7058264575097964,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.8469917490117558,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7058264575097964,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.8545271739423423,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7121059782852853,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 4.833333333333333,
+        "deadband_skip_rate": 0.907051282051282,
+        "delta_entry_count_mean": 4.833333333333333,
+        "delta_magnitude_histogram": {
+          "0-3": 6
+        },
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 48.333333333333336,
+          "min_bytes": 19.0,
+          "p95_bytes": 31.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 580,
+        "packet_stream_container_bytes": 637,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7553,
+        "record_metadata_overhead_bytes": 6245,
+        "record_overhead_bytes": 7553,
+        "record_total_bytes": 8190,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "pointing",
+      "segment_index": 4
+    },
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 174.5,
+          "bytes_total": 2094,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 125.64,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 194.66666666666666,
+          "bytes_total": 2336,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 140.16,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 51.416666666666664,
+          "bytes_total": 617,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 560,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 37.02,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 46.666666666666664,
+            "min_bytes": 19.0,
+            "p95_bytes": 27.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 46.666666666666664,
+          "bytes_total": 560,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 33.6,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 46.666666666666664,
+            "min_bytes": 19.0,
+            "p95_bytes": 27.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 681.25,
+          "bytes_total": 8175,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 560,
+            "packet_stream_container_bytes": 617,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7558,
+            "record_metadata_overhead_bytes": 6250,
+            "record_overhead_bytes": 7558,
+            "record_total_bytes": 8175,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 490.5,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7558,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {
+          "0-3": 3
+        },
+        "packet_size_bytes": {
+          "16-31": 11,
+          "320-335": 1
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "4c5a50e23e3dd24f392370881049dc9ac6b4bdbaf43e57e94f1d0b4a21879064",
+        "decode_ms_total": 0.1622500130906701,
+        "encode_decode_ms_per_frame": 0.055645835042620696,
+        "encode_decode_ms_total": 0.6677500205114484,
+        "encode_ms_total": 0.5055000074207783,
+        "mpjpe_mm_max": 1.7250081363573333,
+        "mpjpe_mm_mean": 0.7914044158393301,
+        "mpjpe_mm_p50": 0.7722616782883025,
+        "mpjpe_mm_p95": 1.3028193171310767,
+        "mpjpe_mm_p99": 1.4628150339614197,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.7914044158393301,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6595036798661084,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.7914044158393301,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6595036798661084,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.7965368854995593,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6637807379162993,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 4.583333333333333,
+        "deadband_skip_rate": 0.9118589743589743,
+        "delta_entry_count_mean": 4.583333333333333,
+        "delta_magnitude_histogram": {
+          "0-3": 3
+        },
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 46.666666666666664,
+          "min_bytes": 19.0,
+          "p95_bytes": 27.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 560,
+        "packet_stream_container_bytes": 617,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7558,
+        "record_metadata_overhead_bytes": 6250,
+        "record_overhead_bytes": 7558,
+        "record_total_bytes": 8175,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "grasp_release",
+      "segment_index": 5
+    },
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 177.66666666666666,
+          "bytes_total": 2132,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 127.92,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 201.5,
+          "bytes_total": 2418,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 145.08,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 82.41666666666667,
+          "bytes_total": 989,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 932,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 59.34,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 77.66666666666667,
+            "min_bytes": 19.0,
+            "p95_bytes": 91.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 77.66666666666667,
+          "bytes_total": 932,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 55.92,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 77.66666666666667,
+            "min_bytes": 19.0,
+            "p95_bytes": 91.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 712.5,
+          "bytes_total": 8550,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 932,
+            "packet_stream_container_bytes": 989,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7561,
+            "record_metadata_overhead_bytes": 6253,
+            "record_overhead_bytes": 7561,
+            "record_total_bytes": 8550,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 513.0,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7561,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {
+          "0-3": 50
+        },
+        "packet_size_bytes": {
+          "16-31": 3,
+          "32-47": 1,
+          "320-335": 1,
+          "48-63": 3,
+          "64-79": 1,
+          "80-95": 3
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "299555b7ba98003061e0d199c3d55f64bc19c9ac29129b12b772b0e9a1415ca4",
+        "decode_ms_total": 0.18662502407096326,
+        "encode_decode_ms_per_frame": 0.06038191835007941,
+        "encode_decode_ms_total": 0.7245830202009529,
+        "encode_ms_total": 0.5379579961299896,
+        "mpjpe_mm_max": 2.375946925383817,
+        "mpjpe_mm_mean": 0.856576543982437,
+        "mpjpe_mm_p50": 0.7857063817533025,
+        "mpjpe_mm_p95": 1.5554924296135473,
+        "mpjpe_mm_p99": 1.9134910970367702,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.856576543982437,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7138137866520308,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.856576543982437,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7138137866520308,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.8816516467321207,
+            "parse_failures": 0,
+            "pose_error_pct": 0.7347097056101006,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 8.5,
+        "deadband_skip_rate": 0.8365384615384616,
+        "delta_entry_count_mean": 8.5,
+        "delta_magnitude_histogram": {
+          "0-3": 50
+        },
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 77.66666666666667,
+          "min_bytes": 19.0,
+          "p95_bytes": 91.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 932,
+        "packet_stream_container_bytes": 989,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7561,
+        "record_metadata_overhead_bytes": 6253,
+        "record_overhead_bytes": 7561,
+        "record_total_bytes": 8550,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "occlusion_jitter",
+      "segment_index": 6
+    },
+    {
+      "denominator_rows": [
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "joint_count": 21,
+            "policy": "not_applicable_for_26_joint_source_layout"
+          },
+          "frame_count": 12,
+          "id": "raw_21xyz",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 fixture is OpenXR/Unity-shaped 26 joints per hand; 21xyz is listed but not used for ratios.",
+          "status": "not_applicable"
+        },
+        {
+          "bytes_per_frame": 624.0,
+          "bytes_total": 7488,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyz",
+            "formula": "52 * 3 * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz float32",
+            "orientation_included": false,
+            "scalars_per_joint": 3
+          },
+          "frame_count": 12,
+          "id": "raw_26xyz",
+          "kbps_at_90hz": 449.28,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 1456.0,
+          "bytes_total": 17472,
+          "denominator": {
+            "bytes_per_scalar": 4,
+            "coordinate_channels": "xyzquat",
+            "formula": "52 * (3 + 4) * 4",
+            "joint_count": 52,
+            "joints_per_hand": 26,
+            "layout": "26 joints/hand x 2 hands x xyz+quat float32",
+            "orientation_included": true,
+            "scalars_per_joint": 7
+          },
+          "frame_count": 12,
+          "id": "raw_26xyzquat",
+          "kbps_at_90hz": 1048.32,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 2080.0,
+          "bytes_total": 24960,
+          "denominator": {
+            "bytes_per_joint": 40,
+            "coordinate_channels": "flags_xyzquat_radius",
+            "formula": "52 * (8 byte flags + 7 float32 pose scalars + 4 byte radius)",
+            "joint_count": 52,
+            "layout": "OpenXR-like XrHandJointLocationEXT fields",
+            "orientation_included": true
+          },
+          "frame_count": 12,
+          "id": "raw_openxr_like_location",
+          "kbps_at_90hz": 1497.6,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 180.25,
+          "bytes_total": 2163,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyz",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyz float16 zlib",
+            "orientation_included": false,
+            "uncompressed_float16_bytes": 3744
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyz",
+          "kbps_at_90hz": 129.78,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 200.0,
+          "bytes_total": 2400,
+          "denominator": {
+            "bytes_per_scalar": 2,
+            "compression": "zlib_deflate_level_9",
+            "coordinate_channels": "xyzquat",
+            "joint_count": 52,
+            "layout": "26 joints/hand x 2 hands x xyzquat float16 zlib",
+            "orientation_included": true,
+            "uncompressed_float16_bytes": 8736
+          },
+          "frame_count": 12,
+          "id": "float16_zlib_xyzquat",
+          "kbps_at_90hz": 144.0,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 49.75,
+          "bytes_total": 597,
+          "denominator": {
+            "components": {
+              "packet_count": 12,
+              "packet_payload_bytes": 540,
+              "stream_container_overhead_bytes": 57
+            },
+            "coordinate_channels": "xyz",
+            "layout": "ZXRS stream container wrapping ZPE packets",
+            "orientation_included": false,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_stream_container",
+          "kbps_at_90hz": 35.82,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 45.0,
+            "min_bytes": 19.0,
+            "p95_bytes": 19.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 45.0,
+          "bytes_total": 540,
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "ZPE packet payload bytes only",
+            "orientation_included": false,
+            "packet_count": 12,
+            "zpe_orientation_policy": "omitted_position_only_codec"
+          },
+          "frame_count": 12,
+          "id": "zpe_packet_stream",
+          "kbps_at_90hz": 32.4,
+          "packet_size_stats": {
+            "count": 12,
+            "max_bytes": 331.0,
+            "mean_bytes": 45.0,
+            "min_bytes": 19.0,
+            "p95_bytes": 19.0
+          },
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 682.0833333333334,
+          "bytes_total": 8185,
+          "components": {
+            "packet_hash_chain_alg": "sha256",
+            "packet_payload_bytes": 540,
+            "packet_stream_container_bytes": 597,
+            "packet_stream_metadata_bytes": 329,
+            "provenance_digest_alg": "sha256",
+            "provenance_overhead_bytes": 979,
+            "record_json_bytes": 7588,
+            "record_metadata_overhead_bytes": 6280,
+            "record_overhead_bytes": 7588,
+            "record_total_bytes": 8185,
+            "stream_container_overhead_bytes": 57
+          },
+          "denominator": {
+            "coordinate_channels": "xyz",
+            "layout": "EmbodimentRecord JSON plus ZXRS packet stream",
+            "orientation_included": false,
+            "zpe_orientation_policy": "record_preserves_orientation_policy_but_packet_codec_omits_orientation"
+          },
+          "frame_count": 12,
+          "id": "zpe_embodiment_record",
+          "kbps_at_90hz": 491.1,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 38.0,
+          "bytes_total": 456,
+          "denominator": {
+            "coordinate_channels": "rotations_only_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Photon XR Hands doc-derived compressed rotations proxy",
+            "orientation_included": true,
+            "semantics": "Hand-bone rotations only; shared local skeleton reconstructs visual hand state.",
+            "source_reference": "https://doc.photonengine.com/fusion/current/industries-samples/industries-addons/fusion-industries-addons-xrhandssynchronization"
+          },
+          "frame_count": 12,
+          "id": "photon_xrhands_proxy",
+          "kbps_at_90hz": 27.36,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": 172.0,
+          "bytes_total": 2064,
+          "denominator": {
+            "coordinate_channels": "palm_pose_plus_hand_local_positions_proxy",
+            "evidence_class": "proxy_not_runtime_measured",
+            "layout": "Ultraleap VectorHand open-source bytes proxy",
+            "orientation_included": true,
+            "semantics": "Palm pose plus 25 hand-local joint positions per hand in an 86-byte compressed representation.",
+            "source_reference": "https://github.com/ultraleap/UnityPlugin/blob/main/Packages/Tracking/Core/Runtime/Scripts/Encoding/VectorHand.cs"
+          },
+          "frame_count": 12,
+          "id": "ultraleap_vectorhand_proxy",
+          "kbps_at_90hz": 123.84,
+          "status": "measured"
+        },
+        {
+          "bytes_per_frame": null,
+          "bytes_total": null,
+          "denominator": {
+            "coordinate_channels": "adaptive_hybrid",
+            "policy": "not_available_until_prior_session_residual_bytes_are_separated"
+          },
+          "heldout_split_metadata": null,
+          "id": "zpe_adaptive_hybrid",
+          "kbps_at_90hz": null,
+          "not_available_reason": "Phase 4 installs the accounting hook only. No adaptive-hybrid row is claim-bearing until prior, session delta, and residual bytes are measured separately.",
+          "phase_timing_metric": null,
+          "prior_reference_bytes": null,
+          "record_metadata_bytes": 7588,
+          "residual_stream_bytes": null,
+          "session_delta_bytes": null,
+          "status": "not_available"
+        }
+      ],
+      "duration_s": 0.13333333333333333,
+      "frame_count": 12,
+      "histograms": {
+        "delta_magnitude_mm": {},
+        "packet_size_bytes": {
+          "16-31": 11,
+          "320-335": 1
+        }
+      },
+      "metrics": {
+        "byte_identical_replay": true,
+        "byte_identical_replay_digest": "df78bb5ae281e9898b1acb2994a6b8e9790ac893c4ac4c10a59bc9af1ab20e8e",
+        "decode_ms_total": 0.15058298595249653,
+        "encode_decode_ms_per_frame": 0.053218665319339685,
+        "encode_decode_ms_total": 0.6386239838320762,
+        "encode_ms_total": 0.48804099787957966,
+        "mpjpe_mm_max": 1.6960055825299856,
+        "mpjpe_mm_mean": 0.7370396181525045,
+        "mpjpe_mm_p50": 0.7291258976024796,
+        "mpjpe_mm_p95": 1.2500718397964392,
+        "mpjpe_mm_p99": 1.4208405254760916,
+        "packet_loss_pose_error_pct": {
+          "10pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.7370396181525045,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6141996817937537,
+            "provided_packets": 12
+          },
+          "20pct": {
+            "missing_packets": 0,
+            "mpjpe_mm": 0.7370396181525045,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6141996817937537,
+            "provided_packets": 12
+          },
+          "5pct": {
+            "missing_packets": 1,
+            "mpjpe_mm": 0.7370396181525045,
+            "parse_failures": 0,
+            "pose_error_pct": 0.6141996817937537,
+            "provided_packets": 11
+          }
+        },
+        "parse_failure_count": 0,
+        "phase_error_ms": null,
+        "phase_error_policy": "not_available_for_synthetic_fixture"
+      },
+      "motion_class_authority": "synthetic_surrogate_not_native",
+      "packet_diagnostics": {
+        "active_joint_count_mean": 4.333333333333333,
+        "deadband_skip_rate": 0.9166666666666666,
+        "delta_entry_count_mean": 4.333333333333333,
+        "delta_magnitude_histogram": {},
+        "keyframe_count": 1,
+        "overflow_keyframe_count": 0,
+        "packet_size_stats": {
+          "count": 12,
+          "max_bytes": 331.0,
+          "mean_bytes": 45.0,
+          "min_bytes": 19.0,
+          "p95_bytes": 19.0
+        },
+        "parse_failure_count": 0,
+        "scheduled_keyframe_count": 1
+      },
+      "record_accounting": {
+        "packet_hash_chain_alg": "sha256",
+        "packet_payload_bytes": 540,
+        "packet_stream_container_bytes": 597,
+        "packet_stream_metadata_bytes": 329,
+        "provenance_digest_alg": "sha256",
+        "provenance_overhead_bytes": 979,
+        "record_json_bytes": 7588,
+        "record_metadata_overhead_bytes": 6280,
+        "record_overhead_bytes": 7588,
+        "record_total_bytes": 8185,
+        "stream_container_overhead_bytes": 57
+      },
+      "sample_rate_hz": 90,
+      "segment_id": "hand_controller_transition_or_tracking_loss",
+      "segment_index": 7
+    }
+  ],
+  "source_policy": {
+    "native_authority": "not_satisfied",
+    "phase5_native_capture": "pending",
+    "source": "deterministic synthetic OpenXR-shaped fixture",
+    "surrogate_allowed_for": [
+      "denominator logic",
+      "baseline mechanics",
+      "record overhead accounting",
+      "replay digest accounting",
+      "fail-closed validation"
+    ],
+    "surrogate_forbidden_for": [
+      "native headset capture",
+      "provider runtime latency",
+      "commercial authority",
+      "novelty pass"
+    ]
+  }
+}

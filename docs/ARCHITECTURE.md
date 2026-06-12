@@ -19,6 +19,8 @@ Canonical anchors:
 |---|---|---|
 | Public API | Package entrypoints for encode/decode/gesture/info | `code/source/zpe_xr/__init__.py`, `code/source/zpe_xr/api.py` |
 | Codec envelope | Packet encode/parse and recovery logic | `code/source/zpe_xr/codec.py` |
+| EmbodimentRecord contract | Capture evidence classes, surrogate/native boundary, provenance validator | `docs/schemas/real_headset_capture.schema.json`, `docs/schemas/embodiment_record.schema.json`, `code/source/zpe_xr/embodiment_record.py` |
+| Headset surrogate strategy | Dataset ladder for in-silico Phase 3 work without native capture claims | `docs/CAPTURE_EVIDENCE_CLASSES.md`, `docs/HEADSET_SURROGATE_STRATEGY.md`, `code/source/zpe_xr/headset_surrogate.py` |
 | Verification path | Repo-local install and smoke verification | `executable/verify.py` |
 | Evidence authority | Claim boundary and release verdict | `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_release_decision.md`, `proofs/artifacts/2026-03-21_zpe_xr_phase5_multi_sequence_161900Z/phase5_surface_adjudication.md` |
 | Machine-readable package state | Current product/wedge summary | `docs/market_surface.json` |

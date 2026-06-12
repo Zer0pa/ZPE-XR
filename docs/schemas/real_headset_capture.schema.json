@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Zer0pa/ZPE-XR/schemas/real_headset_capture.schema.json",
+  "title": "ZPE-XR Real Headset Capture Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "capture_id",
+    "evidence_class",
+    "native_capture_status",
+    "source",
+    "device_runtime",
+    "joint_layout",
+    "timebase",
+    "coordinate_frames",
+    "motion_protocol",
+    "validity_flags"
+  ],
+  "properties": {
+    "schema": {
+      "const": "zpe-xr-real-headset-capture-1"
+    },
+    "capture_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_class": {
+      "enum": [
+        "synthetic_openxr_fixture",
+        "green_movement_prior",
+        "headset_proxy_permissive",
+        "headset_proxy_restricted",
+        "native_device_capture"
+      ]
+    },
+    "native_capture_status": {
+      "enum": [
+        "not_applicable",
+        "pending",
+        "pilot_not_sovereign",
+        "native_verified"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "name",
+        "capture_mode"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "capture_mode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "official_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "device_runtime": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "device_class",
+        "provider",
+        "runtime",
+        "api"
+      ],
+      "properties": {
+        "device_class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "provider": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtime": {
+          "type": "string",
+          "minLength": 1
+        },
+        "api": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sdk_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "joint_layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "standard",
+        "hands",
+        "joints_per_hand",
+        "total_joints"
+      ],
+      "properties": {
+        "standard": {
+          "const": "openxr_ext_hand_tracking"
+        },
+        "hands": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "const": "left"
+            },
+            {
+              "const": "right"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "joints_per_hand": {
+          "const": 26
+        },
+        "total_joints": {
+          "const": 52
+        },
+        "joint_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "timebase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sample_rate_hz",
+        "source_timestamp_unit",
+        "frame_index_base"
+      ],
+      "properties": {
+        "sample_rate_hz": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "source_timestamp_unit": {
+          "enum": [
+            "ns",
+            "us",
+            "ms"
+          ]
+        },
+        "frame_index_base": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "coordinate_frames": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "source_frame",
+        "storage_frame",
+        "units",
+        "handedness"
+      ],
+      "properties": {
+        "source_frame": {
+          "type": "string",
+          "minLength": 1
+        },
+        "storage_frame": {
+          "type": "string",
+          "minLength": 1
+        },
+        "units": {
+          "const": "meters"
+        },
+        "handedness": {
+          "enum": [
+            "left",
+            "right"
+          ]
+        },
+        "transforms": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "motion_protocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "segments"
+      ],
+      "properties": {
+        "segments": {
+          "type": "array",
+          "minItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+              "id",
+              "duration_s"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "duration_s": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "validity_flags": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

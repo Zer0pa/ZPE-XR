@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Zer0pa/ZPE-XR/schemas/embodiment_record.schema.json",
+  "title": "ZPE-XR EmbodimentRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "record_id",
+    "created_at_utc",
+    "capture",
+    "source_license",
+    "calibration_prior_policy",
+    "frames",
+    "packet_stream",
+    "provenance",
+    "decoder",
+    "replay",
+    "privacy"
+  ],
+  "properties": {
+    "schema": {
+      "const": "zpe-xr-embodiment-record-1"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capture": {
+      "$ref": "real_headset_capture.schema.json"
+    },
+    "source_license": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "name",
+        "commercial_use"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commercial_use": {
+          "enum": [
+            "allowed",
+            "restricted",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "calibration_prior_policy": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "population_prior",
+        "session_delta",
+        "residual_stream"
+      ],
+      "properties": {
+        "population_prior": {
+          "type": "string"
+        },
+        "session_delta": {
+          "type": "string"
+        },
+        "residual_stream": {
+          "type": "string"
+        }
+      }
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "frame_index",
+          "source_timestamp_ns",
+          "hands"
+        ],
+        "properties": {
+          "frame_index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_timestamp_ns": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "hands": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "handedness",
+                "joint_count",
+                "joint_validity_summary"
+              ],
+              "properties": {
+                "handedness": {
+                  "enum": [
+                    "left",
+                    "right"
+                  ]
+                },
+                "joint_count": {
+                  "const": 26
+                },
+                "joint_validity_summary": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "packet_stream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "encoding",
+        "packet_count",
+        "packet_sha256",
+        "transport_checksum_kind",
+        "transport_checksums"
+      ],
+      "properties": {
+        "encoding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "packet_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "packet_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "transport_checksum_kind": {
+          "const": "crc32"
+        },
+        "transport_checksums": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_digest_alg",
+        "record_digest_sha256",
+        "packet_hash_chain_alg",
+        "packet_hash_chain"
+      ],
+      "properties": {
+        "record_digest_alg": {
+          "const": "sha256"
+        },
+        "record_digest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "packet_hash_chain_alg": {
+          "const": "sha256"
+        },
+        "packet_hash_chain": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "decoder": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "name",
+        "version",
+        "kernel"
+      ]
+    },
+    "replay": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "byte_identical_replay_required",
+        "replay_digest_alg",
+        "replay_digest_sha256",
+        "renderer"
+      ],
+      "properties": {
+        "byte_identical_replay_required": {
+          "type": "boolean"
+        },
+        "replay_digest_alg": {
+          "const": "sha256"
+        },
+        "replay_digest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "renderer": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "biometric_fields",
+        "calibration_window_retention",
+        "session_delta_retention",
+        "deletion_policy",
+        "external_sharing"
+      ],
+      "properties": {
+        "biometric_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "calibration_window_retention": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session_delta_retention": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deletion_policy": {
+          "type": "string",
+          "minLength": 1
+        },
+        "external_sharing": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

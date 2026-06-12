@@ -1,0 +1,173 @@
+{
+  "calibration_prior_policy": {
+    "population_prior": "not_used_for_synthetic_fixture",
+    "residual_stream": "zpe_xr_packet_stream_v1",
+    "session_delta": "not_recorded_for_synthetic_fixture"
+  },
+  "capture": {
+    "capture_id": "synthetic_openxr_fixture_001",
+    "coordinate_frames": {
+      "handedness": "right",
+      "source_frame": "openxr_local",
+      "storage_frame": "source",
+      "transforms": [
+        {
+          "from": "openxr_local",
+          "status": "identity_for_fixture",
+          "to": "record_source"
+        }
+      ],
+      "units": "meters"
+    },
+    "device_runtime": {
+      "api": "OpenXR-shaped fixture",
+      "device_class": "synthetic",
+      "provider": "zpe_xr.synthetic",
+      "runtime": "in_silico",
+      "sdk_version": null
+    },
+    "evidence_class": "synthetic_openxr_fixture",
+    "joint_layout": {
+      "hands": [
+        "left",
+        "right"
+      ],
+      "joint_names": [
+        "openxr_26_joint_layout_reference"
+      ],
+      "joints_per_hand": 26,
+      "standard": "openxr_ext_hand_tracking",
+      "total_joints": 52
+    },
+    "motion_protocol": {
+      "segments": [
+        {
+          "duration_s": 1.0,
+          "id": "static_hold"
+        },
+        {
+          "duration_s": 1.0,
+          "id": "slow_manipulation"
+        },
+        {
+          "duration_s": 1.0,
+          "id": "active_reaching"
+        },
+        {
+          "duration_s": 1.0,
+          "id": "fast_translation"
+        },
+        {
+          "duration_s": 1.0,
+          "id": "pointing"
+        },
+        {
+          "duration_s": 1.0,
+          "id": "grasp_release"
+        },
+        {
+          "duration_s": 1.0,
+          "id": "occlusion_jitter"
+        },
+        {
+          "duration_s": 1.0,
+          "id": "hand_controller_transition_or_tracking_loss"
+        }
+      ]
+    },
+    "native_capture_status": "not_applicable",
+    "schema": "zpe-xr-real-headset-capture-1",
+    "source": {
+      "capture_mode": "generated_fixture",
+      "dataset_id": "synthetic_openxr_fixture",
+      "name": "Synthetic OpenXR-shaped fixture",
+      "official_url": null
+    },
+    "timebase": {
+      "frame_index_base": 0,
+      "sample_rate_hz": 90.0,
+      "source_timestamp_unit": "ns"
+    },
+    "validity_flags": [
+      "position_valid",
+      "orientation_valid",
+      "tracked",
+      "linear_velocity_valid",
+      "angular_velocity_valid"
+    ]
+  },
+  "created_at_utc": "2026-06-12T00:00:00Z",
+  "decoder": {
+    "kernel": "python-fallback-or-rust-pyo3",
+    "name": "zpe_xr",
+    "version": "0.3.1"
+  },
+  "frames": [
+    {
+      "frame_index": 0,
+      "hands": [
+        {
+          "handedness": "left",
+          "joint_count": 26,
+          "joint_validity_summary": {
+            "orientation_valid": 26,
+            "position_valid": 26,
+            "tracked": 26
+          }
+        },
+        {
+          "handedness": "right",
+          "joint_count": 26,
+          "joint_validity_summary": {
+            "orientation_valid": 26,
+            "position_valid": 26,
+            "tracked": 26
+          }
+        }
+      ],
+      "source_timestamp_ns": 0
+    }
+  ],
+  "packet_stream": {
+    "encoding": "zpe-xr-packet-v1",
+    "packet_count": 1,
+    "packet_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "transport_checksum_kind": "crc32",
+    "transport_checksums": [
+      "00000000"
+    ]
+  },
+  "privacy": {
+    "biometric_fields": [
+      "hand_joint_pose",
+      "tracking_validity",
+      "calibration_delta"
+    ],
+    "calibration_window_retention": "discard_after_session_by_default",
+    "deletion_policy": "delete_record_packet_stream_session_delta_and_replay_digest_together",
+    "external_sharing": "forbidden_without_license_and_privacy_review",
+    "session_delta_retention": "record_only_when_explicitly_enabled"
+  },
+  "provenance": {
+    "packet_hash_chain": [
+      "2222222222222222222222222222222222222222222222222222222222222222"
+    ],
+    "packet_hash_chain_alg": "crc32",
+    "record_digest_alg": "crc32",
+    "record_digest_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+  },
+  "record_id": "embodiment_record_invalid_crc_provenance_v1",
+  "replay": {
+    "byte_identical_replay_required": true,
+    "renderer": "schema_only_surrogate",
+    "replay_digest_alg": "sha256",
+    "replay_digest_sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+  },
+  "schema": "zpe-xr-embodiment-record-1",
+  "source_license": {
+    "commercial_use": "not_applicable",
+    "name": "synthetic_fixture_internal",
+    "notes": "Generated in-repo fixture; no external dataset authority.",
+    "url": null
+  }
+}

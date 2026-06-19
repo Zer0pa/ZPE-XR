@@ -2,7 +2,8 @@ cff-version: 1.2.0
 message: "If you use ZPE-XR, please cite it using the metadata from this file."
 title: "ZPE-XR"
 type: software
-version: 0.3.0
+version: 0.3.1
+date-released: "2026-04-25"
 license: "LicenseRef-Zer0pa-SAL-7.0"
 repository-code: "https://github.com/Zer0pa/ZPE-XR"
 url: "https://github.com/Zer0pa/ZPE-XR"
